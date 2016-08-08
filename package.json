@@ -1,0 +1,48 @@
+{
+  "name": "king-common-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinguangguo/king-common-framework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jinguangguo/king-common-framework/issues"
+  },
+  "homepage": "https://github.com/jinguangguo/king-common-framework#readme",
+  "devDependencies": {
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "gulp": "^3.9.1",
+    "gulp-iconfont": "^8.0.0",
+    "gulp-iconfont-css": "^2.1.0",
+    "gulp-less": "^3.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "hapi": "^13.4.1",
+    "hapi-webpack-plugin": "^1.3.0",
+    "inert": "^4.0.0",
+    "ip": "^1.1.3",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "autoprefixer": "^6.3.6",
+    "autoprefixer-loader": "^3.2.0",
+    "browser-sync": "^2.12.9",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-webpack": "^1.5.0",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
+    "through2": "^2.0.1",
+    "webpack": "^1.13.1"
+  }
+}

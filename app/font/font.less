@@ -1,0 +1,43 @@
+@font-face {
+    font-family: "Icons";
+    src: url('/app/font/Icons.eot');
+    src: url('/app/font/Icons.eot?#iefix') format('eot'),
+        url('/app/font/Icons.woff') format('woff'),
+        url('/app/font/Icons.ttf') format('truetype'),
+        url('/app/font/Icons.svg#Icons') format('svg');
+}
+
+.icon-base-pseudo {
+    font-family: "Icons";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none;
+    text-transform: none;
+}
+
+.icon-char(@filename) {
+@location: "\E001";
+@pagination: "\E002";
+
+content: @@filename;
+}
+
+.icon(@filename, @insert: before) {
+    @pseudo-selector: ~":@{insert}";
+
+&@{pseudo-selector} {
+    &:extend(.icon-base-pseudo);
+    .icon-char(@filename);
+}
+}
+
+.icon-location {
+.icon(location);
+}
+.icon-pagination {
+.icon(pagination);
+}
