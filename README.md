@@ -68,3 +68,4 @@ gulp server:hapi
 ### changelog
 
 * 8月5日 - 创建项目
+* 8月8日 - 项目基础架构
