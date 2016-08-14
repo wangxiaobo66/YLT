@@ -8,7 +8,7 @@ import gulp from 'gulp';
 import ip from 'ip';
 import webpack from 'webpack';
 import WebpackDevServer from "webpack-dev-server";
-import webpackConfigDev from './webpack/webpack.config.dev';
+import webpackConfigBase from './webpack/webpack.config.base';
 import gulpLess from 'gulp-less';
 import gulpSourcemaps from 'gulp-sourcemaps';
 import gulpAutoprefixer from 'gulp-autoprefixer';
@@ -34,23 +34,23 @@ gulp.task('server:hot', function() {
     // webpack
 
     function startWebpackServer() {
-        if (!webpackConfigDev.plugins) {
-            webpackConfigDev.plugins = [];
+        if (!webpackConfigBase.plugins) {
+            webpackConfigBase.plugins = [];
         }
-        webpackConfigDev.plugins.push(new webpack.HotModuleReplacementPlugin());
+        webpackConfigBase.plugins.push(new webpack.HotModuleReplacementPlugin());
 
         //let server = new WebpackDevServer();
         const clientString1 = 'webpack-dev-server/client?http://0.0.0.0:' + PORT_WEBPACK;
         const clientString2 = 'webpack/hot/dev-server';
-        for (let key in webpackConfigDev.entry) {
-            //console.log('key: key', 'The value is:' + webpackConfigDev.entry[key]);
-            webpackConfigDev.entry[key].unshift(clientString1, clientString2);
-            //console.log(webpackConfigDev.entry[key]);
+        for (let key in webpackConfigBase.entry) {
+            //console.log('key: key', 'The value is:' + webpackConfigBase.entry[key]);
+            webpackConfigBase.entry[key].unshift(clientString1, clientString2);
+            //console.log(webpackConfigBase.entry[key]);
         }
-        let compiler = webpack(webpackConfigDev);
+        let compiler = webpack(webpackConfigBase);
         //启动服务
         let app = new WebpackDevServer(compiler, {
-            publicPath: webpackConfigDev.output.publicPath,
+            publicPath: webpackConfigBase.output.publicPath,
             hot: false,
             quiet: true,
             historyApiFallback: true,

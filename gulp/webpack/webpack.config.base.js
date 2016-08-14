@@ -9,6 +9,10 @@ var path = require('path');
 global.publicPath = '/app/build/';
 
 module.exports = {
+    entry: {
+        index: ['./app/js/index.js'],
+        pageA: ['./app/js/pageA.js']
+    },
     output: {
         path: path.resolve(__dirname, global.publicPath),
         publicPath: global.publicPath,
@@ -26,7 +30,7 @@ module.exports = {
             },
             {
                 test: /(\.css|\.less)$/,
-                loader: 'style?sourceMap!css?sourceMap!less?sourceMap!autoprefixer?{browsers:["last 2 versions", "Firefox >= 20", "last 3 Safari versions", "last 2 Explorer versions"]}'
+                loader: 'style?sourceMap!css?sourceMap!less?sourceMap!autoprefixer?{browsers:["last 2 versions", "Android", "iOS"]}'
             }
         ]
     }

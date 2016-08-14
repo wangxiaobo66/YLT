@@ -12,7 +12,6 @@ import gulpLess from 'gulp-less';
 import gulpSourcemaps from 'gulp-sourcemaps';
 import gulpAutoprefixer from 'gulp-autoprefixer';
 import through2 from 'through2';
-import webpackConfigDev from './webpack/webpack.config.dev';
 import ip from 'ip';
 import getFileInfo from './util/file';
 
@@ -32,8 +31,7 @@ gulp.task('server:hapi', function() {
      */
     server.register({
         register: WebpackPlugin,
-        options: './gulp/webpack/webpack.config.hapi.js'
-        //options: './gulp/webpack/webpack.config.dev'
+        options: './gulp/webpack/webpack.config.static.js'
     }, function (error) {
         if (error) {
             return console.error(error);
@@ -55,16 +53,12 @@ gulp.task('server:hapi', function() {
 
             switch (fileInfo.fileType) {
 
-                //case 'html':
-                //    reply.file(fileInfo.filePath);
-                //    break;
-
                 case 'less':
                     gulp.src(fileInfo.filePath)
                         .pipe(gulpSourcemaps.init())
                         .pipe(gulpLess())
                         .pipe(gulpAutoprefixer({
-                            browsers: ['last 2 versions', 'Firefox >= 20', 'last 3 Safari versions', 'last 2 Explorer versions']
+                            browsers: ["last 2 versions", "Android", "iOS"]
                         }))
                         .pipe(gulpSourcemaps.write())
                         .pipe(
