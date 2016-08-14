@@ -15,7 +15,9 @@ import through2 from 'through2';
 import ip from 'ip';
 import getFileInfo from './util/file';
 
-gulp.task('server:hapi', function() {
+import mocks from '../mock/index';
+
+gulp.task('server:static', function() {
 
     const server = new Hapi.Server();
 
@@ -58,7 +60,7 @@ gulp.task('server:hapi', function() {
                         .pipe(gulpSourcemaps.init())
                         .pipe(gulpLess())
                         .pipe(gulpAutoprefixer({
-                            browsers: ["last 2 versions", "Android", "iOS"]
+                            browserlist: ['last 2 versions', 'Android', 'iOS']
                         }))
                         .pipe(gulpSourcemaps.write())
                         .pipe(
@@ -76,6 +78,13 @@ gulp.task('server:hapi', function() {
             }
 
         }
+    });
+
+    /**
+     * 注册mock接口
+     */
+    mocks.forEach(function (item, index) {
+        server.route(item);
     });
 
 });

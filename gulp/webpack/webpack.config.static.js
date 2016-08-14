@@ -5,9 +5,7 @@
  */
 
 var config = require('./webpack.config.base');
-var entry = require('./webpack.entry');
 
-config.entry = entry;
 config.devtool = 'source-map';
 config.assets = {
 
@@ -19,7 +17,7 @@ config.assets = {
 
     // switch into lazy mode
     // that means no watching, but recompilation on every request
-    lazy: true,
+    lazy: false,
 
     // watch options (only lazy: false)
     watchOptions: {

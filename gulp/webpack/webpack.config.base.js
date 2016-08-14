@@ -10,8 +10,7 @@ global.publicPath = '/app/build/';
 
 module.exports = {
     entry: {
-        index: ['./app/js/index.js'],
-        pageA: ['./app/js/pageA.js']
+        index: ['./app/js/index.js']
     },
     output: {
         path: path.resolve(__dirname, global.publicPath),
@@ -25,12 +24,12 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel',
                 query: {
-                    presets: ['es2015']
+                    presets: ['react', 'es2015']
                 }
             },
             {
-                test: /(\.css|\.less)$/,
-                loader: 'style?sourceMap!css?sourceMap!less?sourceMap!autoprefixer?{browsers:["last 2 versions", "Android", "iOS"]}'
+                test: /\.less$/,
+                loader: 'style?sourceMap!css?sourceMap!less?sourceMap!autoprefixer?{browsers:["last 2 versions"]}'
             }
         ]
     }

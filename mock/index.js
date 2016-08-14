@@ -1,23 +1,10 @@
 /**
  * @file
- * @author jinguangguo
- * @date 2016/6/14
+ * @auth jinguangguo
+ * @date 2016/8/14
  */
 
-export default [
-    {
-        method: 'GET',
-        path: '/test.json',
-        handler: function (request, reply) {
-            return reply(
-                {
-                    "code": 0,
-                    "msg": "",
-                    "data": {
-                        name: 'king'
-                    }
-                }
-            );
-        }
-    }
-]
+import home from './mock_home';
+
+export default []
+    .concat(home);

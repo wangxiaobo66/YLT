@@ -59,10 +59,10 @@ webpack的loader配置
 gulp server:hot
 ````
 
-对于热加载模式, 无法使用proxy代理, 不带方便. 故同时支持非热加载的模式, 用于代理调试.
+对于热加载模式, 无法使用proxy代理, 不太方便. 故同时支持非热加载的模式, 用于代理调试.
 
 ```shell
-gulp server:hapi
+gulp server:static
 ```
 
 ### changelog

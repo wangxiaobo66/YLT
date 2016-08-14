@@ -17,7 +17,7 @@ import Hapi from 'hapi';
 import Inert from 'inert';
 
 import getFileInfo from './util/file';
-import mocks from '../mock/main';
+import mocks from '../mock/index';
 
 const PORT_HAPI = 9998;
 const PORT_WEBPACK = 9999;
