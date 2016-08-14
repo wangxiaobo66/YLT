@@ -74,13 +74,19 @@ gulp.task('server:hot', function() {
         console.log(`Webpack Server Started at http:\/\/${ip.address()}:${PORT_WEBPACK}`);
     }
 
-    function startHapiServer() {
+        function startHapiServer() {
         const server = new Hapi.Server();
         server.connection({
             host: '0.0.0.0',
             port: PORT_HAPI
         });
         server.register(Inert, function () {});
+
+        // mock
+        mocks.forEach(function (item) {
+            server.route(item);
+        });
+
         // 静态资源
         server.route({
             method: 'GET',
@@ -121,10 +127,7 @@ gulp.task('server:hot', function() {
 
             }
         });
-        // mock
-        mocks.forEach(function (item) {
-            server.route(item);
-        });
+
         // start
         server.start(function () {
             console.log(`Hapi Server Started at ${server.info.protocol}:\/\/${ip.address()}:${PORT_HAPI}`);

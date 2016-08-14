@@ -9,7 +9,7 @@ export default {
     list(param = {}) {
 
         return $.ajax({
-            url: '/api/home/list',
+            url: '/api/home/list.json',
             method: 'GET',
             data: param,
             dataType: 'JSON'

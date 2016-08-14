@@ -28,7 +28,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.less$/,
+                test: /(\.css|\.less)$/,
                 loader: 'style?sourceMap!css?sourceMap!less?sourceMap!autoprefixer?{browsers:["last 2 versions"]}'
             }
         ]

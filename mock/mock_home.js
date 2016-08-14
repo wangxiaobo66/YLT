@@ -7,7 +7,7 @@
 export default [
 
     {
-        path: '/api/home/list',
+        path: '/api/home/list.json',
         method: 'GET',
         handler: function (request, reply) {
             reply({
