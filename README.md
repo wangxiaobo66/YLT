@@ -64,6 +64,15 @@ gulp server:hot
 ```shell
 gulp server:static
 ```
+##添加tempalte文件夹放置html文件
+
+##搭建web服务器
+在根目录下添加controller文件夹用于处理接口设置和路由设置.
+添加ylt.js入口文件,匹配页面和接口.debug启动web服务器.
+
+```shell
+koa等一系列相关插件
+```
 
 ### changelog
 
