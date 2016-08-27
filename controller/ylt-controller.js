@@ -3,3 +3,9 @@
  */
 /**接口设置**/
 var fetch = require('node-fetch');
+
+module.exports = {
+    user: function *(next){
+        this.body = {name:'wangxiaobo',id:'123'};
+    }
+}

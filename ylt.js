@@ -8,12 +8,13 @@ var router = require('koa-router')();
 var path = require('path');
 var staticCache = require('koa-static-cache');//静态文件
 var routerController = require('./controller/router-controller');
+var yltController = require('./controller/ylt-controller');
 var koaBody = require('koa-body')();
 
 //页面
 router.get('/index',routerController.index);
 //接口
-
+router.get('/user',yltController.user);
 app
     .use(router.routes())
     .use(router.allowedMethods());
