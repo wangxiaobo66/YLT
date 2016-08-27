@@ -12,9 +12,12 @@ var yltController = require('./controller/ylt-controller');
 var koaBody = require('koa-body')();
 
 //页面
-router.get('/index',routerController.index);
+router.get('/index', routerController.index);
+router.get('/detail', routerController.detail);
+
 //接口
 router.get('/user',yltController.user);
+
 app
     .use(router.routes())
     .use(router.allowedMethods());
