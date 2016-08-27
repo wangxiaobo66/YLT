@@ -8,5 +8,11 @@ var render = views(__dirname,{map: {html: 'swig'}});
 module.exports = {
     index: function *(next){
         this.body = yield render('../template/index.html');
+    },
+    detail: function *(next){
+        this.body = yield render('../template/detail.html', {
+            name: 'king',
+            age: 20
+        });
     }
-}
+};

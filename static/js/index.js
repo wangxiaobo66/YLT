@@ -25,7 +25,7 @@ const App = React.createClass({
     },
 
     componentDidMount() {
-
+        console.log(11122223334444);
     },
 
     render() {

@@ -45,7 +45,7 @@ export default React.createClass({
     },
 
     confirm() {
-        YLT.confirm('这里是confirm...');
+        YLT.confirm('这里是confirm12345678...');
     },
 
     render: renderTpl

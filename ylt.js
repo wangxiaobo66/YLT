@@ -11,8 +11,17 @@ var routerController = require('./controller/router-controller');
 var koaBody = require('koa-body')();
 
 //页面
-router.get('/index',routerController.index);
+router.get('/index', routerController.index);
+router.get('/detail', routerController.detail);
+
 //接口
+
+
+//静态
+// router.get('/*.js', function() {
+//     // TODO 解析ES6
+//
+// });
 
 app
     .use(router.routes())
