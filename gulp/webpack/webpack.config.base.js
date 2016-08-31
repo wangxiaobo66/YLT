@@ -5,17 +5,18 @@
  */
 
 var path = require('path');
+var entrys = require('../../webpack.entry.js');
 
-global.publicPath = '/app/build/';
+console.log(entrys);
+
+var PUBLIC_PATH = '/dist/';
 
 module.exports = {
-    entry: {
-        index: ['./app/js/index.js']
-    },
+    entry: entrys,
     output: {
-        path: path.resolve(__dirname, global.publicPath),
-        publicPath: global.publicPath,
-        filename: '[name].js'
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: PUBLIC_PATH,
+        filename: 'js/[name].js'
     },
     module: {
         loaders: [

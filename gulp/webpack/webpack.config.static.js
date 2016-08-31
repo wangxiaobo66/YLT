@@ -27,7 +27,7 @@ config.assets = {
 
     // public path to bind the middleware to
     // use the same as in webpack
-    publicPath: publicPath,
+    publicPath: '/dist/',
 
     // custom headers
     headers: { "X-Custom-Header": "yes" },

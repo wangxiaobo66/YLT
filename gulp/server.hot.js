@@ -23,7 +23,7 @@ const PORT_HAPI = 9998;
 const PORT_WEBPACK = 9999;
 
 
-gulp.task('server:hot', function() {
+gulp.task('server:hot', ['copy:template'], function () {
 
     // hapi
     startHapiServer();
@@ -74,13 +74,14 @@ gulp.task('server:hot', function() {
         console.log(`Webpack Server Started at http:\/\/${ip.address()}:${PORT_WEBPACK}`);
     }
 
-        function startHapiServer() {
+    function startHapiServer() {
         const server = new Hapi.Server();
         server.connection({
             host: '0.0.0.0',
             port: PORT_HAPI
         });
-        server.register(Inert, function () {});
+        server.register(Inert, function () {
+        });
 
         // mock
         mocks.forEach(function (item) {
@@ -91,7 +92,7 @@ gulp.task('server:hot', function() {
         server.route({
             method: 'GET',
             path: '/{params*}',
-            handler: function(request, reply) {
+            handler: function (request, reply) {
 
                 console.log('path=======' + request.path);
 
