@@ -9,5 +9,5 @@ function indexNum(num){
 }
 
 module.exports = {
-    INDEX_NUM:INDEX_NUM
+    INDEX_NUM:"INDEX_NUM"
 };

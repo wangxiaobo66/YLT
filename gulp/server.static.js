@@ -23,7 +23,7 @@ gulp.task('server:static', function() {
 
     server.connection({
         host: '0.0.0.0',
-        port: 9990
+        port: 9999
     });
 
     server.register(Inert, function () {});
