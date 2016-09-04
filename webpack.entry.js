@@ -5,5 +5,6 @@
  */
  
 module.exports = {
-    index: ['./static/js/index.js']
+    index: ['./static/js/index.js'],
+    'page-index': ['./static/page/index/index.js']
 };
