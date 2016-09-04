@@ -24,7 +24,7 @@ class component extends React.Component {
         let { index } = this.props;
         console.log(index.num);
         return(
-            <div><a onClick={(e) => this.click()}>点击</a></div>
+            <div><a onClick={(e) => this.click()}>点击{this.props.index.num}</a></div>
         );
     }
     componentDidMount() {
