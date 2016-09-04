@@ -12,17 +12,27 @@ const thunk = require('redux-thunk').default;
 
 let store = createStore(YLT, applyMiddleware(thunk));
 
+
+let { change } = require('./actions');
+
 class component extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
+        //console.log(this.props);
+        let { index } = this.props;
+        console.log(index.num);
         return(
-            <div>123</div>
+            <div><a onClick={(e) => this.click()}>点击</a></div>
         );
     }
     componentDidMount() {
+
+    }
+    click() {
         let {dispatch} = this.props;
+        dispatch(change(2));
     }
 }
 function select(state) {
