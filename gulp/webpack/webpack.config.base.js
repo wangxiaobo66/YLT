@@ -6,9 +6,6 @@
 
 var path = require('path');
 var entrys = require('../../webpack.entry.js');
-
-console.log(entrys);
-
 var PUBLIC_PATH = '/dist/';
 
 module.exports = {

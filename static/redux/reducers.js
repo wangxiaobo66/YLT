@@ -1,4 +1,10 @@
 /**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/9/4
+ */
+
+/**
  * Created by jin on 16/4/14.
  */
 const _ = require('lodash/lang');
@@ -64,11 +70,11 @@ function userMessage(state = {listMessage: {}, code: '', resultInfo: '', src: '/
 }
 //business-list组件
 /*const {} = require('business-list-actions');
-function businessList(state={},action){
-    switch (action.type){
+ function businessList(state={},action){
+ switch (action.type){
 
-    }
-}*/
+ }
+ }*/
 //list-frame组件
 const { LIST_FRAME , LIST_FRAME_ACTIVE , LIST_FRAME_DIV , LIST_FRAME_DIV_REMOVE , LIST_FRAME_DIV_PAGE , LIST_FRAME_LI_REMOVE , LIST_REAME_LI_ADD } = require('actions');
 function listFrame(state = {listFrame: [], divList: [], pageLen: 2, page: 1, active: false}, action) {
@@ -356,16 +362,4 @@ function writeChartData(state = {}, action) {
 
 export const scorewebStore = combineReducers({
     boxyAction,
-    maskAction,
-    leftNavActive,
-    listFrame,
-    userMessage,
-    infoFormAction,
-    btnGroupAction,
-    writeTableData,
-    showCompany,
-    tabsSwitch,
-    resetPassword,
-    login,
-    writeChartData
 });

@@ -53,23 +53,31 @@ gulp.task('server:static', function() {
 
             let fileInfo = getFileInfo(request.path);
 
+            console.log('fileInfo.fileType:' + fileInfo.fileType);
+            console.log('fileInfo.filePath:' + fileInfo.filePath);
+
             switch (fileInfo.fileType) {
 
                 case 'less':
-                    gulp.src(fileInfo.filePath)
-                        .pipe(gulpSourcemaps.init())
-                        .pipe(gulpLess())
-                        .pipe(gulpAutoprefixer({
-                            browserlist: ['last 2 versions', 'Android', 'iOS']
-                        }))
-                        .pipe(gulpSourcemaps.write())
+                    gulp.src('./static/less/index.less')
+                        // .pipe(gulpSourcemaps.init())
+                        // .pipe(gulpLess())
+                        // .pipe(gulpAutoprefixer({
+                        //     browserlist: ['last 2 versions', 'Android', 'iOS']
+                        // }))
+                        // .pipe(gulpSourcemaps.write())
                         .pipe(
                             through2.obj(
                                 function (file) {
-                                    reply(file.contents.toString()).type('text/css')
+                                    reply(file.contents.toString()).type('text/css');
                                 }
                             )
                         );
+
+
+                    // gulp.src('./template/**/*')
+                    //     .pipe(gulp.dest('./dist/less'));
+
                     break;
 
                 default:
