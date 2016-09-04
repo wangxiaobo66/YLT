@@ -25,7 +25,7 @@ class Detail extends React.Component {
         console.log(this.props);
         // console.log(this.props.name);
         return(
-            <div><a onClick={(e) => thytis.click()}>点击{this.props.name}</a></div>
+            <div><a onClick={(e) => this.click()}>点击{this.props.info.name}</a></div>
         );
     }
     componentDidMount() {
@@ -34,17 +34,17 @@ class Detail extends React.Component {
     click() {
         // let actions = this.props.actions;
         let dispatch = this.props.dispatch;
-        // dispatch(fns.setName('king'));
-        dispatch({
-            type: 'SET_NAME',
-            name: name
-        });
+        dispatch(fns.setName('king'));
+        // dispatch({
+        //     type: 'SET_NAME',
+        //     name: name
+        // });
     }
 }
 
 let App = connect(function (state) {
     return {
-        name: state.name
+        info: state.detailReducer
     }
 })(Detail);
 

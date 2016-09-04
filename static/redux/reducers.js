@@ -11,7 +11,6 @@ function index(state={num:1},action){
             return state;
     }
 }
-
 export const YLT = combineReducers({
     index
 });
