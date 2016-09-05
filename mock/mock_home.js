@@ -5,7 +5,6 @@
  */
 
 export default [
-
     {
         path: '/api/home/list.json',
         method: 'GET',
@@ -28,5 +27,4 @@ export default [
             });
         }
     }
-
 ]

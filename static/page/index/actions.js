@@ -12,9 +12,7 @@ function indexNum(num){
 
 module.exports = {
     change:function(num){
-        console.log(this);
         return function(dispatch){
-            console.log(this);
             dispatch(indexNum(num));
         }
     },
