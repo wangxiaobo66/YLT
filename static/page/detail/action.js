@@ -6,7 +6,6 @@
 
 export const setName = function(name) {
     return function (dispatch) {
-        debugger;
         return dispatch({
             type: 'SET_NAME',
             name: name
