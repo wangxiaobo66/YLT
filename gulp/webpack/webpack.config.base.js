@@ -28,6 +28,10 @@ module.exports = {
             {
                 test: /(\.css|\.scss)$/,
                 loader: 'style?sourceMap!css?sourceMap!sass?sourceMap!autoprefixer?{browsers:["last 2 versions"]}'
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg|woff|ttf|eot)$/i,
+                loaders: ['url-loader?limit=1000&name=[path][name][hash:8].[ext]', 'img?minimize']
             }
         ]
     }
