@@ -4,7 +4,7 @@
  * @date 2016/1/22
  */
 
-import './Confirm.less';
+import './Confirm.scss';
 
 import React from 'react';
 import {Modal, Button} from 'react-bootstrap';

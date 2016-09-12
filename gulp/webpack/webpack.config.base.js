@@ -27,7 +27,7 @@ module.exports = {
             },
             {
                 test: /(\.css|\.scss)$/,
-                loader: 'style?sourceMap!css?sourceMap!scss?sourceMap!autoprefixer?{browsers:["last 2 versions"]}'
+                loader: 'style?sourceMap!css?sourceMap!sass?sourceMap!autoprefixer?{browsers:["last 2 versions"]}'
             }
         ]
     }

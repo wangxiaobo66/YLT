@@ -4,7 +4,7 @@
  * @date 2016/8/14
  */
 
-import './Header.less';
+import './Header.scss';
 
 import React from 'react';
 

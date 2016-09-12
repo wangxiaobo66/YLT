@@ -20,7 +20,7 @@ import getFileInfo from './util/file';
 import mocks from '../mock/index';
 
 const PORT_HAPI = 9998;
-const PORT_WEBPACK = 9999;
+const PORT_WEBPACK = 9997;
 
 
 gulp.task('server:hot', ['copy:template'], function () {

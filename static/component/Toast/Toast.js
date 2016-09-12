@@ -4,7 +4,7 @@
  * @date 2016/1/11
  */
 
-import './Toast.less';
+import './Toast.scss';
 
 class Toast {
 

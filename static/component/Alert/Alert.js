@@ -4,7 +4,7 @@
  * @date 2016/1/18
  */
 
-import './Alert.less';
+import './Alert.scss';
 
 import React from 'react';
 import {Modal, Button} from 'react-bootstrap';

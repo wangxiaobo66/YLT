@@ -4,7 +4,7 @@
  * @date 2016/8/14
  */
 
-import './Footer.less';
+import './Footer.scss';
 
 import React from 'react';
 

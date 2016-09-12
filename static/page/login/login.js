@@ -19,9 +19,10 @@ class component extends React.Component {
     }
     render() {
         return (
-            <div class="module-login">
-                <div class="portrait">
+            <div className="module-login">
+                <div className="portrait">
                     <img src=""/>
+                    login
                 </div>
                 <input type="tell"/>
             </div>
