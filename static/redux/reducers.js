@@ -10,6 +10,14 @@ function index(state={num:1},action){
             return state;
     }
 }
+/*
+function login(state={},action){
+    switch (action.type){
+
+    }
+}
+*/
 export const YLT = combineReducers({
-    index
+    index,
+    //login
 });
