@@ -9,7 +9,6 @@ import ip from 'ip';
 import webpack from 'webpack';
 import WebpackDevServer from "webpack-dev-server";
 import webpackConfigBase from './webpack/webpack.config.base';
-import gulpLess from 'gulp-less';
 import gulpSourcemaps from 'gulp-sourcemaps';
 import gulpAutoprefixer from 'gulp-autoprefixer';
 import through2 from 'through2';

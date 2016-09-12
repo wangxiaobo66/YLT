@@ -6,7 +6,7 @@
 
 import gulp from 'gulp';
 
-gulp.task('copy:template', function () {
+gulp.task('copy:template', ['clean'], function () {
     // 将template的内容复制到dist文件夹下
     return gulp.src('**/template/**/**')
         .pipe(gulp.dest('./dist'));
