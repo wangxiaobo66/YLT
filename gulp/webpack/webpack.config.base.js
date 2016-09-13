@@ -31,7 +31,8 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg|woff|ttf|eot)$/i,
-                loaders: ['url-loader?limit=1000&name=[path][name][hash:8].[ext]', 'img?minimize']
+                loaders: ['url?limit=10000&name=img/[name].[hash:8].[ext]']
+                // loaders: ['url-loader?limit=1000&name=img/[name][hash:8].[ext]', 'img?minimize']
             }
         ]
     }
