@@ -1,9 +1,10 @@
 /**
  * Created by wangxiaobo on 16/9/4.
  */
+require('./index.scss');
+const util = require('../../js/app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
-
 
 const { YLT } = require('../../redux/reducers');
 const { Provider, connect } = require('react-redux');
@@ -22,9 +23,12 @@ class component extends React.Component {
     render() {
         //console.log(this.props);
         let { index } = this.props;
-        console.log(index.num);
         return(
-            <div><a onClick={(e) => this.click()}>点击{this.props.index.num}</a></div>
+            <div className="modal-index">
+                <div className="index-search">
+
+                </div>
+            </div>
         );
     }
     componentDidMount() {
