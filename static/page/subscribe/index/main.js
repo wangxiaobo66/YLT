@@ -8,7 +8,6 @@ import './style.scss';
 
 import React from 'react';
 import {Link} from 'react-router';
-import {Button} from 'react-bootstrap';
 
 export default class Index extends React.Component {
     constructor(props) {
