@@ -24,7 +24,7 @@ function login (state = initState,action){
             return state;
     }
 }
-/*export default function (state = initState, action) {
+export default function (state = initState, action) {
     switch (action.type) {
         case SET_NAME:
             return Object.assign({}, state, {
@@ -37,7 +37,4 @@ function login (state = initState,action){
         default:
             return state;
     }
-};*/
-export const LOGIN = combineReducers({
-    login
-});
+};

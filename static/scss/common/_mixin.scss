@@ -3,4 +3,19 @@
  * @auth jinguangguo
  * @date 2016/8/14
  */
- 
+
+@function px($width, $psd: 640px, $base: 320px) { // PSD尺寸转px, 已宽度320px为标准 px(40px , 750px);
+    @if unit($width) == '' {
+        @if $width < 1 { // 小数
+            @return $width * $base;
+        } @else { // 无单位;
+            @return $width * $base / $psd * 1px;
+        }
+    } @else if unit($width) == '%' { // 百分比
+        @return $width / 100% * $base;
+    } @else if unit($width) == 'px' { // 像素值
+        @return $width * $base / $psd;
+    } @else { // 其他单位
+        @return '@function px: Error, unexpected unit!';
+    }
+}

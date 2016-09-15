@@ -11,3 +11,72 @@
 .ui-title {
 
 }
+
+.ui-btn {
+    height: px(88px);
+    line-height: px(88px);
+    background-color: $color-link;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    &-fixed {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+.ui-select {
+    width: 100%;
+    height: px(48px);
+    border: 1px solid $color-border;
+    padding-left: px(48px);
+    background-color: #fff;
+}
+
+.ui-form {
+    border-top: 1px $color-border solid;
+    border-bottom: 1px $color-border solid;
+    background-color: #fff;
+    padding-left: px(30px);
+    .item {
+        border-bottom: 1px $color-border solid;
+        &:last-child {
+            border-bottom: 0;
+        }
+        label {
+            display: flex;
+            .for {
+                flex: 3;
+                margin: px(24px) px(40px) px(24px) 0;
+                padding-right: 5px;
+                text-align: left;
+                border-right: 1px $color-border solid;
+            }
+            .input-box {
+                display: block;
+                flex: 10;
+                width: 100%;
+
+                %padding-tp {
+                    padding: 12px 0;
+                }
+
+                .input {
+                    @extend %padding-tp;
+                }
+                span {
+                    @extend %padding-tp;
+                    text-align: center;
+                }
+
+                &--select {
+                    select {
+                        margin: 12px 0;
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+}

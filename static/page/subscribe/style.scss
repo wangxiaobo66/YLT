@@ -1,0 +1,28 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/9/15
+ */
+
+@import "../../scss/base";
+
+.ui-box {
+    background: #fff;
+    border-bottom: 1px $color-border solid;
+    padding: px(62px) px(26px);
+}
+
+.ui-title {
+    padding: px(20px) px(30px);
+    text-align: center;
+    color: $color-font-gray;
+    font-size: 14px;
+}
+
+.module-sub {
+    padding-top: px(10px);
+    .btn-box {
+        margin-top: px(40px);
+        padding: 0 px(68px);
+    }
+}
