@@ -3,4 +3,19 @@
  * @auth jinguangguo
  * @date 2016/9/15
  */
- 
+
+@import "../../scss/base";
+
+.ui-box {
+    background: #fff;
+    border-bottom: 1px $color-border solid;
+    padding: px(62px) px(26px);
+}
+
+.module-sub {
+    padding-top: px(10px);
+    .btn-box {
+        margin-top: px(40px);
+        padding: 0 px(68px);
+    }
+}

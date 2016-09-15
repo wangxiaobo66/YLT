@@ -5,8 +5,7 @@
  */
 
 import { combineReducers } from 'redux';
-import detailReducer from './detail/reducer';
 
 export default combineReducers({
-    detailReducer
+    
 });

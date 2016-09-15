@@ -3,4 +3,24 @@
  * @auth jinguangguo
  * @date 2016/9/15
  */
- 
+
+.btn {
+    border: 0 none;
+    height: px(88px);
+    line-height: px(88px);
+    padding: 0;
+    font-size: 16px;
+}
+
+//按钮
+.btn-primary {
+    background-color: $color-link;
+    &:hover {
+
+    }
+}
+
+.btn-primary:hover, .btn-primary:active:focus, .btn-primary:active:hover {
+    background-color: $color-link;
+    border: 0 none;
+}

@@ -33,6 +33,9 @@ gulp.task('server:hot', ['copy:template'], function () {
     // webpack
 
     function startWebpackServer() {
+        // 开启源码映射
+        webpackConfigBase.devtool = 'source-map';
+
         if (!webpackConfigBase.plugins) {
             webpackConfigBase.plugins = [];
         }
@@ -47,10 +50,11 @@ gulp.task('server:hot', ['copy:template'], function () {
             //console.log(webpackConfigBase.entry[key]);
         }
         let compiler = webpack(webpackConfigBase);
-        //启动服务
+        // 启动服务
+        // 配置文档链接: http://webpack.github.io/docs/webpack-dev-server.html
         let app = new WebpackDevServer(compiler, {
             publicPath: webpackConfigBase.output.publicPath,
-            hot: false,
+            hot: true,
             quiet: true,
             historyApiFallback: true,
             proxy: [
