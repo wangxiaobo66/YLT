@@ -37,7 +37,7 @@ export default class Chepihao extends React.Component {
                             <div className="for">订阅时间</div>
                             <div className="input-box">
                                 <input className="input input-inline col-xs-5" type="date" placeholder="开始时间" />
-                                <span className="col-xs-2">到</span>
+                                <span className="col-xs-1">到</span>
                                 <input className="input input-inline col-xs-5" type="date" placeholder="结束时间" />
                             </div>
                         </label>
