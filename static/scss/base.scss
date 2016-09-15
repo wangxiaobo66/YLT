@@ -1,8 +1,2 @@
-input,button,select,textarea{outline:none;border:none}
-*{margin:0;padding:0;}
-.clear{zoom:1;}
-.clear:after{
-  clear:both;
-  content:"";
-  display: table;
-}
+
+@import "./common/style";

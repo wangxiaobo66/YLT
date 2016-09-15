@@ -2,7 +2,6 @@
  * Created by wangxiaobo on 16/9/12.
  */
 require('./login.scss');
-require('../../scss/base.scss');
 const util = require('../../js/app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
