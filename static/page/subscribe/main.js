@@ -14,14 +14,14 @@ import { createStore, applyMiddleware } from 'redux';
 import {bindActionCreators} from 'redux';
 // import { ReduxThunk } from 'redux-thunk';
 const thunk = require('redux-thunk').default;
-import rootReducer from '../rootReducer';
+import {YLT} from '../../redux/reducers';
 
 // 引入子页面
 import Index from './index/main';
 import Guige from './add-gg/main';
 import Chepihao from './add-cph/main';
 
-let store = createStore(rootReducer, applyMiddleware(thunk));
+let store = createStore(YLT, applyMiddleware(thunk));
 
 class Subscribe extends React.Component {
     constructor(props) {
