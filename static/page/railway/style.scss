@@ -1,0 +1,51 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/9/16
+ */
+
+@import "../../scss/base";
+
+.module-railway {
+    .result {
+        margin-top: px(20px);
+        padding: 0 px(20px);
+        .box {
+            border-top: 1px $color-border solid;
+            border-left: 1px $color-border solid;
+            border-right: 1px $color-border solid;
+            border-radius: 3px;
+            background: url(./img/bottom.png) bottom left repeat-x;
+            padding: 5px 10px 0 10px;
+            background-color: #fff;
+            .box-header {
+                height: px(100px);
+                background-color: #f4fdf7;
+                line-height: px(100px);
+                text-align: center;
+                span, img {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                span {
+                    font-size: 18px;
+                }
+                img {
+                    margin: 0 px(30px);
+                }
+            }
+            .prices {
+                padding: px(30px) 0 px(60px) 0;
+                .item {
+                    margin-bottom: px(16px);
+                    .label {
+                        text-align: right;
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
