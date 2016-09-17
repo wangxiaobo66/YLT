@@ -1,13 +1,13 @@
 @font-face {
     font-family: "Icons";
-    src: url('/app/font/Icons.eot');
-    src: url('/app/font/Icons.eot?#iefix') format('eot'),
-        url('/app/font/Icons.woff') format('woff'),
-        url('/app/font/Icons.ttf') format('truetype'),
-        url('/app/font/Icons.svg#Icons') format('svg');
+    src: url('../../font/Icons.eot');
+    src: url('../../font/Icons.eot?#iefix') format('eot'),
+    url('../../font/Icons.woff') format('woff'),
+    url('../../font/Icons.ttf') format('truetype'),
+    url('../../font/Icons.svg#Icons') format('svg');
 }
 
-.icon-base-pseudo {
+@mixin icon-styles {
     font-family: "Icons";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -19,25 +19,31 @@
     text-transform: none;
 }
 
-.icon-char(@filename) {
-@location: "\E001";
-@pagination: "\E002";
-
-content: @@filename;
+%icon {
+    @include icon-styles;
 }
 
-.icon(@filename, @insert: before) {
-    @pseudo-selector: ~":@{insert}";
+@function icon-char($filename) {
+    $char: "";
 
-&@{pseudo-selector} {
-    &:extend(.icon-base-pseudo);
-    .icon-char(@filename);
+@if $filename == location {
+    $char: "\E001";
 }
+
+@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+&:#{$insert} {
+    @if $extend {
+        @extend %icon;
+    } @else {
+        @include icon-styles;
+    }
+        content: icon-char($filename);
+    }
 }
 
 .icon-location {
-.icon(location);
-}
-.icon-pagination {
-.icon(pagination);
+    @include icon(location);
 }
