@@ -11,12 +11,12 @@ import iconfontCss from 'gulp-iconfont-css';
 let fontName = 'Icons';
 
 gulp.task('iconfont', function() {
-    gulp.src('./app/svg/*.svg')
+    gulp.src('./static/svg/*.svg')
         .pipe(iconfontCss({
             fontName: fontName,
-            path: './app/font/template.less',
-            targetPath: './font.less',
-            fontPath: '/app/font/'
+            path: './static/font/template.scss',
+            targetPath: './font.scss',
+            fontPath: '../../font/'
         }))
         .pipe(iconfont({
             fontName: fontName, // required
@@ -24,5 +24,5 @@ gulp.task('iconfont', function() {
             formats: ['ttf', 'eot', 'woff', 'svg'], // default, 'woff2' and 'svg' are available
             timestamp: new Date().getTime()
         }))
-        .pipe(gulp.dest('./app/font/'));
+        .pipe(gulp.dest('./static/font/'));
 });
