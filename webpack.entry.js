@@ -5,6 +5,9 @@
  */
  
 module.exports = {
+    // 'commons': [
+    //     'react', 'react-bootstrap', 'react-dom', 'react-router', 'redux', 'react-redux'
+    // ],
     'index': ['./static/js/index.js'],
     'page-login': ['./static/page/login/login.js'],//登陆
     'page-index': ['./static/page/index/index.js'],//首页
