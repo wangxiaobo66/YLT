@@ -7,6 +7,8 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
 
+import imgTop from '../img/home-top.png';
+
 export default class Chepihao extends React.Component {
     constructor(props) {
         super(props);
@@ -19,8 +21,16 @@ export default class Chepihao extends React.Component {
     }
     render() {
         return(
-            <div className="module-shop-add">
-                店铺首页
+            <div className="module-shop-home">
+                <div className="header">
+                    <div className="header-tp">
+                        <p className="title">这里是公司名称</p>
+                        <p className="sub-title">这里是副标题</p>
+                    </div>
+                </div>
+                <div className="content">
+
+                </div>
             </div>
         );
     }

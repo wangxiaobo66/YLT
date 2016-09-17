@@ -3,4 +3,29 @@
  * @auth jinguangguo
  * @date 2016/9/17
  */
- 
+
+.module-shop-home {
+    .header {
+        background: url(./img/home-top.jpg) 0 0 no-repeat;
+        background-size: 100%;
+        border-radius: 4px;
+        flex: 1;
+        &-tp {
+            padding-top: px(56px);
+            p {
+                text-align: center;
+            }
+            p.title {
+                color: #fff;
+            }
+            p.sub-title {
+                color: $color-font-gray;
+                font-size: 14px;
+            }
+
+        }
+    }
+    .content {
+
+    }
+}
