@@ -6,6 +6,10 @@
 
 @import "../../scss/base";
 
+body {
+    background-color: $color-bg;
+}
+
 .ui-box {
     background: #fff;
     border-bottom: 1px $color-border solid;

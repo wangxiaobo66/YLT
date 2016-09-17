@@ -12,17 +12,47 @@
 
 }
 
+%text {
+    background-color: $color-link;
+    text-align: center;
+    color: #fff;
+}
+
+%ffull {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 .ui-btn {
     height: px(88px);
     line-height: px(88px);
-    background-color: $color-link;
-    width: 100%;
-    text-align: center;
-    color: #fff;
+    @extend %text;
     &-fixed {
-        position: fixed;
-        left: 0;
-        bottom: 0;
+        @extend %ffull;
+    }
+}
+
+.ui-tab {
+    @extend %text;
+    padding: px(30px) 0;
+    display: flex;
+    &-fixed {
+        @extend %ffull;
+        height: px(100px);
+    }
+    .item {
+        display: block;
+        flex: 1;
+        border-right: 1px #fff solid;
+        color: #a7d1b9;
+        &--active {
+            color: #fff;
+        }
+        &:last-child {
+            border-right: 0 none;
+        }
     }
 }
 

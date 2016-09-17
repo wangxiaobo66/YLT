@@ -5,27 +5,101 @@
  */
 
 .module-shop-home {
+    padding-bottom: 60px;
     .header {
-        background: url(./img/home-top.jpg) 0 0 no-repeat;
-        background-size: 100%;
-        flex: 1;
-
         &-tp {
-            padding-top: px(56px);
-            p {
-                text-align: center;
+            position: relative;
+            >img {
+                display: block;
             }
-            p.title {
-                color: #fff;
+            .info {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding-top: px(56px);
+                p {
+                    text-align: center;
+                }
+                p.title {
+                    color: #fff;
+                }
+                p.sub-title {
+                    color: $color-font-gray;
+                    font-size: 14px;
+                }
             }
-            p.sub-title {
-                color: $color-font-gray;
+            .logo {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 20%);
+                background-color: rgba(0, 0, 0, 0.4);
+                padding: 5px;
+                img {
+                    display: block;
+                }
+            }
+        }
+        &-bd {
+            background-color: #f7fcf9;
+            .bd-tab {
+                display: flex;
+                border-bottom: 1px $color-border solid;
+                .tab {
+                    flex: 1;
+                    height: px(80px);
+                    line-height: px(80px);
+                    text-align: center;
+                    &-nums, &-location {
+                        flex: 2;
+                    }
+                }
+            }
+            .bd-desc {
+                padding: 10px 15px;
+                min-height: px(120px);
                 font-size: 14px;
+                color: $color-font-gray;
             }
+        }
 
+    }
+    .content {
+        margin-top: 10px;
+        ul.list {
+            margin-top: 5px;
+            >li.item {
+                padding: px(20px) px(30px);
+                background-color: #fff;
+                margin-bottom: 5px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                .img {
+                    float: left;
+                }
+                .info {
+                    padding-left: 133px;
+                    p {
+                        label {
+                            width: px(90px);
+                        }
+                    }
+                    .title {
+                        line-height: 1;
+                        font-size: 20px;
+                    }
+                    .info-item {
+                        margin-top: 2px;
+                        font-size: 14px;
+                        color: $color-font-gray;
+                    }
+                }
+            }
         }
     }
     .content {
-
+        margin-top: 10px;
     }
 }

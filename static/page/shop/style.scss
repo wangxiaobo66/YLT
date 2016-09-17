@@ -6,6 +6,20 @@
 
 @import "../../scss/base";
 
+body {
+    background-color: $color-bg;
+}
+
+.ui-title {
+    padding: px(20px) px(30px);
+    font-weight: bold;
+    background-color: #fff;
+    .text {
+        border-left: 3px $color-link solid;
+        padding-left: px(30px);
+    }
+}
+
 // 头部筛选
 .ui-top-select {
     height: px(88px);
