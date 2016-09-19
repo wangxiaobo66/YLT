@@ -11,8 +11,12 @@ html {
 body {
     font-size: 16px;
     line-height: 1.4;
-    background-color:#fff;
-            /*background-color: $color-bg;*/
+    //background-color:#fff;
+    background-color: $color-bg;
+}
+
+html, body {
+    height: 100%;
 }
 
 a {

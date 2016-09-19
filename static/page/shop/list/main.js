@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import {Button} from 'react-bootstrap';
+import {Link} from 'react-router';
 
 import imgLogo from '../img/logo.png';
 import imgE1 from '../img/example.png';
