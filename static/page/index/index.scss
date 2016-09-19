@@ -61,7 +61,7 @@
     height:40px;
     line-height: 40px;
     top:0px;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #e6e6e6;
     box-sizing: border-box;
   }
   .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
@@ -103,5 +103,44 @@
   }
   .swiper-wrapper{
     margin-top:40px;
+  }
+  .switch-all,.switch-issue{
+    width:100%;
+    padding:0 5%;
+    height:40px;
+    box-sizing: border-box;
+    border-bottom:1px solid #e6e6e6;
+    line-height: 40px;
+    float: left;
+  }
+  .switch-all img{
+    float: right;
+    width:10px;
+    margin-top:15px;
+    margin-left:10px;
+  }
+  .switch-all a{
+    float: right;
+    color: #999;
+    font-size: 12px;
+  }
+  .switch-issue{
+    text-align: center;
+  }
+  .switch-issue a{
+    font-size: 16px;
+    color: #6bbb8d;
+    margin-left:5px;
+  }
+  .switch-issue img{
+    width:20px;
+    vertical-align: middle;
+  }
+  .index-bottom{
+    background-color:#3f3f49;
+    width:100%;
+    position: fixed;
+    left:0;
+    bottom:0;
   }
 }

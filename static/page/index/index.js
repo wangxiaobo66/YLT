@@ -6,6 +6,8 @@ const util = require('../../js/app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
 
+const { AskBuy } = require('../../component/ask-buy/ask-buy.js');
+
 const { YLT } = require('../../redux/reducers');
 const { Provider, connect } = require('react-redux');
 const { createStore, applyMiddleware } = require('redux');
@@ -41,12 +43,36 @@ class component extends React.Component {
                         <div className="swiper-pagination"></div>
                         <a href="javascript:;" className="switch-active"></a>
                         <div className="swiper-wrapper">
-                            <div className="swiper-slide">Slide 100</div>
-                            <div className="swiper-slide">Slide 2</div>
-                            <div className="swiper-slide">Slide 3</div>
+                            <div className="swiper-slide">
+                                <AskBuy />
+                                <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a href="javascript:;">查看全部未售市场</a></div>
+                                <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a href="javascript:;">发布未售信息</a></div>
+                            </div>
+                            <div className="swiper-slide">
+                                <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a href="javascript:;">查看全部求购信息</a></div>
+                                <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a href="javascript:;">发布求购信息</a></div>
+                            </div>
+                            <div className="swiper-slide">
+                                <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a href="javascript:;">查看全部到货信息</a></div>
+                                <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a href="javascript:;">发布到货信息</a></div>
+                            </div>
                             <div className="swiper-slide">Slide 4</div>
                         </div>
                     </div>
+                </div>
+                <div className="index-bottom">
+                    <span>
+                        <img src="../../static/page/index/img/home.png"/>
+                        官网首页
+                    </span>
+                    <span>
+                        <img src="../../static/page/index/img/publish.png"/>
+                        发布信息
+                    </span>
+                    <span>
+                        <img src="../../static/page/index/img/mine.png"/>
+                        个人中心
+                    </span>
                 </div>
             </div>
         );
