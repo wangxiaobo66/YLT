@@ -27,6 +27,7 @@
     "babel-preset-react": "^6.11.1",
     "browser-sync": "^2.12.9",
     "co-views": "^2.1.0",
+    "commons-version-webpack-plugin": "^1.0.1",
     "css-loader": "^0.23.1",
     "cssnano": "^3.7.4",
     "extract-text-webpack-plugin": "^1.0.1",

@@ -8,6 +8,8 @@ var path = require('path');
 var entrys = require('../../webpack.entry.js');
 var PUBLIC_PATH = '/dist/';
 
+var CommonsVersionPlugin = require('commons-version-webpack-plugin');
+
 module.exports = {
     entry: entrys,
     output: {
@@ -15,6 +17,14 @@ module.exports = {
         publicPath: PUBLIC_PATH,
         filename: 'js/[name].js'
     },
+    // externals: {
+    //     'react': 'React',
+    //     'react-dom': 'ReactDOM',
+    //     'react-router': 'ReactRouter',
+    //     'react-bootstrap': 'ReactBootstrap',
+    //     'redux': 'Redux',
+    //     'react-redux': 'ReactRedux'
+    // },
     // module: {
     //     loaders: [
     //         {
@@ -38,6 +48,11 @@ module.exports = {
     // },
 
     module: {
+        resolve: {
+            root: path.resolve('static'),
+            modulesDirectorie: ['node_modules'],
+            extensions: ['', '.js', '.css', '.scss', '.png', '.jpg']
+        },
         loaders: [
             {
                 test: /\.js$/,
@@ -67,6 +82,15 @@ module.exports = {
                 loader: "file-loader?name=audio/[name].[ext]"
             }
         ],
-        noParse: ['react','react-bootstrap', 'react-dom', 'react-router', 'redux', 'react-redux']
+        noParse: ['react','react-bootstrap', 'react-dom', 'react-router', 'redux', 'react-redux'],
+        plugins: [
+            // new CommonsVersionPlugin({
+            //     commonsName: 'commons',
+            //     onFileName: function (hash) {
+            //         console.log('onFileName');
+            //         return 'js/[name].js';
+            //     }
+            // })
+        ]
     }
 };
