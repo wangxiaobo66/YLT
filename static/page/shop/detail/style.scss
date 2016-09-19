@@ -3,4 +3,53 @@
  * @auth jinguangguo
  * @date 2016/9/17
  */
- 
+
+.module-shop-detail {
+    .header {
+        padding: 30px 15px;
+        background-color: #fff;
+        .img {
+            float: left;
+            img {
+                display: block;
+            }
+        }
+        .info {
+            margin-left: 70px;
+            .title {
+
+            }
+            .sub-title {
+                color: $color-font-gray;
+                font-size: 12px;
+            }
+            .care {
+                margin-top: 5px;
+                font-size: 14px;
+            }
+        }
+    }
+    .tabs {
+        margin: 10px 0;
+        background-color: #fff;
+        .item {
+            float: left;
+            padding: 5px 0;
+            font-size: 14px;
+            text-align: center;
+            &:first-child, &:last-child {
+                width: 49%;
+            }
+            .num {
+
+            }
+            .tip {
+                color: $color-font-gray;
+            }
+        }
+        .divide {
+            float: left;
+            margin-top: 12px;
+        }
+    }
+}
