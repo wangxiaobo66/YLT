@@ -1,0 +1,89 @@
+@import "../../scss/base";
+.Arrival-component{
+  width:100%;
+  float: left;
+  margin-top:10px;
+  background-color: #fff;
+  .div-head{
+    width:100%;
+    float: left;
+    color:#333;
+    height:20px;
+    padding:5px 0;
+    border-top:1px solid #e6e6e6;
+    border-bottom:1px solid #e6e6e6;
+    font-size: 14px;
+    span{
+      width:25%;
+      float: left;
+      text-align: center;
+      box-sizing: border-box;
+      border-left:1px solid #f1f1f1;
+    }
+    span:nth-of-type(1){
+      border-left: none;
+    }
+  }
+  .place-div-head{
+    width:100%;
+    float: left;
+    color:#333;
+    height:20px;
+    padding:5px 0;
+    border-top:1px solid #e6e6e6;
+    border-bottom:1px solid #e6e6e6;
+    font-size: 14px;
+    span{
+      width:20%;
+      float: left;
+      text-align: center;
+      box-sizing: border-box;
+      border-left:1px solid #f1f1f1;
+    }
+    span:nth-of-type(1){
+      border-left: none;
+    }
+  }
+  .div{
+    width:100%;
+    float: left;
+    height:20px;
+    padding:5px 0;
+    border-bottom:1px solid #e6e6e6;
+    font-size: 14px;
+    color:#999;
+    span{
+      width:25%;
+      float: left;
+      text-align: center;
+    }
+    span:nth-of-type(1){
+      color:#333;
+    }
+  }
+  .place-div{
+    width:100%;
+    float: left;
+    height:20px;
+    padding:5px 0;
+    border-bottom:1px solid #e6e6e6;
+    font-size: 14px;
+    color:#999;
+    span{
+      width:20%;
+      float: left;
+      text-align: center;
+    }
+  }
+  .active{
+    background:#fafafa;
+  }
+  .title-div{
+    width:96%;
+    float: left;
+    margin:5px 0 5px 4%;
+    padding-left:2%;
+    box-sizing: border-box;
+    border-left:2px solid #65b888;
+  }
+}

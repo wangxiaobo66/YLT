@@ -1,7 +1,7 @@
 /**
  * Created by wangxiaobo on 16/9/17.
  */
-require('./ask-buy.scss');
+require('./Market.scss');
 const React = require('react');
 const render = require('react-dom').render;
 
@@ -29,7 +29,7 @@ let data = [
         "level":"一级"
     }
 ];
-export class AskBuy extends React.Component {
+export class Market extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -52,10 +52,10 @@ export class AskBuy extends React.Component {
                 </div>
             )
         });
-        return <div className="ask-buy-component clearfix">{listdom}</div>
+        return <div className="Market-component clearfix">{listdom}</div>
     }
     componentDidMount() {
-        let width = $('.div img').width();
-        $('.div img').css('height',width/2+'px');
+        let width = $('.Market-component .div img').width();
+        $('.Market-component .div img').css('height',width/2+'px');
     }
 }

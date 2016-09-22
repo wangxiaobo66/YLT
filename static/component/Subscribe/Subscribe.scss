@@ -1,0 +1,71 @@
+@import "../../scss/base";
+.Subscribe-component{
+  width:100%;
+  float: left;
+  .div{
+    width:96%;
+    margin:5px 2%;
+    background:#fff;
+    box-sizing: border-box;
+    border:1px solid #e6e6e6;
+    border-radius: 4px;
+    float: left;
+    .diam{
+      width:10px;
+      height:10px;
+      box-sizing: border-box;
+      border:1px solid #e6e6e6;
+      background:#f0f0f0;
+      border-radius: 50%;
+      float: left;
+      margin:5px;
+    }
+    div:nth-of-type(1){
+      width:100%;
+      float: left;
+      color:#65b888;
+      padding-left: 5%;
+    }
+    div:nth-of-type(2){
+      width:100%;
+      float: left;
+      margin:10px 0;
+      p:nth-of-type(1){
+        width:50%;
+        float: left;
+        padding-left: 5%;
+        color:#333;
+        span{
+          margin-right: 5px;
+        }
+      }
+      p:nth-of-type(2){
+        width:50%;
+        float: left;
+        padding-left: 5%;
+        color:#999;
+        span{
+          margin-right: 5px;
+        }
+      }
+    }
+    div:nth-of-type(3){
+      width:100%;
+      float: left;
+      border-top:1px solid #e6e6e6;
+      margin:15px 0;
+      color:#65b888;
+      span{
+        width:50%;
+        float: left;
+        text-align: center;
+        border-right: 1px solid #e6e6e6;
+        box-sizing: border-box;
+        margin-top:10px;
+      }
+      span:nth-of-type(2){
+        border-right:none;
+      }
+    }
+  }
+}
