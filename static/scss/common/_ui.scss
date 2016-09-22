@@ -49,6 +49,7 @@
         color: #a7d1b9;
         &--active {
             color: #fff;
+            pointer-events: none;
         }
         &:last-child {
             border-right: 0 none;
@@ -64,10 +65,14 @@
     background-color: #fff;
 }
 
-.ui-form {
+%box {
     border-top: 1px $color-border solid;
     border-bottom: 1px $color-border solid;
     background-color: #fff;
+}
+
+.ui-form {
+    @extend %box;
     padding-left: px(30px);
     .item {
         border-bottom: 1px $color-border solid;
@@ -107,6 +112,38 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.ui-card {
+    @extend %box;
+    &--right {
+        .item {
+            .text {
+                text-align: right;
+            }
+        }
+    }
+    .item {
+        display: flex;
+        padding: 10px 15px;
+        border-bottom: 1px $color-border solid;
+        //height: 22px;
+        //line-height: 22px;
+        &:last-child {
+            border-bottom: 0;
+        }
+        label {
+            display: block;
+            flex: 1;
+        }
+        .text {
+            display: block;
+            flex: 2;
+            color: $color-font-gray;
+            font-size: 15px;
+            line-height: 1.2;
         }
     }
 }

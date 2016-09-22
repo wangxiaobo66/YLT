@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import {Link} from 'react-router';
 import {Button} from 'react-bootstrap';
 
 import imgTop from '../img/home-top.png';
@@ -100,7 +101,7 @@ export default class Chepihao extends React.Component {
                 </div>
                 <div className="ui-tab ui-tab-fixed">
                     <a href="javascript;" className="item item--active">店铺首页</a>
-                    <a href="javascript;" className="item">店铺详情</a>
+                    <Link className="item" to={`/detail`}>店铺详情</Link>
                 </div>
             </div>
         );
