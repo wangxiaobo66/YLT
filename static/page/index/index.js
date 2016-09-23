@@ -37,7 +37,7 @@ class component extends React.Component {
         let { index } = this.props;
         let { homeActive , publishActive , mineActive , matte } = this.state;
         return (
-            <div className="modal-index">
+            <div className="modal-index clearfix">
                 <div className="index-search">
                     <img src="../../static/page/index/img/background.jpg" className="background"/>
                     <img src="../../static/page/index/img/logo.png" className="logo"/>
