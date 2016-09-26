@@ -9,7 +9,7 @@ import './gulp/deploy/js';
 import './gulp/deploy/scss';
 import './gulp/deploy/template';
 import './gulp/deploy/iconfont';
-import './gulp/server.static';
 import './gulp/server.hot';
+import './gulp/server.express';
 
 
