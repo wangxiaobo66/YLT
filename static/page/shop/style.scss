@@ -39,8 +39,10 @@ body {
             vertical-align: middle;
         }
         .select {
-            width: px(104px);
-            height: px(50px);
+            width: 80px;
+            height: 25px;
+            line-height: 25px;
+            padding: 0 5px;
             background-color: #fbfbfb;
             color: #666;
             border: 1px $color-border solid;

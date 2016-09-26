@@ -46,5 +46,18 @@ table {
 }
 
 
-// input
-input,button,select,textarea{outline:none;border:none}
+// 表单
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button { // input[type=number]的上下小箭头
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+input, select, textarea {
+    outline: none;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: 15px;
+}

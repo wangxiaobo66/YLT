@@ -8,69 +8,6 @@
 
     .list-box {
         padding: 5px 8px;
-        .list {
-            >.item {
-                margin-bottom: 5px;
-                background-color: #fff;
-                .item-link {
-                    display: block;
-                }
-                &:last-child {
-                    margin-bottom: 0;
-                }
-                .item-info {
-                    padding: 8px;
-                    border-bottom: 1px $color-border solid;
-                    .img {
-                        float: left;
-                    }
-                    .info-detail {
-                        margin-left: px(110px);
-                        .title {
-                            .title-location {
-                                float: right;
-                                color: $color-font-gray;
-                                .icon {
-                                    margin-right: 3px;
-                                    font-size: 20px;
-                                }
-                            }
-                            .title-name {
-                                font-size: 18px;
-                                vertical-align: middle;
-                            }
-                        }
-                        .sub-title {
-                            font-size: 13px;
-                            color: $color-font-gray;
-                        }
-                        .desc {
-                            margin-top: 5px;
-                            color: $color-font-gray;
-                            font-size: 14px;
-                        }
-                    }
-                }
-                .goods-box {
-                    overflow-x: hidden;
-                    padding: 10px 0;
-                    .goods {
-                        width: 99999em;
-                        >.item {
-                            float: left;
-                            margin-left: 8px;
-                            img {
-                                display: block;
-                            }
-                            &:last-child {
-                                margin-right: 0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
     }
 
 }
