@@ -20,7 +20,6 @@ let store = createStore(YLT, applyMiddleware(thunk));
 
 
 let { change } = require('./actions');
-let place = false;
 class component extends React.Component {
     constructor(props) {
         super(props);
@@ -56,24 +55,25 @@ class component extends React.Component {
                             <div className="swiper-slide">
                                 <Market />
                                 <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
-                                    href="javascript:;">查看全部未售市场</a></div>
+                                    href="/template/market/market.html">查看全部未售市场</a></div>
                                 <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a
                                     href="javascript:;">发布未售信息</a></div>
                             </div>
                             <div className="swiper-slide">
                                 <AskBuy />
                                 <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
-                                    href="javascript:;">查看全部求购信息</a></div>
+                                    href="/template/ask-buy/ask-buy.html">查看全部求购信息</a></div>
                                 <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a
                                     href="javascript:;">发布求购信息</a></div>
                             </div>
                             <div className="swiper-slide">
-                                <Arrival place/>
+                                <Arrival place={'list'}/>
                                 <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
                                     href="javascript:;">查看全部到货信息</a></div>
-                                <Arrival place={place}/>
+                                <Arrival place={'train'}/>
                                 <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
                                     href="javascript:;">其它货场位置查询</a></div>
+                                <Arrival place={'seat'}/>
                             </div>
                             <div className="swiper-slide">
                                 <div className="service">

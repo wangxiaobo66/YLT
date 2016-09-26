@@ -1,9 +1,10 @@
 @import "../../scss/base";
-.modal-ask-buy{
+.modal-market{
   .select{
     width:100%;
     float: left;
     border-bottom:1px solid #e6e6e6;
+    margin-bottom:5px;
     .div{
       width:24%;
       float: left;
@@ -25,6 +26,9 @@
         margin:10px 5px 5px 0;
       }
     }
+  }
+  .Market-component{
+    border-top:1px solid #e6e6e6;
   }
   a{
     text-decoration:none;

@@ -1,7 +1,7 @@
 /**
- * Created by wangxiaobo on 16/9/12.
+ * Created by wangxiaobo on 16/9/26.
  */
-require('./login.scss');
+require('./register.scss');
 const util = require('../../js/app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
@@ -29,7 +29,7 @@ class component extends React.Component {
     render() {
         let { text , active , value ,after} = this.state;
         return (
-            <div className="module-login">
+            <div className="module-register">
                 <img className="background" src="../../static/page/login/img/background.jpg"/>
                 <div className="portrait">
                     <div className="portrait-div">
@@ -45,10 +45,12 @@ class component extends React.Component {
                               className={active?(after?'active':'after'):''}>{text}</span>
                     </div>
                     <div className="verify-sms">
-                        <img src="../../static/page/login/img/sms.png"/>
                         <input type="text" placeholder="请输入短信验证码"/>
                     </div>
-                    <a href="javascript:;" className="verify-submit">登录</a>
+                    <div className="password">
+                        <input type="password" placeholder="请设置密码"/>
+                    </div>
+                    <a href="javascript:;" className="verify-submit">确定</a>
                 </div>
             </div>
         );
@@ -103,11 +105,11 @@ class component extends React.Component {
 function select(state) {
     return {}
 }
-let Login = connect(select)(component);
+let Register = connect(select)(component);
 
 render(
     <Provider store={store}>
-        <Login />
+        <Register />
     </Provider>,
-    document.getElementById("login")
+    document.getElementById("register")
 );

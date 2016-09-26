@@ -7,7 +7,7 @@ const render = require('react-dom').render;
 
 let data = [
     {
-        "imgSrc":"",
+        "imgSrc":"../../static/component/Market/img/ys.png",
         "name":"落叶松",
         "size":"六米",
         "type":"原木",
@@ -18,7 +18,7 @@ let data = [
         "level":"一级"
     },
     {
-        "imgSrc":"",
+        "imgSrc":"../../static/component/Market/img/ys.png",
         "name":"落叶松",
         "size":"三米",
         "type":"原木",

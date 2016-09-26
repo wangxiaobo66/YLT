@@ -1,12 +1,12 @@
 /**
- * Created by wangxiaobo on 16/9/21.
+ * Created by wangxiaobo on 16/9/23.
  */
-require('./ask-buy.scss');
+require('./market.scss');
 const util = require('../../js/app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
 
-const { AskBuy } = require('../../component/AskBuy/AskBuy.js');
+const { Market } = require('../../component/Market/Market.js');
 
 const { YLT } = require('../../redux/reducers');
 const { Provider, connect } = require('react-redux');
@@ -19,9 +19,10 @@ class component extends React.Component {
     constructor(props) {
         super(props);
     }
+
     render() {
         return (
-            <div className="modal-ask-buy">
+            <div className="modal-market">
                 <div className="select">
                     <div className="div">
                         地区
@@ -60,11 +61,12 @@ class component extends React.Component {
                         </select>
                     </div>
                 </div>
-                <AskBuy />
-                <a className="ui-btn ui-btn-fixed" href="javascript:;">发布求购信息</a>
+                <Market />
+                <a className="ui-btn ui-btn-fixed" href="javascript:;">发布未售信息</a>
             </div>
         )
     }
+
     componentDidMount() {
 
     }
@@ -72,11 +74,11 @@ class component extends React.Component {
 function select(state) {
     return {}
 }
-let Ask = connect(select)(component);
+let Mark = connect(select)(component);
 
 render(
     <Provider store={store}>
-        <Ask />
+        <Mark />
     </Provider>,
-    document.getElementById("ask-buy")
+    document.getElementById("market")
 );
