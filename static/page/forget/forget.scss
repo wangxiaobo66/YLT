@@ -34,16 +34,21 @@
     width:90%;
     margin: 30px 5% 0 5%;
   }
-  .verify-mobile,.verify-sms,.new-password,.new-password-again{
+  .verify-mobile,.verify-sms,.verify-password,.new-password,.new-password-again{
     width:100%;
     height: 50px;
     line-height: 50px;
     border-bottom: 1px solid #d1d1d1;
   }
-  .verify-mobile input,.verify-sms input,.new-password input,.new-password-again input{
+  .verify-mobile input,.verify-sms input,.verify-password input,.new-password input,.new-password-again input{
     width: 50%;
     font-size: 16px;
     color:#39ac6a;
+  }
+  .verify-password img{
+    width:20px;
+    vertical-align: middle;
+    padding-right:20px;
   }
   .verify-mobile img{
     width:20px;

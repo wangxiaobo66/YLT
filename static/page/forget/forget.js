@@ -47,14 +47,18 @@ class component extends React.Component {
                         <span onClick={active?(after?(e) => this.getSms():''):''}
                               className={active?(after?'active':'after'):''}>{text}</span>
                     </div>
-                    <div className="verify-sms">
-                        <input type="text" placeholder="请输入短信验证码"/>
-                    </div>
-                    <div className="new-password">
+
+                    <div className="new-password verify-password">
+                        <img src="../../static/page/login/img/password.png"/>
                         <input type="password" placeholder="请输入新密码"/>
                     </div>
-                    <div className="new-password-again">
+                    <div className="new-password-again verify-password">
+                        <img src="../../static/page/login/img/password.png"/>
                         <input type="password" placeholder="请再次输入新密码"/>
+                    </div>
+                    <div className="verify-sms">
+                        <img src="../../static/page/login/img/sms.png"/>
+                        <input type="text" placeholder="请输入短信验证码"/>
                     </div>
                     <a href="javascript:;" className="verify-submit">确定</a>
                 </div>
