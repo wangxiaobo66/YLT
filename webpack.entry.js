@@ -18,6 +18,7 @@ module.exports = {
     'page-service':['./static/page/service/service.js'],//服务
 
     'page-subscribe': ['./static/page/subscribe/main.js'],  // 新增订阅
-    'page-railway': ['./static/page/railway/main.js'],
-    'page-shop': ['./static/page/shop/main.js']   // 全部店铺
+    'page-railway': ['./static/page/railway/main.js'],  // 铁路运费
+    'page-shop': ['./static/page/shop/main.js'],   // 全部店铺
+    'page-arrival': ['./static/page/arrival/main.js']
 };

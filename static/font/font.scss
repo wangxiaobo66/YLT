@@ -29,6 +29,12 @@
 @if $filename == location {
     $char: "\E001";
 }
+@if $filename == plus {
+    $char: "\E002";
+}
+@if $filename == right {
+    $char: "\E003";
+}
 
 @return $char;
 }
@@ -46,4 +52,10 @@
 
 .icon-location {
     @include icon(location);
+}
+.icon-plus {
+    @include icon(plus);
+}
+.icon-right {
+    @include icon(right);
 }

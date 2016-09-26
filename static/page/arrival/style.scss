@@ -1,0 +1,21 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/9/24
+ */
+
+@import "../../scss/base";
+
+body {
+    background-color: $color-bg;
+}
+
+.module-tabs {
+
+}
+
+
+@import "addUpdate/style";
+@import "detail/style";
+@import "list/style";
+@import "report/style";
