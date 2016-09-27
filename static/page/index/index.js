@@ -19,31 +19,37 @@ const thunk = require('redux-thunk').default;
 let store = createStore(YLT, applyMiddleware(thunk));
 
 
-let { change } = require('./actions');
+//let { change } = require('./actions');
 class component extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            homeActive:true,
-            publishActive:false,
-            mineActive:false,
-            matte:false
+            homeActive: true,
+            publishActive: false,
+            mineActive: false,
+            matte: false,
+            search: false
         }
     }
 
     render() {
         //console.log(this.props);
         let { index } = this.props;
-        let { homeActive , publishActive , mineActive , matte } = this.state;
+        let { homeActive , publishActive , mineActive , matte , search} = this.state;
         return (
-            <div className="modal-index clearfix">
+            <div className={"modal-index clearfix" + (search?" search":"")}
+                 onKeyDown={(e) => util.events.emit('bodyKeyDown', e)}>
                 <div className="index-search">
                     <img src="../../static/page/index/img/background.jpg" className="background"/>
                     <img src="../../static/page/index/img/logo.png" className="logo"/>
                     <div className="search">
                         <img src="../../static/page/index/img/icon.png" className="icon"/>
-                        <input type="text" className="input" placeholder="找木材/找货物/找货主"/>
-                        <a href="javascript:;" className="submit">搜索</a>
+                        <form>
+                            <input type="text" className="input" placeholder="找木材/找货物/找货主" name="word"
+                                   onClick={(e) => this.searchClick(e)}/>
+                            <a href="javascript:;" className="cancel" onClick={(e) => this.cancel(e)}>取消</a>
+                        </form>
+
                     </div>
                     <p className="index-search-p">搜索人数:8923人</p>
                 </div>
@@ -145,7 +151,8 @@ class component extends React.Component {
                                 发布服务
                             </a>
                         </div>
-                        <a href="javascript:;" className="wrong" onClick = {(e) => this.wrong()}><img src="../../static/page/index/img/wrong.png"/></a>
+                        <a href="javascript:;" className="wrong" onClick={(e) => this.wrong()}><img
+                            src="../../static/page/index/img/wrong.png"/></a>
                     </div>
                 </div>
             </div>
@@ -167,55 +174,75 @@ class component extends React.Component {
                 $('.switch-active').css('margin-left', 2 + swiper.activeIndex * 24 + '%');
             }
         })
-    }
 
-    wrong(){
-        this.setState({
-            homeActive:false,
-            publishActive:true,
-            mineActive:false,
-            matte:false
+        util.events.on('bodyKeyDown', (e) => { //监听键盘按钮
+            if(e.keyCode===13){
+                console.log(1);
+                alert(1);
+            }
         })
     }
 
-    onclick(e,name){
-        switch (name){
+    wrong() {
+        this.setState({
+            homeActive: false,
+            publishActive: true,
+            mineActive: false,
+            matte: false
+        })
+    }
+
+    onclick(e, name) {
+        switch (name) {
             case "homeActive":
                 this.setState({
-                    homeActive:true,
-                    publishActive:false,
-                    mineActive:false,
-                    matte:false
+                    homeActive: true,
+                    publishActive: false,
+                    mineActive: false,
+                    matte: false
                 });
                 break;
             case "publishActive":
                 let { publishActive , matte } = this.state;
-                if(publishActive&&matte){
+                if (publishActive && matte) {
                     this.setState({
-                        homeActive:false,
-                        publishActive:true,
-                        mineActive:false,
-                        matte:false
+                        homeActive: false,
+                        publishActive: true,
+                        mineActive: false,
+                        matte: false
                     });
-                }else {
+                } else {
                     this.setState({
-                        homeActive:false,
-                        publishActive:true,
-                        mineActive:false,
-                        matte:true
+                        homeActive: false,
+                        publishActive: true,
+                        mineActive: false,
+                        matte: true
                     });
                 }
                 break;
             case "mineActive":
                 this.setState({
-                    homeActive:false,
-                    publishActive:false,
-                    mineActive:true,
-                    matte:false
+                    homeActive: false,
+                    publishActive: false,
+                    mineActive: true,
+                    matte: false
                 });
                 break;
         }
         let { publishActive } = this.state;
+    }
+
+    searchClick(e) {
+        let { search } = this.state;
+        this.setState({
+            search: true
+        })
+    }
+
+    cancel(e) {
+        this.setState({
+            search: false
+        })
     }
 }
 function select(state) {

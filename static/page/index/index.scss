@@ -36,13 +36,15 @@
     line-height: 1;
     font-size: 14px;
   }
-  .search .submit{
+  .search .cancel{
+    display: none;
     float: right;
     width:50px;
-    height:36px;
-    line-height: 36px;
-    background-color: #66b98a;
-    color:#fff;
+    height:20px;
+    line-height: 20px;
+    margin-top: 8px;
+    border-left:1px solid #e6e6e6;
+    color: #66b98a;
     text-align: center;
     font-size: 14px;
     border-top-right-radius: 4px;
@@ -272,6 +274,25 @@
       float: left;
       margin:10px 5px;
       background: #65b888;
+    }
+  }
+}
+.search{
+  .index-search {
+    .background, .logo,.index-search-p{
+      display: none;
+    }
+  }
+  .switch, .index-contact,.index-bottom{
+    display: none;
+  }
+  .search{
+    width:100%;
+    left:0;
+    top:5px;
+    border-radius: 0;
+    .cancel{
+      display: block;
     }
   }
 }

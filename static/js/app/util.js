@@ -1,4 +1,6 @@
+const eventEmitter = require('event-emitter');
 module.exports = {
+    events: eventEmitter({}),
     //wxbjiami
     base64encode: function(str){
         var out, i, len;
