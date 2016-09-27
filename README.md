@@ -75,6 +75,20 @@ gulp server:static
 koa等一系列相关插件
 ```
 
+### 所有页面
+
+* 新增订阅: http://localhost:9997/template/subscribe/subscribe.html
+* 新增订阅之规格订阅: http://localhost:9997/template/subscribe/subscribe.html#/gg
+* 新增订阅之车皮号订阅: http://localhost:9997/template/subscribe/subscribe.html#/cph (这块儿涉及到铁路, 进程待定)
+
+* 铁路运费: http://localhost:9997/template/railway/railway.html (暂时废弃)
+
+* 全部店铺: http://localhost:9997/template/shop/shop.html
+* 店铺主页: http://localhost:9997/template/shop/shop.html#/home
+* 店铺详情: http://localhost:9997/template/shop/shop.html#/detail
+* 新增店铺: http://localhost:9997/template/shop/shop.html#/add
+
+
 ### changelog
 
 * 8月5日 - 创建项目

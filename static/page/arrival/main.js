@@ -37,7 +37,20 @@ class Arrival extends React.Component {
             <article className="main">
                 <div className="module-app">
                     <div className="module-tabs">
-                        tabs
+                        <ul className="tabs">
+                            <li className="item">位置显示</li>
+                            <li className="item">车次(列)显示</li>
+                            <li className="item">
+                                <label className="for">口岸:</label>
+                                <select className="select">
+                                    <option value="">全部</option>
+                                    <option value="1">满洲里</option>
+                                    <option value="2">缨芬河</option>
+                                    <option value="2">二连浩特</option>
+                                    <option value="2">其他</option>
+                                </select>
+                            </li>
+                        </ul>
                     </div>
                     {this.props.children}
                 </div>

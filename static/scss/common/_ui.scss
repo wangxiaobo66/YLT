@@ -59,7 +59,8 @@
 
 .ui-select {
     width: 100%;
-    height: px(48px);
+    height: px(52px);
+    line-height: px(52px);
     border: 1px solid $color-border;
     padding-left: px(48px);
     background-color: #fff;
@@ -121,6 +122,7 @@
                 span {
                     @extend %padding-tp;
                     text-align: center;
+                    font-size: 15px;
                 }
 
                 &--select {

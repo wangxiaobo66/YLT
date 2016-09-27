@@ -7,7 +7,7 @@
 import gulp from 'gulp';
 import gulpWebpack from 'gulp-webpack';
 
-import webpackConfigBase from '../webpack/webpack.config.base';
+import webpackConfigBase from '../../webpack.config.babel';
 
 const path = require('path');
 const scp = require('gulp-scp2');
