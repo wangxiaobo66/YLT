@@ -100,7 +100,7 @@ export class Arrival extends React.Component {
                 );
                 data.map((obj,index) => {
                     listdom.push(
-                        <div key={"div-head" + index} className={"div" +(index%2?"":" active")}>
+                        <div key={"div-head" + index} className="div-col">
                             <span>{obj.tailNumber}</span>
                             <span>{obj.length}</span>
                             <span>{obj.varieties}</span>
@@ -122,7 +122,7 @@ export class Arrival extends React.Component {
                 );
                 dataYlt.map((obj,index) => {
                     listdom.push(
-                        <div key={"seat-div-head"+index} className="div-col">
+                        <div key={"div-head"+index} className="div-col">
                             <span>{obj.time}</span>
                             <span>{obj.seat}</span>
                             <span>{obj.tailNumber}</span>

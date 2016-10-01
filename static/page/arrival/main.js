@@ -20,23 +20,29 @@ import {YLT} from '../../redux/reducers';
 import AddUpdate from './addUpdate/main';
 import Detail from './detail/main';
 import ListSeat from './list/Seat';
-import ListTrain from './list/train';
+import ListTrain from './list/Train';
+import ListPosition from './list/Position';
 import Report from './report/main';
 
 let store = createStore(YLT, applyMiddleware(thunk));
 
 const TAB_SEAT = 1;
 const TAB_TRAIN = 2;
+const TAB_POSITION = 3;
 
 class Arrival extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            current: ''
+            currentTab: TAB_SEAT
         };
     }
-    tab(event) {
 
+    tab(currentTab, event) {
+        this.setState({
+            currentTab: currentTab
+        });
     }
 
     render() {
@@ -46,22 +52,28 @@ class Arrival extends React.Component {
                     <div className="module-tabs">
                         <ul className="tabs">
                             <li className="item">
-                                <Link className="item-link item-link--active"
-                                      onClick={this.tab.bind(this, '')}
+                                <Link className={'item-link' + (this.state.currentTab === TAB_SEAT ? ' item-link--active': '')}
+                                      onClick={this.tab.bind(this, TAB_SEAT)}
                                       to={`/seat`}>位置显示</Link>
                             </li>
                             <li className="item">
-                                <Link className="item-link" to={`/train`}>车次(列)显示</Link>
+                                <Link className={'item-link' + (this.state.currentTab === TAB_TRAIN ? ' item-link--active': '')}
+                                      onClick={this.tab.bind(this, TAB_TRAIN)}
+                                      to={`/train`}>车次(列)显示</Link>
                             </li>
                             <li className="item">
-                                <label className="for">口岸:</label>
-                                <select className="select">
-                                    <option value="">全部</option>
-                                    <option value="1">满洲里</option>
-                                    <option value="2">缨芬河</option>
-                                    <option value="2">二连浩特</option>
-                                    <option value="2">其他</option>
-                                </select>
+                                <Link className={'item-link' + (this.state.currentTab === TAB_POSITION ? ' item-link--active': '')}
+                                      onClick={this.tab.bind(this, TAB_POSITION)}
+                                      to={`/position`}>
+                                    <label className="for">口岸:</label>
+                                    <select className="select">
+                                        <option value="">全部</option>
+                                        <option value="1">满洲里</option>
+                                        <option value="2">缨芬河</option>
+                                        <option value="2">二连浩特</option>
+                                        <option value="2">其他</option>
+                                    </select>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -87,6 +99,7 @@ ReactDom.render(
                 <Route path="detail" component={Detail} />
                 <Route path="seat" component={ListSeat} />
                 <Route path="train" component={ListTrain} />
+                <Route path="position" component={ListPosition} />
                 <Route path="report" component={Report} />
             </Route>
         </Router>
