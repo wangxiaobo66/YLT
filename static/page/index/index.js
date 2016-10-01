@@ -73,13 +73,22 @@ class component extends React.Component {
                                     href="javascript:;">发布求购信息</a></div>
                             </div>
                             <div className="swiper-slide">
-                                <Arrival place={'list'}/>
-                                <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
-                                    href="javascript:;">查看全部到货信息</a></div>
-                                <Arrival place={'train'}/>
-                                <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
-                                    href="javascript:;">其它货场位置查询</a></div>
-                                <Arrival place={'seat'}/>
+                                <div className="card-item clearfix">
+                                    <Arrival place={'seat'}/>
+                                    <div className="switch-all">
+                                        <img src="../../static/page/index/img/right-icon.png"/>
+                                        <a href="/template/arrival/arrival.html">查看全部到货信息</a>
+                                    </div>
+                                </div>
+                                <div className="card-item clearfix">
+                                    <div key="div-title" className="title-div">伊利托今天进车组</div>
+                                    <Arrival place={'default'}/>
+                                </div>
+
+                                <div className="switch-all">
+                                    <img src="../../static/page/index/img/right-icon.png"/>
+                                    <a href="javascript:;">其它货场位置查询</a>
+                                </div>
                             </div>
                             <div className="swiper-slide">
                                 <div className="service">

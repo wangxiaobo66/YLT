@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import {Arrival} from '../../../component/Arrival/Arrival';
 
 export default class ListTrain extends React.Component {
     constructor(props) {
@@ -18,8 +19,8 @@ export default class ListTrain extends React.Component {
     }
     render() {
         return(
-            <div className="module-list-train">
-                车次列表
+            <div className="module-list module-list-train">
+                <Arrival place={'train'} />
             </div>
         );
     }
