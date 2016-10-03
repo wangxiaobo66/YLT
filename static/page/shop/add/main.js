@@ -6,6 +6,7 @@
 
 import React from 'react';
 import {Button} from 'react-bootstrap';
+import Upload from '../../../component/Upload/Upload';
 
 export default class Chepihao extends React.Component {
     constructor(props) {
@@ -21,18 +22,7 @@ export default class Chepihao extends React.Component {
         return(
             <div className="module-shop-add">
                 <header className="header">
-                    <div className="logo">
-                        <div className="logo-box">
-                            <div className="info-box">
-                                <div className="info">
-                                    <p className="icon-box">
-                                        <i className="icon icon-plus"></i>
-                                    </p>
-                                    <p className="info-tip">添加logo</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <Upload tip="添加logo" />
                 </header>
                 <article className="article">
                     <div className="article-box">

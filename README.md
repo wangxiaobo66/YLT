@@ -77,17 +77,24 @@ koa等一系列相关插件
 
 ### 所有页面
 
-* 新增订阅: http://localhost:9997/template/subscribe/subscribe.html
-* 新增订阅之规格订阅: http://localhost:9997/template/subscribe/subscribe.html#/gg
-* 新增订阅之车皮号订阅: http://localhost:9997/template/subscribe/subscribe.html#/cph (这块儿涉及到铁路, 进程待定)
-
-* 铁路运费: http://localhost:9997/template/railway/railway.html (暂时废弃)
-
+* 到货列表: http://localhost:9997/template/arrival/arrival.html
+* 木材求购(3个页面, 待完善): http://localhost:9997/template/ask-buy/ask-buy.html
+* 忘记密码: http://localhost:9997/template/forget/forget.html
+* 首页: http://localhost:9997/template/index/index.html
+* 登陆: http://localhost:9997/template/login/login.html
+* 未售市场(3个页面, 待完善): http://localhost:9997/template/market/market.html
+* 我的: http://localhost:9997/template/mine/mine.html
+* 登出: http://localhost:9997/template/out-login/out-login.html
+* 铁路运费 (暂时废弃, 依赖铁路接口): http://localhost:9997/template/railway/railway.html
+* 注册: http://localhost:9997/template/register/register.html
+* 搜素页(3个页面, 待完善): http://localhost:9997/template/search/search.html
 * 全部店铺: http://localhost:9997/template/shop/shop.html
 * 店铺主页: http://localhost:9997/template/shop/shop.html#/home
 * 店铺详情: http://localhost:9997/template/shop/shop.html#/detail
 * 新增店铺: http://localhost:9997/template/shop/shop.html#/add
-
+* 新增订阅: http://localhost:9997/template/subscribe/subscribe.html
+* 新增订阅之规格订阅: http://localhost:9997/template/subscribe/subscribe.html#/gg
+* 新增订阅之车皮号订阅: http://localhost:9997/template/subscribe/subscribe.html#/cph (这块儿涉及到铁路, 进程待定)
 
 ### changelog
 

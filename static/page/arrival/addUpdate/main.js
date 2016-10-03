@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import Upload from '../../../component/Upload/Upload';
 
 export default class Chepihao extends React.Component {
     constructor(props) {
@@ -19,9 +20,11 @@ export default class Chepihao extends React.Component {
     render() {
         return(
             <div className="module-add">
-                添加的表单
+                <div className="header">
+                    <Upload tip="添加图片" />
+                </div>
                 <footer className="footer">
-                    <a href="javascript:;" className="ui-btn ui-btn-fixed">上传境外码单</a>
+                    <a href="javascript:;" className="ui-btn ui-btn-fixed">发布境外码单</a>
                 </footer>
             </div>
         );

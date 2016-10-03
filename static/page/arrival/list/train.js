@@ -5,7 +5,10 @@
  */
 
 import React from 'react';
+import {Link} from 'react-router';
 import {Arrival} from '../../../component/Arrival/Arrival';
+import Tab from './Tab';
+import {TAB_TRAIN} from '../constants';
 
 export default class ListTrain extends React.Component {
     constructor(props) {
@@ -20,7 +23,9 @@ export default class ListTrain extends React.Component {
     render() {
         return(
             <div className="module-list module-list-train">
+                <Tab type={TAB_TRAIN} />
                 <Arrival place={'train'} />
+                <Link className="ui-btn ui-btn-fixed" to={`/add`}>上传境外码单</Link>
             </div>
         );
     }
