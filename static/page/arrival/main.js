@@ -18,10 +18,11 @@ import {YLT} from '../../redux/reducers';
 
 // 引入子页面
 import AddUpdate from './addUpdate/main';
-import Detail from './detail/main';
 import ListSeat from './list/Seat';
 import ListTrain from './list/Train';
 import ListPosition from './list/Position';
+import Item from './item/main';
+import Detail from './detail/main';
 import Report from './report/main';
 
 let store = createStore(YLT, applyMiddleware(thunk));
@@ -58,6 +59,7 @@ ReactDom.render(
             <Route path="/" component={App}>
                 <IndexRoute component={ListSeat} />
                 <Route path="add" component={AddUpdate} />
+                <Route path="item" component={Item} />
                 <Route path="detail" component={Detail} />
                 <Route path="seat" component={ListSeat} />
                 <Route path="train" component={ListTrain} />

@@ -63,7 +63,7 @@ gulp.task('server:hot', function () {
                     host: 'localhost'
                 },
                 {
-                    path: "*.less",
+                    path: "*.scss",
                     target: "http://localhost:" + PORT_HAPI,
                     host: "localhost"
                 }
@@ -106,7 +106,7 @@ gulp.task('server:hot', function () {
                     //    reply.file(fileInfo.filePath);
                     //    break;
 
-                    case 'less':
+                    case 'scss':
                         gulp.src(fileInfo.filePath)
                             .pipe(gulpSourcemaps.init())
                             .pipe(gulpLess())

@@ -23,7 +23,7 @@ export default class AddUpdate extends React.Component {
 
     }
     render() {
-        return(
+        return (
             <div className="module-add">
                 <Upload tip="添加图片" />
                 <div className="content">
@@ -41,20 +41,18 @@ export default class AddUpdate extends React.Component {
                     <div className="ui-title">
                         <h3 className="text">选择规格</h3>
                     </div>
-                    <form className="ui-form info-bd">
-                        <div className="item">
-                            <label>
-                                <div className="for">材质</div>
-                                <div className="input-box input-box--select">
-                                    <select className="ui-select">
-                                        <option value="请选择店铺类型">请选择</option>
-                                        <option value="1">请选择</option>
-                                        <option value="2">机械设备</option>
-                                    </select>
-                                </div>
-                            </label>
+                    <div className="info-bd">
+                        <ul className="list">
+                            <li className="item">
+                                <input type="radio" />
+                                <span className="text">2.5米&nbsp;樟子松&nbsp;原木&nbsp;13中选材</span>
+                            </li>
+                        </ul>
+                        <div className="add">
+                            <i className="icon icon-plus"></i>
+                            <span className="text">添加新规格参数</span>
                         </div>
-                    </form>
+                    </div>
                     <form className="ui-form info-ft">
                         <div className="item">
                             <label>
@@ -104,14 +102,14 @@ export default class AddUpdate extends React.Component {
                     <div className="detail">
                         <div className="title">
                             <span className="text">详细信息</span>
-                            {
+                            {/*
                                 this.state.isSlide === true ?
                                     <i className="icon icon-slide-up" onClick={this.toggleSlide.bind(this)}></i>
                                     :
                                     <i className="icon icon-slide-down" onClick={this.toggleSlide.bind(this)}></i>
-                            }
+                            */}
                         </div>
-                        <form className={'ui-form ui-form-gray' + (this.state.isSlide === false ? ' fn-none' : '')}>
+                        <form className="ui-form">
                             <div className="item">
                                 <label>
                                     <div className="for">总货量</div>
@@ -248,6 +246,9 @@ export default class AddUpdate extends React.Component {
                                 </div>
                             </div>
                         </form>
+                        <div className="ui-title fn-mt10">
+                            <h3 className="text">具体描述</h3>
+                        </div>
                         <form className="ui-form ui-form-textarea">
                             <div className="item">
                                 <label>

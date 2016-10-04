@@ -20,11 +20,16 @@ export default class ListLocation extends React.Component {
     componentDidMount() {
 
     }
+    goToItem(id) {
+        
+    }
     render() {
         return(
             <div className="module-list module-list-seat clearfix">
                 <Tab type={TAB_SEAT} />
-                <Arrival place={'seat'}/>
+                <Link to={`/item`}>
+                    <Arrival place={'seat'} onClickItem={this.goToItem.bind(this)} />
+                </Link>
                 <Link className="ui-btn ui-btn-fixed" to={`/add`}>上传境外码单</Link>
             </div>
         );

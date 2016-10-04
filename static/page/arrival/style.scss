@@ -10,7 +10,22 @@ body {
     background-color: $color-bg;
 }
 
+@mixin detailTitle() {
+    padding: 10px 0;
+    background-color: #fff;
+    text-align: center;
+    border-bottom: 1px $color-border solid;
+    .text {
+        margin-right: 5px;
+    }
+    .icon {
+        color: $color-link;
+        font-size: 14px;
+    }
+}
+
 @import "addUpdate/style";
-@import "detail/style";
 @import "list/style";
+@import "item/style";
+@import "detail/style";
 @import "report/style";

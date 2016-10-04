@@ -1,16 +1,15 @@
 /**
  * @file
  * @auth jinguangguo
- * @date 2016/10/1
+ * @date 2016/10/4
  */
 
 import React from 'react';
 import {Link} from 'react-router';
 import {Arrival} from '../../../component/Arrival/Arrival';
-import Tab from './Tab';
-import {TAB_POSITION} from '../constants';
+import TipSuccess from '../../../component/TipSuccess/TipSuccess';
 
-export default class ListLocation extends React.Component {
+export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,12 +21,11 @@ export default class ListLocation extends React.Component {
     }
     render() {
         return(
-            <div className="module-list module-list-seat clearfix">
-                <Tab type={TAB_POSITION} />
-                <Link to={`/item`}>
+            <div className="module-item clearfix">
+                <Link to={`/detail`}>
                     <Arrival place={'default'} />
                 </Link>
-                <Link className="ui-btn ui-btn-fixed" to={`/add`}>上传境外码单</Link>
+                <TipSuccess msg="0802" />
             </div>
         );
     }

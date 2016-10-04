@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.4;
     background-color: $color-bg;
 }
@@ -38,4 +38,21 @@ label {
 
 td {
     word-break: break-all;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    border: 1px $color-link solid;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+input[type="radio"] {
+    &:checked {
+        border: 5px $color-link solid;
+        background-color: #fff;
+    }
 }
