@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import {Button} from 'react-bootstrap';
+import {Link} from 'react-router';
 import Title from '../../../component/Title/Title';
 import Text from '../../../component/Text/Text';
 
@@ -69,7 +69,7 @@ export default class Detail extends React.Component {
                     <div className="do">
                         <div className="ui-tab">
                             <a href="javascript:;" className="item">分享</a>
-                            <a href="javascript:;" className="item">举报</a>
+                            <Link className="item" to={`/report`}>举报</Link>
                         </div>
                     </div>
                 </div>
