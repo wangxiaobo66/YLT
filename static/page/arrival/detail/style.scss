@@ -5,22 +5,50 @@
  */
 
 .module-detail {
-    >.content {
-        font-size: 14px;
-        .info {
-            padding: 10px;
-            border-bottom: 1px $color-border solid;
-            background-color: #fff;
+    padding-bottom: 60px;
+    .detail-box {
+        padding: 8px;
+        >.content {
+            font-size: 13px;
+            .info {
+                padding: 10px;
+                border-bottom: 1px $color-border solid;
+                background-color: #fff;
+            }
+        }
+        .detail {
+            >.title {
+                @include detailTitle;
+            }
+            >.content {
+                font-size: 13px;
+                >.Text-component {
+                    background-color: #f5f4f4;
+                }
+            }
+        }
+        .do {
+            .ui-tab {
+                padding: 12px 0;
+                background-color: #fff;
+                .item {
+                    color: $color-link;
+                    border-right: 1px $color-border solid;
+                    &:last-child {
+                        border-right: 0 none;
+                    }
+                }
+            }
         }
     }
-    .detail {
-        >.title {
-            @include detailTitle;
-        }
-        >.content {
-            >.Text-component {
-                background-color: #f5f4f4;
-            }
+    .footer {
+        .btn-care {
+            display: inline-block;
+            padding: 3px;
+            font-size: 12px;
+            background-color: #fff;
+            border-radius: 3px;
+            color: $color-link;
         }
     }
 }
