@@ -3,3 +3,30 @@
  * @auth jinguangguo
  * @date 2016/9/24
  */
+
+.module-add {
+    padding-bottom: 60px;
+    .info-tp {
+        margin: 5px 0;
+    }
+    .info-bd{
+
+    }
+    .info-ft {
+        margin: 10px 0;
+    }
+    .detail {
+        .title {
+            padding: 10px 0;
+            background-color: #fff;
+            text-align: center;
+            .text {
+                margin-right: 5px;
+            }
+            .icon {
+                color: $color-link;
+                font-size: 14px;
+            }
+        }
+    }
+}

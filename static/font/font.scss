@@ -35,6 +35,12 @@
 @if $filename == right {
     $char: "\E003";
 }
+@if $filename == slide-down {
+    $char: "\E004";
+}
+@if $filename == slide-up {
+    $char: "\E005";
+}
 
 @return $char;
 }
@@ -58,4 +64,10 @@
 }
 .icon-right {
     @include icon(right);
+}
+.icon-slide-down {
+    @include icon(slide-down);
+}
+.icon-slide-up {
+    @include icon(slide-up);
 }

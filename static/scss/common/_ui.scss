@@ -4,14 +4,6 @@
  * @date 2016/8/14
  */
 
-.ui-loader {
-
-}
-
-.ui-title {
-
-}
-
 %text {
     background-color: $color-link;
     text-align: center;
@@ -23,6 +15,20 @@
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+.ui-loader {
+
+}
+
+.ui-title {
+    padding: px(20px) px(30px);
+    font-weight: bold;
+    background-color: #fff;
+    .text {
+        border-left: 3px $color-link solid;
+        padding-left: px(30px);
+    }
 }
 
 .ui-btn {
@@ -77,6 +83,12 @@
 
 .ui-form {
     @extend %box;
+    &-gray {
+        background-color: $color-bg;
+        select {
+            background-color: $color-bg;
+        }
+    }
     .item {
         padding-left: px(30px);
         border-bottom: 1px $color-border solid;
@@ -148,6 +160,7 @@
                         box-sizing: border-box;
                         width: 100%;
                         padding: 8px;
+                        background-color: #fff;
                     }
                 }
             }
