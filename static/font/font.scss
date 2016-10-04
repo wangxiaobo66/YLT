@@ -26,20 +26,29 @@
 @function icon-char($filename) {
     $char: "";
 
-@if $filename == location {
+@if $filename == identity {
     $char: "\E001";
 }
-@if $filename == plus {
+@if $filename == location {
     $char: "\E002";
 }
-@if $filename == right {
+@if $filename == love {
     $char: "\E003";
 }
-@if $filename == slide-down {
+@if $filename == plus {
     $char: "\E004";
 }
-@if $filename == slide-up {
+@if $filename == right {
     $char: "\E005";
+}
+@if $filename == setting {
+    $char: "\E006";
+}
+@if $filename == slide-down {
+    $char: "\E007";
+}
+@if $filename == slide-up {
+    $char: "\E008";
 }
 
 @return $char;
@@ -56,14 +65,23 @@
     }
 }
 
+.icon-identity {
+    @include icon(identity);
+}
 .icon-location {
     @include icon(location);
+}
+.icon-love {
+    @include icon(love);
 }
 .icon-plus {
     @include icon(plus);
 }
 .icon-right {
     @include icon(right);
+}
+.icon-setting {
+    @include icon(setting);
 }
 .icon-slide-down {
     @include icon(slide-down);

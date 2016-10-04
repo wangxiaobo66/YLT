@@ -24,7 +24,8 @@ module.exports = {
         'page-subscribe': ['./static/page/subscribe/main.js'],  // 新增订阅
         'page-railway': ['./static/page/railway/main.js'],  // 铁路运费
         'page-shop': ['./static/page/shop/main.js'],   // 全部店铺
-        'page-arrival': ['./static/page/arrival/main.js']
+        'page-arrival': ['./static/page/arrival/main.js'],  // 到货列表
+        'page-mine': ['./static/page/mine/main.js']
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
