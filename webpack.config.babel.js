@@ -11,7 +11,6 @@ var CommonsVersionPlugin = require('commons-version-webpack-plugin');
 
 module.exports = {
     entry: {
-        'index': ['./static/js/index.js'],
         'page-login': ['./static/page/login/login.js'],//登陆
         'page-out-login':['./static/page/out-login/out-login.js'],//登录站外
         'page-forget':['./static/page/forget/forget.js'],//忘记密码

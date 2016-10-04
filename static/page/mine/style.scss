@@ -3,3 +3,20 @@
  * @auth jinguangguo
  * @date 2016/10/4
  */
+
+@import "../../scss/base";
+
+body {
+    background-color: $color-bg;
+}
+
+@import './Feedback/style';
+@import "Index/style";
+@import "Info/style";
+@import "MsgChat/style";
+@import "MsgList/style";
+@import "MyAskBuy/style";
+@import "MyCare/style";
+@import "MyMarket/style";
+@import "MyService/style";
+@import "Setting/style";
