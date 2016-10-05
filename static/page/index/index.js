@@ -19,6 +19,27 @@ const thunk = require('redux-thunk').default;
 let store = createStore(YLT, applyMiddleware(thunk));
 
 
+let dataAskBuys = [
+    {
+        "region": "满洲里",
+        "time": "08-03 22:06",
+        "name": "落叶松",
+        "size": "六米",
+        "type": "原木",
+        "diam": "20",
+        "level": "一级"
+    },
+    {
+        "region": "满洲里",
+        "time": "08-03 22:06",
+        "name": "落叶松",
+        "size": "六米",
+        "type": "原木",
+        "diam": "20",
+        "level": "一级"
+    }
+];
+
 //let { change } = require('./actions');
 class component extends React.Component {
     constructor(props) {
@@ -66,7 +87,11 @@ class component extends React.Component {
                                     href="javascript:;">发布未售信息</a></div>
                             </div>
                             <div className="swiper-slide">
-                                <AskBuy />
+                                {
+                                    dataAskBuys.map(function (item, index) {
+                                        return <AskBuy obj={item} key={index} />;
+                                    })
+                                }
                                 <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
                                     href="/template/ask-buy/ask-buy.html">查看全部求购信息</a></div>
                                 <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a

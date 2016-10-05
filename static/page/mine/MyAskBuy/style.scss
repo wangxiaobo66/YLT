@@ -3,3 +3,31 @@
  * @auth jinguangguo
  * @date 2016/10/4
  */
+
+.module-ask-buy {
+    padding: 10px 8px;
+
+    $height: 68px;
+    .list {
+        >.item {
+            margin-bottom: 8px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            .AskBuy-component {
+                float: left;
+                width: 87%;
+                height: $height;
+            }
+            .ui-do {
+                float: left;
+                width: 13%;
+                height: $height;
+                line-height: $height;
+            }
+            .ui-tab {
+                clear: both;
+            }
+        }
+    }
+}
