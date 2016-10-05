@@ -8,6 +8,11 @@
 
 }
 
+.ui-nav {
+
+}
+
+// 我的消息 - 个数显示
 .ui-num {
     display: inline-block;
     width: 14px;
@@ -22,6 +27,7 @@
     font-style: normal;
 }
 
+// 所有的卡片标题
 .ui-title {
     padding: px(20px) px(30px);
     font-weight: bold;
@@ -33,6 +39,7 @@
     }
 }
 
+// 我的, 确定和取消按钮
 .ui-btn-groups {
     margin-top: 145px;
     padding: 0 8%;
@@ -125,6 +132,7 @@
     }
 }
 
+// 所有表单
 .ui-form {
     @extend %box;
     &-gray {
@@ -208,6 +216,7 @@
     }
 }
 
+// 详情显示
 .ui-card {
     @extend %box;
     &--right {
@@ -242,11 +251,22 @@
     }
 }
 
-// 我的
+// 我的 - 操作
 .ui-do {
     display: inline-block;
     @extend %text-link;
     &-cancel {
-
+        background-color: #e7e5e5;
+        color: $color-link;
     }
+}
+
+// 我的 - 角标
+.ui-point {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px #e6e6e6 solid;
 }

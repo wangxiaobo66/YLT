@@ -19,7 +19,7 @@ export default class Item extends React.Component {
     }
     render() {
         return (
-            <div className="module-msg-list">
+            <div className="module-care">
 
             </div>
         );

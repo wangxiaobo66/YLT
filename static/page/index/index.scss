@@ -1,6 +1,10 @@
 @import "../../scss/base";
 
 .modal-index {
+    .component {
+        width: 96%;
+        margin: 5px auto;
+    }
     .card-item {
         margin-top: 10px;
         background-color: $color-bg;

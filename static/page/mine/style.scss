@@ -10,6 +10,32 @@ body {
     background-color: $color-bg;
 }
 
+@mixin doItem($height) {
+    padding: 10px 8px;
+    .list {
+        >.item {
+            margin-bottom: 8px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            .component {
+                float: left;
+                width: 87%;
+                height: $height;
+            }
+            .ui-do {
+                float: left;
+                width: 13%;
+                height: $height;
+                line-height: $height;
+            }
+            .ui-tab {
+                clear: both;
+            }
+        }
+    }
+}
+
 @import './Feedback/style';
 @import "Index/style";
 @import "Info/style";

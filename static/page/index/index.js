@@ -40,6 +40,31 @@ let dataAskBuys = [
     }
 ];
 
+let dataMarkets = [
+    {
+        "imgSrc": "../../static/component/Market/img/ys.png",
+        "name": "落叶松1",
+        "size": "六米",
+        "type": "原木",
+        "currentPosition": "明斯克",
+        "Destination": "满洲里",
+        "pubDate": "9-30|10:01",
+        "diam": "20",
+        "level": "一级"
+    },
+    {
+        "imgSrc": "../../static/component/Market/img/ys.png",
+        "name": "落叶松2",
+        "size": "三米",
+        "type": "原木",
+        "currentPosition": "明斯克",
+        "destination": "满洲里",
+        "pubDate": "9-30|10:01",
+        "diam": "20",
+        "level": "一级"
+    }
+];
+
 //let { change } = require('./actions');
 class component extends React.Component {
     constructor(props) {
@@ -80,7 +105,11 @@ class component extends React.Component {
                         <a href="javascript:;" className="switch-active"></a>
                         <div className="swiper-wrapper">
                             <div className="swiper-slide">
-                                <Market />
+                                {
+                                    dataMarkets.map(function (item, index) {
+                                        return <Market obj={item} key={index} />;
+                                    })
+                                }
                                 <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
                                     href="/template/market/market.html">查看全部未售市场</a></div>
                                 <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a

@@ -34,7 +34,7 @@ export class AskBuy extends React.Component {
     render() {
         let obj = this.props.obj;
         return (
-            <div className="AskBuy-component">
+            <div className="component AskBuy-component">
                 <div className="box">
                     <div className="left">
                         <p className="title">
@@ -50,7 +50,6 @@ export class AskBuy extends React.Component {
                         <p><span>直径:{obj.diam}</span><span>长度:{obj.level}</span></p>
                     </div>
                 </div>
-                <em className="point"></em>
             </div>
         );
 

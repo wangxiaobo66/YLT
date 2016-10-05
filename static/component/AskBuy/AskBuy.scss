@@ -2,19 +2,8 @@
 .AskBuy-component {
     position: relative;
     padding: 13px 0;
-    background-color: #fafafa;
+    background-color: #fff;
     line-height: 1.5;
-    .point {
-        position: absolute;
-        left: 5px;
-        top: 5px;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        box-sizing: border-box;
-        background-color: #fff;
-        border: 1px #e6e6e6 solid;
-    }
     .box {
         box-sizing: border-box;
         border-radius: 4px;
