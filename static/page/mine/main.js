@@ -21,7 +21,9 @@ import Index from './Index/main';
 import Feedback from './Feedback/main';
 
 import Info from './Info/main';
-import InfoAddress from './Info/Arress';
+import InfoPhone from './Info/Phone';
+import InfoAddressProvince from './Info/AdrressProvince';
+import InfoAddressCity from './Info/AdrressCity';
 import InfoCare from './Info/Care';
 import InfoCompany from './Info/Company';
 import InfoMobile from './Info/Mobile';
@@ -70,7 +72,9 @@ ReactDom.render(
             <Route path="/" component={App}>
                 <IndexRoute component={Index} />
                 <Route path="info" component={Info} />
-                <Route path="info_address" component={InfoAddress} />
+                <Route path="info_phone" component={InfoPhone} />
+                <Route path="info_province" component={InfoAddressProvince} />
+                <Route path="info_city" component={InfoAddressCity} />
                 <Route path="info_care" component={InfoCare} />
                 <Route path="info_campany" component={InfoCompany} />
                 <Route path="info_mobile" component={InfoMobile} />

@@ -5,5 +5,55 @@
  */
 
 .module-index {
+    padding-top: 10px;
+    >.content {
+        >.content-grid {
+            .list {
+                padding: 10px 10px 5px 10px;
+                .item {
+                    float: left;
+                    width: 49%;
+                    &:nth-child(2n) {
+                        float: right;
+                    }
+                    .item-link {
+                        display: block;
+                        margin-bottom: 5px;
+                        padding: 12px 10px;
+                        background-color: #fff;
+                        text-align: center;
+                        color: $color-link;
+                    }
+                }
+            }
+        }
+        >.content-row {
+            border-top: 1px $color-border solid;
+            border-bottom: 1px $color-border solid;
+            .list {
+                font-size: 15px;
+                .item {
+                    padding-left: 15px;
+                    background-color: #fff;
+                    border-bottom: 1px $color-border solid;
+                    .allow {
+                        float: right;
+                        width: 40px;
+                        height: 40px;
+                        line-height: 40px;
+                        text-align: center;
+                    }
+                    .info {
+                        padding: 7px 0;
+                        .icon {
+                            font-size: 18px;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
 
 }
