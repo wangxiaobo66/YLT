@@ -23,6 +23,15 @@
                         background-color: #fff;
                         text-align: center;
                         color: $color-link;
+                        .text {
+                            position: relative;
+                            .ui-num {
+                                position: absolute;
+                                top: -30%;
+                                left: 100%;
+
+                            }
+                        }
                     }
                 }
             }

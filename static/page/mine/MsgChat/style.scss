@@ -3,3 +3,50 @@
  * @auth jinguangguo
  * @date 2016/10/4
  */
+
+.module-msg-chat {
+    padding: 20px 15px;
+    .list {
+        color: $color-font-gray;
+        .item {
+            margin-bottom: 20px;
+            .time {
+                margin-bottom: 12px;
+                text-align: center;
+                .time-box {
+                    display: inline-block;
+                    padding: 2px 15px;
+                    border-radius: 10px;
+                    background-color: #dedede;
+                    color: #fff;
+                }
+            }
+            .detail {
+                .img-box {
+                    width: 50px;
+                    text-align: center;
+                    .name {
+                        @include ellipsis-box(2);
+                    }
+                }
+                .info {
+                    max-width: 150px;
+                    padding: 8px;
+                    background-color: #fff;
+                    word-break: break-all;
+                }
+            }
+
+            &-left {
+                .img-box, .info {
+                    float: left;
+                }
+            }
+            &-right {
+                .img-box, .info {
+                    float: right;
+                }
+            }
+        }
+    }
+}

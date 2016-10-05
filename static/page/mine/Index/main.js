@@ -29,8 +29,7 @@ export default class Item extends React.Component {
                         <ul className="list clearfix">
                             <li className="item">
                                 <Link className="item-link" to={`/msg_list`}>
-                                    <span className="text">我的消息</span>
-                                    <em className="msg-num">2</em>
+                                    <span className="text">我的消息<em className="ui-num">2</em></span>
                                 </Link>
                             </li>
                             <li className="item">

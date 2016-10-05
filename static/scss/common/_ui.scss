@@ -8,6 +8,20 @@
 
 }
 
+.ui-num {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    background-color: #fe9f9f;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    transform: rotate(15deg);
+    font-style: normal;
+}
+
 .ui-title {
     padding: px(20px) px(30px);
     font-weight: bold;
@@ -29,7 +43,6 @@
             margin-bottom: 0;
         }
     }
-
 }
 
 .ui-btn {

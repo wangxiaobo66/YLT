@@ -3,3 +3,47 @@
  * @auth jinguangguo
  * @date 2016/10/4
  */
+
+.module-msg-list {
+    padding: 10px 8px;
+    .list {
+        .item {
+            margin-bottom: 8px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            .item-link {
+                display: block;
+                background-color: #fff;
+                padding: 10px 8px;
+                .img {
+                    float: left;
+                }
+                .info {
+                    margin-left: 60px;
+                    .title {
+                        font-size: 15px;
+                        .ui-num {
+                            float: right;
+                            margin-top: 2px;
+                        }
+                    }
+                    .detail {
+                        display: flex;
+                        margin-top: 2px;
+                        font-size: 13px;
+                        color: $color-font-gray;
+                        .msg {
+                            flex: 1;
+
+                        }
+                        .time {
+                            flex: 1;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
