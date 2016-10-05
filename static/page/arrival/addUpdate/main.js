@@ -67,9 +67,11 @@ export default class AddUpdate extends React.Component {
                                 <div className="for">目标口岸</div>
                                 <div className="input-box input-box--select">
                                     <select className="ui-select">
-                                        <option value="请选择店铺类型">请选择店铺类型</option>
-                                        <option value="1">木材销售</option>
-                                        <option value="2">机械设备</option>
+                                        <option value="">全部</option>
+                                        <option value="1">满洲里</option>
+                                        <option value="2">缨芬河</option>
+                                        <option value="2">二连浩特</option>
+                                        <option value="2">其他</option>
                                     </select>
                                 </div>
                             </label>

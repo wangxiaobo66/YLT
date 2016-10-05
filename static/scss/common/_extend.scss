@@ -6,8 +6,15 @@
 
 %text-link {
     background-color: $color-link;
-    text-align: center;
     color: #fff;
+    text-align: center;
+}
+
+%text-link-white {
+    border: 1px $color-link solid;
+    background-color: transparent;
+    color: $color-link;
+    text-align: center;
 }
 
 %ffull {

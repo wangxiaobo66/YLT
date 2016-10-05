@@ -22,12 +22,14 @@ a {
     outline: none;
     color: $color-font;
 
-    &:hover {
+    &:hover,
+    &:active {
         text-decoration: none;
+        color: $color-font;
     }
 
     &:focus {
-        border: none;
+        outline: 0 none;
     }
 }
 

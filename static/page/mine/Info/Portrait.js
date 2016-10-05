@@ -1,11 +1,12 @@
 /**
  * @file
  * @auth jinguangguo
- * @date 2016/10/4
+ * @date 2016/10/5
  */
 
 import React from 'react';
 import {Link} from 'react-router';
+import Upload from '../../../component/Upload/Upload';
 import mixins from './mixins';
 
 export default React.createClass({
@@ -24,17 +25,7 @@ export default React.createClass({
     render() {
         return (
             <div className="module-info-detail">
-                <form className="ui-form">
-                    <div className="item">
-                        <label>
-                            <div className="for">昵称</div>
-                            <div className="input-box">
-                                <input className="input input-block" type="text"
-                                       placeholder="请输入昵称" />
-                            </div>
-                        </label>
-                    </div>
-                </form>
+                <Upload tip="上传图片" />
                 <div className="ui-btn-groups">
                     <a href="javascript:;" className="ui-btn ui-btn-confirm">确定</a>
                     <a href="javascript:;" className="ui-btn ui-btn-default"

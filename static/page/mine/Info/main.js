@@ -22,40 +22,40 @@ export default class Item extends React.Component {
     render() {
         return (
             <div className="module-info">
-                <Header text="昵称/手机号" src={imgLogo} href="/info_phone" />
+                <Header text="头像" src={imgLogo} href="/info_portrait" />
                 <div className="ui-card ui-card--right fn-mt10">
-                    <div className="item">
+                    <Link className="item" to="info_nickname">
                         <label>昵称</label>
                         <div className="text">我是昵称</div>
-                    </div>
-                    <div className="item">
+                    </Link>
+                    <Link className="item" to="info_name">
                         <label>姓名</label>
                         <div className="text">我是姓名</div>
-                    </div>
-                    <div className="item">
+                    </Link>
+                    <Link className="item" to="info_mobile">
                         <label>手机号</label>
                         <div className="text">我是手机号</div>
-                    </div>
+                    </Link>
                 </div>
                 <div className="ui-card ui-card--right fn-mt10">
-                    <div className="item">
+                    <Link className="item" to="info_company">
                         <label>公司信息</label>
                         <div className="text">某某科技有限公司</div>
-                    </div>
-                    <div className="item">
+                    </Link>
+                    <Link className="item" to="info_care">
                         <label>关注口岸</label>
                         <div className="text">这里是我的口岸</div>
-                    </div>
+                    </Link>
                 </div>
                 <div className="ui-card ui-card--right fn-mt10">
-                    <div className="item">
+                    <Link className="item" to="info_address">
                         <label>省份</label>
                         <div className="text">我是省份</div>
-                    </div>
-                    <div className="item">
+                    </Link>
+                    <Link className="item" to="info_address">
                         <label>城市</label>
-                        <div className="text">我是诚实</div>
-                    </div>
+                        <div className="text">我是城市</div>
+                    </Link>
                 </div>
             </div>
         );

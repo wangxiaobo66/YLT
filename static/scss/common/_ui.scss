@@ -19,12 +19,44 @@
     }
 }
 
+.ui-btn-groups {
+    margin-top: 145px;
+    padding: 0 8%;
+    .ui-btn {
+        display: block;
+        margin-bottom: 15px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+}
+
 .ui-btn {
     height: px(88px);
     line-height: px(88px);
+    padding: 0 5px;
     @extend %text-link;
     &-fixed {
         @extend %ffull;
+    }
+    &-confirm {
+        @extend %text-link;
+        &:link,
+        &:visited,
+        &:hover,
+        &:active {
+            @extend %text-link;
+        }
+    }
+    &-default {
+        @extend %text-link-white;
+        &:link,
+        &:visited,
+        &:hover,
+        &:active {
+            @extend %text-link-white;
+        }
     }
 }
 

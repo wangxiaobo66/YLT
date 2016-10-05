@@ -30,18 +30,7 @@ export default class Chepihao extends React.Component {
                             <h3 className="text">店铺详细信息</h3>
                         </div>
                         <form className="ui-form">
-                            <div className="item">
-                                <label>
-                                    <div className="for">店铺分类</div>
-                                    <div className="input-box input-box--select">
-                                        <select className="ui-select">
-                                            <option value="请选择店铺类型">请选择店铺类型</option>
-                                            <option value="1">木材销售</option>
-                                            <option value="2">机械设备</option>
-                                        </select>
-                                    </div>
-                                </label>
-                            </div>
+                            k
                             <div className="item">
                                 <label>
                                     <div className="for">店铺名称</div>

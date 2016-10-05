@@ -27,7 +27,21 @@ export default React.createClass({
                 <form className="ui-form">
                     <div className="item">
                         <label>
-                            <div className="for">关注口岸</div>
+                            <div className="for">省份</div>
+                            <div className="input-box input-box--select">
+                                <select className="ui-select">
+                                    <option value="">全部</option>
+                                    <option value="1">满洲里</option>
+                                    <option value="2">缨芬河</option>
+                                    <option value="2">二连浩特</option>
+                                    <option value="2">其他</option>
+                                </select>
+                            </div>
+                        </label>
+                    </div>
+                    <div className="item">
+                        <label>
+                            <div className="for">城市</div>
                             <div className="input-box input-box--select">
                                 <select className="ui-select">
                                     <option value="">全部</option>
