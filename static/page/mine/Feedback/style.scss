@@ -3,3 +3,15 @@
  * @auth jinguangguo
  * @date 2016/10/4
  */
+
+.module-feedback {
+    padding-top: 10px;
+    .Upload-component {
+        background-color: $color-bg;
+        .logo {
+            .logo-box {
+                background-color: #fff;
+            }
+        }
+    }
+}

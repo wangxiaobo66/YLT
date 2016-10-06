@@ -85,6 +85,7 @@ ReactDom.render(
                 <Route path="market" component={MyMarket} />
                 <Route path="service" component={MyService} />
                 <Route path="setting" component={Setting} />
+                <Route path="feedback" component={Feedback} />
             </Route>
         </Router>
     </Provider>,

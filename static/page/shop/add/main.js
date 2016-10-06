@@ -30,7 +30,6 @@ export default class Chepihao extends React.Component {
                             <h3 className="text">店铺详细信息</h3>
                         </div>
                         <form className="ui-form">
-                            k
                             <div className="item">
                                 <label>
                                     <div className="for">店铺名称</div>
