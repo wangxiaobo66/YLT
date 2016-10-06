@@ -6,7 +6,7 @@ const util = require('../../js/app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
 
-const { Market } = require('../../component/Market/Market.js');
+import Market from '../../component/Market/Market';
 const { AskBuy } = require('../../component/AskBuy/AskBuy.js');
 const { Arrival } = require('../../component/Arrival/Arrival.js');
 const { Subscribe } = require('../../component/Subscribe/Subscribe.js');
@@ -255,17 +255,17 @@ class component extends React.Component {
                             <div className="swiper-slide">
                                 <div className="service">
                                     <p>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-1.png"/>木材资讯</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-2.png"/>铁路运费</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-3.png"/>新增订阅</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-1.png"/>木材资讯</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-2.png"/>铁路运费</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-3.png"/>新增订阅</a>
                                     </p>
                                     <p>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-4.png"/>求车服务</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-5.png"/>场地出租</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-6.png"/>设备租售</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-7.png"/>招聘服务</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-8.png"/>求职服务</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-9.png"/>其它服务</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-4.png"/>求车服务</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-5.png"/>场地出租</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-6.png"/>设备租售</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-7.png"/>招聘服务</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-8.png"/>求职服务</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-9.png"/>其它服务</a>
                                     </p>
                                 </div>
                                 <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a

@@ -21,6 +21,7 @@ html, body {
 a {
     outline: none;
     color: $color-font;
+    text-decoration: none;
 
     &:hover,
     &:active {

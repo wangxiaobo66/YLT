@@ -154,19 +154,15 @@
 .ui-btn {
     height: px(88px);
     line-height: px(88px);
-    padding: 0 5px;
     @extend %text-link;
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+        @extend %text-link;
+    }
     &-fixed {
         @extend %ffull;
-    }
-    &-confirm {
-        @extend %text-link;
-        &:link,
-        &:visited,
-        &:hover,
-        &:active {
-            @extend %text-link;
-        }
     }
     &-default {
         @extend %text-link-white;
@@ -247,11 +243,12 @@
         }
         label {
             display: block;
+            overflow: hidden;
             .for {
                 float: left;
                 box-sizing: border-box;
                 width: 85px;
-                padding: 12px 5px 12px 15px;
+                padding: 11px 5px 11px 15px;
                 text-align: left;
                 border-right: 1px $color-border solid;
             }
@@ -391,6 +388,9 @@
 
 // 我的 - 角标
 .ui-point {
+    position: absolute;
+    top: 8px;
+    left: 8px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -420,5 +420,23 @@
     &-close {
         background-color: #e7e5e5;
         text-align: left;
+    }
+}
+
+.ui-list {
+    padding: 10px 8px;
+    .item {
+        position: relative;
+        border: 1px $color-border solid;
+        border-radius: 3px;
+        margin-bottom: 5px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .ui-point {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+        }
     }
 }
