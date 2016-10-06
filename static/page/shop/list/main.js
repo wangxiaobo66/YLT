@@ -42,7 +42,13 @@ export default class Chepihao extends React.Component {
                     </label>
                 </div>
                 <div className="list-box">
-                    <Shop />
+                    <ul className="list">
+                        <li className="item">
+                            <Link className="item-link" to={`/home`}>
+
+                            </Link>
+                        </li>
+                    </ul>
                 </div>
                 <Link className="ui-btn ui-btn-fixed" to={`/add`}>我要开店</Link>
             </div>

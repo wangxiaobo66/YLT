@@ -65,6 +65,50 @@ let dataMarkets = [
     }
 ];
 
+let seats = [
+    {
+        "id": 1,
+        "seat":"满洲里",
+        "tailNumber":"7788",
+        "varieties":"樟子松"
+    },
+    {
+        "id": 2,
+        "seat":"呼伦贝尔",
+        "tailNumber":"7788",
+        "varieties":"樟子松"
+    },
+    {
+        "id": 3,
+        "seat":"后贝加尔",
+        "tailNumber":"7788",
+        "varieties":"樟子松"
+    },
+    {
+        "id": 4,
+        "seat":"满洲里",
+        "tailNumber":"7788",
+        "varieties":"樟子松"
+    }
+];
+
+let arrvalDefaults = [
+    {
+        "id": 1,
+        "tailNumber":"7788",
+        "length":"3米",
+        "varieties":"樟子松",
+        "cargo":"原木"
+    },
+    {
+        "id": 2,
+        "tailNumber":"7788",
+        "length":"3米",
+        "varieties":"樟子松",
+        "cargo":"原木"
+    }
+];
+
 //let { change } = require('./actions');
 class component extends React.Component {
     constructor(props) {
@@ -128,15 +172,79 @@ class component extends React.Component {
                             </div>
                             <div className="swiper-slide">
                                 <div className="card-item clearfix">
-                                    <Arrival place={'seat'}/>
+
+                                    <article className="arrival">
+                                        <div className="ui-table">
+                                            <ul className="thead">
+                                                <li className="th">
+                                                    <span className="text">位置</span>
+                                                </li>
+                                                <li className="th">
+                                                    <span className="text">抵达车次</span>
+                                                </li>
+                                                <li className="th">
+                                                    <span className="text">树种</span>
+                                                </li>
+                                            </ul>
+                                            <ul className="tbody">
+                                                {
+                                                    seats.map((item, index) => {
+                                                        return (
+                                                            <li className="tr" key={index}>
+                                                                <a href="/template/arrival/arrival.html#item" className="link">
+                                                                    <div className="td">{item.seat}</div>
+                                                                    <div className="td">{item.tailNumber}</div>
+                                                                    <div className="td">{item.varieties}</div>
+                                                                </a>
+                                                            </li>
+                                                        );
+                                                    })
+                                                }
+                                            </ul>
+                                        </div>
+                                    </article>
+
                                     <div className="switch-all">
                                         <img src="../../static/page/index/img/right-icon.png"/>
                                         <a href="/template/arrival/arrival.html">查看全部到货信息</a>
                                     </div>
                                 </div>
                                 <div className="card-item clearfix">
-                                    <div key="div-title" className="title-div">伊利托今天进车组</div>
-                                    <Arrival place={'default'}/>
+                                    <div className="ui-title">
+                                        <div className="text">伊利托今天进车组</div>
+                                    </div>
+                                    <div className="ui-table">
+                                        <ul className="thead">
+                                            <li className="th">
+                                                <span className="text">车皮号尾号</span>
+                                            </li>
+                                            <li className="th">
+                                                <span className="text">长度(米)</span>
+                                            </li>
+                                            <li className="th">
+                                                <span className="text">树种</span>
+                                            </li>
+                                            <li className="th">
+                                                <span className="text">货种</span>
+                                            </li>
+                                        </ul>
+                                        <ul className="tbody">
+                                            {
+                                                arrvalDefaults.map((item, index) => {
+                                                    return (
+                                                        <li className="tr" key={index}>
+                                                            <a href="/template/arrival/arrival.html#item" className="link">
+                                                                <div className="td">{item.tailNumber}</div>
+                                                                <div className="td">{item.length}</div>
+                                                                <div className="td">{item.varieties}</div>
+                                                                <div className="td">{item.cargo}</div>
+                                                            </a>
+                                                        </li>
+                                                    );
+                                                })
+                                            }
+                                        </ul>
+                                    </div>
                                 </div>
 
                                 <div className="switch-all">

@@ -5,31 +5,32 @@ require('./Market.scss');
 const React = require('react');
 const render = require('react-dom').render;
 
-let data = [
-    {
-        "imgSrc": "../../static/component/Market/img/ys.png",
-        "name": "落叶松",
-        "size": "六米",
-        "type": "原木",
-        "currentPosition": "明斯克",
-        "Destination": "满洲里",
-        "pubDate": "9-30|10:01",
-        "diam": "20",
-        "level": "一级"
-    },
-    {
-        "imgSrc": "../../static/component/Market/img/ys.png",
-        "name": "落叶松",
-        "size": "三米",
-        "type": "原木",
-        "currentPosition": "明斯克",
-        "destination": "满洲里",
-        "pubDate": "9-30|10:01",
-        "diam": "20",
-        "level": "一级"
-    }
-];
-export class Market extends React.Component {
+// let data = [
+//     {
+//         "imgSrc": "../../static/component/Market/img/ys.png",
+//         "name": "落叶松",
+//         "size": "六米",
+//         "type": "原木",
+//         "currentPosition": "明斯克",
+//         "Destination": "满洲里",
+//         "pubDate": "9-30|10:01",
+//         "diam": "20",
+//         "level": "一级"
+//     },
+//     {
+//         "imgSrc": "../../static/component/Market/img/ys.png",
+//         "name": "落叶松",
+//         "size": "三米",
+//         "type": "原木",
+//         "currentPosition": "明斯克",
+//         "destination": "满洲里",
+//         "pubDate": "9-30|10:01",
+//         "diam": "20",
+//         "level": "一级"
+//     }
+// ];
+
+export default class Market extends React.Component {
     constructor(props) {
         super(props);
     }

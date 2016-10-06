@@ -57,15 +57,25 @@ export default class Item extends React.Component {
                         this.state.list.map(function (item, index) {
                             return (
                                 <li className="item clearfix" key={index}>
-                                    <AskBuy obj={item} />
-                                    {
-                                        !item.isOperating === true ?
-                                            <div className="ui-do"
-                                                 onClick={that.toggleOper.bind(that, item)}>操作</div>
-                                            :
-                                            <div className="ui-do ui-do-cancel"
-                                                 onClick={that.toggleOper.bind(that, item)}>取消</div>
-                                    }
+                                    <div className="item-link">
+                                        <AskBuy obj={item} />
+                                        {
+                                            !item.isOperating === true ?
+                                                <div className="ui-do"
+                                                     onClick={that.toggleOper.bind(that, item)}>
+                                                    <div className="text-box">
+                                                        <span className="text">操作</span>
+                                                    </div>
+                                                </div>
+                                                :
+                                                <div className="ui-do ui-do-cancel"
+                                                     onClick={that.toggleOper.bind(that, item)}>
+                                                    <div className="text-box">
+                                                        <span className="text">取消</span>
+                                                    </div>
+                                                </div>
+                                        }
+                                    </div>
                                     <div className={'ui-tab ui-tab-normal' + (!item.isOperating === true ? ' fn-none' : '')}>
                                         <a href="javascript:;" className="item">刷新</a>
                                         <a href="javascript:;" className="item">修改</a>

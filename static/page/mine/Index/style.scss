@@ -45,18 +45,21 @@
                     padding-left: 15px;
                     background-color: #fff;
                     border-bottom: 1px $color-border solid;
-                    .allow {
-                        float: right;
-                        width: 40px;
-                        height: 40px;
-                        line-height: 40px;
-                        text-align: center;
-                    }
-                    .info {
-                        padding: 7px 0;
-                        .icon {
-                            font-size: 18px;
-                            margin-right: 5px;
+                    .item-link {
+                        display: block;
+                        .allow {
+                            float: right;
+                            width: 40px;
+                            height: 40px;
+                            line-height: 40px;
+                            text-align: center;
+                        }
+                        .info {
+                            padding: 7px 0;
+                            .icon {
+                                font-size: 18px;
+                                margin-right: 5px;
+                            }
                         }
                     }
                 }

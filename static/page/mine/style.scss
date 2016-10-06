@@ -10,27 +10,23 @@ body {
     background-color: $color-bg;
 }
 
-@mixin doItem($height) {
+@mixin doItem() {
     padding: 10px 8px;
     .list {
         >.item {
             margin-bottom: 8px;
-            &:last-child {
-                margin-bottom: 0;
-            }
-            .component {
-                float: left;
-                width: 87%;
-                height: $height;
-            }
-            .ui-do {
-                float: left;
-                width: 13%;
-                height: $height;
-                line-height: $height;
-            }
-            .ui-tab {
-                clear: both;
+            >.item-link {
+                position: relative;
+                display: block;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                .component {
+                    width: 87%;
+                }
+                .ui-do {
+                    width: 13%;
+                }
             }
         }
     }

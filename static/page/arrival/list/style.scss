@@ -6,45 +6,7 @@
 
 .module-tabs {
     background-color: #fff;
-    ul.tabs {
-        display: flex;
-        li.item {
-            flex: 1;
-            height: 40px;
-            line-height: 40px;
-            border-right: 1px $color-border solid;
-            text-align: center;
-            color: $color-font-gray;
-            &:last-child {
-                border-right: 0 none;
-            }
-            .item-link {
-                display: block;
-                border-bottom: 1px solid #fff;
-                color: $color-font-gray;
-                &--active {
-                    color: $color-link;
-                    border-bottom: 1px solid $color-link;
-                }
-            }
-            .for {
-                line-height: 1;
-                margin-right: 3px;
-                vertical-align: middle;
-            }
-            .select {
-                width: 52px;
-                padding: 0 2px;
-                height: 22px;
-                line-height: 1;
-                border: 1px $color-border solid;
-                color: $color-font-gray;
-                font-size: 14px;
-                vertical-align: middle;
-                background-color: #f6f6f6;
-            }
-        }
-    }
+    margin-bottom: 10px;
 }
 
 .module-list {

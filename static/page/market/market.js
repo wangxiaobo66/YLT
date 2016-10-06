@@ -6,7 +6,7 @@ const util = require('../../js/app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
 
-const { Market } = require('../../component/Market/Market.js');
+import Market from '../../component/Market/Market';
 
 const { YLT } = require('../../redux/reducers');
 const { Provider, connect } = require('react-redux');
@@ -18,6 +18,32 @@ let store = createStore(YLT, applyMiddleware(thunk));
 class component extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            list: [
+                {
+                    "imgSrc": "../../static/component/Market/img/ys.png",
+                    "name": "落叶松1",
+                    "size": "六米",
+                    "type": "原木",
+                    "currentPosition": "明斯克",
+                    "Destination": "满洲里",
+                    "pubDate": "9-30|10:01",
+                    "diam": "20",
+                    "level": "一级"
+                },
+                {
+                    "imgSrc": "../../static/component/Market/img/ys.png",
+                    "name": "落叶松2",
+                    "size": "三米",
+                    "type": "原木",
+                    "currentPosition": "明斯克",
+                    "destination": "满洲里",
+                    "pubDate": "9-30|10:01",
+                    "diam": "20",
+                    "level": "一级"
+                }
+            ]
+        }
     }
 
     render() {
@@ -61,7 +87,13 @@ class component extends React.Component {
                         </select>
                     </div>
                 </div>
-                <Market />
+                <div className="markets">
+                    {
+                        this.state.list.map(function (item, index) {
+                            return <Market obj={item} key={index} />;
+                        })
+                    }
+                </div>
                 <a className="ui-btn ui-btn-fixed" href="javascript:;">发布未售信息</a>
             </div>
         )

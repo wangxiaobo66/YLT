@@ -21,7 +21,7 @@ export default class Tab extends React.Component {
     render() {
         return(
             <div className="module-tabs">
-                <ul className="tabs">
+                <ul className="ui-nav">
                     <li className="item">
                         <Link className={'item-link' + (this.props.type === TAB_SEAT ? ' item-link--active': '')}
                               to={`/seat`}>位置显示</Link>
