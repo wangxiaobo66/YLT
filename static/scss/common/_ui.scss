@@ -37,7 +37,7 @@
             &:last-child {
                 border-bottom: 0 none;
             }
-            &:nth-child(2n) {
+            &:nth-child(2n+1) {
                 background: #fafafa;
             }
             .link {
@@ -140,7 +140,6 @@
 
 // 我的, 确定和取消按钮
 .ui-btn-groups {
-    margin-top: 145px;
     padding: 0 8%;
     .ui-btn {
         display: block;

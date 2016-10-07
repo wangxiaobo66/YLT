@@ -23,7 +23,9 @@ module.exports = {
         'page-railway': ['./static/page/railway/main.js'],  // 铁路运费
         'page-shop': ['./static/page/shop/main.js'],   // 全部店铺
         'page-arrival': ['./static/page/arrival/main.js'],  // 到货列表
-        'page-mine': ['./static/page/mine/main.js']
+        'page-mine': ['./static/page/mine/main.js'],    // 我的
+        'page-address': ['./static/page/address/main.js'],    // 货场位置
+        'page-search': ['./static/page/search/main.js'] // 精准搜索
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
