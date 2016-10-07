@@ -11,7 +11,6 @@ var CommonsVersionPlugin = require('commons-version-webpack-plugin');
 
 module.exports = {
     entry: {
-        'index': ['./static/js/index.js'],
         'page-login': ['./static/page/login/login.js'],//登陆
         'page-out-login':['./static/page/out-login/out-login.js'],//登录站外
         'page-forget':['./static/page/forget/forget.js'],//忘记密码
@@ -19,12 +18,14 @@ module.exports = {
         'page-index': ['./static/page/index/index.js'],//首页
         'page-ask-buy':['./static/page/ask-buy/ask-buy.js'],//求购
         'page-market':['./static/page/market/market.js'],//未售
-        'page-service':['./static/page/service/service.js'],//服务
-
+        'page-service':['./static/page/service/main.js'],//服务
         'page-subscribe': ['./static/page/subscribe/main.js'],  // 新增订阅
         'page-railway': ['./static/page/railway/main.js'],  // 铁路运费
         'page-shop': ['./static/page/shop/main.js'],   // 全部店铺
-        'page-arrival': ['./static/page/arrival/main.js']
+        'page-arrival': ['./static/page/arrival/main.js'],  // 到货列表
+        'page-mine': ['./static/page/mine/main.js'],    // 我的
+        'page-address': ['./static/page/address/main.js'],    // 货场位置
+        'page-search': ['./static/page/search/main.js'] // 精准搜索
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

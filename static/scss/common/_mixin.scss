@@ -19,3 +19,10 @@
         @return '@function px: Error, unexpected unit!';
     }
 }
+
+@mixin ellipsis-box($num) {
+    overflow : hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $num;
+    -webkit-box-orient: vertical;
+}

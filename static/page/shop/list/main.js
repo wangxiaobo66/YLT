@@ -12,7 +12,14 @@ export default class Chepihao extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            list: [
+                {
 
+                },
+                {
+
+                }
+            ]
         };
     }
     componentDidMount() {
@@ -21,7 +28,7 @@ export default class Chepihao extends React.Component {
     render() {
         return(
             <div className="module-shop-list">
-                <div className="ui-top-select">
+                <div className="ui-top-select clearfix">
                     <label className="item">
                         <span className="for">地区</span>
                         <select className="select">
@@ -42,7 +49,19 @@ export default class Chepihao extends React.Component {
                     </label>
                 </div>
                 <div className="list-box">
-                    <Shop />
+                    <ul className="ui-list">
+                        {
+                            this.state.list.map((item, index) => {
+                                return (
+                                    <li className="item" key={index}>
+                                        <Link className="item-link" to="home">
+                                            <Shop />
+                                        </Link>
+                                    </li>
+                                );
+                            })
+                        }
+                    </ul>
                 </div>
                 <Link className="ui-btn ui-btn-fixed" to={`/add`}>我要开店</Link>
             </div>

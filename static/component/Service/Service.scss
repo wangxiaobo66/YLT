@@ -1,0 +1,54 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/6
+ */
+
+.Service-component {
+    position: relative;
+    padding: 13px 0;
+    background-color: #fff;
+    line-height: 1.5;
+    .box {
+        box-sizing: border-box;
+        border-radius: 4px;
+        font-size: 14px;
+        .left {
+            width: 36%;
+            float: left;
+            text-align: center;
+            p {
+                padding-left: 15px;
+                line-height: 20px;
+                color: #999999;
+                img {
+                    width: 10px;
+                    vertical-align: middle;
+                    margin: -3px 3px 0 0;
+                }
+            }
+            .title {
+                font-size: 14px;
+            }
+            .time {
+                margin-top: 3px;
+                font-size: 12px;
+            }
+        }
+        .right {
+            margin-left: 36%;
+            padding-left: 10px;
+            border-left: 1px solid #e6e6e6;
+            box-sizing: border-box;
+        }
+        .right p:nth-of-type(1) span {
+            color: #333;
+            margin-right: 10px;
+        }
+        .right p:nth-of-type(2) span {
+            color: #39ac6a;
+            margin-right: 10px;
+            font-size: 13px;
+        }
+    }
+}

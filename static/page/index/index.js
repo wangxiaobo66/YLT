@@ -6,7 +6,7 @@ const util = require('../../js/app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
 
-const { Market } = require('../../component/Market/Market.js');
+import Market from '../../component/Market/Market';
 const { AskBuy } = require('../../component/AskBuy/AskBuy.js');
 const { Arrival } = require('../../component/Arrival/Arrival.js');
 const { Subscribe } = require('../../component/Subscribe/Subscribe.js');
@@ -31,6 +31,96 @@ Array.prototype.unique = function(){//数组去重并输出新数组
     }
     return res;
 };
+
+let dataAskBuys = [
+    {
+        "region": "满洲里",
+        "time": "08-03 22:06",
+        "name": "落叶松",
+        "size": "六米",
+        "type": "原木",
+        "diam": "20",
+        "level": "一级"
+    },
+    {
+        "region": "满洲里",
+        "time": "08-03 22:06",
+        "name": "落叶松",
+        "size": "六米",
+        "type": "原木",
+        "diam": "20",
+        "level": "一级"
+    }
+];
+
+let dataMarkets = [
+    {
+        "imgSrc": "../../static/component/Market/img/ys.png",
+        "name": "落叶松1",
+        "size": "六米",
+        "type": "原木",
+        "currentPosition": "明斯克",
+        "Destination": "满洲里",
+        "pubDate": "9-30|10:01",
+        "diam": "20",
+        "level": "一级"
+    },
+    {
+        "imgSrc": "../../static/component/Market/img/ys.png",
+        "name": "落叶松2",
+        "size": "三米",
+        "type": "原木",
+        "currentPosition": "明斯克",
+        "destination": "满洲里",
+        "pubDate": "9-30|10:01",
+        "diam": "20",
+        "level": "一级"
+    }
+];
+
+let seats = [
+    {
+        "id": 1,
+        "seat":"满洲里",
+        "tailNumber":"7788",
+        "varieties":"樟子松"
+    },
+    {
+        "id": 2,
+        "seat":"呼伦贝尔",
+        "tailNumber":"7788",
+        "varieties":"樟子松"
+    },
+    {
+        "id": 3,
+        "seat":"后贝加尔",
+        "tailNumber":"7788",
+        "varieties":"樟子松"
+    },
+    {
+        "id": 4,
+        "seat":"满洲里",
+        "tailNumber":"7788",
+        "varieties":"樟子松"
+    }
+];
+
+let arrvalDefaults = [
+    {
+        "id": 1,
+        "tailNumber":"7788",
+        "length":"3米",
+        "varieties":"樟子松",
+        "cargo":"原木"
+    },
+    {
+        "id": 2,
+        "tailNumber":"7788",
+        "length":"3米",
+        "varieties":"樟子松",
+        "cargo":"原木"
+    }
+];
 
 //let { change } = require('./actions');
 class component extends React.Component {
@@ -79,42 +169,123 @@ class component extends React.Component {
                         <a href="javascript:;" className="switch-active"></a>
                         <div className="swiper-wrapper">
                             <div className="swiper-slide">
-                                <Market />
+                                {
+                                    dataMarkets.map(function (item, index) {
+                                        return <Market obj={item} key={index} />;
+                                    })
+                                }
                                 <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
                                     href="/template/market/market.html">查看全部未售市场</a></div>
                                 <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a
                                     href="javascript:;">发布未售信息</a></div>
                             </div>
                             <div className="swiper-slide">
-                                <AskBuy />
+                                {
+                                    dataAskBuys.map(function (item, index) {
+                                        return <AskBuy obj={item} key={index} />;
+                                    })
+                                }
                                 <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
                                     href="/template/ask-buy/ask-buy.html">查看全部求购信息</a></div>
                                 <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a
                                     href="javascript:;">发布求购信息</a></div>
                             </div>
                             <div className="swiper-slide">
-                                <Arrival place={'list'}/>
-                                <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
-                                    href="javascript:;">查看全部到货信息</a></div>
-                                <Arrival place={'train'}/>
-                                <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
-                                    href="javascript:;">其它货场位置查询</a></div>
-                                <Arrival place={'seat'}/>
+                                <div className="card-item clearfix">
+
+                                    <article className="arrival">
+                                        <div className="ui-table">
+                                            <ul className="thead">
+                                                <li className="th">
+                                                    <span className="text">位置</span>
+                                                </li>
+                                                <li className="th">
+                                                    <span className="text">抵达车次</span>
+                                                </li>
+                                                <li className="th">
+                                                    <span className="text">树种</span>
+                                                </li>
+                                            </ul>
+                                            <ul className="tbody">
+                                                {
+                                                    seats.map((item, index) => {
+                                                        return (
+                                                            <li className="tr" key={index}>
+                                                                <a href="/template/arrival/arrival.html#item" className="link">
+                                                                    <div className="td">{item.seat}</div>
+                                                                    <div className="td">{item.tailNumber}</div>
+                                                                    <div className="td">{item.varieties}</div>
+                                                                </a>
+                                                            </li>
+                                                        );
+                                                    })
+                                                }
+                                            </ul>
+                                        </div>
+                                    </article>
+
+                                    <div className="switch-all">
+                                        <img src="../../static/page/index/img/right-icon.png"/>
+                                        <a href="/template/arrival/arrival.html">查看全部到货信息</a>
+                                    </div>
+                                </div>
+                                <div className="card-item clearfix">
+                                    <div className="ui-title">
+                                        <div className="text">伊利托今天进车组</div>
+                                    </div>
+                                    <div className="ui-table">
+                                        <ul className="thead">
+                                            <li className="th">
+                                                <span className="text">车皮号尾号</span>
+                                            </li>
+                                            <li className="th">
+                                                <span className="text">长度(米)</span>
+                                            </li>
+                                            <li className="th">
+                                                <span className="text">树种</span>
+                                            </li>
+                                            <li className="th">
+                                                <span className="text">货种</span>
+                                            </li>
+                                        </ul>
+                                        <ul className="tbody">
+                                            {
+                                                arrvalDefaults.map((item, index) => {
+                                                    return (
+                                                        <li className="tr" key={index}>
+                                                            <a href="/template/arrival/arrival.html#item" className="link">
+                                                                <div className="td">{item.tailNumber}</div>
+                                                                <div className="td">{item.length}</div>
+                                                                <div className="td">{item.varieties}</div>
+                                                                <div className="td">{item.cargo}</div>
+                                                            </a>
+                                                        </li>
+                                                    );
+                                                })
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div className="switch-all">
+                                    <img src="../../static/page/index/img/right-icon.png"/>
+                                    <a href="javascript:;">其它货场位置查询</a>
+                                </div>
                             </div>
                             <div className="swiper-slide">
                                 <div className="service">
                                     <p>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-1.png"/>木材资讯</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-2.png"/>铁路运费</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-3.png"/>新增订阅</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-1.png"/>木材资讯</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-2.png"/>铁路运费</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-3.png"/>新增订阅</a>
                                     </p>
                                     <p>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-4.png"/>求车服务</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-5.png"/>场地出租</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-6.png"/>设备租售</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-7.png"/>招聘服务</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-8.png"/>求职服务</a>
-                                        <a href="javascript:;"><img src="../../static/page/index/img/service-9.png"/>其它服务</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-4.png"/>求车服务</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-5.png"/>场地出租</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-6.png"/>设备租售</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-7.png"/>招聘服务</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-8.png"/>求职服务</a>
+                                        <a href="javascript:;"><img src="../../static/images/service-9.png"/>其它服务</a>
                                     </p>
                                 </div>
                                 <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a

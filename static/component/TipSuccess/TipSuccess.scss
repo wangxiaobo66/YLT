@@ -1,0 +1,39 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/4
+ */
+
+.TipSuccess-component {
+    clear: both;
+    position: relative;
+    height: 30px;
+    background-color: #fff;
+    .tip-box {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 20px;
+        line-height: 20px;
+        .text {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            padding: 0 8px 0 10px;
+            background-color: #e8f2ec;
+            color: #39ac6a;
+            .triangle {
+                position: absolute;
+                left: 100%;
+                top: 0;
+                z-index: 0;
+                width: 30px;
+                height: 13px;
+                transform: rotate(45deg);
+                transform-origin: 0 0;
+                background-color: #e8f2ec;
+            }
+        }
+    }
+}

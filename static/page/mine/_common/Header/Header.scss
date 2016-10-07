@@ -1,0 +1,31 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/5
+ */
+
+.module-mine-header {
+    .header {
+        padding: 25px 16px;
+        background-color: #fff;
+        .link {
+            display: block;
+            .img {
+                float: left;
+                vertical-align: middle;
+            }
+            .info {
+                position: relative;
+                margin-left: 83px;
+                line-height: 60px;
+                vertical-align: middle;
+                .allow {
+                    float: right;
+                }
+                .text {
+                    width: 80%;
+                }
+            }
+        }
+    }
+}

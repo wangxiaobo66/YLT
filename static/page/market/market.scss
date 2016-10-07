@@ -1,36 +1,11 @@
+
 @import "../../scss/base";
-.modal-market{
-  .select{
-    width:100%;
-    float: left;
-    border-bottom:1px solid #e6e6e6;
-    margin-bottom:5px;
-    .div{
-      width:24%;
-      float: left;
-      line-height: 44px;
-      background-color:#fff;
-      padding-left: 1%;
-      select{
-        appearance:none;
-        -moz-appearance:none;
-        -webkit-appearance:none;
-        width:50%;
-        height:25px;
-        box-sizing: border-box;
-        background-color: #fbfbfb;
-        border:1px solid #e6e6e6;
-        border-radius: 0;
-        text-align: center;
-        float: right;
-        margin:10px 5px 5px 0;
-      }
-    }
-  }
-  .Market-component{
-    border-top:1px solid #e6e6e6;
-  }
-  a{
-    text-decoration:none;
-  }
+
+.module-market {
+
 }
+
+@import "../../scss/include_detail";
+@import "add/style";
+@import "detail/style";
+@import "list/style";

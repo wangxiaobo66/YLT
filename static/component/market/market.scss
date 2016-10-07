@@ -1,58 +1,59 @@
-@import "../../scss/base";
-.Market-component{
-  width:100%;
-  float: left;
-  background:#fff;
-  .div{
-    width:96%;
-    padding:11px 2%;
-    border-bottom: 1px solid #e6e6e6;
-    float: left;
-    font-size: 12px;
-  }
-  .div img{
-    width:40%;
-    float: left;
-    box-sizing: border-box;
-  }
-  .left{
-    width:33%;
-    padding-left: 2%;
-    float: left;
-  }
-  .left p{
-    padding:2px 0;
-    color:#b6b6b6;
-  }
-  .left p span{
-    color: #666;
-  }
-  .left p:nth-of-type(1){
-    color:#333;
-  }
 
-  .left p:nth-of-type(1) span{
+.Market-component {
+    position: relative;
+    padding: 10px 5px;
+    width: 100%;
+    background-color: #fff;
     box-sizing: border-box;
-    border-left:1px solid #e6e6e6;
-    padding:0 2px;
-  }
-  .left p:nth-of-type(1) span:nth-of-type(1){
-    border-left:none;
-    padding-left:0;
-  }
-  .right{
-    width:23%;
-    padding-left:2%;
-    float: left;
-  }
-  .right p{
-    padding:2px 0;
-    color:#b6b6b6;
-  }
-  .right p:nth-of-type(1){
-    color:#b6e3c9;
-  }
-  .right p span{
-    color:#666;
-  }
+    .box {
+        font-size: 12px;
+        img {
+            float: left;
+            box-sizing: border-box;
+        }
+        .info {
+            margin-left: 80px;
+            .left {
+                float: left;
+                width: 60%;
+                padding-left: 2%;
+                box-sizing: border-box;
+                p {
+                    padding: 2px 0;
+                    color: #b6b6b6;
+                    span {
+                        color: #666;
+                    }
+                    &:first-child {
+                        color: #333;
+                        span {
+                            box-sizing: border-box;
+                            border-left: 1px solid #e6e6e6;
+                            padding: 0 2px;
+                            &:first-child {
+                                border-left: none;
+                                padding-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .right {
+                width: 40%;
+                padding-left: 2%;
+                float: left;
+                box-sizing: border-box;
+                p {
+                    padding: 2px 0;
+                    color: #b6b6b6;
+                    &:first-child {
+                        color: #b6e3c9;
+                    }
+                    span {
+                        color: #666;
+                    }
+                }
+            }
+        }
+    }
 }

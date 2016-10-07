@@ -6,6 +6,7 @@
 
 import React from 'react';
 import {Button} from 'react-bootstrap';
+import Upload from '../../../component/Upload/Upload';
 
 export default class Chepihao extends React.Component {
     constructor(props) {
@@ -21,18 +22,7 @@ export default class Chepihao extends React.Component {
         return(
             <div className="module-shop-add">
                 <header className="header">
-                    <div className="logo">
-                        <div className="logo-box">
-                            <div className="info-box">
-                                <div className="info">
-                                    <p className="icon-box">
-                                        <i className="icon icon-plus"></i>
-                                    </p>
-                                    <p className="info-tip">添加logo</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <Upload tip="添加logo" />
                 </header>
                 <article className="article">
                     <div className="article-box">
@@ -40,18 +30,6 @@ export default class Chepihao extends React.Component {
                             <h3 className="text">店铺详细信息</h3>
                         </div>
                         <form className="ui-form">
-                            <div className="item">
-                                <label>
-                                    <div className="for">店铺分类</div>
-                                    <div className="input-box input-box--select">
-                                        <select className="ui-select">
-                                            <option value="请选择店铺类型">请选择店铺类型</option>
-                                            <option value="1">木材销售</option>
-                                            <option value="2">机械设备</option>
-                                        </select>
-                                    </div>
-                                </label>
-                            </div>
                             <div className="item">
                                 <label>
                                     <div className="for">店铺名称</div>

@@ -1,0 +1,43 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/6
+ */
+
+.module-detail {
+    padding-top: 10px;
+    .content {
+        background-color: #f4fdf7;
+        .content-row {
+            padding: 10px 15px;
+            border-bottom: 1px $color-border solid;
+            .item {
+                display: inline-block;
+                margin-right: 25px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                label {
+                    color: $color-font-gray;
+                }
+            }
+        }
+    }
+    .desc {
+        margin-top: 10px;
+        .title {
+            padding: 10px 15px;
+            background-color: #fff;
+        }
+        .body {
+            padding: 8px 15px;
+            .text {
+                background-color: #fff;
+                padding: 10px;
+                min-height: 185px;
+                color: $color-font-gray;
+                font-size: 13px;
+            }
+        }
+    }
+}

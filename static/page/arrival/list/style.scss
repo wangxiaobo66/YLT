@@ -3,3 +3,16 @@
  * @auth jinguangguo
  * @date 2016/9/24
  */
+
+.module-tabs {
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+.module-list {
+    padding: 5px 10px 0 10px;
+    .Arrival-component {
+        margin-top: 10px;
+        background-color: $color-bg;
+    }
+}

@@ -1,0 +1,33 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/3
+ */
+
+.Text-component {
+    background-color: #fff;
+    &--half {
+        display: inline-block;
+        width: 50%;
+    }
+    .text-box {
+        padding: 12px 0;
+        border-bottom: 1px #e6e6e6 solid;
+        &--noborder {
+            border-bottom: 0 none;
+        }
+        .for {
+            float: left;
+            width: 75px;
+            box-sizing: border-box;
+            padding: 0 5px 0 10px;
+            border-right: 1px #e6e6e6 solid;
+            text-align: left;
+        }
+        .text {
+            margin-left: 75px;
+            padding: 0 5px;
+        }
+    }
+
+}

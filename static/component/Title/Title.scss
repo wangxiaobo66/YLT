@@ -1,0 +1,22 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/4
+ */
+
+.Title-component {
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px #e6e6e6 solid;
+    .text {
+        border-left: 3px #39ac6a solid;
+        padding-left: 5px;
+        font-weight: bold;
+    }
+    .tip {
+        float: right;
+        margin-top: 3px;
+        font-size: 12px;
+        color: #999;
+    }
+}

@@ -1,0 +1,24 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/7
+ */
+
+.module-result {
+    .no-data {
+        .tip {
+            padding: 55px 40px;
+            color: $color-font-gray;
+            text-align: center;
+            .text {
+                margin-bottom: 5px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .do {
+
+        }
+    }
+}

@@ -10,32 +10,10 @@ body {
     background-color: $color-bg;
 }
 
-.module-tabs {
-    background-color: #fff;
-    ul.tabs {
-        display: flex;
-        li.item {
-            flex: 1;
-            height: 40px;
-            line-height: 40px;
-            border-right: 1px $color-border solid;
-            text-align: center;
-            &:last-child {
-                border-right: 0 none;
-            }
-            .for {
-                margin-right: 3px;
-            }
-            .select {
-                width: 52px;
-                font-size: 14px;
-            }
-        }
-    }
-}
-
+@import "../../scss/include_detail";
 
 @import "addUpdate/style";
-@import "detail/style";
 @import "list/style";
+@import "item/style";
+@import "detail/style";
 @import "report/style";

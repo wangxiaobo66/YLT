@@ -1,0 +1,43 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/3
+ */
+
+// 文件上传类(header)
+.Upload-component {
+    padding: 15px 0;
+    background-color: #fff;
+    margin-bottom: 10px;
+    .logo {
+        text-align: center;
+        .logo-box {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            border: 1px #e6e6e6 solid;
+            color: #999;
+            .info-box {
+                display: table;
+                width: 100%;
+                height: 100%;
+                .info {
+                    display: table-cell;
+                    vertical-align: middle;
+                    text-align: center;
+                    .icon-box {
+                        font-size: 12px;
+                        .icon {
+                            font-size: 22px;
+                            line-height: 1;
+                            font-weight: bold;
+                        }
+                    }
+                    .info-tip {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/4
+ */
+
+%text-link {
+    background-color: $color-link;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
+%text-link-white {
+    border: 1px $color-link solid;
+    background-color: transparent;
+    color: $color-link;
+    text-align: center;
+    text-decoration: none;
+}
+
+%ffull {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+%pd {
+    padding: 10px 15px;
+}
+
+%borer-tb {
+    border-top: 1px $color-border solid;
+    border-bottom: 1px $color-border solid;
+}
+
+// 外围盒子
+%box {
+    @extend %borer-tb;
+    background-color: #fff;
+}

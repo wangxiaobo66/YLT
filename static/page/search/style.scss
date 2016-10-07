@@ -1,0 +1,14 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/9/15
+ */
+
+@import "../../scss/base";
+
+body {
+    background-color: $color-bg;
+}
+
+@import "index/style";
+@import "result/style";

@@ -1,0 +1,31 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/4
+ */
+
+.module-care {
+    .ui-nav {
+
+    }
+    .detail {
+        padding-top: 50px;
+        .list {
+            > .item {
+                position: relative;
+                margin-bottom: 5px;
+                background-color: #fff;
+                .item-link {
+                    display: block;
+                    width: 80%;
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                .ui-do {
+                    width: 20%;
+                }
+            }
+        }
+    }
+}

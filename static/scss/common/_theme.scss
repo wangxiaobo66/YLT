@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
     background-color: $color-bg;
 }
@@ -21,13 +21,16 @@ html, body {
 a {
     outline: none;
     color: $color-font;
+    text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &:active {
         text-decoration: none;
+        color: $color-font;
     }
 
     &:focus {
-        border: none;
+        outline: 0 none;
     }
 }
 
@@ -38,4 +41,23 @@ label {
 
 td {
     word-break: break-all;
+}
+
+%form-default {
+    border: 1px $color-link solid;
+    background-color: #f0f0f0;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+input[type="radio"] {
+    @extend %form-default;
+    border-radius: 50%;
+    &:checked {
+        border: 5px $color-link solid;
+        background-color: #fff;
+    }
+}
+input[type="checkbox"] {
+    @extend %form-default;
 }
