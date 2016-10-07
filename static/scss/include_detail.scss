@@ -1,0 +1,60 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/7
+ */
+
+// 未售市场和到货列表的详情页面
+@mixin include_market_arrival_page_detail {
+    padding-bottom: 60px;
+    .detail-box {
+        padding: 8px;
+        .img {
+            padding: 8px 10px;
+            background-color: #fff;
+            border-bottom: 1px $color-border solid;
+            img {
+                display: block;
+            }
+        }
+        >.content {
+            font-size: 13px;
+            .info {
+                padding: 10px;
+                border-bottom: 1px $color-border solid;
+                background-color: #fff;
+            }
+        }
+        .detail {
+            >.content {
+                font-size: 13px;
+                >.Text-component {
+                    background-color: #f5f4f4;
+                }
+            }
+        }
+        .do {
+            .ui-tab {
+                padding: 12px 0;
+                background-color: #fff;
+                .item {
+                    color: $color-link;
+                    border-right: 1px $color-border solid;
+                    &:last-child {
+                        border-right: 0 none;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        .btn-care {
+            display: inline-block;
+            padding: 3px;
+            font-size: 12px;
+            background-color: #fff;
+            border-radius: 3px;
+            color: $color-link;
+        }
+    }
+}

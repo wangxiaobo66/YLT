@@ -52,6 +52,13 @@ input::-webkit-inner-spin-button { // input[type=number]的上下小箭头
     -webkit-appearance: none !important;
     margin: 0;
 }
+//input[type="text"],
+//input[type="date"],
+//input[type="tel"],
+//input[type="email"],
+//input[type="url"],
+//input[type="button"],
+//input[type="time"],
 input,
 select,
 textarea {

@@ -10,37 +10,9 @@
         margin: 5px 0;
     }
     .info-bd{
-        background-color: #fafafa;
-        font-size: 14px;
-        .list {
-            .item {
-                @extend %pd;
-                text-align: center;
-                border-bottom: 1px $color-border solid;
-                input[type="radio"] {
-                    float: left;
-                }
-            }
-        }
-        .add {
-            @extend %pd;
-            color: $color-link;
-            text-align: center;
-            .icon {
-                vertical-align: middle;
-            }
-            .text {
-                margin-left: 3px;
-                vertical-align: middle;
-            }
-        }
+
     }
     .info-ft {
         margin: 10px 0;
-    }
-    .detail {
-        .title {
-            @include detailTitle;
-        }
     }
 }

@@ -138,6 +138,20 @@
     }
 }
 
+.ui-title-detail {
+    padding: 10px 0;
+    background-color: #fff;
+    text-align: center;
+    //border-bottom: 1px $color-border solid;
+    .text {
+        margin-right: 5px;
+    }
+    .icon {
+        color: $color-link;
+        font-size: 14px;
+    }
+}
+
 // 我的, 确定和取消按钮
 .ui-btn-groups {
     padding: 0 8%;
@@ -436,6 +450,90 @@
             position: absolute;
             top: 8px;
             left: 8px;
+        }
+    }
+}
+
+// 头部筛选
+.ui-top-select {
+    background-color: #fff;
+    padding: 15px 10px;
+
+    .item {
+        float: left;
+        margin-right: 5px;
+        &:last-child {
+            margin-right: 0;
+        }
+        .for {
+            display: inline-block;
+            margin-right: 3px;
+            vertical-align: middle;
+            font-size: 13px;
+        }
+        .select {
+            padding: 3px 5px;
+            border: 1px $color-border solid;
+            background-color: #fbfbfb;
+            color: #666;
+            font-size: 12px;
+            vertical-align: middle;
+        }
+    }
+}
+
+.ui-check-tip {
+    label {
+        display: block;
+        padding: 8px 15px;
+        .tip-box {
+            position: relative;
+            font-size: 13px;
+            input[type="checkbox"] {
+                &:checked {
+                    &+i.icon-check {
+                        display: block;
+                    }
+                }
+            }
+            .icon-check {
+                display: none;
+                position: absolute;
+                top: 3px;
+                left: 6px;
+                font-size: 14px;
+                color: $color-link;
+            }
+        }
+    }
+}
+
+// 发布未售 - 发布到货列表
+// radio群
+.ui-radio-group {
+    @extend %box;
+    background-color: #fafafa;
+    font-size: 14px;
+    .list {
+        .item {
+            @extend %pd;
+            text-align: center;
+            border-bottom: 1px $color-border solid;
+            input[type="radio"] {
+                float: left;
+            }
+        }
+    }
+    .add {
+        @extend %pd;
+        color: $color-link;
+        text-align: center;
+        .icon {
+            vertical-align: middle;
+        }
+        .text {
+            margin-left: 3px;
+            vertical-align: middle;
         }
     }
 }

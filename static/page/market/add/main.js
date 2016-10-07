@@ -1,7 +1,7 @@
 /**
  * @file
  * @auth jinguangguo
- * @date 2016/9/24
+ * @date 2016/10/6
  */
 
 import React from 'react';
@@ -27,17 +27,6 @@ export default class AddUpdate extends React.Component {
             <div className="module-add">
                 <Upload tip="添加图片" />
                 <div className="content">
-                    <form className="ui-form info-tp">
-                        <div className="item">
-                            <label>
-                                <div className="for">车皮号</div>
-                                <div className="input-box">
-                                    <input className="input input-block" type="text"
-                                           placeholder="请输入车皮号" />
-                                </div>
-                            </label>
-                        </div>
-                    </form>
                     <div className="ui-title">
                         <h3 className="text">选择规格</h3>
                     </div>
@@ -55,7 +44,7 @@ export default class AddUpdate extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <form className="ui-form info-ft">
+                    <form className="ui-form fn-mt10">
                         <div className="item">
                             <label>
                                 <div className="for">价格</div>
@@ -103,15 +92,9 @@ export default class AddUpdate extends React.Component {
                             </label>
                         </div>
                     </form>
-                    <div className="detail">
+                    <div className="detail fn-mt10">
                         <div className="ui-title-detail">
                             <span className="text">详细信息</span>
-                            {/*
-                                this.state.isSlide === true ?
-                                    <i className="icon icon-slide-up" onClick={this.toggleSlide.bind(this)}></i>
-                                    :
-                                    <i className="icon icon-slide-down" onClick={this.toggleSlide.bind(this)}></i>
-                            */}
                         </div>
                         <form className="ui-form">
                             <div className="item">
@@ -261,6 +244,15 @@ export default class AddUpdate extends React.Component {
                             </div>
                         </form>
                     </div>
+                </div>
+                <div className="ui-check-tip fn-mt10">
+                    <label>
+                        <div className="tip-box">
+                            <input type="checkbox" />
+                            <i className="icon icon-check"></i>
+                            <span className="text">订阅匹配求购信息</span>
+                        </div>
+                    </label>
                 </div>
                 <footer className="footer">
                     <a href="javascript:;" className="ui-btn ui-btn-fixed">发布境外码单</a>

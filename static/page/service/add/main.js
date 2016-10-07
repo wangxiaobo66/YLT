@@ -81,6 +81,9 @@ export default class Item extends React.Component {
                         </label>
                     </div>
                 </form>
+                <footer className="footer">
+                    <a href="javascript:;" className="ui-btn ui-btn-fixed">发布</a>
+                </footer>
             </div>
         );
     }

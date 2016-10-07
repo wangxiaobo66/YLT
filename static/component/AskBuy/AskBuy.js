@@ -50,6 +50,7 @@ export class AskBuy extends React.Component {
                         <p><span>直径:{obj.diam}</span><span>长度:{obj.level}</span></p>
                     </div>
                 </div>
+                <div className="ui-point"></div>
             </div>
         );
 

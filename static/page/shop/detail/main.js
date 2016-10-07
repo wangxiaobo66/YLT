@@ -49,7 +49,6 @@ export default class Chepihao extends React.Component {
                             <label>联系货主</label>
                             <div className="text">
                                 <i className="icon icon-right"></i>
-                                向右角标
                             </div>
                         </div>
                         <div className="item">

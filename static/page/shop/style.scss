@@ -10,38 +10,6 @@ body {
     background-color: $color-bg;
 }
 
-// 头部筛选
-.ui-top-select {
-    height: px(88px);
-    line-height: px(88px);
-    background-color: #fff;
-    padding: 0 px(30px);
-
-    .item {
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: px(30px);
-        &:last-child {
-            margin-right: 0;
-        }
-        .for {
-            margin-right: 3px;
-            vertical-align: middle;
-        }
-        .select {
-            width: 80px;
-            height: 25px;
-            line-height: 25px;
-            padding: 0 5px;
-            background-color: #fbfbfb;
-            color: #666;
-            border: 1px $color-border solid;
-            font-size: 14px;
-            vertical-align: middle;
-        }
-    }
-}
-
 .module-shop {
 
 }

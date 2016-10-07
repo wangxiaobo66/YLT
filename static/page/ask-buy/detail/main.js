@@ -26,7 +26,22 @@ export default class Item extends React.Component {
         let that = this;
         return (
             <div className="module-detail">
-                <Title content="求车服务" tip="0803 12:12" />
+                <div className="detail-box">
+                    <Title content="基本规格" tip="0803 12:12" />
+                    <div className="content">
+                        <div className="content-row">
+                            樟子松 4米 原木 16中 选材
+                        </div>
+                        <Text label="树种" text="樟子松" half={true} border={false} />
+                        <Text label="货种" text="原木" half={true} border={false} />
+                        <Text label="长度" text="3米" half={true} border={false} />
+                        <Text label="口岸" text="满洲里" half={true} border={false} />
+                        <Text label="直径" text="0.5" half={true} border={false} />
+                        <Text label="价格" text="未知" half={true} border={false} />
+                        <Text label="总重量" text="未知" />
+                    </div>
+                </div>
+
                 <div className="content">
                     <div className="content-row">
                         <div className="item">满洲里到形态13米高地板</div>
@@ -43,8 +58,8 @@ export default class Item extends React.Component {
                     </div>
                 </div>
                 <div className="desc">
-                    <div className="title">
-                        详细内容
+                    <div className="ui-title">
+                        <div className="text">详细内容</div>
                     </div>
                     <div className="body">
                         <div className="text">
@@ -52,9 +67,13 @@ export default class Item extends React.Component {
                         </div>
                     </div>
                 </div>
-                <footer className="footer">
-                    <a href="tel:15811112222" className="ui-btn ui-btn-fixed">电话联系</a>
-                </footer>
+                <div className="footer">
+                    <div className="ui-tab ui-tab-white ui-tab-fixed">
+                        <a href="/template/shop/shop.html#/home" className="item">店铺</a>
+                        <a href="tel:15811112222" className="item">电话联系</a>
+                        <a href="javascript;" className="item">发送消息</a>
+                    </div>
+                </div>
             </div>
         );
     }

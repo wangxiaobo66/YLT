@@ -1,0 +1,30 @@
+/**
+ * @file
+ * @auth jinguangguo
+ * @date 2016/10/6
+ */
+
+.module-detail {
+    padding-top: 10px;
+    padding-bottom: 60px;
+    .content {
+        .content-row {
+            padding: 10px 15px;
+            background-color: #fff;
+            border-bottom: 1px $color-border solid;
+        }
+    }
+    .desc {
+        margin-top: 10px;
+        .body {
+            padding: 8px 15px;
+            .text {
+                background-color: #fff;
+                padding: 10px;
+                min-height: 185px;
+                color: $color-font-gray;
+                font-size: 13px;
+            }
+        }
+    }
+}

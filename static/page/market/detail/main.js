@@ -1,7 +1,7 @@
 /**
  * @file
  * @auth jinguangguo
- * @date 2016/9/24
+ * @date 2016/10/6
  */
 
 import React from 'react';
@@ -36,13 +36,12 @@ export default class Detail extends React.Component {
                         <div className="info">
                             樟子松      4米      原木      16中      选材
                         </div>
-                        <Text label="车皮号" text="12345678" half={true} border={false} />
                         <Text label="目标口岸" text="满洲里了啊" half={true} border={false} />
                         <Text label="更新时间" text="08:03" half={true} border={false} />
                         <Text label="当前位置" text="满洲里" half={true} border={false} />
                         <Text label="参考重量" text="未知" half={true} border={false} />
-                        <Text label="车类型" text="未知" half={true} border={false} />
-                        <Text label="代理公司" text="未知" />
+                        <Text label="车类型" text="未知" half={true} />
+                        <Text label="代理公司" text="未知" half={true} />
                     </div>
                     <div className="detail">
                         <div className="ui-title-detail">

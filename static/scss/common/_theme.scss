@@ -43,19 +43,21 @@ td {
     word-break: break-all;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
+%form-default {
     border: 1px $color-link solid;
     background-color: #f0f0f0;
-    border-radius: 50%;
     width: 18px;
     height: 18px;
     vertical-align: middle;
 }
-
 input[type="radio"] {
+    @extend %form-default;
+    border-radius: 50%;
     &:checked {
         border: 5px $color-link solid;
         background-color: #fff;
     }
+}
+input[type="checkbox"] {
+    @extend %form-default;
 }
