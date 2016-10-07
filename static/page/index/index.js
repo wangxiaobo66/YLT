@@ -18,6 +18,19 @@ const thunk = require('redux-thunk').default;
 
 let store = createStore(YLT, applyMiddleware(thunk));
 
+let historyList = [];
+
+Array.prototype.unique = function(){//数组去重并输出新数组
+    var res = [];
+    var json = {};
+    for(var i = 0; i < this.length; i++){
+        if(!json[this[i]]){
+            res.push(this[i]);
+            json[this[i]] = 1;
+        }
+    }
+    return res;
+};
 
 //let { change } = require('./actions');
 class component extends React.Component {
@@ -28,14 +41,15 @@ class component extends React.Component {
             publishActive: false,
             mineActive: false,
             matte: false,
-            search: false
+            search: false,
+            searchValue:''
         }
     }
 
     render() {
-        //console.log(this.props);
         let { index } = this.props;
-        let { homeActive , publishActive , mineActive , matte , search} = this.state;
+        console.log(historyList);
+        let { homeActive , publishActive , mineActive , matte , search , searchValue } = this.state;
         return (
             <div className={"modal-index clearfix" + (search?" search":"")}
                  onKeyDown={(e) => util.events.emit('bodyKeyDown', e)}>
@@ -45,11 +59,17 @@ class component extends React.Component {
                     <div className="search">
                         <img src="../../static/page/index/img/icon.png" className="icon"/>
                         <form>
-                            <input type="text" className="input" placeholder="找木材/找货物/找货主" name="word"
-                                   onClick={(e) => this.searchClick(e)}/>
+                            <input type="text" className="input" placeholder="找木材/找货物/找货主" name="word" value={searchValue}
+                                   onClick={(e) => this.searchClick(e)}
+                                   onChange={(e) => this.searchChange(e)}/>
                             <a href="javascript:;" className="cancel" onClick={(e) => this.cancel(e)}>取消</a>
                         </form>
 
+                    </div>
+                    <div className="searchHistory">
+                        <ul>
+                            {this.historyDom(historyList)}
+                        </ul>
                     </div>
                     <p className="index-search-p">搜索人数:8923人</p>
                 </div>
@@ -173,13 +193,25 @@ class component extends React.Component {
             onSlideNextStart: function (swiper) {
                 $('.switch-active').css('margin-left', 2 + swiper.activeIndex * 24 + '%');
             }
-        })
+        });
 
         util.events.on('bodyKeyDown', (e) => { //监听键盘按钮
-            if(e.keyCode===13){
-                console.log(1);
-                alert(1);
+            if(e.keyCode===13){//回车事件兼容移动端网页键盘,可放心使用
+                let { searchValue } = this.state;
+                if(searchValue!==""){//inout输入非空push进数组中,若之前数组非空,push后数组为[Array[],searchValue],需再做处理
+                    historyList.push(searchValue);
+                }
+                let history = historyList.join(",");//将数组转换为字符串,中间以","隔开
+                let historyUnique = history.split(",").unique();//再将字符串转换成数组,执行去重方法输出新数组
+
+                localStorage.setItem("history", historyUnique.join(","));//将新数组字符串化并存入缓存
             }
+        })
+    }
+
+    historyDom(historyList){
+        historyList.map((obj,index) => {
+            return (<li>{obj}</li>)
         })
     }
 
@@ -189,6 +221,13 @@ class component extends React.Component {
             publishActive: true,
             mineActive: false,
             matte: false
+        })
+    }
+
+    searchChange(e){
+        let val = e.target.value;
+        this.setState({
+            searchValue:val
         })
     }
 
@@ -233,10 +272,19 @@ class component extends React.Component {
     }
 
     searchClick(e) {
-        let { search } = this.state;
+        console.log(window.localStorage);
         this.setState({
             search: true
-        })
+        });
+        if(window.localStorage.length){//读取本地缓存
+            let history = localStorage.getItem("history");
+            if(history!==""){
+                historyList = history.split(",");
+            }
+        }else {//创建本地缓存
+            historyList.join(",");
+            localStorage.setItem("history", historyList);
+        }
     }
 
     cancel(e) {

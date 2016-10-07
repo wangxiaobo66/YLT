@@ -276,6 +276,9 @@
       background: #65b888;
     }
   }
+  .searchHistory{
+    display: none;
+  }
 }
 .search{
   .index-search {
@@ -294,5 +297,8 @@
     .cancel{
       display: block;
     }
+  }
+  .searchHistory{
+    display: block;
   }
 }
