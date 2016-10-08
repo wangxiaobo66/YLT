@@ -175,9 +175,9 @@ class component extends React.Component {
                                     })
                                 }
                                 <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
-                                    href="/template/market/market.html">查看全部未售市场</a></div>
+                                    href="/template/market.html">查看全部未售市场</a></div>
                                 <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a
-                                    href="/template/market/market.html#/add">发布未售信息</a></div>
+                                    href="/template/market.html#/add">发布未售信息</a></div>
                             </div>
                             <div className="swiper-slide">
                                 {
@@ -186,9 +186,9 @@ class component extends React.Component {
                                     })
                                 }
                                 <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
-                                    href="/template/ask-buy/ask-buy.html">查看全部求购信息</a></div>
+                                    href="/template/ask-buy.html">查看全部求购信息</a></div>
                                 <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a
-                                    href="/template/ask-buy/ask-buy.html#/add">发布求购信息</a></div>
+                                    href="/template/ask-buy.html#/add">发布求购信息</a></div>
                             </div>
                             <div className="swiper-slide">
                                 <div className="card-item clearfix">
@@ -211,7 +211,7 @@ class component extends React.Component {
                                                     seats.map((item, index) => {
                                                         return (
                                                             <li className="tr" key={index}>
-                                                                <a href="/template/arrival/arrival.html#item" className="link">
+                                                                <a href="/template/arrival.html#item" className="link">
                                                                     <div className="td">{item.seat}</div>
                                                                     <div className="td">{item.tailNumber}</div>
                                                                     <div className="td">{item.varieties}</div>
@@ -226,7 +226,7 @@ class component extends React.Component {
 
                                     <div className="switch-all">
                                         <img src="../../static/page/index/img/right-icon.png"/>
-                                        <a href="/template/arrival/arrival.html">查看全部到货信息</a>
+                                        <a href="/template/arrival.html">查看全部到货信息</a>
                                     </div>
                                 </div>
                                 <div className="card-item clearfix">
@@ -253,7 +253,7 @@ class component extends React.Component {
                                                 arrvalDefaults.map((item, index) => {
                                                     return (
                                                         <li className="tr" key={index}>
-                                                            <a href="/template/arrival/arrival.html#item" className="link">
+                                                            <a href="/template/arrival.html#item" className="link">
                                                                 <div className="td">{item.tailNumber}</div>
                                                                 <div className="td">{item.length}</div>
                                                                 <div className="td">{item.varieties}</div>
@@ -275,21 +275,21 @@ class component extends React.Component {
                             <div className="swiper-slide">
                                 <div className="service">
                                     <p>
-                                        <a href="/template/service/service.html"><img src="../../static/images/service-1.png"/>木材资讯</a>
-                                        <a href="/template/service/service.html"><img src="../../static/images/service-2.png"/>铁路运费</a>
-                                        <a href="/template/service/service.html"><img src="../../static/images/service-3.png"/>新增订阅</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-1.png"/>木材资讯</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-2.png"/>铁路运费</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-3.png"/>新增订阅</a>
                                     </p>
                                     <p>
-                                        <a href="/template/service/service.html"><img src="../../static/images/service-4.png"/>求车服务</a>
-                                        <a href="/template/service/service.html"><img src="../../static/images/service-5.png"/>场地出租</a>
-                                        <a href="/template/service/service.html"><img src="../../static/images/service-6.png"/>设备租售</a>
-                                        <a href="/template/service/service.html"><img src="../../static/images/service-7.png"/>招聘服务</a>
-                                        <a href="/template/service/service.html"><img src="../../static/images/service-8.png"/>求职服务</a>
-                                        <a href="/template/service/service.html"><img src="../../static/images/service-9.png"/>其它服务</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-4.png"/>求车服务</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-5.png"/>场地出租</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-6.png"/>设备租售</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-7.png"/>招聘服务</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-8.png"/>求职服务</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-9.png"/>其它服务</a>
                                     </p>
                                 </div>
                                 <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a
-                                    href="/template/service/service.html#/add">发布服务</a></div>
+                                    href="/template/service.html#/add">发布服务</a></div>
                                 <div className="subscribe-div"><span></span>我的订阅</div>
                                 <Subscribe />
                             </div>
@@ -437,7 +437,7 @@ class component extends React.Component {
                     mineActive: true,
                     matte: false
                 });
-                window.location.href = "/template/mine/mine.html";
+                window.location.href = "/template/mine.html";
                 break;
         }
         let { publishActive } = this.state;

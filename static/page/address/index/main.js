@@ -71,7 +71,7 @@ export default class Item extends React.Component {
                             this.state.list.map((item, index) => {
                                 return (
                                     <li className="tr" key={index}>
-                                        <a href="/template/arrival/arrival.html#item" className="link">
+                                        <a href="/template/arrival.html#item" className="link">
                                             <div className="td">{item.tailNumber}</div>
                                             <div className="td">{item.length}</div>
                                             <div className="td">{item.varieties}</div>
