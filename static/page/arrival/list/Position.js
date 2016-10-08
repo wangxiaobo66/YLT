@@ -50,7 +50,7 @@ export default class ListLocation extends React.Component {
     }
     render() {
         return(
-            <div className="module-list module-list-seat clearfix">
+            <div className="module-list-seat clearfix">
                 <Tab type={TAB_POSITION} />
                 <div className="ui-table">
                     <ul className="thead">

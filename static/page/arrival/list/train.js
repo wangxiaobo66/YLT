@@ -50,7 +50,7 @@ export default class ListTrain extends React.Component {
     }
     render() {
         return(
-            <div className="module-list module-list-train">
+            <div className="module-list-train">
                 <Tab type={TAB_TRAIN} />
                 <div className="ui-table">
                     <ul className="thead">
