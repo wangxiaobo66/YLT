@@ -24,17 +24,34 @@ gulp.task('copy:dist', function () {
         .pipe(gulp.dest('./output/dist'));
 });
 
-gulp.task('copy:static', function () {
+gulp.task('copy:images', function () {
     return gulp
-        .src('./static/**/*')
-        .pipe(gulp.dest('./output/static'));
+        .src('./static/images/*')
+        .pipe(gulp.dest('./output/static/images'));
 });
 
+gulp.task('copy:lib', function () {
+    return gulp
+        .src('./static/lib/*')
+        .pipe(gulp.dest('./output/static/lib'));
+});
 
-gulp.task('copy', ['js', 'copy:template', 'copy:dist', 'copy:static']);
+gulp.task('copy:third', function () {
+    return gulp
+        .src('./static/js/third/*')
+        .pipe(gulp.dest('./output/static/js/third'));
+});
 
+gulp.task('copy', [
+    'js',
+    'copy:template',
+    'copy:dist',
+    'copy:images',
+    'copy:third',
+    'copy:lib'
+]);
 
-gulp.task('appText', ['js', 'copy:template', 'copy:dist', 'copy:static'], function () {
+gulp.task('appText', ['copy'], function () {
     gulp.src('./output/**/*')
         .pipe(scp({
             host: host,
