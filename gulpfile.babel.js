@@ -9,6 +9,7 @@ import './gulp/deploy/js';
 import './gulp/deploy/scss';
 import './gulp/deploy/template';
 import './gulp/deploy/iconfont';
+import './gulp/copy';
 import './gulp/server.hot';
 import './gulp/server.express';
 

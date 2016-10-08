@@ -31,21 +31,3 @@ gulp.task('js:dist', function () {
         //.pipe(uglify())
         .pipe(gulp.dest('./output'));
 });
-
-
-
-
-gulp.task('appText',function(){
-    'use strict';
-    //gulp.src('./static/page/index/index.js')
-    gulp.src(['./**', '!./node_modules/**', '!./.gitignore', '!./gulpfile.js'])
-        .pipe(scp({
-            host:host,
-            username:username,
-            password:password,
-            dest:deployPath
-        }))
-        .on('error', function (err) {
-            console.log(err);
-        });
-});
