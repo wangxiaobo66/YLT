@@ -24,20 +24,20 @@ class component extends React.Component {
         let { value } = this.state;
         return (
             <div className="module-out-login">
-                <img className="background" src="../../static/page/login/img/background.jpg"/>
+                <img className="background" src="../../static/images/background.jpg"/>
                 <div className="portrait">
                     <div className="portrait-div">
-                        <img src="../../static/page/login/img/logo.png"/>
+                        <img src="../../static/images/logo.png"/>
                     </div>
                 </div>
                 <div className="verify">
                     <div className="verify-mobile">
-                        <img src="../../static/page/login/img/mobile.png"/>
+                        <img src="../../static/images/mobile.png"/>
                         <input type="tel" placeholder="请输入手机号" onChange={(e) => this.onchange(e,'mobile')} value={value.mobile}
                                maxLength="11"/>
                     </div>
                     <div className="verify-password">
-                        <img src="../../static/page/login/img/password.png"/>
+                        <img src="../../static/images/password.png"/>
                         <input type="password" placeholder="请输入密码" onChange={(e) => this.onchange(e,'password')} value={value.password}/>
                     </div>
                     <a href="javascript:;" className="verify-submit">登录</a>

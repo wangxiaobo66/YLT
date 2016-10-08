@@ -16,6 +16,20 @@ const { Provider, connect } = require('react-redux');
 const { createStore, applyMiddleware } = require('redux');
 const thunk = require('redux-thunk').default;
 
+import img1 from './img/1.png';
+import img2 from './img/2.png';
+import img3 from './img/3.png';
+import img4 from './img/4.png';
+import img5 from './img/5.png';
+import imgHome from './img/home.png';
+import imgIcon from './img/icon.png';
+import imgIssue from './img/issue.png';
+import imgLogo from './img/logo.png';
+import imgMine from './img/mine.png';
+import imgPublish from './img/publish.png';
+import imgRightIcon from './img/right-icon.png';
+import imgWrong from './img/wrong.png';
+
 let store = createStore(YLT, applyMiddleware(thunk));
 
 let historyList = [];
@@ -144,10 +158,10 @@ class component extends React.Component {
             <div className={"modal-index clearfix" + (search?" search":"")}
                  onKeyDown={(e) => util.events.emit('bodyKeyDown', e)}>
                 <div className="index-search">
-                    <img src="../../static/page/index/img/background.jpg" className="background"/>
-                    <img src="../../static/page/index/img/logo.png" className="logo"/>
+                    <img src="../../static/images/background.jpg" className="background"/>
+                    <img src={imgLogo} className="logo"/>
                     <div className="search">
-                        <img src="../../static/page/index/img/icon.png" className="icon"/>
+                        <img src={imgIcon} className="icon"/>
                         <form>
                             <input type="text" className="input" placeholder="找木材/找货物/找货主" name="word" value={searchValue}
                                    onClick={(e) => this.searchClick(e)}
@@ -174,9 +188,9 @@ class component extends React.Component {
                                         return <Market obj={item} key={index} />;
                                     })
                                 }
-                                <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
+                                <div className="switch-all"><img src={imgRightIcon}/><a
                                     href="/template/market.html">查看全部未售市场</a></div>
-                                <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a
+                                <div className="switch-issue"><img src={imgIssue} /><a
                                     href="/template/market.html#/add">发布未售信息</a></div>
                             </div>
                             <div className="swiper-slide">
@@ -185,9 +199,9 @@ class component extends React.Component {
                                         return <AskBuy obj={item} key={index} />;
                                     })
                                 }
-                                <div className="switch-all"><img src="../../static/page/index/img/right-icon.png"/><a
+                                <div className="switch-all"><img src={imgRightIcon} /><a
                                     href="/template/ask-buy.html">查看全部求购信息</a></div>
-                                <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a
+                                <div className="switch-issue"><img src={imgIssue} /><a
                                     href="/template/ask-buy.html#/add">发布求购信息</a></div>
                             </div>
                             <div className="swiper-slide">
@@ -225,7 +239,7 @@ class component extends React.Component {
                                     </article>
 
                                     <div className="switch-all">
-                                        <img src="../../static/page/index/img/right-icon.png"/>
+                                        <img src={imgRightIcon} />
                                         <a href="/template/arrival.html">查看全部到货信息</a>
                                     </div>
                                 </div>
@@ -268,7 +282,7 @@ class component extends React.Component {
                                 </div>
 
                                 <div className="switch-all">
-                                    <img src="../../static/page/index/img/right-icon.png"/>
+                                    <img src={imgRightIcon} />
                                     <a href="javascript:;">其它货场位置查询</a>
                                 </div>
                             </div>
@@ -288,7 +302,7 @@ class component extends React.Component {
                                         <a href="/template/service.html"><img src="../../static/images/service-9.png"/>其它服务</a>
                                     </p>
                                 </div>
-                                <div className="switch-issue"><img src="../../static/page/index/img/issue.png"/><a
+                                <div className="switch-issue"><img src={imgIssue} /><a
                                     href="/template/service.html#/add">发布服务</a></div>
                                 <div className="subscribe-div"><span></span>我的订阅</div>
                                 <Subscribe />
@@ -305,15 +319,15 @@ class component extends React.Component {
 
                 <div className="index-bottom">
                     <p className={homeActive?'active':''} onClick={(e) => this.onclick(e,"homeActive")}>
-                        <img src="../../static/page/index/img/home.png"/>
+                        <img src={imgHome} />
                         <span>官网首页</span>
                     </p>
                     <p className={publishActive?'active':''} onClick={(e) => this.onclick(e,"publishActive")}>
-                        <img src="../../static/page/index/img/publish.png"/>
+                        <img src={imgPublish} />
                         <span>发布信息</span>
                     </p>
                     <p className={mineActive?'active':''} onClick={(e) => this.onclick(e,"mineActive")}>
-                        <img src="../../static/page/index/img/mine.png"/>
+                        <img src={imgMine} />
                         <span>个人中心</span>
                     </p>
                 </div>
@@ -322,28 +336,28 @@ class component extends React.Component {
                     <div className="information">
                         <div className="choose clearfix">
                             <a href="javascript:;">
-                                <img src="../../static/page/index/img/1.png"/>
+                                <img src={img1}/>
                                 境外码单上传
                             </a>
                             <a href="javascript:;">
-                                <img src="../../static/page/index/img/2.png"/>
+                                <img src={img2} />
                                 发布未售信息
                             </a>
                             <a href="javascript:;">
-                                <img src="../../static/page/index/img/3.png"/>
+                                <img src={img3} />
                                 我要开店
                             </a>
                             <a href="javascript:;">
-                                <img src="../../static/page/index/img/4.png"/>
+                                <img src={img4} />
                                 发布求购信息
                             </a>
                             <a href="javascript:;">
-                                <img src="../../static/page/index/img/5.png"/>
+                                <img src={img5} />
                                 发布服务
                             </a>
                         </div>
                         <a href="javascript:;" className="wrong" onClick={(e) => this.wrong()}><img
-                            src="../../static/page/index/img/wrong.png"/></a>
+                            src={imgWrong} /></a>
                     </div>
                 </div>
             </div>

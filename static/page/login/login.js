@@ -30,22 +30,22 @@ class component extends React.Component {
         let { text , active , value ,after} = this.state;
         return (
             <div className="module-login">
-                <img className="background" src="../../static/page/login/img/background.jpg"/>
+                <img className="background" src="../../static/images/background.jpg"/>
                 <div className="portrait">
                     <div className="portrait-div">
-                        <img src="../../static/page/login/img/logo.png"/>
+                        <img src="../../static/images/logo.png"/>
                     </div>
                 </div>
                 <div className="verify">
                     <div className="verify-mobile">
-                        <img src="../../static/page/login/img/mobile.png"/>
+                        <img src="../../static/images/mobile.png"/>
                         <input type="tel" placeholder="请输入手机号" onChange={(e) => this.onchange(e)} value={value.mobile}
                                maxLength="11"/>
                         <span onClick={active?(after?(e) => this.getSms():''):''}
                               className={active?(after?'active':'after'):''}>{text}</span>
                     </div>
                     <div className="verify-sms">
-                        <img src="../../static/page/login/img/sms.png"/>
+                        <img src="../../static/images/sms.png"/>
                         <input type="text" placeholder="请输入短信验证码"/>
                     </div>
                     <a href="javascript:;" className="verify-submit">登录</a>
