@@ -31,5 +31,5 @@ gulp.task('js:prod', function () {
         .src('./static/page/index/index.js')
         .pipe(gulpWebpack(webpackConfigBase))
         // .pipe(uglify())
-        .pipe(gulp.dest('./output'));
+        .pipe(gulp.dest('./output/dist'));
 });
