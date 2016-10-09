@@ -30,7 +30,7 @@ gulp.task('js:prod', function () {
     return gulp
         .src('./static/page/index/index.js')
         .pipe(gulpWebpack(webpackConfigBase))
-        // .pipe(replace('../../static/', '../static/'))
+        .pipe(replace('../../static/', '../static/'))
         // .pipe(uglify())
         .pipe(gulp.dest('./output/dist'));
 });
