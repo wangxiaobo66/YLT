@@ -164,7 +164,7 @@ class component extends React.Component {
                     <img src={imgLogo} className="logo"/>
                     <div className="search">
                         <img src={imgIcon} className="icon"/>
-                        <form>
+                        <form action="/template/search.html">
                             <input type="text" className="input" placeholder="找木材/找货物/找货主" name="word" value={searchValue}
                                    onClick={(e) => this.searchClick(e)}
                                    onChange={(e) => this.searchChange(e)}/>
@@ -387,6 +387,7 @@ class component extends React.Component {
                 let { searchValue } = this.state;
                 if(searchValue!==""){//inout输入非空push进数组中,若之前数组非空,push后数组为[Array[],searchValue],需再做处理
                     historyList.push(searchValue);
+
                 }
                 let history = historyList.join(",");//将数组转换为字符串,中间以","隔开
                 let historyUnique = history.split(",").unique();//再将字符串转换成数组,执行去重方法输出新数组

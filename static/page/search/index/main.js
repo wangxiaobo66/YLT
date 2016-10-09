@@ -20,6 +20,7 @@ export default class Item extends React.Component {
     render() {
         return(
             <div className="module-index">
+                <p className="search-p">按选定木材规格订阅信息，当有新消息产生后，会将消息推送给您</p>
                 <form className="ui-form info-ft">
                     <div className="item">
                         <label>
