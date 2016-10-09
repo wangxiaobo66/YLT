@@ -24,9 +24,16 @@ gulp.task('js', function () {
         .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('js:temp', function () {
+    webpackConfigBase.output.publicPath = '/front.irito/html/dist/';
+    return gulp
+        .src('./static/page/index/index.js')
+        .pipe(gulpWebpack(webpackConfigBase))
+        //.pipe(uglify())
+        .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('js:prod', function () {
-    const PUBLIC_PATH = '/front.irito/html/dist/';
-    webpackConfigBase.output.publicPath = PUBLIC_PATH;
     return gulp
         .src('./static/page/index/index.js')
         .pipe(gulpWebpack(webpackConfigBase))
