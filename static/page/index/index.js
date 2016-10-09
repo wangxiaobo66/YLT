@@ -30,16 +30,7 @@ import imgPublish from './img/publish.png';
 import imgRightIcon from './img/right-icon.png';
 import imgWrong from './img/wrong.png';
 import imgBackground from './img/background.jpg';
-import imgYs from '../../static/component/Market/img/ys.png';
-import imgService1 from '../../static/images/service-1.png';
-import imgService2 from '../../static/images/service-2.png';
-import imgService3 from '../../static/images/service-3.png';
-import imgService4 from '../../static/images/service-4.png';
-import imgService5 from '../../static/images/service-5.png';
-import imgService6 from '../../static/images/service-6.png';
-import imgService7 from '../../static/images/service-7.png';
-import imgService8 from '../../static/images/service-8.png';
-import imgService9 from '../../static/images/service-9.png';
+import imgYs from '../../component/Market/img/ys.png';
 
 let store = createStore(YLT, applyMiddleware(thunk));
 
@@ -300,17 +291,17 @@ class component extends React.Component {
                             <div className="swiper-slide">
                                 <div className="service">
                                     <p>
-                                        <a href="/template/service.html"><img src={imgService1}/>木材资讯</a>
-                                        <a href="/template/service.html"><img src={imgService2}/>铁路运费</a>
-                                        <a href="/template/service.html"><img src={imgService3}/>新增订阅</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-1.png"/>木材资讯</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-2.png"/>铁路运费</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-3.png"/>新增订阅</a>
                                     </p>
                                     <p>
-                                        <a href="/template/service.html"><img src={imgService4}/>求车服务</a>
-                                        <a href="/template/service.html"><img src={imgService5}/>场地出租</a>
-                                        <a href="/template/service.html"><img src={imgService6}/>设备租售</a>
-                                        <a href="/template/service.html"><img src={imgService7}/>招聘服务</a>
-                                        <a href="/template/service.html"><img src={imgService8}/>求职服务</a>
-                                        <a href="/template/service.html"><img src={imgService9}/>其它服务</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-4.png"/>求车服务</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-5.png"/>场地出租</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-6.png"/>设备租售</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-7.png"/>招聘服务</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-8.png"/>求职服务</a>
+                                        <a href="/template/service.html"><img src="../../static/images/service-9.png"/>其它服务</a>
                                     </p>
                                 </div>
                                 <div className="switch-issue"><img src={imgIssue} /><a
