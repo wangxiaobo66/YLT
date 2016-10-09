@@ -24,10 +24,12 @@ gulp.task('js', function () {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('js:dist', function () {
+gulp.task('js:prod', function () {
+    const PUBLIC_PATH = '/front.irito/html/dist/';
+    webpackConfigBase.output.publicPath = PUBLIC_PATH;
     return gulp
         .src('./static/page/index/index.js')
         .pipe(gulpWebpack(webpackConfigBase))
-        //.pipe(uglify())
-        .pipe(gulp.dest('./output'));
+        // .pipe(uglify())
+        .pipe(gulp.dest('./output/dist'));
 });
