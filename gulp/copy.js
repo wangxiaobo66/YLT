@@ -7,7 +7,8 @@
 import gulp from 'gulp';
 const path = require('path');
 const scp = require('gulp-scp2');
-const deployPath = '/usr/local/apache-tomcat-8.5.5/webapps/front.irito/html/';
+const uglify = require('gulp-uglify');
+const deployPath = '/usr/local/apache-tomcat-8.5.5/webapps/front.irito/';
 const host = '123.57.83.122';
 const username = 'root';
 const password = 'ylt779870!@#$';
@@ -18,10 +19,23 @@ gulp.task('copy:template', function () {
         .pipe(gulp.dest('./output/template'));
 });
 
-gulp.task('copy:dist', function () {
+gulp.task('copy:distFont', function () {
     return gulp
-        .src('./dist/**/*')
-        .pipe(gulp.dest('./output/dist'));
+        .src('./dist/font/*')
+        .pipe(gulp.dest('./output/dist/font'));
+});
+
+gulp.task('copy:distImg', function () {
+    return gulp
+        .src('./dist/img/*')
+        .pipe(gulp.dest('./output/dist/img'));
+});
+
+gulp.task('copy:distJs', function () {
+    return gulp
+        .src('./dist/js/*')
+        .pipe(uglify())
+        .pipe(gulp.dest('./output/dist/js'));
 });
 
 gulp.task('copy:images', function () {
@@ -45,10 +59,13 @@ gulp.task('copy:third', function () {
 gulp.task('copy', [
     'js',
     'copy:template',
-    'copy:dist',
+    //'copy:dist',
     'copy:images',
     'copy:third',
-    'copy:lib'
+    'copy:lib',
+    'copy:distFont',
+    'copy:distImg',
+    'copy:distJs'
 ]);
 
 gulp.task('appText', ['copy'], function () {
