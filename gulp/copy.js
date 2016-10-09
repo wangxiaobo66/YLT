@@ -57,7 +57,7 @@ gulp.task('copy:third', function () {
 });
 
 gulp.task('copy', [
-    'js',
+    'js:prod',
     'copy:template',
     //'copy:dist',
     'copy:images',
