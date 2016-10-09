@@ -24,7 +24,7 @@ import img5 from './img/5.png';
 import imgHome from './img/home.png';
 import imgIcon from './img/icon.png';
 import imgIssue from './img/issue.png';
-import imgLogo from './img/logo.png';
+import imgLogo from './img/logoName.png';
 import imgMine from './img/mine.png';
 import imgPublish from './img/publish.png';
 import imgRightIcon from './img/right-icon.png';
@@ -69,7 +69,7 @@ let dataAskBuys = [
 
 let dataMarkets = [
     {
-        "imgSrc": '../../static/images/ys.png',
+        "imgSrc": "../../static/images/ys.png",
         "name": "落叶松1",
         "size": "六米",
         "type": "原木",
@@ -80,7 +80,7 @@ let dataMarkets = [
         "level": "一级"
     },
     {
-        "imgSrc": '../../static/images/ys.png',
+        "imgSrc": "../../static/images/ys.png",
         "name": "落叶松2",
         "size": "三米",
         "type": "原木",
