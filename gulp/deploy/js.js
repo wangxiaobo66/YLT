@@ -6,7 +6,7 @@
 
 import gulp from 'gulp';
 import gulpWebpack from 'gulp-webpack';
-
+import replace from 'gulp-replace';
 import webpackConfigBase from '../../webpack.config.babel';
 
 const path = require('path');
@@ -30,6 +30,7 @@ gulp.task('js:prod', function () {
     return gulp
         .src('./static/page/index/index.js')
         .pipe(gulpWebpack(webpackConfigBase))
+        .pipe(replace('../../static/', '../static/'))
         // .pipe(uglify())
         .pipe(gulp.dest('./output/dist'));
 });
