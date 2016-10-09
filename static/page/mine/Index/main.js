@@ -33,7 +33,7 @@ export default class Item extends React.Component {
                                 </Link>
                             </li>
                             <li className="item">
-                                <a href="/template/shop.html#home" className="item-link">
+                                <a href="./shop.html#home" className="item-link">
                                     <span className="text">我的店铺</span>
                                 </a>
                             </li>

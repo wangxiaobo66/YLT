@@ -78,9 +78,9 @@ export default class Detail extends React.Component {
                 </div>
                 <div className="footer">
                     <div className="ui-tab ui-tab-white ui-tab-fixed">
-                        <a href="/template/shop.html#/home" className="item">店铺</a>
+                        <a href="./shop.html#/home" className="item">店铺</a>
                         <a href="tel:15811112222" className="item">电话联系</a>
-                        <a href="/template/mine.html#msg_chat" className="item">发送消息</a>
+                        <a href="./mine.html#msg_chat" className="item">发送消息</a>
                         <div className="item">
                             <a href="javascript:;" className="btn-care">+关注</a>
                         </div>

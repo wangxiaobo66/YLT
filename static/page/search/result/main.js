@@ -42,7 +42,7 @@ export default class Item extends React.Component {
                                     this.state.list.map((item, index) => {
                                         return (
                                             <li className="tr" key={index}>
-                                                <a href="/template/arrival.html#item" className="link">
+                                                <a href="./arrival.html#item" className="link">
                                                     <div className="td">{item.tailNumber}</div>
                                                     <div className="td">{item.length}</div>
                                                     <div className="td">{item.varieties}</div>
@@ -62,9 +62,9 @@ export default class Item extends React.Component {
                             </div>
                             <div className="do">
                                 <div className="ui-btn-groups">
-                                    <a href="/template/subscribe.html#/gg"
+                                    <a href="./subscribe.html#/gg"
                                        className="ui-btn ui-btn-default">添加到按“规格订阅”</a>
-                                    <a href="/template/ask-buy.html#/add"
+                                    <a href="./ask-buy.html#/add"
                                        className="ui-btn ui-btn-default">发布求购信息</a>
                                 </div>
                             </div>

@@ -124,7 +124,7 @@ export default class MyCare extends React.Component {
                                 this.state.list.map((item, index) => {
                                     return (
                                         <li className="item" key={index}>
-                                            <a className="item-link" href="/template/shop.html#home">
+                                            <a className="item-link" href="./shop.html#home">
                                                 <Shop />
                                             </a>
                                             <div className="ui-do">
@@ -146,7 +146,7 @@ export default class MyCare extends React.Component {
                                 this.state.markets.map((item, index) => {
                                     return (
                                         <li className="item" key={index}>
-                                            <a className="item-link" href="/template/shop.html#home">
+                                            <a className="item-link" href="./shop.html#home">
                                                 <Market obj={item} />
                                             </a>
                                             <div className="ui-do">

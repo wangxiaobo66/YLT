@@ -19,11 +19,11 @@ export default class Nav extends React.Component {
         return (
             <div className="Nav-component">
                 <div className="ui-tab ui-tab-fixed">
-                    <a href="/template/index.html"
+                    <a href="./index.html"
                        className={'item' + (this.props.current === NAV_INDEX ? ' item--active' : '')}>官网首页</a>
-                    <a href="/template/publishing-news.html"
+                    <a href="./publishing-news.html"
                        className={'item' + (this.props.current === NAV_PUBLISH ? ' item--active' : '')}>发布信息</a>
-                    <a href="/template/mine.html"
+                    <a href="./mine.html"
                        className={'item' + (this.props.current === NAV_MINE ? ' item--active' : '')}>个人中心</a>
                 </div>
             </div>
