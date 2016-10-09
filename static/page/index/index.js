@@ -29,6 +29,7 @@ import imgMine from './img/mine.png';
 import imgPublish from './img/publish.png';
 import imgRightIcon from './img/right-icon.png';
 import imgWrong from './img/wrong.png';
+import imgBackground from './img/background.jpg';
 
 let store = createStore(YLT, applyMiddleware(thunk));
 
@@ -158,7 +159,7 @@ class component extends React.Component {
             <div className={"modal-index clearfix" + (search?" search":"")}
                  onKeyDown={(e) => util.events.emit('bodyKeyDown', e)}>
                 <div className="index-search">
-                    <img src="../../static/images/background.jpg" className="background"/>
+                    <img src={imgBackground} className="background"/>
                     <img src={imgLogo} className="logo"/>
                     <div className="search">
                         <img src={imgIcon} className="icon"/>
