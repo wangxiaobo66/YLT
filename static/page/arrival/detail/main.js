@@ -29,7 +29,7 @@ export default class Detail extends React.Component {
             <div className="module-detail">
                 <div className="detail-box">
                     <div className="img">
-                        <img src="../../static/component/Market/img/ys.png" width="80" height="60" alt=""/>
+                        <img src="../../static/images/ys.png" width="80" height="60" alt=""/>
                     </div>
                     <Title content="基本规格" tip="0803 12:12" />
                     <div className="content">

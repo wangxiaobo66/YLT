@@ -14,7 +14,7 @@ export default class Item extends React.Component {
         this.state = {
             list: [
                 {
-                    "imgSrc": "../../static/component/Market/img/ys.png",
+                    "imgSrc": "../../static/images/ys.png",
                     "name": "落叶松1",
                     "size": "六米",
                     "type": "原木",
@@ -25,7 +25,7 @@ export default class Item extends React.Component {
                     "level": "一级"
                 },
                 {
-                    "imgSrc": "../../static/component/Market/img/ys.png",
+                    "imgSrc": "../../static/images/ys.png",
                     "name": "落叶松2",
                     "size": "三米",
                     "type": "原木",

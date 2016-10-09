@@ -29,7 +29,6 @@ import imgMine from './img/mine.png';
 import imgPublish from './img/publish.png';
 import imgRightIcon from './img/right-icon.png';
 import imgWrong from './img/wrong.png';
-import imgYs from '../../component/Market/img/ys.png';
 
 let store = createStore(YLT, applyMiddleware(thunk));
 
@@ -70,7 +69,7 @@ let dataAskBuys = [
 
 let dataMarkets = [
     {
-        "imgSrc": imgYs,
+        "imgSrc": '../../static/images/ys.png',
         "name": "落叶松1",
         "size": "六米",
         "type": "原木",
@@ -81,7 +80,7 @@ let dataMarkets = [
         "level": "一级"
     },
     {
-        "imgSrc": imgYs,
+        "imgSrc": '../../static/images/ys.png',
         "name": "落叶松2",
         "size": "三米",
         "type": "原木",
