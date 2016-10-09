@@ -29,6 +29,7 @@ gulp.task('js:temp', function () {
     return gulp
         .src('./static/page/index/index.js')
         .pipe(gulpWebpack(webpackConfigBase))
+        .pipe(replace('../../static/', '../static/'))
         //.pipe(uglify())
         .pipe(gulp.dest('./dist'));
 });
