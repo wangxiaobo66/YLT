@@ -7,6 +7,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import Market from '../../../component/Market/Market';
+import imgYs from '../../../component/Market/img/ys.png';
 
 export default class List extends React.Component {
     constructor(props) {
@@ -14,7 +15,7 @@ export default class List extends React.Component {
         this.state = {
             list: [
                 {
-                    "imgSrc": "../../static/component/Market/img/ys.png",
+                    "imgSrc": imgYs,
                     "name": "落叶松1",
                     "size": "六米",
                     "type": "原木",
@@ -25,7 +26,7 @@ export default class List extends React.Component {
                     "level": "一级"
                 },
                 {
-                    "imgSrc": "../../static/component/Market/img/ys.png",
+                    "imgSrc": imgYs,
                     "name": "落叶松2",
                     "size": "三米",
                     "type": "原木",
