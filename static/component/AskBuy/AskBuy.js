@@ -5,6 +5,8 @@ require('./AskBuy.scss');
 const React = require('react');
 const render = require('react-dom').render;
 
+import imgMap from './img/map.png';
+
 // let data = [
 //     {
 //         "region": "满洲里",
@@ -38,7 +40,7 @@ export class AskBuy extends React.Component {
                 <div className="box">
                     <div className="left">
                         <p className="title">
-                            <img src="../../static/component/AskBuy/img/map.png"/>
+                            <img src={imgMap}/>
                             <span>{obj.region}</span>
                         </p>
                         <p className="time">
