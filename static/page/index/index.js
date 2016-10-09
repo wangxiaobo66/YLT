@@ -29,8 +29,9 @@ import imgMine from './img/mine.png';
 import imgPublish from './img/publish.png';
 import imgRightIcon from './img/right-icon.png';
 import imgWrong from './img/wrong.png';
-
 import imgBackground from './img/background.jpg';
+import imgYs from '../../static/component/Market/img/ys.png';
+import imgService1 from '../../static/images/service-1.png';
 
 let store = createStore(YLT, applyMiddleware(thunk));
 
@@ -71,7 +72,7 @@ let dataAskBuys = [
 
 let dataMarkets = [
     {
-        "imgSrc": "../../static/component/Market/img/ys.png",
+        "imgSrc": imgYs,
         "name": "落叶松1",
         "size": "六米",
         "type": "原木",
@@ -82,7 +83,7 @@ let dataMarkets = [
         "level": "一级"
     },
     {
-        "imgSrc": "../../static/component/Market/img/ys.png",
+        "imgSrc": imgYs,
         "name": "落叶松2",
         "size": "三米",
         "type": "原木",
@@ -291,7 +292,7 @@ class component extends React.Component {
                             <div className="swiper-slide">
                                 <div className="service">
                                     <p>
-                                        <a href="/template/service.html"><img src="../../static/images/service-1.png"/>木材资讯</a>
+                                        <a href="/template/service.html"><img src={imgService1}/>木材资讯</a>
                                         <a href="/template/service.html"><img src="../../static/images/service-2.png"/>铁路运费</a>
                                         <a href="/template/service.html"><img src="../../static/images/service-3.png"/>新增订阅</a>
                                     </p>
