@@ -32,14 +32,14 @@ module.exports = {
         publicPath: PUBLIC_PATH,
         filename: 'js/[name].js'
     },
-    // externals: {
-    //     'react': 'React',
-    //     'react-dom': 'ReactDOM',
-    //     'react-router': 'ReactRouter',
-    //     'react-bootstrap': 'ReactBootstrap',
-    //     'redux': 'Redux',
-    //     'react-redux': 'ReactRedux'
-    // },
+    externals: {
+        'react': 'React',
+        'react-dom': 'ReactDOM',
+        'react-router': 'ReactRouter',
+        'react-bootstrap': 'ReactBootstrap',
+        'redux': 'Redux',
+        'react-redux': 'ReactRedux'
+    },
     // module: {
     //     loaders: [
     //         {
