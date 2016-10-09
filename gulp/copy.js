@@ -25,19 +25,19 @@ gulp.task('copy:dist', function () {
         .pipe(gulp.dest('./output/dist'));
 });
 
-gulp.task('copy:distFont', function () {
+gulp.task('copy:distFont', ['js:temp'], function () {
     return gulp
         .src('./dist/font/*')
         .pipe(gulp.dest('./output/dist/font'));
 });
 
-gulp.task('copy:distImg', function () {
+gulp.task('copy:distImg', ['js:temp'], function () {
     return gulp
         .src('./dist/img/*')
         .pipe(gulp.dest('./output/dist/img'));
 });
 
-gulp.task('copy:distJs', function () {
+gulp.task('copy:distJs', ['js:temp'], function () {
     return gulp
         .src('./dist/js/*.js')
         .pipe(replace('../../static/', '../static/'))
@@ -64,7 +64,6 @@ gulp.task('copy:third', function () {
 });
 
 gulp.task('copy', [
-    'js:temp',
     'copy:template',
     'copy:images',
     'copy:third',
