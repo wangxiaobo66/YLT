@@ -8,7 +8,7 @@ import gulp from 'gulp';
 const path = require('path');
 const scp = require('gulp-scp2');
 const uglify = require('gulp-uglify');
-const deployPath = '/usr/local/apache-tomcat-8.5.5/webapps/front.irito/';
+const deployPath = '/usr/local/apache-tomcat-8.5.5/webapps/front.irito/html/';
 const host = '123.57.83.122';
 const username = 'root';
 const password = 'ylt779870!@#$';
