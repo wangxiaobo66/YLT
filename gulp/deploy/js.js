@@ -25,6 +25,8 @@ gulp.task('js', function () {
 });
 
 gulp.task('js:dist', function () {
+    const PUBLIC_PATH = '/front.irito/html/dist/';
+    webpackConfigBase.output.publicPath = PUBLIC_PATH;
     return gulp
         .src('./static/page/index/index.js')
         .pipe(gulpWebpack(webpackConfigBase))

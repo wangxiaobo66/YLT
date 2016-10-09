@@ -34,7 +34,7 @@ gulp.task('copy:distImg', function () {
 gulp.task('copy:distJs', function () {
     return gulp
         .src('./dist/js/*')
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest('./output/dist/js'));
 });
 
