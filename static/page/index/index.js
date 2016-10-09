@@ -24,7 +24,7 @@ import img5 from './img/5.png';
 import imgHome from './img/home.png';
 import imgIcon from './img/icon.png';
 import imgIssue from './img/issue.png';
-import imgLogo from './img/logo.png';
+import imgLogo from './img/logoName.png';
 import imgMine from './img/mine.png';
 import imgPublish from './img/publish.png';
 import imgRightIcon from './img/right-icon.png';
