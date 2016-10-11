@@ -40,7 +40,7 @@ class component extends React.Component {
                         <img src="../../static/images/password.png"/>
                         <input type="password" placeholder="请输入密码" onChange={(e) => this.onchange(e,'password')} value={value.password}/>
                     </div>
-                    <a href="javascript:;" className="verify-submit">登录</a>
+                    <a href="./index.html" className="verify-submit">登录</a>
                     <a href="./register.html" className="register">注册新用户</a>
                     <a href="./forget.html" className="forget">忘记密码</a>
                 </div>
