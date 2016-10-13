@@ -6,6 +6,8 @@ const util = require('../../js/app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
 
+const { userOutLogin } = require('./actions.js');//从actions里拿到方法
+
 const { YLT } = require('../../redux/reducers');
 const { Provider, connect } = require('react-redux');
 const { createStore, applyMiddleware } = require('redux');
@@ -17,7 +19,7 @@ class component extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            value: {mobile: '', password: ''}
+            value: {mobile: '', pwd: ''}
         }
     }
     render() {
@@ -40,7 +42,7 @@ class component extends React.Component {
                         <img src="../../static/images/password.png"/>
                         <input type="password" placeholder="请输入密码" onChange={(e) => this.onchange(e,'password')} value={value.password}/>
                     </div>
-                    <a href="./index.html" className="verify-submit">登录</a>
+                    <a href="javascript:;" className="verify-submit" onClick={(e) => this.loginClick(e)}>登录</a>
                     <a href="./register.html" className="register">注册新用户</a>
                     <a href="./forget.html" className="forget">忘记密码</a>
                 </div>
@@ -58,16 +60,29 @@ class component extends React.Component {
                 });
                 break;
             case 'password':
-                value.password = val;
+                value.pwd = val;
                 this.setState({
                     value: value
                 });
                 break;
         }
     }
+    loginClick(e){
+        let { value } = this.state;
+        let { dispatch } = this.props;
+        if(value.mobile!==""&&value.pwd!==""){
+            dispatch(userOutLogin(value));
+            console.log(1);
+        }else{
+            console.log('空');
+        }
+    }
 }
 function select(state) {
-    return {}
+    console.log(state);
+    return {
+        outLogin: state.outLogin
+    }
 }
 let OutLogin = connect(select)(component);
 

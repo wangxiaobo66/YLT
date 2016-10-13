@@ -40,7 +40,7 @@ module.exports = {
         var fullUrl = this.objToUrlString(url, data);
         return fetch(fullUrl, {
             headers: {
-                "x-csrf-token": scoreweb.token
+                //"x-csrf-token": scoreweb.token
             },
             credentials: 'include'
         });
@@ -51,7 +51,7 @@ module.exports = {
             headers: {
                 'Accept': 'application/json, text/javascript, */*; q=0.01', //接受数据格式
                 'Content-Type': 'application/json; charset=UTF-8', //请求数据格式
-                "x-csrf-token": scoreweb.token
+                //"x-csrf-token": scoreweb.token
             },
             credentials: 'include', //使用cookie  默认不使用cookie
             body: JSON.stringify(data)

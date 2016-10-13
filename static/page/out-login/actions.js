@@ -1,20 +1,34 @@
 /**
  * Created by wangxiaobo on 16/9/4.
  */
-const LOGIN = "INDEX_NUM";
+let util = require('../../js/app/util');
 
-function indexNum(num){
+//登录
+function postLogin(data){
+    let url = 'http://123.57.83.122:8080/front.irito.server/user/login/phone';
+    return util.postRequest(url, data);
+}
+
+const USER_LOGIN = 'USER_LOGIN';
+function userLogin(data){
     return {
-        type: INDEX_NUM,
-        num
+        type: USER_LOGIN,
+        data
     }
 }
 
 module.exports = {
-    change:function(num){
-        return function(dispatch){
-            dispatch(indexNum(num));
+    userOutLogin:function(data){
+        let info = data;
+        return function (dispatch) {
+            return postLogin(info).then(
+                function (res) {
+                    res.json().then(function (json) {
+                        dispatch(userLogin(json.result))
+                    })
+                }
+            )
         }
     },
-    INDEX_NUM:"INDEX_NUM"
+    USER_LOGIN:"USER_LOGIN"
 };

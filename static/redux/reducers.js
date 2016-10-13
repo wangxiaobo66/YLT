@@ -10,14 +10,19 @@ function index(state={num:1},action){
             return state;
     }
 }
-/*
-function login(state={},action){
-    switch (action.type){
 
+const { USER_LOGIN } = require('../page/out-login/actions');
+function outLogin(state={},action){
+    switch (action.type){
+        case USER_LOGIN:
+            let data = {data:action.data};
+            return Object.assign({},state,data);
+        default:
+            return state;
     }
 }
-*/
+
 export const YLT = combineReducers({
     index,
-    //login
+    outLogin
 });
