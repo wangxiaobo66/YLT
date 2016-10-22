@@ -70,6 +70,6 @@ module.exports = {
      * @returns {*}
      */
     formatTime(timestamp) {
-        return timestamp ? window.moment(timestamp).format('YYYY-MM-DD') : '';
+        return timestamp ? moment(timestamp).format('YYYY-MM-DD') : '';
     }
 };
