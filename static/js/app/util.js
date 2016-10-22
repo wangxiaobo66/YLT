@@ -60,5 +60,13 @@ module.exports = {
     //hash
     getHash: function(url){
         return url.substring((url.indexOf("#") + 1), url.length);
+    },
+    /**
+     * 格式化时间
+     * @param timestamp
+     * @returns {*}
+     */
+    formatTime(timestamp) {
+        return datestamp ? moment(datestamp).format('YYYY-MM-DD') : '--';
     }
 };

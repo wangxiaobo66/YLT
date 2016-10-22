@@ -5,6 +5,10 @@
  */
 
 import home from './mock_home';
+import common from './mock_common';
+import subscribe from './mock_subscribe';
 
 export default []
-    .concat(home);
+    .concat(home)
+    .concat(common)
+    .concat(subscribe);

@@ -7,7 +7,9 @@
 import './style.scss';
 
 import React from 'react';
-import {Button} from 'react-bootstrap';
+
+import {service} from '../action';
+
 
 export default class Chepihao extends React.Component {
     constructor(props) {
@@ -15,6 +17,13 @@ export default class Chepihao extends React.Component {
         this.state = {
 
         };
+    }
+    add() {
+        service.addCph({
+
+        }).then((res) => {
+
+        });
     }
     componentDidMount() {
 
@@ -44,7 +53,7 @@ export default class Chepihao extends React.Component {
                     </div>
                 </form>
                 <div className="oper">
-                    <a href="javascript:;" className="ui-btn ui-btn-fixed">新增订阅</a>
+                    <a href="javascript:;" className="ui-btn ui-btn-fixed" onClick={this.add.bind(this)}>新增订阅</a>
                 </div>
             </div>
         );

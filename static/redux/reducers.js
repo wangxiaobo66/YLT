@@ -1,4 +1,6 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
+
+import subscribeReducer from '../page/subscribe/reducer';
 
 const {INDEX_NUM} = require('../page/index/actions');
 function index(state={num:1},action){
@@ -24,5 +26,6 @@ function outLogin(state={},action){
 
 export const YLT = combineReducers({
     index,
-    outLogin
+    outLogin,
+    subscribeReducer
 });
