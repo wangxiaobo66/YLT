@@ -38,7 +38,8 @@ module.exports = {
         'react-router': 'ReactRouter',
         'react-bootstrap': 'ReactBootstrap',
         'redux': 'Redux',
-        'react-redux': 'ReactRedux'
+        'react-redux': 'ReactRedux',
+        'moment': 'moment'
     },
     // module: {
     //     loaders: [

@@ -1,4 +1,7 @@
+
 const eventEmitter = require('event-emitter');
+import moment from 'moment';
+
 module.exports = {
     events: eventEmitter({}),
     //wxbjiami
@@ -67,6 +70,6 @@ module.exports = {
      * @returns {*}
      */
     formatTime(timestamp) {
-        return datestamp ? moment(datestamp).format('YYYY-MM-DD') : '--';
+        return timestamp ? window.moment(timestamp).format('YYYY-MM-DD') : '';
     }
 };

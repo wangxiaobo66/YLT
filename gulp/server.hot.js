@@ -33,7 +33,7 @@ gulp.task('server:hot', function () {
 
     function startWebpackServer() {
         // 开启源码映射
-        webpackConfigBase.devtool = 'cheap-source-map';
+        webpackConfigBase.devtool = 'source-map';
 
         if (!webpackConfigBase.plugins) {
             webpackConfigBase.plugins = [];

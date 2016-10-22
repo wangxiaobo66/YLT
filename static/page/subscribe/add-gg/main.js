@@ -7,8 +7,9 @@
 import './style.scss';
 
 import React from 'react';
-
+import appUtil from '../../../js/app/util';
 import service from '../service';
+import util from '../util';
 
 export default class Guige extends React.Component {
     constructor(props) {
@@ -31,7 +32,7 @@ export default class Guige extends React.Component {
     }
     add() {
         // 添加
-        service.addGg(this.state.form).then((rep) => {
+        service.addCph(this.state.form).then((rep) => {
             if (rep.state === 1) {
                 window.toast('添加成功', {
                     callback() {
@@ -71,28 +72,7 @@ export default class Guige extends React.Component {
         });
     }
     checkTime(key, event) {
-        let value = event.target.value;
-        let startTime;
-        let endTime;
-        if (key === 'startTime') {
-            startTime = new Date(value).getTime();
-            endTime = this.state.form.endTime;
-            if (endTime && startTime > endTime) {
-                window.toast('开始时间必须小于结束时间');
-                return;
-            }
-            this.state.form['startTime'] = startTime;
-        } else {
-            endTime = new Date(value + ' 23:59:59').getTime();
-            startTime = this.state.form.startTime;
-            if (endTime && endTime < startTime) {
-                window.toast('结束时间必须大于开始时间');
-                return;
-            }
-            this.state.form['endTime'] = endTime;
-        }
-
-        this.checkDisabled();
+        util.checkTime.call(this, key, event.target.value);
     }
     checkDisabled(key, event) {
         let disabled = false;
@@ -221,13 +201,13 @@ export default class Guige extends React.Component {
                             <div className="for">订阅时间</div>
                             <div className="input-box">
                                 <input className="input input-inline col-xs-5"
-                                       value={this.state.form.startTime}
+                                       value={appUtil.formatTime(this.state.form.startTime)}
                                        onChange={this.checkTime.bind(this, 'startTime')}
                                        type="date"
                                        placeholder="开始时间" />
                                 <span className="col-xs-1">到</span>
                                 <input className="input input-inline col-xs-5"
-                                       value={this.state.form.endTime}
+                                       value={appUtil.formatTime(this.state.form.endTime)}
                                        onChange={this.checkTime.bind(this, 'endTime')}
                                        type="date"
                                        placeholder="结束时间" />
