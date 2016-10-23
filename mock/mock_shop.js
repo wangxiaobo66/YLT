@@ -56,7 +56,7 @@ export default [
                             "introduction": '我这里是店铺的介绍哦我这里是店铺的介绍哦我这里是店铺的介绍哦',
                         },
                         {
-                            "id": 1,
+                            "id": 2,
                             "userId": 1,
                             "consumerId": 1,
                             "createTime": 1477188760233,
@@ -71,6 +71,57 @@ export default [
                             "qrCode": 'http://img.gsxservice.com/7376327_497prnam.png',
                             "serviceTel": 15822223333,
                             "introduction": '我这里是店铺的介绍哦1我这里是店铺的介绍哦2我这里是店铺的介绍哦3'
+                        }
+                    ],
+                    order1: [
+                        {
+                            "id": 1,
+                            "name": "商品1",
+                            "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
+                        },
+                        {
+                            "id": 2,
+                            "name": "商品2",
+                            "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
+                        }
+                    ],
+                    order2: [
+                        {
+                            "id": 1,
+                            "name": "商品3",
+                            "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
+                        },
+                        {
+                            "id": 2,
+                            "name": "商品4",
+                            "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
+                        }
+                    ]
+                }
+            });
+        }
+    },
+
+    // 对应店铺中的所有未售商品
+    {
+        path: '/store/unsoldOrdersInStore',
+        method: 'POST',
+        handler: function (request, reply) {
+            reply({
+                "state": 1,
+                "reason": "success",
+                "data": {
+                    // FIXME
+                    list: [
+                        {
+                            "id": 1,
+                            "name": "商品1",
+                            "imgUrl": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
+                        },
+                        {
+                            "id": 2,
+                            "name": "商品2",
+                            "imgUrl": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
                         }
                     ],
                     order1: [

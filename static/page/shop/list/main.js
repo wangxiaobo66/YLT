@@ -19,29 +19,32 @@ export default class Chepihao extends React.Component {
         this.state = {
             typeList: null,
             list: null,
+            repData: null,
             provinces: china.query()
         };
     }
     componentDidMount() {
-        let config = {
-            limitStart: 1,
-            limitCount: LIMIT_COUNT
-        };
 
+        // 店铺列表
         service.myStoreList({
             province: '',
-            storetypeId: CONFIG.TYPE_STORE_JIXIE.CODE
-        }, config).then((rep) => {
+            storetypeId: CONFIG.TYPE_STORE_JIXIE.CODE,
+            limitStart: 1,
+            limitCount: LIMIT_COUNT
+        }).then((rep) => {
             this.setState({
+                repData: rep.data,
                 list: rep.data.list
             });
         });
 
+        // 店铺类型
         commonService.storeTypeList().then((rep) => {
             this.setState({
                 typeList: rep.data.list
             });
         });
+
     }
     render() {
         return(
@@ -81,10 +84,11 @@ export default class Chepihao extends React.Component {
                         {
                             this.state.list !== null ?
                                 this.state.list.map((item, index) => {
+                                    item.list = this.state.repData['order' + item.id];
                                     return (
                                         <li className="item" key={index}>
                                             <Link className="item-link" to="home">
-                                                <Shop />
+                                                <Shop obj={item} />
                                             </Link>
                                         </li>
                                     );

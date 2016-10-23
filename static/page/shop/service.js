@@ -19,6 +19,12 @@ export default {
         });
     },
 
+    unsoldOrdersInStore(param = {}) {
+        return util.postRequest('/store/unsoldOrdersInStore', param).then((rep) => {
+            return rep.json();
+        });
+    },
+
     /**
      * 添加店铺
      * @param param
