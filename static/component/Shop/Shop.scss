@@ -19,6 +19,8 @@ $color-font-gray: #999;
             .title {
                 .title-location {
                     float: right;
+                    margin-top: 2px;
+                    line-height: 1;
                     color: $color-font-gray;
                     .icon {
                         margin-right: 3px;
@@ -35,7 +37,7 @@ $color-font-gray: #999;
                 color: $color-font-gray;
             }
             .desc {
-                margin-top: 5px;
+                margin-top: 4px;
                 color: $color-font-gray;
                 font-size: 14px;
             }

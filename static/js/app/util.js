@@ -1,4 +1,7 @@
+
 const eventEmitter = require('event-emitter');
+import moment from 'moment';
+
 module.exports = {
     events: eventEmitter({}),
     //wxbjiami
@@ -60,5 +63,13 @@ module.exports = {
     //hash
     getHash: function(url){
         return url.substring((url.indexOf("#") + 1), url.length);
+    },
+    /**
+     * 格式化时间
+     * @param timestamp
+     * @returns {*}
+     */
+    formatTime(timestamp) {
+        return timestamp ? moment(timestamp).format('YYYY-MM-DD') : '';
     }
 };

@@ -38,7 +38,8 @@ module.exports = {
         'react-router': 'ReactRouter',
         'react-bootstrap': 'ReactBootstrap',
         'redux': 'Redux',
-        'react-redux': 'ReactRedux'
+        'react-redux': 'ReactRedux',
+        'moment': 'moment'
     },
     // module: {
     //     loaders: [
@@ -91,6 +92,10 @@ module.exports = {
                 loaders: [
                     'file-loader?name=font/[name].[ext]'
                 ]
+            },
+            {
+                test: /\.json$/,
+                loader: 'json'
             },
             {
                 test: /\.(mp3|wav)$/,

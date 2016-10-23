@@ -10,7 +10,7 @@
     top: 15%; // 黄金比例
     text-align: center;
     border-radius: 5px;
-    padding: 1rem 2rem;
+    padding: 14px 15px;
     white-space: normal;
     word-break: break-all;
     line-height: 1.4;
@@ -22,24 +22,13 @@
 
 .toast-black {
     color: #fff;
-    background-color: #f0ad4e;
-    border-color: #eea236;
+    background-color: rgba(0, 0, 0, 0.8);
 
-    >svg {
+    > svg {
         width: 1.6rem;
         height: 1.6rem;
         margin-right: .5rem;
         position: relative;
         top: .2rem;
     }
-}
-
-
-.test {
-    display: flex;
-
-    .test-111 {
-        flex: 1;
-    }
-
 }

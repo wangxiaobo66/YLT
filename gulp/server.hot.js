@@ -33,7 +33,7 @@ gulp.task('server:hot', function () {
 
     function startWebpackServer() {
         // 开启源码映射
-        webpackConfigBase.devtool = 'cheap-source-map';
+        webpackConfigBase.devtool = 'source-map';
 
         if (!webpackConfigBase.plugins) {
             webpackConfigBase.plugins = [];
@@ -58,14 +58,20 @@ gulp.task('server:hot', function () {
             historyApiFallback: true,
             proxy: [
                 {
-                    path: '*.json',
-                    target: 'http://localhost:' + PORT_HAPI,
-                    host: 'localhost'
+                    path: '/*',
+                    target: 'http://localhost:' + PORT_HAPI
                 },
                 {
-                    path: "*.scss",
-                    target: "http://localhost:" + PORT_HAPI,
-                    host: "localhost"
+                    path: '/base/**/*',
+                    target: 'http://localhost:' + PORT_HAPI
+                },
+                {
+                    path: '/subscript/**/*',
+                    target: 'http://localhost:' + PORT_HAPI
+                },
+                {
+                    path: '/store/**/*',
+                    target: 'http://localhost:' + PORT_HAPI
                 }
             ],
             stats: {
@@ -78,57 +84,17 @@ gulp.task('server:hot', function () {
 
     function startHapiServer() {
         const server = new Hapi.Server();
+
         server.connection({
             host: '0.0.0.0',
             port: PORT_HAPI
         });
-        server.register(Inert, function () {
-        });
+        
+        server.register(Inert, function () {});
 
         // mock
         mocks.forEach(function (item) {
             server.route(item);
-        });
-
-        // 静态资源
-        server.route({
-            method: 'GET',
-            path: '/{params*}',
-            handler: function (request, reply) {
-
-                console.log('path=======' + request.path);
-
-                let fileInfo = getFileInfo(request.path);
-
-                switch (fileInfo.fileType) {
-
-                    //case 'html':
-                    //    reply.file(fileInfo.filePath);
-                    //    break;
-
-                    case 'scss':
-                        gulp.src(fileInfo.filePath)
-                            .pipe(gulpSourcemaps.init())
-                            .pipe(gulpLess())
-                            .pipe(gulpAutoprefixer({
-                                browsers: ['last 2 versions', 'Firefox >= 20', 'last 3 Safari versions', 'last 2 Explorer versions']
-                            }))
-                            .pipe(gulpSourcemaps.write())
-                            .pipe(
-                                through2.obj(
-                                    function (file) {
-                                        reply(file.contents.toString()).type('text/css')
-                                    }
-                                )
-                            );
-                        break;
-
-                    default:
-                        reply.file(fileInfo.filePath);
-
-                }
-
-            }
         });
 
         // start

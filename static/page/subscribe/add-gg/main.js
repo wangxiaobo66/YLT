@@ -7,15 +7,109 @@
 import './style.scss';
 
 import React from 'react';
+import appUtil from '../../../js/app/util';
+import commonService from '../../../js/app/commonService';
+import service from '../service';
+import util from '../util';
 
 export default class Guige extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            treetypeList: null,
+            goodstypeList: null,
+            lengthList: null,
+            portList: null,
+            form: { // 要添加的对象
+                treetypeId: '',
+                goodstypeId: '',
+                lengthId: '',
+                portId: '',
+                startTime: '',
+                endTime: ''
+            },
+            disabled: true
         };
     }
+    add() {
+        // 添加
+        service.addCph(this.state.form).then((rep) => {
+            if (rep.state === 1) {
+                window.toast('添加成功', {
+                    callback() {
+                        // TODO 跳转到我的订阅
+                        // window.location.href = './mine.html';
+                    }
+                });
+            } else {
+                window.toast('添加失败, 请稍候重试');
+            }
+        });
+    }
     componentDidMount() {
+        // 树种
+        commonService.treetypeList().then((rep) => {
+            this.setState({
+                treetypeList: rep.data.list
+            });
+        });
+        // 货种
+        commonService.goodstypeList().then((rep) => {
+            this.setState({
+                goodstypeList: rep.data.list
+            });
+        });
+        // 长度
+        commonService.lengthList().then((rep) => {
+            this.setState({
+                lengthList: rep.data.list
+            });
+        });
+        // 口岸
+        commonService.portList().then((rep) => {
+            this.setState({
+                portList: rep.data.list
+            });
+        });
+    }
+    checkTime(key, event) {
+        util.checkTime.call(this, key, event.target.value);
+    }
+    checkDisabled(key, event) {
+        let disabled = false;
+        let form = this.state.form;
+
+        if (key && event) {
+            form[key] = event.target.value;
+        }
+
+        if ($.trim(form.treetypeId) === '') {
+            disabled = true;
+        }
+
+        if ($.trim(form.goodstypeId) === '') {
+            disabled = true;
+        }
+
+        if ($.trim(form.lengthId) === '') {
+            disabled = true;
+        }
+
+        if ($.trim(form.portId) === '') {
+            disabled = true;
+        }
+
+        if ($.trim(form.startTime) === '') {
+            disabled = true;
+        }
+
+        if ($.trim(form.endTime) === '') {
+            disabled = true;
+        }
+
+        this.setState({
+            disabled: disabled
+        });
 
     }
     render() {
@@ -27,26 +121,18 @@ export default class Guige extends React.Component {
                         <label>
                             <div className="for">树种</div>
                             <div className="input-box input-box--select">
-                                <select className="ui-select">
+                                <select className="ui-select"
+                                        value={this.state.form.treetypeId}
+                                        onChange={this.checkDisabled.bind(this, 'treetypeId')}>
                                     <option value="">请选择</option>
-                                    <option value="1">樟子松</option>
-                                    <option value="2">落叶松</option>
-                                    <option value="2">白松</option>
-                                    <option value="2">鱼鳞松</option>
-                                    <option value="2">臭白</option>
-                                    <option value="2">白桦</option>
-                                    <option value="2">枫桦</option>
-                                    <option value="2">红松</option>
-                                    <option value="2">椴木</option>
-                                    <option value="2">柞木</option>
-                                    <option value="2">水曲柳</option>
-                                    <option value="2">杨木</option>
-                                    <option value="2">辐射松</option>
-                                    <option value="2">花旗松</option>
-                                    <option value="2">铁杉</option>
-                                    <option value="2">加松</option>
-                                    <option value="2">雪松</option>
-                                    <option value="2">其他</option>
+                                    {
+                                        this.state.treetypeList !== null ?
+                                            this.state.treetypeList.map((item, index) => {
+                                                return <option key={item.id} value={item.id}>{item.name}</option>;
+                                            })
+                                            :
+                                            null
+                                    }
                                 </select>
                             </div>
                         </label>
@@ -55,15 +141,18 @@ export default class Guige extends React.Component {
                         <label>
                             <div className="for">货种</div>
                             <div className="input-box input-box--select">
-                                <select className="ui-select">
+                                <select className="ui-select"
+                                        value={this.state.form.goodstypeId}
+                                        onChange={this.checkDisabled.bind(this, 'goodstypeId')}>
                                     <option value="">请选择</option>
-                                    <option value="1">原木</option>
-                                    <option value="2">条子</option>
-                                    <option value="2">口料</option>
-                                    <option value="2">大方</option>
-                                    <option value="2">板</option>
-                                    <option value="2">防腐材</option>
-                                    <option value="2">其他</option>
+                                    {
+                                        this.state.goodstypeList !== null ?
+                                            this.state.goodstypeList.map((item, index) => {
+                                                return <option key={item.id} value={item.id}>{item.name}</option>;
+                                            })
+                                            :
+                                            null
+                                    }
                                 </select>
                             </div>
                         </label>
@@ -72,14 +161,18 @@ export default class Guige extends React.Component {
                         <label>
                             <div className="for">长度</div>
                             <div className="input-box input-box--select">
-                                <select className="ui-select">
+                                <select className="ui-select"
+                                        value={this.state.form.lengthId}
+                                        onChange={this.checkDisabled.bind(this, 'lengthId')}>
                                     <option value="">请选择</option>
-                                    <option value="1">2米</option>
-                                    <option value="2">2.5米</option>
-                                    <option value="2">3米</option>
-                                    <option value="2">4米</option>
-                                    <option value="2">6米</option>
-                                    <option value="2">其他</option>
+                                    {
+                                        this.state.lengthList !== null ?
+                                            this.state.lengthList.map((item, index) => {
+                                                return <option key={item.id} value={item.id}>{item.name}</option>;
+                                            })
+                                            :
+                                            null
+                                    }
                                 </select>
                             </div>
                         </label>
@@ -88,12 +181,18 @@ export default class Guige extends React.Component {
                         <label>
                             <div className="for">口岸</div>
                             <div className="input-box input-box--select">
-                                <select className="ui-select">
+                                <select className="ui-select"
+                                        value={this.state.form.portId}
+                                        onChange={this.checkDisabled.bind(this, 'portId')}>
                                     <option value="">请选择</option>
-                                    <option value="1">满洲里</option>
-                                    <option value="2">缨芬河</option>
-                                    <option value="2">二连浩特</option>
-                                    <option value="2">其他</option>
+                                    {
+                                        this.state.portList !== null ?
+                                            this.state.portList.map((item, index) => {
+                                                return <option key={item.id} value={item.id}>{item.name}</option>;
+                                            })
+                                            :
+                                            null
+                                    }
                                 </select>
                             </div>
                         </label>
@@ -102,15 +201,26 @@ export default class Guige extends React.Component {
                         <label>
                             <div className="for">订阅时间</div>
                             <div className="input-box">
-                                <input className="input input-inline col-xs-5" type="date" placeholder="开始时间" />
+                                <input className="input input-inline col-xs-5"
+                                       value={appUtil.formatTime(this.state.form.startTime)}
+                                       onChange={this.checkTime.bind(this, 'startTime')}
+                                       type="date"
+                                       placeholder="开始时间" />
                                 <span className="col-xs-1">到</span>
-                                <input className="input input-inline col-xs-5" type="date" placeholder="结束时间" />
+                                <input className="input input-inline col-xs-5"
+                                       value={appUtil.formatTime(this.state.form.endTime)}
+                                       onChange={this.checkTime.bind(this, 'endTime')}
+                                       type="date"
+                                       placeholder="结束时间" />
                             </div>
                         </label>
                     </div>
                 </form>
                 <div className="oper">
-                    <a href="javascript:;" className="ui-btn ui-btn-fixed">新增订阅</a>
+                    <a href="javascript:;"
+                       className="ui-btn ui-btn-fixed"
+                       disabled={this.state.disabled}
+                       onClick={this.add.bind(this)}>新增订阅</a>
                 </div>
             </div>
         );

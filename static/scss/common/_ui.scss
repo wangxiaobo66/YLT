@@ -186,6 +186,11 @@
             @extend %text-link-white;
         }
     }
+    &[disabled] {
+        pointer-events: none;
+        box-shadow: none;
+        opacity: .65;
+    }
 }
 
 .ui-tab {

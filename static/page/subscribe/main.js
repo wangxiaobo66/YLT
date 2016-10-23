@@ -16,6 +16,8 @@ import {bindActionCreators} from 'redux';
 const thunk = require('redux-thunk').default;
 import {YLT} from '../../redux/reducers';
 
+import '../../js/app/global';
+
 // 引入子页面
 import Index from './index/main';
 import Guige from './add-gg/main';
@@ -43,7 +45,7 @@ class Subscribe extends React.Component {
 
 let App = connect(function (state) {
     return {
-
+        
     };
 })(Subscribe);
 

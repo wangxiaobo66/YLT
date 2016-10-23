@@ -6,23 +6,44 @@
 
 import React from 'react';
 import {Link} from 'react-router';
+import china from 'china-province-city-district';
+import {LIMIT_COUNT} from '../../../js/app/contants';
 import Shop from '../../../component/Shop/Shop';
+import commonService from '../../../js/app/commonService';
+import service from '../service';
+import CONFIG from '../config'
 
 export default class Chepihao extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: [
-                {
-
-                },
-                {
-
-                }
-            ]
+            typeList: null,
+            list: null,
+            repData: null,
+            provinces: china.query()
         };
     }
     componentDidMount() {
+
+        // 店铺列表
+        service.myStoreList({
+            province: '',
+            storetypeId: CONFIG.TYPE_STORE_JIXIE.CODE,
+            limitStart: 1,
+            limitCount: LIMIT_COUNT
+        }).then((rep) => {
+            this.setState({
+                repData: rep.data,
+                list: rep.data.list
+            });
+        });
+
+        // 店铺类型
+        commonService.storeTypeList().then((rep) => {
+            this.setState({
+                typeList: rep.data.list
+            });
+        });
 
     }
     render() {
@@ -33,33 +54,47 @@ export default class Chepihao extends React.Component {
                         <span className="for">地区</span>
                         <select className="select">
                             <option value="">选择</option>
-                            <option value="1">满洲里</option>
-                            <option value="2">缨芬河</option>
-                            <option value="2">二连浩特</option>
-                            <option value="2">其他</option>
+                            {
+                                this.state.provinces !== null ?
+                                    this.state.provinces.map((province, index) => {
+                                        return <option key={province} value={province}>{province}</option>;
+                                    })
+                                    :
+                                    null
+                            }
                         </select>
                     </label>
                     <label className="item">
                         <span className="for">类型</span>
                         <select className="select">
                             <option value="">选择</option>
-                            <option value="1">机械设备</option>
-                            <option value="2">器材销售</option>
+                            {
+                                this.state.typeList !== null ?
+                                    this.state.typeList.map((item, index) => {
+                                        return <option key={item.id} value={item.id}>{item.name}</option>;
+                                    })
+                                    :
+                                    null
+                            }
                         </select>
                     </label>
                 </div>
                 <div className="list-box">
                     <ul className="ui-list">
                         {
-                            this.state.list.map((item, index) => {
-                                return (
-                                    <li className="item" key={index}>
-                                        <Link className="item-link" to="home">
-                                            <Shop />
-                                        </Link>
-                                    </li>
-                                );
-                            })
+                            this.state.list !== null ?
+                                this.state.list.map((item, index) => {
+                                    item.list = this.state.repData['order' + item.id];
+                                    return (
+                                        <li className="item" key={index}>
+                                            <Link className="item-link" to="home">
+                                                <Shop obj={item} />
+                                            </Link>
+                                        </li>
+                                    );
+                                })
+                                :
+                                null
                         }
                     </ul>
                 </div>
