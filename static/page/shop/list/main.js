@@ -7,23 +7,19 @@
 import React from 'react';
 import {Link} from 'react-router';
 import Shop from '../../../component/Shop/Shop';
+import china from 'china-province-city-district';
+import service from '../service';
 
 export default class Chepihao extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: [
-                {
-
-                },
-                {
-
-                }
-            ]
+            list: null,
+            provinces: china.query()
         };
     }
     componentDidMount() {
-
+        
     }
     render() {
         return(
@@ -33,10 +29,14 @@ export default class Chepihao extends React.Component {
                         <span className="for">地区</span>
                         <select className="select">
                             <option value="">选择</option>
-                            <option value="1">满洲里</option>
-                            <option value="2">缨芬河</option>
-                            <option value="2">二连浩特</option>
-                            <option value="2">其他</option>
+                            {
+                                this.state.provinces !== null ?
+                                    this.state.provinces.map((province, index) => {
+                                        return <option key={province} value={province}>{province}</option>;
+                                    })
+                                    :
+                                    null
+                            }
                         </select>
                     </label>
                     <label className="item">
@@ -51,15 +51,18 @@ export default class Chepihao extends React.Component {
                 <div className="list-box">
                     <ul className="ui-list">
                         {
-                            this.state.list.map((item, index) => {
-                                return (
-                                    <li className="item" key={index}>
-                                        <Link className="item-link" to="home">
-                                            <Shop />
-                                        </Link>
-                                    </li>
-                                );
-                            })
+                            this.state.list !== null ?
+                                this.state.list.map((item, index) => {
+                                    return (
+                                        <li className="item" key={index}>
+                                            <Link className="item-link" to="home">
+                                                <Shop />
+                                            </Link>
+                                        </li>
+                                    );
+                                })
+                                :
+                                null
                         }
                     </ul>
                 </div>

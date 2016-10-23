@@ -94,6 +94,10 @@ module.exports = {
                 ]
             },
             {
+                test: /\.json$/,
+                loader: 'json'
+            },
+            {
                 test: /\.(mp3|wav)$/,
                 loader: "file-loader?name=audio/[name].[ext]"
             }
