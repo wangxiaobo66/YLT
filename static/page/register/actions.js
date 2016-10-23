@@ -1,20 +1,34 @@
 /**
  * Created by wangxiaobo on 16/9/4.
  */
-const INDEX_NUM = "INDEX_NUM";
+let util = require('../../js/app/util');
 
-function indexNum(num){
+//站外注册,站内补充信息
+
+function postRegister(data){
+    let url = 'http://123.57.83.122:8080/front.irito.server/user/login/register';
+    return util.postRequest(url, data);
+}
+const USER_REGISTER = 'USER_REGISTER';
+function userRegister(data){
     return {
-        type: INDEX_NUM,
-        num
+        type: USER_REGISTER,
+        data
     }
 }
 
 module.exports = {
-    change:function(num){
-        return function(dispatch){
-            dispatch(indexNum(num));
+    loginRegister:function(data){
+        let info = data;
+        return function (dispatch) {
+            return postRegister(info).then(
+                function (res) {
+                    res.json().then(function (json) {
+                        dispatch(userRegister(json.result))
+                    })
+                }
+            )
         }
     },
-    INDEX_NUM:"INDEX_NUM"
+    USER_REGISTER:"USER_REGISTER"
 };

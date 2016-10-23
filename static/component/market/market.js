@@ -18,6 +18,7 @@ export default class Market extends React.Component {
     render() {
         let obj = this.props.obj;
         return (
+            <a href="./market.html#/detail">
             <div className="component Market-component">
                 <div className="box">
                     <img src={obj.imgSrc} width="80" height="60" />
@@ -35,6 +36,7 @@ export default class Market extends React.Component {
                     </div>
                 </div>
             </div>
+            </a>
         );
     }
 }

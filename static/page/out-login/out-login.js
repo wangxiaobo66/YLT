@@ -71,8 +71,8 @@ class component extends React.Component {
         let { value } = this.state;
         let { dispatch } = this.props;
         if(value.mobile!==""&&value.pwd!==""){
-            dispatch(userOutLogin(value));
-            console.log(1);
+            //dispatch(userOutLogin(value));
+            window.location.href = './index.html';
         }else{
             console.log('空');
         }

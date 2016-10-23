@@ -6,6 +6,8 @@ const util = require('../../js/app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
 
+const { loginRegister } = require('./actions.js');//从actions里拿到方法
+
 const { YLT } = require('../../redux/reducers');
 const { Provider, connect } = require('react-redux');
 const { createStore, applyMiddleware } = require('redux');
@@ -20,7 +22,7 @@ class component extends React.Component {
         this.state = {
             text: '获取',
             number: 60,
-            value: {mobile: '', sms: ''},
+            value: {mobile: '', sms: '' , pwd:''},
             active: false,
             after: false
         }
@@ -39,20 +41,20 @@ class component extends React.Component {
                 <div className="verify">
                     <div className="verify-mobile">
                         <img src="../../static/images/mobile.png"/>
-                        <input type="tel" placeholder="请输入手机号" onChange={(e) => this.onchange(e)} value={value.mobile}
+                        <input type="tel" placeholder="请输入手机号" onChange={(e) => this.onchange(e,'mobile')} value={value.mobile}
                                maxLength="11"/>
                         <span onClick={active?(after?(e) => this.getSms():''):''}
                               className={active?(after?'active':'after'):''}>{text}</span>
                     </div>
                     <div className="password verify-password">
                         <img src="../../static/images/password.png"/>
-                        <input type="password" placeholder="请设置密码"/>
+                        <input type="password" placeholder="请设置密码" onChange={(e) => this.onchange(e,'password')} value={value.pwd}/>
                     </div>
                     <div className="verify-sms">
                         <img src="../../static/images/sms.png"/>
-                        <input type="text" placeholder="请输入短信验证码"/>
+                        <input type="text" placeholder="请输入短信验证码" maxLength="6" onChange={(e) => this.onchange(e,'sms')} value={value.sms}/>
                     </div>
-                    <a href="javascript:;" className="verify-submit">确定</a>
+                    <a href="javascript:;" className="verify-submit" onClick={(e) => this.registerClick()}>确定</a>
                 </div>
             </div>
         );
@@ -81,15 +83,32 @@ class component extends React.Component {
             })
         }
     }
-    onchange(e) {
+    onchange(e,name) {
         let {value} = this.state;
         let val = e.target.value;
-        value.mobile = val;
-        this.setState({
-            value: value
-        });
-        this.mobile(val);
+        switch (name){
+            case 'mobile':
+                value.mobile = val;
+                this.setState({
+                    value: value
+                });
+                this.mobile(val);
+                break;
+            case 'password':
+                value.pwd = val;
+                this.setState({
+                    value: value
+                });
+                break;
+            case 'sms':
+                value.sms = val;
+                this.setState({
+                    value: value
+                });
+                break;
+        }
     }
+
     mobile(val) {
         let {active,after}=this.state;
         if (/^(13|15|18)\d{9}$/.test(val)) {
@@ -103,9 +122,23 @@ class component extends React.Component {
             after: after
         });
     }
+
+    registerClick(){
+        let { value } = this.state;
+        let { dispatch } = this.props;
+        if(value.mobile!==""&&value.pwd!==""){
+            dispatch(loginRegister(value));
+            console.log(1);
+        }else{
+            console.log('空');
+        }
+    }
 }
 function select(state) {
-    return {}
+    console.log(state);
+    return {
+        register: state.register
+    }
 }
 let Register = connect(select)(component);
 

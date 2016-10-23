@@ -36,6 +36,7 @@ export class AskBuy extends React.Component {
     render() {
         let obj = this.props.obj;
         return (
+            <a href="./ask-buy.html#/detail">
             <div className="component AskBuy-component">
                 <div className="box">
                     <div className="left">
@@ -54,6 +55,7 @@ export class AskBuy extends React.Component {
                 </div>
                 <div className="ui-point"></div>
             </div>
+            </a>
         );
 
         // let listdom = [];
