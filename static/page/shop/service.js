@@ -5,30 +5,16 @@
  */
 
 import util from '../../js/app/util';
-import {LIMIT_COUNT} from '../../js/app/contants';
 
 export default {
-
-    /**
-     * 店铺类型列表
-     * @param param
-     * @returns {Promise.<TResult>|*}
-     */
-    typeList(param = {}) {
-        return util.postRequest('/store/typeList', param).then((rep) => {
-            return rep.json();
-        });
-    },
 
     /**
      * 店铺列表
      * @param param
      * @returns {Promise.<TResult>|*}
      */
-    myStoreList(param = {}, config = {}) {
-        let limitCount = config.limitCount || LIMIT_COUNT;
-        let limitStart = config.limitStart || 1;
-        return util.postRequest(`/store/myStoreList/${limitStart}/${limitCount}`, param).then((rep) => {
+    myStoreList(param = {}) {
+        return util.postRequest('/store/myStoreList', param).then((rep) => {
             return rep.json();
         });
     },

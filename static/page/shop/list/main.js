@@ -9,6 +9,7 @@ import {Link} from 'react-router';
 import china from 'china-province-city-district';
 import {LIMIT_COUNT} from '../../../js/app/contants';
 import Shop from '../../../component/Shop/Shop';
+import commonService from '../../../js/app/commonService';
 import service from '../service';
 import CONFIG from '../config'
 
@@ -26,6 +27,7 @@ export default class Chepihao extends React.Component {
             limitStart: 1,
             limitCount: LIMIT_COUNT
         };
+
         service.myStoreList({
             province: '',
             storetypeId: CONFIG.TYPE_STORE_JIXIE.CODE
@@ -35,11 +37,11 @@ export default class Chepihao extends React.Component {
             });
         });
 
-        service.typeList({}).then((rep) => {
+        commonService.storeTypeList().then((rep) => {
             this.setState({
                 typeList: rep.data.list
             });
-        })
+        });
     }
     render() {
         return(

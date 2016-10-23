@@ -30,7 +30,7 @@ export default [
     // 店铺列表
     {
         // path: '/store/myStoreList/{limitStart}/{limitCount}/provinceId/typeId',
-        path: '/store/myStoreList/1/10',
+        path: '/store/myStoreList',
         method: 'POST',
         handler: function (request, reply) {
             reply({
@@ -53,7 +53,7 @@ export default [
                             "keywords": '关键词1, 关键词2',
                             "qrCode": 'http://img.gsxservice.com/7376327_497prnam.png',
                             "serviceTel": 15822223333,
-                            "introduction": '我这里是店铺的介绍哦我这里是店铺的介绍哦我这里是店铺的介绍哦'
+                            "introduction": '我这里是店铺的介绍哦我这里是店铺的介绍哦我这里是店铺的介绍哦',
                         },
                         {
                             "id": 1,
@@ -72,7 +72,11 @@ export default [
                             "serviceTel": 15822223333,
                             "introduction": '我这里是店铺的介绍哦1我这里是店铺的介绍哦2我这里是店铺的介绍哦3'
                         }
+                    ],
+                    order1: [
+
                     ]
+
                 }
             });
         }
@@ -109,7 +113,7 @@ export default [
     // 删除店铺
     {
         // /store/delMyStore/{id}
-        path: '/store/delMyStore/1',
+        path: '/store/delMyStore',
         method: 'POST',
         handler: function (request, reply) {
             reply({

@@ -8,6 +8,7 @@ import './style.scss';
 
 import React from 'react';
 import appUtil from '../../../js/app/util';
+import commonService from '../../../js/app/commonService';
 import service from '../service';
 import util from '../util';
 
@@ -47,25 +48,25 @@ export default class Guige extends React.Component {
     }
     componentDidMount() {
         // 树种
-        service.treetypeList().then((rep) => {
+        commonService.treetypeList().then((rep) => {
             this.setState({
                 treetypeList: rep.data.list
             });
         });
         // 货种
-        service.goodstypeList().then((rep) => {
+        commonService.goodstypeList().then((rep) => {
             this.setState({
                 goodstypeList: rep.data.list
             });
         });
         // 长度
-        service.lengthList().then((rep) => {
+        commonService.lengthList().then((rep) => {
             this.setState({
                 lengthList: rep.data.list
             });
         });
         // 口岸
-        service.portList().then((rep) => {
+        commonService.portList().then((rep) => {
             this.setState({
                 portList: rep.data.list
             });

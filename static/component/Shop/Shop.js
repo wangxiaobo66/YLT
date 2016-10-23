@@ -48,3 +48,11 @@ export default class extends React.Component {
         );
     }
 }
+
+// Upload.propTypes = {
+//     tip: React.PropTypes.string
+// };
+//
+// Upload.defaultProps = {
+//     tip: ''
+// };
