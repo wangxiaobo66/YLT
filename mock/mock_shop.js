@@ -5,10 +5,32 @@
  */
 
 export default [
+    {
+        path: '/store/typeList',
+        method: 'POST',
+        handler: function (request, reply) {
+            reply({
+                "state": 1,
+                "reason": "success",
+                "data": {
+                    list: [
+                        {
+                            "id": 1,
+                            "name": '机械设备'
+                        },
+                        {
+                            "id": 2,
+                            "name": '器材销售'
+                        }
+                    ]
+                }
+            });
+        }
+    },
     // 店铺列表
     {
         // path: '/store/myStoreList/{limitStart}/{limitCount}/provinceId/typeId',
-        path: '/store/myStoreList/1/20/1/1',
+        path: '/store/myStoreList/1/10',
         method: 'POST',
         handler: function (request, reply) {
             reply({

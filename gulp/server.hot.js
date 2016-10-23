@@ -64,6 +64,10 @@ gulp.task('server:hot', function () {
                 {
                     path: '/subscript/**/*',
                     target: 'http://localhost:' + PORT_HAPI
+                },
+                {
+                    path: '/store/**/*',
+                    target: 'http://localhost:' + PORT_HAPI
                 }
             ],
             stats: {

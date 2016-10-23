@@ -6,20 +6,40 @@
 
 import React from 'react';
 import {Link} from 'react-router';
-import Shop from '../../../component/Shop/Shop';
 import china from 'china-province-city-district';
+import {LIMIT_COUNT} from '../../../js/app/contants';
+import Shop from '../../../component/Shop/Shop';
 import service from '../service';
+import CONFIG from '../config'
 
 export default class Chepihao extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            typeList: null,
             list: null,
             provinces: china.query()
         };
     }
     componentDidMount() {
-        
+        let config = {
+            limitStart: 1,
+            limitCount: LIMIT_COUNT
+        };
+        service.myStoreList({
+            province: '',
+            storetypeId: CONFIG.TYPE_STORE_JIXIE.CODE
+        }, config).then((rep) => {
+            this.setState({
+                list: rep.data.list
+            });
+        });
+
+        service.typeList({}).then((rep) => {
+            this.setState({
+                typeList: rep.data.list
+            });
+        })
     }
     render() {
         return(
@@ -43,8 +63,14 @@ export default class Chepihao extends React.Component {
                         <span className="for">类型</span>
                         <select className="select">
                             <option value="">选择</option>
-                            <option value="1">机械设备</option>
-                            <option value="2">器材销售</option>
+                            {
+                                this.state.typeList !== null ?
+                                    this.state.typeList.map((item, index) => {
+                                        return <option key={item.id} value={item.id}>{item.name}</option>;
+                                    })
+                                    :
+                                    null
+                            }
                         </select>
                     </label>
                 </div>
