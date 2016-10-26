@@ -53,6 +53,51 @@
 @if $filename == slide-up {
     $char: "\E009";
 }
+@if $filename == 个人中心 {
+    $char: "\E00A";
+}
+@if $filename == 位置 {
+    $char: "\E00B";
+}
+@if $filename == 公司联系人-发消息 {
+    $char: "\E00C";
+}
+@if $filename == 关注我的 {
+    $char: "\E00D";
+}
+@if $filename == 关闭 {
+    $char: "\E00E";
+}
+@if $filename == 发布 {
+    $char: "\E00F";
+}
+@if $filename == 展开 {
+    $char: "\E010";
+}
+@if $filename == 我的服务 {
+    $char: "\E011";
+}
+@if $filename == 手机 {
+    $char: "\E012";
+}
+@if $filename == 搜索 {
+    $char: "\E013";
+}
+@if $filename == 联系电话 {
+    $char: "\E014";
+}
+@if $filename == 设置 {
+    $char: "\E015";
+}
+@if $filename == 返回 {
+    $char: "\E016";
+}
+@if $filename == 首页 {
+    $char: "\E017";
+}
+@if $filename == 验证码 {
+    $char: "\E018";
+}
 
 @return $char;
 }
@@ -94,4 +139,49 @@
 }
 .icon-slide-up {
     @include icon(slide-up);
+}
+.icon-个人中心 {
+    @include icon(个人中心);
+}
+.icon-位置 {
+    @include icon(位置);
+}
+.icon-公司联系人-发消息 {
+    @include icon(公司联系人-发消息);
+}
+.icon-关注我的 {
+    @include icon(关注我的);
+}
+.icon-关闭 {
+    @include icon(关闭);
+}
+.icon-发布 {
+    @include icon(发布);
+}
+.icon-展开 {
+    @include icon(展开);
+}
+.icon-我的服务 {
+    @include icon(我的服务);
+}
+.icon-手机 {
+    @include icon(手机);
+}
+.icon-搜索 {
+    @include icon(搜索);
+}
+.icon-联系电话 {
+    @include icon(联系电话);
+}
+.icon-设置 {
+    @include icon(设置);
+}
+.icon-返回 {
+    @include icon(返回);
+}
+.icon-首页 {
+    @include icon(首页);
+}
+.icon-验证码 {
+    @include icon(验证码);
 }
