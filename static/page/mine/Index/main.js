@@ -67,10 +67,10 @@ export default class Item extends React.Component {
                             <li className="item">
                                 <Link className="item-link" to={`/service`}>
                                     <div className="allow">
-                                        <i className="icon icon-right"></i>
+                                        <i className="icon icon-o-right"></i>
                                     </div>
                                     <div className="info">
-                                        <i className="icon icon-identity"></i>
+                                        <i className="icon icon-user-center"></i>
                                         <span className="text">我的服务</span>
                                     </div>
                                 </Link>
@@ -78,10 +78,10 @@ export default class Item extends React.Component {
                             <li className="item">
                                 <Link className="item-link" to={`/care`}>
                                     <div className="allow">
-                                        <i className="icon icon-right"></i>
+                                        <i className="icon icon-o-right"></i>
                                     </div>
                                     <div className="info">
-                                        <i className="icon icon-love"></i>
+                                        <i className="icon icon-o-love"></i>
                                         <span className="text">我的关注</span>
                                     </div>
                                 </Link>
@@ -89,7 +89,7 @@ export default class Item extends React.Component {
                             <li className="item">
                                 <Link className="item-link" to={`/setting`}>
                                     <div className="allow">
-                                        <i className="icon icon-right"></i>
+                                        <i className="icon icon-o-right"></i>
                                     </div>
                                     <div className="info">
                                         <i className="icon icon-setting"></i>
