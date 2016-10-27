@@ -26,77 +26,71 @@
 @function icon-char($filename) {
     $char: "";
 
-@if $filename == check {
+@if $filename == care {
     $char: "\E001";
 }
-@if $filename == identity {
+@if $filename == chat {
     $char: "\E002";
 }
-@if $filename == location {
+@if $filename == close {
     $char: "\E003";
 }
-@if $filename == love {
+@if $filename == code {
     $char: "\E004";
 }
-@if $filename == plus {
+@if $filename == home {
     $char: "\E005";
 }
-@if $filename == right {
+@if $filename == mobile {
     $char: "\E006";
 }
-@if $filename == setting {
+@if $filename == myservice {
     $char: "\E007";
 }
-@if $filename == slide-down {
+@if $filename == o-check {
     $char: "\E008";
 }
-@if $filename == slide-up {
+@if $filename == o-location {
     $char: "\E009";
 }
-@if $filename == 个人中心 {
+@if $filename == o-love {
     $char: "\E00A";
 }
-@if $filename == 位置 {
+@if $filename == o-plus {
     $char: "\E00B";
 }
-@if $filename == 公司联系人-发消息 {
+@if $filename == o-right {
     $char: "\E00C";
 }
-@if $filename == 关注我的 {
+@if $filename == o-slide-down {
     $char: "\E00D";
 }
-@if $filename == 关闭 {
+@if $filename == o-slide-up {
     $char: "\E00E";
 }
-@if $filename == 发布 {
+@if $filename == phone {
     $char: "\E00F";
 }
-@if $filename == 展开 {
+@if $filename == position {
     $char: "\E010";
 }
-@if $filename == 我的服务 {
+@if $filename == publish {
     $char: "\E011";
 }
-@if $filename == 手机 {
+@if $filename == return {
     $char: "\E012";
 }
-@if $filename == 搜索 {
+@if $filename == search {
     $char: "\E013";
 }
-@if $filename == 联系电话 {
+@if $filename == setting {
     $char: "\E014";
 }
-@if $filename == 设置 {
+@if $filename == slide {
     $char: "\E015";
 }
-@if $filename == 返回 {
+@if $filename == user-center {
     $char: "\E016";
-}
-@if $filename == 首页 {
-    $char: "\E017";
-}
-@if $filename == 验证码 {
-    $char: "\E018";
 }
 
 @return $char;
@@ -113,75 +107,69 @@
     }
 }
 
-.icon-check {
-    @include icon(check);
+.icon-care {
+    @include icon(care);
 }
-.icon-identity {
-    @include icon(identity);
+.icon-chat {
+    @include icon(chat);
 }
-.icon-location {
-    @include icon(location);
+.icon-close {
+    @include icon(close);
 }
-.icon-love {
-    @include icon(love);
+.icon-code {
+    @include icon(code);
 }
-.icon-plus {
-    @include icon(plus);
+.icon-home {
+    @include icon(home);
 }
-.icon-right {
-    @include icon(right);
+.icon-mobile {
+    @include icon(mobile);
+}
+.icon-myservice {
+    @include icon(myservice);
+}
+.icon-o-check {
+    @include icon(o-check);
+}
+.icon-o-location {
+    @include icon(o-location);
+}
+.icon-o-love {
+    @include icon(o-love);
+}
+.icon-o-plus {
+    @include icon(o-plus);
+}
+.icon-o-right {
+    @include icon(o-right);
+}
+.icon-o-slide-down {
+    @include icon(o-slide-down);
+}
+.icon-o-slide-up {
+    @include icon(o-slide-up);
+}
+.icon-phone {
+    @include icon(phone);
+}
+.icon-position {
+    @include icon(position);
+}
+.icon-publish {
+    @include icon(publish);
+}
+.icon-return {
+    @include icon(return);
+}
+.icon-search {
+    @include icon(search);
 }
 .icon-setting {
     @include icon(setting);
 }
-.icon-slide-down {
-    @include icon(slide-down);
+.icon-slide {
+    @include icon(slide);
 }
-.icon-slide-up {
-    @include icon(slide-up);
-}
-.icon-个人中心 {
-    @include icon(个人中心);
-}
-.icon-位置 {
-    @include icon(位置);
-}
-.icon-公司联系人-发消息 {
-    @include icon(公司联系人-发消息);
-}
-.icon-关注我的 {
-    @include icon(关注我的);
-}
-.icon-关闭 {
-    @include icon(关闭);
-}
-.icon-发布 {
-    @include icon(发布);
-}
-.icon-展开 {
-    @include icon(展开);
-}
-.icon-我的服务 {
-    @include icon(我的服务);
-}
-.icon-手机 {
-    @include icon(手机);
-}
-.icon-搜索 {
-    @include icon(搜索);
-}
-.icon-联系电话 {
-    @include icon(联系电话);
-}
-.icon-设置 {
-    @include icon(设置);
-}
-.icon-返回 {
-    @include icon(返回);
-}
-.icon-首页 {
-    @include icon(首页);
-}
-.icon-验证码 {
-    @include icon(验证码);
+.icon-user-center {
+    @include icon(user-center);
 }
