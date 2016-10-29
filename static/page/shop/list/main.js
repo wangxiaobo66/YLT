@@ -87,7 +87,7 @@ export default class Chepihao extends React.Component {
                                     item.list = this.state.repData['order' + item.id];
                                     return (
                                         <li className="item" key={index}>
-                                            <Link className="item-link" to="home">
+                                            <Link className="item-link" to={`/home/${item.id}`}>
                                                 <Shop obj={item} />
                                             </Link>
                                         </li>

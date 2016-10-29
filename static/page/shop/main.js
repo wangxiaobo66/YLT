@@ -53,9 +53,9 @@ ReactDom.render(
         <Router history={hashHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={List} />
-                <Route path="add" component={Add} />
-                <Route path="detail" component={Detail} />
-                <Route path="home" component={Home} />
+                <Route path="/add" component={Add} />
+                <Route path="/detail/:id" component={Detail} />
+                <Route path="/home/:id" component={Home} />
             </Route>
         </Router>
     </Provider>,

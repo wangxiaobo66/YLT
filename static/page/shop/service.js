@@ -56,6 +56,17 @@ export default {
         return util.postRequest('/store/addMyStore', param).then((rep) => {
             return rep.json();
         });
+    },
+
+    /**
+     * 详情
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    showMyStore(param = {}) {
+        return util.postRequest('/store/showMyStore', param).then((rep) => {
+            return rep.json();
+        });
     }
 
 }
