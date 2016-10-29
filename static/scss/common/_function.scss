@@ -23,13 +23,10 @@
     display: inline-block;
     vertical-align: middle;
 }
-//定义：超文本传送协议 (HTTP-Hypertext transfer protocol) 是分布式，协作式，超媒体系统应用之间的通信协议。是万维网（world wide web）交换信息的基础。
-减少冗余的数据传输
-缓解网络瓶颈的问题
-降低对原始服务器的要求
-降低距离时延
 
-
+.fn-block {
+    display: block;
+}
 
 .fn-ellipsis-row {
     overflow : hidden;

@@ -77,20 +77,23 @@
 @if $filename == publish {
     $char: "\E011";
 }
-@if $filename == return {
+@if $filename == qrcode {
     $char: "\E012";
 }
-@if $filename == search {
+@if $filename == return {
     $char: "\E013";
 }
-@if $filename == setting {
+@if $filename == search {
     $char: "\E014";
 }
-@if $filename == slide {
+@if $filename == setting {
     $char: "\E015";
 }
-@if $filename == user-center {
+@if $filename == slide {
     $char: "\E016";
+}
+@if $filename == user-center {
+    $char: "\E017";
 }
 
 @return $char;
@@ -157,6 +160,9 @@
 }
 .icon-publish {
     @include icon(publish);
+}
+.icon-qrcode {
+    @include icon(qrcode);
 }
 .icon-return {
     @include icon(return);
