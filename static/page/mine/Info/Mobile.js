@@ -7,6 +7,8 @@
 import React from 'react';
 import {Link} from 'react-router';
 import mixins from './mixins';
+import VerifyCode from '../_common/VerifyCode/VerifyCode';
+import service from './service';
 
 export default React.createClass({
     mixins: [mixins],
@@ -15,10 +17,48 @@ export default React.createClass({
      */
     getInitialState() {
         return {
-
+            disabled: true,
+            form: {
+                mobile: '',
+                verifyCode: ''
+            }
         };
     },
     componentDidMount() {
+
+    },
+    sure() {
+        let that = this;
+        service.update(this.state.form).then((rep) => {
+            window.toast('修改成功', {
+                callback() {
+                    that.props.history.push({
+                        pathname: '/info'
+                    });
+                }
+            });
+
+        });
+    },
+    checkDisabled(key, event) {
+        let disabled = false;
+        let form = this.state.form;
+
+        if (key && event) {
+            form[key] = event.target.value;
+        }
+
+        if ($.trim(form.mobile) === '') {
+            disabled = true;
+        }
+
+        if ($.trim(form.verifyCode) === '') {
+            disabled = true;
+        }
+
+        this.setState({
+            disabled: disabled
+        });
 
     },
     render() {
@@ -29,15 +69,33 @@ export default React.createClass({
                         <label>
                             <div className="for">手机号</div>
                             <div className="input-box">
-                                <a href="javascript:;" className="ui-btn ui-btn-default btn-code">发送验证码</a>
-                                <input className="input input-block" type="text"
+                                <input className="input input-block"
+                                       type="tel"
+                                       maxLength="11"
+                                       onChange={this.checkDisabled.bind(this, 'mobile')}
                                        placeholder="请输入手机号" />
+                            </div>
+                        </label>
+                    </div>
+                    <div className="item">
+                        <label>
+                            <div className="for">验证码</div>
+                            <div className="input-box">
+                                <VerifyCode mobile={this.state.mobile} />
+                                <input className="input input-block"
+                                       type="tel"
+                                       maxLength="4"
+                                       onChange={this.checkDisabled.bind(this, 'verifyCode')}
+                                       placeholder="请输入验证码" />
                             </div>
                         </label>
                     </div>
                 </form>
                 <div className="ui-btn-groups">
-                    <a href="javascript:;" className="ui-btn ui-btn-confirm">确定</a>
+                    <a href="javascript:;"
+                       disabled={this.state.disabled === true}
+                       onClick={this.sure.bind(this)}
+                       className="ui-btn ui-btn-confirm">确定</a>
                     <a href="javascript:;" className="ui-btn ui-btn-default"
                        onClick={this.goBack}>取消</a>
                 </div>

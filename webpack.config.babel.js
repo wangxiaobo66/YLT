@@ -80,7 +80,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                 //loader: 'style?sourceMap!css?sourceMap!sass?sourceMap!autoprefixer?{browsers:["last 2 versions"]}'
+                 // loader: 'style?sourceMap!css?sourceMap!sass?sourceMap!autoprefixer?{browsers:["last 2 versions"]}'
                 loaders: ["style", "css", "sass"]
             },
             {
@@ -90,7 +90,7 @@ module.exports = {
             {
                 test: /\.(svg|woff|ttf|eot)$/i,
                 loaders: [
-                    'file-loader?name=font/[name].[ext]'
+                    'file?name=font/[name].[ext]'
                 ]
             },
             {

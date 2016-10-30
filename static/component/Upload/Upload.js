@@ -19,7 +19,7 @@ export default class Upload extends React.Component {
                         <div className="info-box">
                             <div className="info">
                                 <p className="icon-box">
-                                    <i className="icon icon-plus"></i>
+                                    <i className="icon icon-o-plus"></i>
                                 </p>
                                 <p className="info-tip">{this.props.tip}</p>
                             </div>

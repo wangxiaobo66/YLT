@@ -16,6 +16,8 @@ import {bindActionCreators} from 'redux';
 const thunk = require('redux-thunk').default;
 import {YLT} from '../../redux/reducers';
 
+import '../../js/app/global';
+
 // 引入子页面
 import Index from './Index/main';
 import Feedback from './Feedback/main';

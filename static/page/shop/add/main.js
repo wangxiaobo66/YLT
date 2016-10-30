@@ -9,7 +9,7 @@ import china from 'china-province-city-district';
 import Upload from '../../../component/Upload/Upload';
 import service from '../service';
 
-export default class Chepihao extends React.Component {
+export default class ShopAdd extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
