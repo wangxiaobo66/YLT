@@ -16,9 +16,6 @@ import img3 from './img/3.png';
 import img4 from './img/4.png';
 import img5 from './img/5.png';
 import imgWrong from './img/wrong.png';
-import imgHome from './img/home.png';
-import imgPublish from './img/publish.png';
-import imgMine from './img/mine.png';
 
 export default class Item extends React.Component {
     constructor(props) {

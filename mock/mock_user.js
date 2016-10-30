@@ -5,6 +5,23 @@
  */
 
 export default [
+    /**
+     * request
+     *  mobile
+     */
+    {
+        path: '/user/sendCode',
+        method: 'POST',
+        handler: function (request, reply) {
+            reply({
+                "state": 1,
+                "reason": "success",
+                "data": {
+
+                }
+            });
+        }
+    },
     {
         path: '/user/showUser',
         method: 'POST',
@@ -83,19 +100,6 @@ export default [
                     "company": '公司名称1',
                     "portId": null,
                     "code": null
-                }
-            });
-        }
-    },
-    {
-        path: '/user/code',
-        method: 'POST',
-        handler: function (request, reply) {
-            reply({
-                "state": 1,
-                "reason": "success",
-                "data": {
-
                 }
             });
         }

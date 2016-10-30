@@ -288,6 +288,7 @@ export default [
     },
     // 查询店铺详情
     // storeId
+    // 什么都不传的情况下, 展示的就是当前用户的店铺详情
     {
         path: '/store/showMyStore',
         method: 'POST',

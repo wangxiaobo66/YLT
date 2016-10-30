@@ -36,7 +36,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     sendVerifyCode(param = {}) {
-        return util.postRequest('/user/code', param).then((rep) => {
+        return util.postRequest('/user/sendCode', param).then((rep) => {
             return rep.json();
         });
     },
