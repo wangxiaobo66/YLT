@@ -97,6 +97,7 @@ export default class Item extends React.Component {
                                                 </div>
                                             </Link>
                                         </li>
+                                        {/*
                                         <li className="item">
                                             <Link className="item-link" to={`/setting`}>
                                                 <div className="allow">
@@ -108,6 +109,7 @@ export default class Item extends React.Component {
                                                 </div>
                                             </Link>
                                         </li>
+                                        */}
                                     </ul>
                                 </div>
                             </div>

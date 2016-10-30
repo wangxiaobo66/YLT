@@ -61,6 +61,17 @@ export default {
         return util.postRequest('/msg/msgList', param).then((rep) => {
             return rep.json();
         });
+    },
+
+    /**
+     * 发送消息
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    addMsg(param = {}) {
+        return util.postRequest('/msg/addMsg', param).then((rep) => {
+            return rep.json();
+        });
     }
 
 }
