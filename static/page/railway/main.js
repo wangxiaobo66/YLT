@@ -5,6 +5,7 @@
  */
 
 import './style.scss';
+import '../../js/app/global';
 import imgGo from './img/go.png';
 
 import React from 'react';

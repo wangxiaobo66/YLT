@@ -18,6 +18,8 @@ import {YLT} from '../../redux/reducers';
 
 import '../../js/app/global';
 
+import '../../js/app/global';
+
 // 引入子页面
 import Add from './add/main';
 import Detail from './detail/main';
