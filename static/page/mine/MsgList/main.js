@@ -6,52 +6,55 @@
 
 import React from 'react';
 import {Link} from 'react-router';
-import imgLogo from '../../../images/logo.png';
+import {LIMIT_COUNT} from '../../../js/app/contants';
+import service from '../service';
 
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            list: null
         };
     }
     componentDidMount() {
-
+        service.allList({
+            limitStart: 1,
+            limitCount: LIMIT_COUNT
+        }).then((rep) => {
+            this.setState({
+                list: rep.data.list
+            });
+        });
     }
     render() {
+        let list = this.state.list;
         return (
             <div className="module-msg-list">
                 <ul className="list">
-                    <li className="item">
-                        <Link className="item-link" to="/msg_chat">
-                            <img src={imgLogo} width="45" height="45" alt="" className="img"/>
-                            <div className="info">
-                                <div className="title">
-                                    <div className="ui-num">2</div>
-                                    <span className="text">及时通讯用户 昵称xxx</span>
-                                </div>
-                                <div className="detail">
-                                    <div className="msg ellipsis">你好, 我想要咨询这个和那个是什么...</div>
-                                    <div className="time">07-12 21:21:21</div>
-                                </div>
-                            </div>
-                        </Link>
-                    </li>
-                    <li className="item">
-                        <Link className="item-link" to="/msg_chat">
-                            <img src={imgLogo} width="45" height="45" alt="" className="img"/>
-                            <div className="info">
-                                <div className="title">
-                                    <div className="ui-num">3</div>
-                                    <span className="text">昵称yyy</span>
-                                </div>
-                                <div className="detail">
-                                    <div className="msg ellipsis">你好, 我想要咨询这个和那个是什么...</div>
-                                    <div className="time">07-12 21:21:21</div>
-                                </div>
-                            </div>
-                        </Link>
-                    </li>
+                    {
+                        list !== null ?
+                            list.map((item, index) => {
+                                return (
+                                    <li className="item">
+                                        <Link className="item-link" to={`/msg_chat/${item.fromUserId}/${item.toUserId}`}>
+                                            <img src={item.headimgurl} width="45" height="45" className="img"/>
+                                            <div className="info">
+                                                <div className="title">
+                                                    <div className="ui-num">{item.msgNum}</div>
+                                                    <span className="text">{item.nickname}</span>
+                                                </div>
+                                                <div className="detail">
+                                                    <div className="msg ellipsis">{item.content}</div>
+                                                    <div className="time">{moment(item.createTime).format('MM-DD hh:mm:ss')}</div>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                );
+                            })
+                            :
+                            null
+                    }
                 </ul>
             </div>
         );

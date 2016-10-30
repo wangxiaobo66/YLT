@@ -6,7 +6,7 @@
 
 export default [
     {
-        path: '/user/detail',
+        path: '/user/showUser',
         method: 'POST',
         handler: function (request, reply) {
             reply({
@@ -40,13 +40,15 @@ export default [
                     "pwd": "",
                     "company": '公司名称1',
                     "portId": null,
-                    "code": null
+                    "code": null,
+
+                    "msgNum": 5
                 }
             });
         }
     },
     {
-        path: '/user/update',
+        path: '/user/updateUser',
         method: 'POST',
         handler: function (request, reply) {
             reply({
@@ -93,7 +95,7 @@ export default [
                 "state": 1,
                 "reason": "success",
                 "data": {
-                    
+
                 }
             });
         }

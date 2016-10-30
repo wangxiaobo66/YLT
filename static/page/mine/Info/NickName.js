@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import service from './service';
+import service from '../service';
 import mixins from './mixins';
 
 export default React.createClass({

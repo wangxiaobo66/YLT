@@ -8,7 +8,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import mixins from './mixins';
 import VerifyCode from '../_common/VerifyCode/VerifyCode';
-import service from './service';
+import service from '../service';
 
 export default React.createClass({
     mixins: [mixins],

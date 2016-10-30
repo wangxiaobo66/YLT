@@ -6,72 +6,74 @@
 
 .module-index {
     padding-top: 10px;
-    >.content {
-        >.content-grid {
-            .list {
-                padding: 10px 10px 5px 10px;
-                .item {
-                    float: left;
-                    width: 49%;
-                    &:nth-child(2n) {
-                        float: right;
-                    }
-                    .item-link {
-                        display: block;
-                        margin-bottom: 5px;
-                        padding: 12px 10px;
-                        background-color: #fff;
-                        text-align: center;
-                        color: $color-link;
-                        .text {
-                            position: relative;
-                            .ui-num {
-                                position: absolute;
-                                top: -30%;
-                                left: 100%;
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        >.content-row {
-            border-top: 1px $color-border solid;
-            border-bottom: 1px $color-border solid;
-            .list {
-                font-size: 15px;
-                .item {
-                    padding-left: 15px;
-                    background-color: #fff;
-                    border-bottom: 1px $color-border solid;
-                    .item-link {
-                        display: block;
-                        box-sizing: border-box;
-                        height: 40px;
-                        .allow {
+    .index-box {
+        >.content {
+            >.content-grid {
+                .list {
+                    padding: 10px 10px 5px 10px;
+                    .item {
+                        float: left;
+                        width: 49%;
+                        &:nth-child(2n) {
                             float: right;
-                            width: 40px;
-                            height: 40px;
-                            line-height: 40px;
-                            text-align: center;
                         }
-                        .info {
-                            padding: 7px 0;
-                            .icon {
-                                font-size: 18px;
-                                margin-right: 5px;
-                                vertical-align: middle;
-                            }
-                            span.text {
-                                vertical-align: middle;
+                        .item-link {
+                            display: block;
+                            margin-bottom: 5px;
+                            padding: 12px 10px;
+                            background-color: #fff;
+                            text-align: center;
+                            color: $color-link;
+                            .text {
+                                position: relative;
+                                .ui-num {
+                                    position: absolute;
+                                    top: -30%;
+                                    left: 100%;
+
+                                }
                             }
                         }
                     }
                 }
             }
-        }
+            >.content-row {
+                border-top: 1px $color-border solid;
+                border-bottom: 1px $color-border solid;
+                .list {
+                    font-size: 15px;
+                    .item {
+                        padding-left: 15px;
+                        background-color: #fff;
+                        border-bottom: 1px $color-border solid;
+                        .item-link {
+                            display: block;
+                            box-sizing: border-box;
+                            height: 40px;
+                            .allow {
+                                float: right;
+                                width: 40px;
+                                height: 40px;
+                                line-height: 40px;
+                                text-align: center;
+                            }
+                            .info {
+                                padding: 7px 0;
+                                .icon {
+                                    font-size: 18px;
+                                    margin-right: 5px;
+                                    vertical-align: middle;
+                                }
+                                span.text {
+                                    vertical-align: middle;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
+        }
     }
     .index-bottom{
         background-color:#3f3f49;

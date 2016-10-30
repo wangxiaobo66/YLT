@@ -7,7 +7,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import mixins from './mixins';
-import service from './service';
+import service from '../service';
 
 export default React.createClass({
     mixins: [mixins],

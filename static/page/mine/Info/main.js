@@ -7,7 +7,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import Header from '../_common/Header/Header';
-import service from './service';
+import service from '../service';
 
 export default class Item extends React.Component {
     constructor(props) {
@@ -17,7 +17,6 @@ export default class Item extends React.Component {
         };
     }
     componentDidMount() {
-        // 店铺列表
         service.detail({}).then((rep) => {
             let user = rep.data;
             this.setState({
