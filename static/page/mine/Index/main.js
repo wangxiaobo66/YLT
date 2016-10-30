@@ -39,6 +39,54 @@ export default class Item extends React.Component {
             });
         });
     }
+    onclick(e, name) {
+        switch (name) {
+            case "homeActive":
+                this.setState({
+                    homeActive: true,
+                    publishActive: false,
+                    mineActive: false,
+                    matte: false
+                });
+                window.location.href = "./index.html";
+                break;
+            case "publishActive":
+                let { publishActive , matte } = this.state;
+                if (publishActive && matte) {
+                    this.setState({
+                        homeActive: false,
+                        publishActive: true,
+                        mineActive: false,
+                        matte: false
+                    });
+                } else {
+                    this.setState({
+                        homeActive: false,
+                        publishActive: true,
+                        mineActive: false,
+                        matte: true
+                    });
+                }
+                break;
+            case "mineActive":
+                this.setState({
+                    homeActive: false,
+                    publishActive: false,
+                    mineActive: true,
+                    matte: false
+                });
+                break;
+        }
+        let { publishActive } = this.state;
+    }
+    wrong() {
+        this.setState({
+            homeActive: false,
+            publishActive: true,
+            mineActive: false,
+            matte: false
+        })
+    }
     render() {
         let { homeActive , publishActive , mineActive , matte, detail } = this.state;
 
@@ -116,15 +164,15 @@ export default class Item extends React.Component {
 
                             <div className="index-bottom">
                                 <p className={homeActive?'active':''} onClick={(e) => this.onclick(e,"homeActive")}>
-                                    <img src={imgHome} />
+                                    <i className="icon icon-home"></i>
                                     <span>官网首页</span>
                                 </p>
                                 <p className={publishActive?'active':''} onClick={(e) => this.onclick(e,"publishActive")}>
-                                    <img src={imgPublish} />
+                                    <i className="icon icon-publish"></i>
                                     <span>发布信息</span>
                                 </p>
                                 <p className={mineActive?'active':''} onClick={(e) => this.onclick(e,"mineActive")}>
-                                    <img src={imgMine} />
+                                    <i className="icon icon-user-center"></i>
                                     <span>个人中心</span>
                                 </p>
                             </div>
@@ -164,54 +212,5 @@ export default class Item extends React.Component {
                 }
             </div>
         );
-    }
-
-    onclick(e, name) {
-        switch (name) {
-            case "homeActive":
-                this.setState({
-                    homeActive: true,
-                    publishActive: false,
-                    mineActive: false,
-                    matte: false
-                });
-                window.location.href = "./index.html";
-                break;
-            case "publishActive":
-                let { publishActive , matte } = this.state;
-                if (publishActive && matte) {
-                    this.setState({
-                        homeActive: false,
-                        publishActive: true,
-                        mineActive: false,
-                        matte: false
-                    });
-                } else {
-                    this.setState({
-                        homeActive: false,
-                        publishActive: true,
-                        mineActive: false,
-                        matte: true
-                    });
-                }
-                break;
-            case "mineActive":
-                this.setState({
-                    homeActive: false,
-                    publishActive: false,
-                    mineActive: true,
-                    matte: false
-                });
-                break;
-        }
-        let { publishActive } = this.state;
-    }
-    wrong() {
-        this.setState({
-            homeActive: false,
-            publishActive: true,
-            mineActive: false,
-            matte: false
-        })
     }
 }

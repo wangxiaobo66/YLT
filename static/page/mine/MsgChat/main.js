@@ -61,7 +61,6 @@ export default class Item extends React.Component {
         });
     }
     addMsg() {
-        debugger;
         service.addMsg(this.state.form).then((rep) => {
             this.state.list.push({
                 headimgurl: this.state.user.headimgurl,

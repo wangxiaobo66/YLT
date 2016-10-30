@@ -321,15 +321,15 @@ class component extends React.Component {
 
                 <div className="index-bottom">
                     <p className={homeActive?'active':''} onClick={(e) => this.onclick(e,"homeActive")}>
-                        <img src={imgHome} />
+                        <i className="icon icon-home"></i>
                         <span>官网首页</span>
                     </p>
                     <p className={publishActive?'active':''} onClick={(e) => this.onclick(e,"publishActive")}>
-                        <img src={imgPublish} />
+                        <i className="icon icon-publish"></i>
                         <span>发布信息</span>
                     </p>
                     <p className={mineActive?'active':''} onClick={(e) => this.onclick(e,"mineActive")}>
-                        <img src={imgMine} />
+                        <i className="icon icon-user-center"></i>
                         <span>个人中心</span>
                     </p>
                 </div>
