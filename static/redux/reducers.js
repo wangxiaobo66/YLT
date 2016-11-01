@@ -33,8 +33,19 @@ function register(state={},action){
     }
 }
 
+const { SERVICE_LIST } = require('../page/service/actions');
+function service(state={data:""},action){
+    switch (action.type){
+        case SERVICE_LIST:
+            let data = {data:action.data};
+            return Object.assign({},state,data);
+        default:
+            return state;
+    }
+}
 export const YLT = combineReducers({
     index,//首页
     outLogin,//站外登录
-    register//站外注册,站内补充
+    register,//站外注册,站内补充
+    service//服务列表
 });

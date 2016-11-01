@@ -64,7 +64,13 @@ module.exports = {
     getHash: function(url){
         return url.substring((url.indexOf("#") + 1), url.length);
     },
-    /**
+    //url取参数
+    getQueryString: function(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    },
+/**
      * 格式化时间
      * @param timestamp
      * @returns {*}

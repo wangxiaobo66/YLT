@@ -19,15 +19,15 @@ export class Service extends React.Component {
                 <div className="box">
                     <div className="left">
                         <p className="title">
-                            <span>求车服务</span>
+                            <span>{obj.title}</span>
                         </p>
                         <p className="time">
-                            08-08 08:08
+                            {/*moment(obj.createTime).format('YYYY-MM-DD hh:mm:ss')*/}
                         </p>
                     </div>
                     <div className="right">
-                        <p><span>满洲里13米高低板</span></p>
-                        <p><span>张三: </span><span>15811112222</span></p>
+                        <p><span>{obj.title}</span></p>
+                        <p><span>{obj.contact}</span><span>{obj.mobile}</span></p>
                     </div>
                 </div>
                 <div className="ui-point"></div>
@@ -41,5 +41,5 @@ Service.propTypes = {
 };
 
 Service.defaultProps = {
-    obj: null
+    obj: {}
 };

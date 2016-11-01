@@ -20,7 +20,7 @@ export default class Item extends React.Component {
         };
     }
     componentDidMount() {
-
+        let id = this.props.params.id;
     }
     render() {
         let that = this;

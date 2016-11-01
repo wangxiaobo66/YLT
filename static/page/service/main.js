@@ -13,6 +13,7 @@ import { Provider, connect } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import {bindActionCreators} from 'redux';
 // import { ReduxThunk } from 'redux-thunk';
+
 const thunk = require('redux-thunk').default;
 import {YLT} from '../../redux/reducers';
 
@@ -43,23 +44,32 @@ class Service extends React.Component {
     }
 }
 
-let App = connect(function (state) {
+function select(state) {
     return {
+        service: state.service
+    }
+}
 
-    };
-})(Service);
+let App = connect(select)(Service);
+
+let ListComp = connect(select)(List);
+let DetailComp = connect(select)(Detail);
+let AddComp = connect(select)(Add);
 
 ReactDom.render(
-    <Provider store={store}>
-        <Router history={hashHistory}>
-            <Route path="/" component={App}>
-                <IndexRoute component={List} />
-                <Route path="list" component={List} />
-                <Route path="detail" component={Detail} />
-                <Route path="add" component={Add} />
-            </Route>
-        </Router>
-    </Provider>,
-    document.getElementById('app')
+        <Provider store={store}>
+            <Router history={hashHistory}>
+                <Route path="/" component={App}>
+                    <IndexRoute component={ListComp} />
+                    <Route path="list" component={ListComp} />
+                    <Route path="detail/:id" component={DetailComp} />
+                    <Route path="add" component={AddComp} />
+                </Route>
+            </Router>
+        </Provider>,
+            document.getElementById('app')
 );
+
+
+
 

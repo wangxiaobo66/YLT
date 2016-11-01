@@ -72,6 +72,10 @@ gulp.task('server:hot', function () {
                 {
                     path: '/store/**/*',
                     target: 'http://localhost:' + PORT_HAPI
+                },
+                {
+                    path: '/front.irito.server/inform/**/*',
+                    target: 'http://123.57.83.122:8080'
                 }
             ],
             stats: {
