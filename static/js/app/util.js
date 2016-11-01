@@ -58,7 +58,7 @@ module.exports = {
             },
             credentials: 'include', //使用cookie  默认不使用cookie
             body: JSON.stringify(data)
-        })
+        });
     },
     //hash
     getHash: function(url){

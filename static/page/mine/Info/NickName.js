@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import {Link} from 'react-router';
+import service from '../service';
 import mixins from './mixins';
 
 export default React.createClass({
@@ -15,12 +15,62 @@ export default React.createClass({
      */
     getInitialState() {
         return {
-
+            disabled: true,
+            form: {
+                nickname: ''
+            }
         };
     },
     componentDidMount() {
 
     },
+
+    checkDisabled(key, event) {
+        let disabled = false;
+        let form = this.state.form;
+
+        if (key && event) {
+            form[key] = event.target.value;
+        }
+
+        if ($.trim(form.nickname) === '') {
+            disabled = true;
+        }
+
+        this.setState({
+            disabled: disabled
+        });
+
+    },
+
+    sure() {
+        let that = this;
+        service.update(this.state.form).then((rep) => {
+            window.toast('修改成功', {
+                callback() {
+                    that.props.history.push({
+                        pathname: '/info'
+                    });
+                }
+            });
+
+        });
+
+        /*
+         // or with a location descriptor object
+         router.push({
+         pathname: '/users/12',
+         query: { modal: true },
+         state: { fromDashboard: true }
+         })
+         */
+
+        /*
+         router.push('/users/12')
+         */
+
+    },
+
     render() {
         return (
             <div className="module-info-detail">
@@ -29,16 +79,22 @@ export default React.createClass({
                         <label>
                             <div className="for">昵称</div>
                             <div className="input-box">
-                                <input className="input input-block" type="text"
+                                <input className="input input-block"
+                                       onChange={this.checkDisabled.bind(this, 'nickname')}
+                                       maxLength="30"
+                                       type="text"
                                        placeholder="请输入昵称" />
                             </div>
                         </label>
                     </div>
                 </form>
                 <div className="ui-btn-groups">
-                    <a href="javascript:;" className="ui-btn ui-btn-confirm">确定</a>
+                    <a href="javascript:;"
+                       disabled={this.state.disabled === true}
+                       onClick={this.sure.bind(this)}
+                       className="ui-btn ui-btn-confirm">确定</a>
                     <a href="javascript:;" className="ui-btn ui-btn-default"
-                       onClick={this.goBack}>取消</a>
+                       onClick={this.goBack.bind(this)}>取消</a>
                 </div>
             </div>
         );

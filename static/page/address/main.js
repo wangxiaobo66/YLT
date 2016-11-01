@@ -14,6 +14,7 @@ import { createStore, applyMiddleware } from 'redux';
 import {bindActionCreators} from 'redux';
 // import { ReduxThunk } from 'redux-thunk';
 const thunk = require('redux-thunk').default;
+import '../../js/app/global';
 import {YLT} from '../../redux/reducers';
 
 import Index from './index/main';

@@ -8,6 +8,7 @@ require('./forget.scss');
 const util = require('../../js/app/util.js');
 const React = require('react');
 const render = require('react-dom').render;
+import '../../js/app/global';
 
 const { YLT } = require('../../redux/reducers');
 const { Provider, connect } = require('react-redux');

@@ -3,6 +3,7 @@
  */
 require('./ask-buy.scss');
 const util = require('../../js/app/util.js');
+import '../../js/app/global';
 const React = require('react');
 const render = require('react-dom').render;
 import {Router, Route, IndexRoute, hashHistory, Link} from 'react-router';

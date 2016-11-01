@@ -26,6 +26,7 @@
             .care {
                 margin-top: 5px;
                 font-size: 14px;
+                color: $color-font-gray;
             }
         }
     }
@@ -54,5 +55,36 @@
     }
     .detail {
         margin-top: 10px;
+    }
+    .qrcode {
+        $border-radius: 8px;
+
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+
+        .qrcode-close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: translate(50%, -50%);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background-color: #fff;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .qrcode-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
     }
 }
