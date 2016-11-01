@@ -20,7 +20,7 @@
         {}
       ],
       "properties": {
-        "order": 120,
+        "order": 185,
         "id": 21,
         "name": "care",
         "prevSize": 32,
@@ -49,7 +49,7 @@
         {}
       ],
       "properties": {
-        "order": 121,
+        "order": 186,
         "id": 20,
         "name": "chat",
         "prevSize": 32,
@@ -78,7 +78,7 @@
         {}
       ],
       "properties": {
-        "order": 122,
+        "order": 187,
         "id": 19,
         "name": "close",
         "prevSize": 32,
@@ -107,7 +107,7 @@
         {}
       ],
       "properties": {
-        "order": 123,
+        "order": 188,
         "id": 18,
         "name": "code",
         "prevSize": 32,
@@ -136,7 +136,7 @@
         {}
       ],
       "properties": {
-        "order": 124,
+        "order": 189,
         "id": 17,
         "name": "home",
         "prevSize": 32,
@@ -165,7 +165,7 @@
         {}
       ],
       "properties": {
-        "order": 125,
+        "order": 190,
         "id": 16,
         "name": "mobile",
         "prevSize": 32,
@@ -194,7 +194,7 @@
         {}
       ],
       "properties": {
-        "order": 126,
+        "order": 191,
         "id": 15,
         "name": "myservice",
         "prevSize": 32,
@@ -224,7 +224,7 @@
         {}
       ],
       "properties": {
-        "order": 127,
+        "order": 192,
         "id": 14,
         "name": "o-check",
         "prevSize": 32,
@@ -253,7 +253,7 @@
         {}
       ],
       "properties": {
-        "order": 128,
+        "order": 193,
         "id": 13,
         "name": "o-location",
         "prevSize": 32,
@@ -282,7 +282,7 @@
         {}
       ],
       "properties": {
-        "order": 129,
+        "order": 194,
         "id": 12,
         "name": "o-love",
         "prevSize": 32,
@@ -311,7 +311,7 @@
         {}
       ],
       "properties": {
-        "order": 130,
+        "order": 195,
         "id": 11,
         "name": "o-plus",
         "prevSize": 32,
@@ -340,7 +340,7 @@
         {}
       ],
       "properties": {
-        "order": 131,
+        "order": 196,
         "id": 10,
         "name": "o-right",
         "prevSize": 32,
@@ -370,7 +370,7 @@
         {}
       ],
       "properties": {
-        "order": 132,
+        "order": 197,
         "id": 9,
         "name": "o-slide-down",
         "prevSize": 32,
@@ -400,7 +400,7 @@
         {}
       ],
       "properties": {
-        "order": 133,
+        "order": 198,
         "id": 8,
         "name": "o-slide-up",
         "prevSize": 32,
@@ -429,7 +429,7 @@
         {}
       ],
       "properties": {
-        "order": 134,
+        "order": 199,
         "id": 7,
         "name": "phone",
         "prevSize": 32,
@@ -458,7 +458,7 @@
         {}
       ],
       "properties": {
-        "order": 135,
+        "order": 200,
         "id": 6,
         "name": "position",
         "prevSize": 32,
@@ -488,7 +488,7 @@
         {}
       ],
       "properties": {
-        "order": 136,
+        "order": 201,
         "id": 5,
         "name": "publish",
         "prevSize": 32,
@@ -517,7 +517,7 @@
         {}
       ],
       "properties": {
-        "order": 137,
+        "order": 202,
         "id": 4,
         "name": "return",
         "prevSize": 32,
@@ -546,7 +546,7 @@
         {}
       ],
       "properties": {
-        "order": 138,
+        "order": 203,
         "id": 3,
         "name": "search",
         "prevSize": 32,
@@ -575,7 +575,7 @@
         {}
       ],
       "properties": {
-        "order": 139,
+        "order": 204,
         "id": 2,
         "name": "setting",
         "prevSize": 32,
@@ -604,7 +604,7 @@
         {}
       ],
       "properties": {
-        "order": 140,
+        "order": 205,
         "id": 1,
         "name": "slide",
         "prevSize": 32,
@@ -633,7 +633,7 @@
         {}
       ],
       "properties": {
-        "order": 141,
+        "order": 206,
         "id": 0,
         "name": "user-center",
         "prevSize": 32,

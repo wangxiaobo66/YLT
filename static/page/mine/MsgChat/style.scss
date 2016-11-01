@@ -49,4 +49,25 @@
             }
         }
     }
+    .send-msg {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        .msg-box {
+            display: flex;
+            .msg-input {
+                flex: 4;
+                display: block;
+                border: 1px solid $color-border;
+                padding: 0 5px;
+                background-color: #fff;
+                margin-right: 3px;
+            }
+            .btn {
+                flex: 1;
+                display: block;
+            }
+        }
+    }
 }

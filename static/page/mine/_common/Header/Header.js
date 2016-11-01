@@ -26,7 +26,7 @@ export default class Header extends React.Component {
                         <img className="img" src={this.props.src} width="60" height="60" alt=""/>
                         <div className="info">
                             <div className="allow">
-                                <i className="icon-right"></i>
+                                <i className="icon-o-right"></i>
                             </div>
                             <div className="text">{this.props.text}</div>
                         </div>

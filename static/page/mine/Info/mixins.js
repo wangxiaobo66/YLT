@@ -6,6 +6,8 @@
 
 export default {
     goBack() {
-        window.history.go(-1);
+        this.props.history.push({
+            pathname: '/info'
+        });
     }
 };

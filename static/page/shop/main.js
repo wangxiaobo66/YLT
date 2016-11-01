@@ -16,6 +16,10 @@ import {bindActionCreators} from 'redux';
 const thunk = require('redux-thunk').default;
 import {YLT} from '../../redux/reducers';
 
+import '../../js/app/global';
+
+import '../../js/app/global';
+
 // 引入子页面
 import Add from './add/main';
 import Detail from './detail/main';
@@ -53,9 +57,9 @@ ReactDom.render(
         <Router history={hashHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={List} />
-                <Route path="add" component={Add} />
-                <Route path="detail" component={Detail} />
-                <Route path="home" component={Home} />
+                <Route path="/add" component={Add} />
+                <Route path="/detail/:id" component={Detail} />
+                <Route path="/home/:id" component={Home} />
             </Route>
         </Router>
     </Provider>,
