@@ -116,7 +116,7 @@ export default class Item extends React.Component {
                 data.type = text;
                 this.setState({
                     data: data
-                })
+                });
                 break;
             case 'title':
                 data.title = text;
