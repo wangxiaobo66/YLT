@@ -81,6 +81,7 @@ export default class ShopAdd extends React.Component {
                 this.setState({
                     form: rep.data
                 });
+                this.checkDisabled();
             });
         } else {
             // 到详情页
