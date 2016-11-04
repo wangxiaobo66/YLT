@@ -23,10 +23,14 @@ export default class Home extends React.Component {
     componentDidMount() {
         let storeId = this.props.params.id;
 
+        let param = {};
+        // -1代表的是当前登录用户的主页
+        if (+storeId !== -1) {
+            param.storeId = storeId;
+        }
+
         // 详情
-        service.showMyStore({
-            storeId: storeId
-        }).then((rep) => {
+        service.showMyStore(param).then((rep) => {
             this.setState({
                 detail: rep.data
             });

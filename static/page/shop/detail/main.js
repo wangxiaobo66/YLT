@@ -16,7 +16,7 @@ export default class Chepihao extends React.Component {
         super(props);
         this.state = {
             detail: null,
-            showQrcode: true
+            showQrcode: false
         };
     }
     componentDidMount() {

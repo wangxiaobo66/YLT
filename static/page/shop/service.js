@@ -42,7 +42,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     updateMyStore(param = {}) {
-        return util.postRequest('/store/addMyStore', param).then((rep) => {
+        return util.postRequest('/store/updateMyStore', param).then((rep) => {
             return rep.json();
         });
     },
