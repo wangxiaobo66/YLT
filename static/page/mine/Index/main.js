@@ -102,6 +102,7 @@ export default class Item extends React.Component {
                                             </Link>
                                         </li>
                                         <li className="item">
+                                            {/* TODO 怎么知道自己有店铺 */}
                                             <a href="./shop.html?storeId=-1#/add" className="item-link">
                                                 <span className="text">我的店铺</span>
                                             </a>

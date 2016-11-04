@@ -72,6 +72,17 @@ export default {
         return util.postRequest('/msg/addMsg', param).then((rep) => {
             return rep.json();
         });
-    }
+    },
 
+    /**
+     * 添加用户反馈
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    addFeedback(param = {}) {
+        return util.postRequest('/feedback/addFeedback', param).then((rep) => {
+            return rep.json();
+        });
+    }
+    
 }

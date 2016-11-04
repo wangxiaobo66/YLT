@@ -10,6 +10,7 @@ import subscribe from './mock_subscribe';
 import shop from './mock_shop';
 import user from './mock_user';
 import msg from './mock_msg';
+import feedback from './mock_feedback';
 import arrival from './mock_arrival';
 
 export default []
@@ -19,4 +20,5 @@ export default []
     .concat(shop)
     .concat(msg)
     .concat(arrival)
+    .concat(feedback)
     .concat(subscribe);

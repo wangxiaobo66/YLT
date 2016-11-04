@@ -295,7 +295,11 @@ export default class ShopAdd extends React.Component {
                     <a href="javascript:;"
                        disabled={this.state.disabled}
                        onClick={this.add.bind(this)}
-                       className="ui-btn ui-btn-fixed">发布店铺</a>
+                       className="ui-btn ui-btn-fixed">
+                        {
+                            this.state.form.storeId ? '修改店铺' : '发布店铺'
+                        }
+                    </a>
                 </footer>
             </div>
         );
