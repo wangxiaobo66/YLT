@@ -83,6 +83,29 @@ export default {
         return util.postRequest('/feedback/addFeedback', param).then((rep) => {
             return rep.json();
         });
+    },
+
+    /**
+     * 关注列表
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    interestList(param = {}) {
+        return util.postRequest('/interest/interestList', param).then((rep) => {
+            return rep.json();
+        });
+    },
+
+    /**
+     * 取消关注
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    delInterest(param = {}) {
+        return util.postRequest('/interest/delInterest', param).then((rep) => {
+            return rep.json();
+        });
     }
-    
+
+
 }
