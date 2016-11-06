@@ -32,13 +32,15 @@ export default class Guige extends React.Component {
         };
     }
     add() {
+        let that = this;
         // 添加
         service.addCph(this.state.form).then((rep) => {
             if (rep.state === 1) {
                 window.toast('添加成功', {
                     callback() {
-                        // TODO 跳转到我的订阅
-                        // window.location.href = './mine.html';
+                        that.props.history.push({
+                            pathname: '/'
+                        });
                     }
                 });
             } else {
