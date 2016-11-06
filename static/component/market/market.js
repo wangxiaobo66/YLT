@@ -30,8 +30,6 @@ export default class Market extends React.Component {
                         </div>
                         <div className="right">
                             <p>{obj.pubDate}</p>
-                            <p>直径:<span>{obj.diam}</span></p>
-                            <p>等级:<span>{obj.level}</span></p>
                         </div>
                     </div>
                 </div>

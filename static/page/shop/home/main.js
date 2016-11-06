@@ -58,6 +58,7 @@ export default class Home extends React.Component {
                                 <img src={imgTop} width="100%" alt=""/>
                                 <div className="info">
                                     <p className="title">{this.state.detail.storeName}</p>
+                                    <a href="javascript:;" className="ui-btn ui-btn-small">+关注</a>
                                 </div>
                                 <div className="logo">
                                     <img src={this.state.detail.store_icon} width="62" height="62" />

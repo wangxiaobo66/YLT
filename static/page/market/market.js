@@ -17,6 +17,7 @@ const thunk = require('redux-thunk').default;
 import List from './list/main';
 import Add from './add/main';
 import Detail from './detail/main';
+import Standard from './standard/main'
 
 let store = createStore(YLT, applyMiddleware(thunk));
 
@@ -52,6 +53,7 @@ render(
                 <IndexRoute component={List} />
                 <Route path="detail" component={Detail} />
                 <Route path="add" component={Add} />
+                <Route path="standard" component={Standard} />
             </Route>
         </Router>
     </Provider>,

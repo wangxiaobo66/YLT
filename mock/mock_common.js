@@ -8,7 +8,7 @@
 /**
  * 1树种;2物种;3货种;4长度;5口岸;
  * 6产地;7当前位置;8产地;9材料;10服务类型;
- * 11反馈类型;12店铺类型
+ * 11反馈类型;12店铺类型;13举报类型
  */
 export default [
     // 树种列表
@@ -82,7 +82,7 @@ export default [
                         ]
                     }
                 });
-            } else if (+type === 3) {
+            } else if (+type === 4) {
                 reply({
                     "state": 1,
                     "reason": "success",
@@ -103,7 +103,7 @@ export default [
                         ]
                     }
                 });
-            } else if (+type === 4) {
+            } else if (+type === 5) {
                 reply({
                     "state": 1,
                     "reason": "success",
