@@ -97,6 +97,29 @@ export default {
         return util.postRequest('/unsold/delDimension', param).then((rep) => {
             return rep.json();
         });
+    },
+
+    /**
+     * 添加举报
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    addUnsoldReport(param = {}) {
+        return util.postRequest('/unsold/addUnsoldReport', param).then((rep) => {
+            return rep.json();
+        });
+    },
+
+    /**
+     * 添加关注
+     * @param param
+     * @returns {Promise.<TResult>|*}
+     */
+    addInterest(param = {}) {
+        return util.postRequest('/interest/addInterest', param).then((rep) => {
+            return rep.json();
+        });
     }
+
 
 }

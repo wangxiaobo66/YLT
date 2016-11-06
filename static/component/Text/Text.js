@@ -14,7 +14,7 @@ export default class Text extends React.Component {
     render() {
         return (
             <div className={"Text-component" + (this.props.half === true ? ' Text-component--half' : '')}>
-                <div className={'text-box' + (this.props.border === false ? ' text-box--noborder' : '')}>
+                <div className={'clearfix text-box' + (this.props.border === false ? ' text-box--noborder' : '')}>
                     <div className="for">{this.props.label}</div>
                     <div className="text">{this.props.text}</div>
                 </div>

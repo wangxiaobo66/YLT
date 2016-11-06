@@ -5,7 +5,7 @@
  */
 
 import util from './util';
-import {TYPE_TREE, TYPE_GOODS, TYPE_LENGTH, TYPE_PORT, TYPE_STORE} from './contants';
+import {TYPE_TREE, TYPE_GOODS, TYPE_LENGTH, TYPE_PORT, TYPE_STORE, TYPE_REPORT} from './contants';
 
 export default {
     treetypeList(param = {}) {
@@ -44,6 +44,18 @@ export default {
     storeTypeList(param = {}) {
         return util.postRequest('/base/optns', {
             type: TYPE_STORE
+        }).then((rep) => {
+            return rep.json();
+        });
+    },
+    /**
+     * 举报类型
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    reportTypeList(param = {}) {
+        return util.postRequest('/base/optns', {
+            type: TYPE_REPORT
         }).then((rep) => {
             return rep.json();
         });

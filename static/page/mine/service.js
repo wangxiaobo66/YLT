@@ -46,8 +46,8 @@ export default {
      * @param param
      * @returns {*|Promise.<TResult>}
      */
-    allList(param = {}) {
-        return util.postRequest('/msg/allList', param).then((rep) => {
+    myTopList(param = {}) {
+        return util.postRequest('/msg/myTopList', param).then((rep) => {
             return rep.json();
         });
     },

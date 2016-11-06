@@ -1,6 +1,7 @@
 
 const eventEmitter = require('event-emitter');
 import moment from 'moment';
+import '../../component/Toast/Toast';
 
 module.exports = {
     events: eventEmitter({}),
@@ -49,6 +50,7 @@ module.exports = {
         });
     },
     postRequest: function(url, data) {
+        window.toast('请稍候...');
         return fetch(url, {
             method: 'POST',
             headers: {
@@ -58,6 +60,9 @@ module.exports = {
             },
             credentials: 'include', //使用cookie  默认不使用cookie
             body: JSON.stringify(data)
+        }).then(rep => {
+            window.untoast();
+            return rep;
         });
     },
     //hash

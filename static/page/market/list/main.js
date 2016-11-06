@@ -25,33 +25,10 @@ export default class List extends React.Component {
                 treetypeId: '',
                 goodstypeId: '',
                 lengthId: '',
-                pageNo: 1,
-                pageSize: LIMIT_COUNT
+                limitStart: 0,
+                limitCount: LIMIT_COUNT
             },
-            list: [
-                {
-                    "imgSrc": '../../static/images/ys.png',
-                    "name": "落叶松1",
-                    "size": "六米",
-                    "type": "原木",
-                    "currentPosition": "明斯克",
-                    "Destination": "满洲里",
-                    "pubDate": "9-30|10:01",
-                    "diam": "20",
-                    "level": "一级"
-                },
-                {
-                    "imgSrc": '../../static/images/ys.png',
-                    "name": "落叶松2",
-                    "size": "三米",
-                    "type": "原木",
-                    "currentPosition": "明斯克",
-                    "destination": "满洲里",
-                    "pubDate": "9-30|10:01",
-                    "diam": "20",
-                    "level": "一级"
-                }
-            ]
+            list: null
         };
     }
     componentDidMount() {
@@ -73,20 +50,25 @@ export default class List extends React.Component {
                 lengthList: rep.data.list
             });
         });
+
+        service.unsoldList(this.state.form).then(rep => {
+            this.setState({
+                list: rep.data.list
+            });
+        });
     }
-    checkDisabled(key, event) {
+    setForm(key, event) {
         let form = this.state.form;
 
         if (key && event) {
             form[key] = event.target.value;
         }
 
-        service.unsoldList(this.form).then(rep => {
+        service.unsoldList(form).then(rep => {
             this.setState({
                 list: rep.data.list
             });
         });
-
     }
     render() {
         return (
@@ -96,7 +78,7 @@ export default class List extends React.Component {
                         <span className="for">口岸</span>
                         <select className="select"
                                 value={this.state.form.treetypeId}
-                                onChange={this.checkDisabled.bind(this, 'treetypeId')}>
+                                onChange={this.setForm.bind(this, 'treetypeId')}>
                             <option value="">选择</option>
                             {
                                 this.state.provinces !== null ?
@@ -112,7 +94,7 @@ export default class List extends React.Component {
                         <span className="for">货种</span>
                         <select className="select"
                                 value={this.state.form.goodstypeId}
-                                onChange={this.checkDisabled.bind(this, 'goodstypeId')}>
+                                onChange={this.setForm.bind(this, 'goodstypeId')}>
                             <option value="">选择</option>
                             {
                                 this.state.goodstypeList !== null ?
@@ -128,7 +110,7 @@ export default class List extends React.Component {
                         <span className="for">树种</span>
                         <select className="select"
                                 value={this.state.form.treetypeId}
-                                onChange={this.checkDisabled.bind(this, 'treetypeId')}>
+                                onChange={this.setForm.bind(this, 'treetypeId')}>
                             <option value="">选择</option>
                             {
                                 this.state.treetypeList !== null ?
@@ -144,7 +126,7 @@ export default class List extends React.Component {
                         <span className="for">长度</span>
                         <select className="select"
                                 value={this.state.form.lengthId}
-                                onChange={this.checkDisabled.bind(this, 'lengthId')}>
+                                onChange={this.setForm.bind(this, 'lengthId')}>
                             <option value="">选择</option>
                             {
                                 this.state.lengthList !== null ?
@@ -159,15 +141,18 @@ export default class List extends React.Component {
                 </div>
                 <ul className="ui-list">
                     {
-                        this.state.list.map(function (item, index) {
-                            return (
-                                <li className="item clearfix" key={index}>
-                                    <Link className="item-link" to="detail">
-                                        <Market obj={item} />
-                                    </Link>
-                                </li>
-                            );
-                        })
+                        this.state.list !== null ?
+                            this.state.list.map(function (item, index) {
+                                return (
+                                    <li className="item clearfix" key={index}>
+                                        <Link className="item-link" to={`/detail/${item.orderId}`}>
+                                            <Market obj={item} />
+                                        </Link>
+                                    </li>
+                                );
+                            })
+                            :
+                            null
                     }
                 </ul>
                 <footer className="footer">

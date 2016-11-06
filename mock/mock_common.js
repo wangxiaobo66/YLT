@@ -145,7 +145,41 @@ export default [
                         ]
                     }
                 });
-            } else {
+
+            } else if (+type === 13) {
+                reply({
+                    "state": 1,
+                    "reason": "success",
+                    "data": {
+                        list: [
+                            {
+                                "id": 1,
+                                "name": '商品有误'
+                            },
+                            {
+                                "id": 2,
+                                "name": '电话有误'
+                            },
+                            {
+                                "id": 3,
+                                "name": '位置不符'
+                            },
+                            {
+                                "id": 4,
+                                "name": '照片不符'
+                            },
+                            {
+                                "id": 5,
+                                "name": '其他有误'
+                            },
+                            {
+                                "id": 6,
+                                "name": '全部错误'
+                            }
+                        ]
+                    }
+                });
+            } else  {
                 // throw new Error('[/base/optns] The type is error!');
             }
 

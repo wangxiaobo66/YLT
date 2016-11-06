@@ -20,3 +20,13 @@ export const TYPE_LENGTH = 4;
 export const TYPE_PORT = 5;
 
 export const TYPE_STORE = 12;
+export const TYPE_REPORT = 13;
+
+// 举报类型
+export const REPORT_TYPE_ASK_BUY = 1;   // 求购单
+export const REPORT_TYPE_UNSOLD = 2;    // 未售单
+
+// 0到货列表;1关注店铺;2未售市场;
+export const CARE_TYPE_ARRIVAL = 0;
+export const CARE_TYPE_STORE = 1;
+export const CARE_TYPE_UNSOLD = 2;
