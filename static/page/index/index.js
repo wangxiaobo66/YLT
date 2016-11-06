@@ -17,6 +17,8 @@ const { Provider, connect } = require('react-redux');
 const { createStore, applyMiddleware } = require('redux');
 const thunk = require('redux-thunk').default;
 
+import marketService from '../market/service';
+
 import img1 from './img/1.png';
 import img2 from './img/2.png';
 import img3 from './img/3.png';
@@ -148,7 +150,8 @@ class component extends React.Component {
             mineActive: false,
             matte: false,
             search: false,
-            searchValue:''
+            searchValue:'',
+            dataMarkets: null
         }
     }
 
@@ -186,9 +189,12 @@ class component extends React.Component {
                         <div className="swiper-wrapper">
                             <div className="swiper-slide">
                                 {
-                                    dataMarkets.map(function (item, index) {
-                                        return <Market obj={item} key={index} />;
-                                    })
+                                    this.state.dataMarkets !== null ?
+                                        this.state.dataMarkets.map(function (item, index) {
+                                            return <Market obj={item} key={index} />;
+                                        })
+                                        :
+                                        null
                                 }
                                 <div className="switch-all"><img src={imgRightIcon}/><a
                                     href="./market.html">查看全部未售市场</a></div>
@@ -394,7 +400,17 @@ class component extends React.Component {
 
                 localStorage.setItem("history", historyUnique.join(","));//将新数组字符串化并存入缓存
             }
-        })
+        });
+
+        // 获取未售商品列表
+        marketService.unsoldList({
+            limitStart: 0,
+            limitCount: 5
+        }).then(rep => {
+            this.setState({
+                dataMarkets: rep.data.list
+            });
+        });
     }
 
     historyDom(historyList){
