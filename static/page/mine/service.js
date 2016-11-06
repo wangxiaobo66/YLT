@@ -105,7 +105,19 @@ export default {
         return util.postRequest('/interest/delInterest', param).then((rep) => {
             return rep.json();
         });
+    },
+
+    /**
+     * 我的未售列表
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    showMyUnsoldList(param = {}) {
+        return util.postRequest('/unsold/showMyUnsoldList', param).then((rep) => {
+            return rep.json();
+        });
     }
+
 
 
 }
