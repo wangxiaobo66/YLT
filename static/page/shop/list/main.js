@@ -13,7 +13,7 @@ import commonService from '../../../js/app/commonService';
 import service from '../service';
 import CONFIG from '../config'
 
-export default class Chepihao extends React.Component {
+export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,22 +26,22 @@ export default class Chepihao extends React.Component {
     componentDidMount() {
 
         // 店铺列表
-        service.myStoreList({
+        service.storeList({
             province: '',
             storetypeId: CONFIG.TYPE_STORE_JIXIE.CODE,
             limitStart: 1,
             limitCount: LIMIT_COUNT
         }).then((rep) => {
             this.setState({
-                repData: rep.data,
-                list: rep.data.list
+                repData: rep.result,
+                list: rep.result.list
             });
         });
 
         // 店铺类型
         commonService.storeTypeList().then((rep) => {
             this.setState({
-                typeList: rep.data.list
+                typeList: rep.result.list
             });
         });
 
@@ -83,16 +83,19 @@ export default class Chepihao extends React.Component {
                     <ul className="ui-list">
                         {
                             this.state.list !== null ?
-                                this.state.list.map((item, index) => {
-                                    item.list = this.state.repData['order' + item.id];
-                                    return (
-                                        <li className="item" key={index}>
-                                            <Link className="item-link" to={`/home/${item.id}`}>
-                                                <Shop obj={item} />
-                                            </Link>
-                                        </li>
-                                    );
-                                })
+                                this.state.list.length === 0 ?
+                                    <li className="no-data">暂无数据</li>
+                                    :
+                                    this.state.list.map((item, index) => {
+                                        item.list = this.state.repData['order' + item.id];
+                                        return (
+                                            <li className="item" key={index}>
+                                                <Link className="item-link" to={`/home/${item.id}`}>
+                                                    <Shop obj={item} />
+                                                </Link>
+                                            </li>
+                                        );
+                                    })
                                 :
                                 null
                         }

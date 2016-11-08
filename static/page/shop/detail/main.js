@@ -11,7 +11,7 @@ import service from '../service';
 
 import imgLogo from '../img/logo.png';
 
-export default class Chepihao extends React.Component {
+export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,11 +23,11 @@ export default class Chepihao extends React.Component {
         let storeId = this.props.params.id;
 
         // 详情
-        service.showMyStore({
+        service.showStore({
             storeId: storeId
         }).then((rep) => {
             this.setState({
-                detail: rep.data
+                detail: rep.result.data
             });
         });
     }

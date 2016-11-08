@@ -13,14 +13,14 @@ export default {
      * @param param
      * @returns {Promise.<TResult>|*}
      */
-    myStoreList(param = {}) {
-        return util.postRequest('/store/myStoreList', param).then((rep) => {
+    storeList(param = {}) {
+        return util.postRequest('/front.irito.server/store/storeList', param).then((rep) => {
             return rep.json();
         });
     },
 
     unsoldOrdersInStore(param = {}) {
-        return util.postRequest('/store/unsoldOrdersInStore', param).then((rep) => {
+        return util.postRequest('/front.irito.server/store/unsoldOrdersInStore', param).then((rep) => {
             return rep.json();
         });
     },
@@ -31,7 +31,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     addMyStore(param = {}) {
-        return util.postRequest('/store/addMyStore', param).then((rep) => {
+        return util.postRequest('/front.irito.server/store/addStore', param).then((rep) => {
             return rep.json();
         });
     },
@@ -42,7 +42,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     updateMyStore(param = {}) {
-        return util.postRequest('/store/updateMyStore', param).then((rep) => {
+        return util.postRequest('/front.irito.server/store/updateStore', param).then((rep) => {
             return rep.json();
         });
     },
@@ -53,7 +53,13 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     delMyStore(param = {}) {
-        return util.postRequest('/store/addMyStore', param).then((rep) => {
+        return util.postRequest('/front.irito.server/store/delStore', param).then((rep) => {
+            return rep.json();
+        });
+    },
+
+    showStore(param = {}) {
+        return util.postRequest('/front.irito.server/store/showStore', param).then((rep) => {
             return rep.json();
         });
     },
@@ -64,7 +70,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     showMyStore(param = {}) {
-        return util.postRequest('/store/showMyStore', param).then((rep) => {
+        return util.postRequest('/front.irito.server/store/showMyStore', param).then((rep) => {
             return rep.json();
         });
     }

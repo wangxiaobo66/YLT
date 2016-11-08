@@ -33,7 +33,7 @@ export default class ShopAdd extends React.Component {
     add() {
         let that = this;
 
-        if(this.form.storeId) { // 修改
+        if (this.state.form.storeId) { // 修改
             service.updateMyStore(this.state.form).then((rep) => {
                 if (rep.state === 1) {
                     window.toast('更新成功', {
@@ -56,11 +56,9 @@ export default class ShopAdd extends React.Component {
                 if (rep.state === 1) {
                     window.toast('添加成功', {
                         callback() {
+
                             that.props.history.push({
-                                pathname: '/home',
-                                query: {
-                                    id: rep.data.storeId
-                                }
+                                pathname: '/'
                             });
                         }
                     });
@@ -73,25 +71,25 @@ export default class ShopAdd extends React.Component {
     componentDidMount() {
         let that = this;
         let storeId = +util.getQueryString('storeId');
-        // 判断是否是修改
 
-        if (+storeId === -1) {   // 修改自己
-            service.showMyStore().then((rep) => {
-                initLocation(rep.data);
-                this.setState({
-                    form: rep.data
-                });
-                this.checkDisabled();
-            });
-        } else {
-            // 到详情页
-            this.props.history.push({
-                pathname: '/detail',
-                query: {
-                    id: storeId
-                }
-            });
-        }
+        // 判断是否是修改
+        // if (+storeId === -1) {   // 修改自己
+        //     service.showMyStore().then((rep) => {
+        //         initLocation(rep.data);
+        //         this.setState({
+        //             form: rep.data
+        //         });
+        //         this.checkDisabled();
+        //     });
+        // } else {
+        //     // 到详情页
+        //     this.props.history.push({
+        //         pathname: '/detail',
+        //         query: {
+        //             id: storeId
+        //         }
+        //     });
+        // }
 
         function initLocation(data) {
             that.state.citys = china.query(data.province);
@@ -122,9 +120,9 @@ export default class ShopAdd extends React.Component {
             disabled = true;
         }
 
-        if ($.trim(form.address) === '') {
-            disabled = true;
-        }
+        // if ($.trim(form.address) === '') {
+        //     disabled = true;
+        // }
 
         if ($.trim(form.keywords) === '') {
             disabled = true;

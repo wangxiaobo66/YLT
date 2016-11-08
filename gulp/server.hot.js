@@ -59,39 +59,48 @@ gulp.task('server:hot', function () {
             proxy: [
                 {
                     path: '/*',
-                    target: 'http://localhost:' + PORT_HAPI
+                    // target: 'http://localhost:' + PORT_HAPI
+                    target: 'http://123.57.83.122:8080'
                 },
                 {
-                    path: '/base/**/*',
-                    target: 'http://localhost:' + PORT_HAPI
+                    path: '/front.irito.server/base/**/*',
+                    // target: 'http://localhost:' + PORT_HAPI
+                    target: 'http://123.57.83.122:8080'
                 },
                 {
-                    path: '/subscript/**/*',
-                    target: 'http://localhost:' + PORT_HAPI
+                    path: '/front.irito.server/subscript/**/*',
+                    // target: 'http://localhost:' + PORT_HAPI
+                    target: 'http://123.57.83.122:8080'
                 },
                 {
-                    path: '/store/**/*',
-                    target: 'http://localhost:' + PORT_HAPI
+                    path: '/front.irito.server/store/**/*',
+                    // target: 'http://localhost:' + PORT_HAPI
+                    target: 'http://123.57.83.122:8080'
                 },
                 {
-                    path: '/user/**/*',
-                    target: 'http://localhost:' + PORT_HAPI
+                    path: '/front.irito.server/user/**/*',
+                    // target: 'http://localhost:' + PORT_HAPI
+                    target: 'http://123.57.83.122:8080'
                 },
                 {
-                    path: '/msg/**/*',
-                    target: 'http://localhost:' + PORT_HAPI
+                    path: '/front.irito.server/msg/**/*',
+                    // target: 'http://localhost:' + PORT_HAPI
+                    target: 'http://123.57.83.122:8080'
                 },
                 {
-                    path: '/feedback/**/*',
-                    target: 'http://localhost:' + PORT_HAPI
+                    path: '/front.irito.server/feedback/**/*',
+                    // target: 'http://localhost:' + PORT_HAPI
+                    target: 'http://123.57.83.122:8080'
                 },
                 {
-                    path: '/interest/**/*',
-                    target: 'http://localhost:' + PORT_HAPI
+                    path: '/front.irito.server/interest/**/*',
+                    // target: 'http://localhost:' + PORT_HAPI
+                    target: 'http://123.57.83.122:8080'
                 },
                 {
-                    path: '/unsold/**/*',
-                    target: 'http://localhost:' + PORT_HAPI
+                    path: '/front.irito.server/unsold/**/*',
+                    // target: 'http://localhost:' + PORT_HAPI
+                    target: 'http://123.57.83.122:8080'
                 },
                 {
                     path: '/front.irito.server/inform/**/*',

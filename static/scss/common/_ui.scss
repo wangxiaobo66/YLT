@@ -462,6 +462,11 @@
             left: 8px;
         }
     }
+    .no-data {
+        padding: 20px 0;
+        text-align: center;
+        color: $color-font-gray;
+    }
 }
 
 // 头部筛选

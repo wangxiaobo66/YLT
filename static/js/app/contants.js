@@ -14,8 +14,8 @@ export const LIMIT_COUNT = 10;
 
 // 树种
 export const TYPE_TREE = 1;
-export const TYPE_GOODS = 2;
-export const TYPE_HUOZHOGN = 3;
+export const TYPE_WUZHONG = 2;
+export const TYPE_GOODS = 3;
 export const TYPE_LENGTH = 4;
 export const TYPE_PORT = 5;
 
