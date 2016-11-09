@@ -23,7 +23,7 @@ export default class CareMarket extends React.Component {
             type: TYPE_MARKET
         }).then(rep => {
             this.setState({
-                list: rep.data.list
+                list: rep.result.list
             });
         });
     }

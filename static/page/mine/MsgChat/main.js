@@ -32,14 +32,14 @@ export default class Item extends React.Component {
             limitCount: LIMIT_COUNT
         }).then((rep) => {
             this.setState({
-                list: rep.data.list
+                list: rep.result.list
             });
         });
 
         // 获取当前用户信息
         service.detail({}).then((rep) => {
             this.setState({
-                user: rep.data
+                user: rep.result.data
             });
         });
 

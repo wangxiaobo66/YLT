@@ -30,7 +30,7 @@ export default class Item extends React.Component {
     }
     componentDidMount() {
         service.detail({}).then((rep) => {
-            let user = rep.data;
+            let user = rep.result.data;
             this.setState({
                 detail: user
             });

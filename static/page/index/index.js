@@ -321,7 +321,7 @@ class component extends React.Component {
 
                 <div className="index-contact">
                     <p>客户电话:<a href="tel:18610687468">18610687468</a></p>
-                    <a href="javascript:;" className="feedback">用户反馈</a>
+                    <a href="./mine.html#/feedback" className="feedback">用户反馈</a>
                     <p>Copynight@ 2004-2016 伊利托ylt.com 版权所有</p>
                 </div>
 
@@ -408,7 +408,7 @@ class component extends React.Component {
             limitCount: 5
         }).then(rep => {
             this.setState({
-                dataMarkets: rep.data.list
+                dataMarkets: rep.result.list
             });
         });
     }

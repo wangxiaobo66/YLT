@@ -23,16 +23,26 @@ export default class Market extends React.Component {
                     <img src={obj.imgUrl} width="80" height="60" />
                     <div className="info clearfix">
                         <div className="left">
-                            <p className="ellipsis">
-                                <span>{obj.dimension.treetypeName}</span>
-                                <span>{obj.dimension.goodstypeName}</span>
-                                <span>{obj.dimension.lengthName}</span>
-                            </p>
+                            {
+                                obj.dim !== null ?
+                                    <p className="ellipsis">
+                                        <span>{obj.dim.treetypeName}</span>
+                                        <span>{obj.dim.goodstypeName}</span>
+                                        <span>{obj.dim.lengthName}</span>
+                                    </p>
+                                    :
+                                    null
+                            }
                             <p>货物位置：<span>{obj.locationName}</span></p>
                             <p>目标口岸：<span>{obj.destination}</span></p>
                         </div>
                         <div className="right">
-                            <p>{moment(obj.createTime).format('MM-DD HH:mm:ss')}</p>
+                            {
+                                obj.createTime !== null ?
+                                    <p>{moment(obj.createTime).format('MM-DD HH:mm:ss')}</p>
+                                    :
+                                    null
+                            }
                         </div>
                     </div>
                 </div>

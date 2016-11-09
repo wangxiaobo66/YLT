@@ -27,7 +27,7 @@ export default class Report extends React.Component {
         // 举报类型
         commonService.reportTypeList().then((rep) => {
             this.setState({
-                typeList: rep.data.list
+                typeList: rep.result.list
             });
         });
     }

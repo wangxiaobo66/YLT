@@ -27,19 +27,19 @@ export default class AddUpdate extends React.Component {
         // 树种
         commonService.treetypeList().then((rep) => {
             this.setState({
-                treetypeList: rep.data.list
+                treetypeList: rep.result.list
             });
         });
         // 货种
         commonService.goodstypeList().then((rep) => {
             this.setState({
-                goodstypeList: rep.data.list
+                goodstypeList: rep.result.list
             });
         });
         // 长度
         commonService.lengthList().then((rep) => {
             this.setState({
-                lengthList: rep.data.list
+                lengthList: rep.result.list
             });
         });
     }

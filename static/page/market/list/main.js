@@ -17,11 +17,12 @@ export default class List extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            provinces: china.query(),
+            portList: null,
             treetypeList: null,
             goodstypeList: null,
             lengthList: null,
             form: { // 要添加的对象
+                portId: '',
                 treetypeId: '',
                 goodstypeId: '',
                 lengthId: '',
@@ -32,28 +33,34 @@ export default class List extends React.Component {
         };
     }
     componentDidMount() {
+        // 口岸
+        commonService.portList().then((rep) => {
+            this.setState({
+                portList: rep.result.list
+            });
+        });
         // 树种
         commonService.treetypeList().then((rep) => {
             this.setState({
-                treetypeList: rep.data.list
+                treetypeList: rep.result.list
             });
         });
         // 货种
         commonService.goodstypeList().then((rep) => {
             this.setState({
-                goodstypeList: rep.data.list
+                goodstypeList: rep.result.list
             });
         });
         // 长度
         commonService.lengthList().then((rep) => {
             this.setState({
-                lengthList: rep.data.list
+                lengthList: rep.result.list
             });
         });
 
         service.unsoldList(this.state.form).then(rep => {
             this.setState({
-                list: rep.data.list
+                list: rep.result.list
             });
         });
     }
@@ -66,7 +73,7 @@ export default class List extends React.Component {
 
         service.unsoldList(form).then(rep => {
             this.setState({
-                list: rep.data.list
+                list: rep.result.list
             });
         });
     }
@@ -77,13 +84,13 @@ export default class List extends React.Component {
                     <label className="item">
                         <span className="for">口岸</span>
                         <select className="select"
-                                value={this.state.form.treetypeId}
-                                onChange={this.setForm.bind(this, 'treetypeId')}>
-                            <option value="">选择</option>
+                                value={this.state.form.portId}
+                                onChange={this.setForm.bind(this, 'portId')}>
+                            <option value="">请选择</option>
                             {
-                                this.state.provinces !== null ?
-                                    this.state.provinces.map((province, index) => {
-                                        return <option key={province} value={province}>{province}</option>;
+                                this.state.portList !== null ?
+                                    this.state.portList.map((item, index) => {
+                                        return <option key={item.id} value={item.id}>{item.name}</option>;
                                     })
                                     :
                                     null

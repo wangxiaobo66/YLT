@@ -22,7 +22,7 @@ export default class Item extends React.Component {
             limitCount: LIMIT_COUNT
         }).then((rep) => {
             this.setState({
-                list: rep.data.list
+                list: rep.result.list
             });
         });
     }

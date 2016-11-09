@@ -7,6 +7,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import Upload from '../../../component/Upload/Upload';
+import commonService from '../../../js/app/commonService';
 
 import service from '../service';
 
@@ -14,6 +15,7 @@ export default class Feedback extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            typeList: null,
             form: {
                 typeId: '',
                 imgUrl: '',
@@ -23,7 +25,12 @@ export default class Feedback extends React.Component {
         };
     }
     componentDidMount() {
-
+        // 举报类型
+        commonService.reportTypeList().then((rep) => {
+            this.setState({
+                typeList: rep.result.list
+            });
+        });
     }
     add() {
         let that = this;
@@ -53,9 +60,9 @@ export default class Feedback extends React.Component {
             disabled = true;
         }
 
-        if ($.trim(form.imgUrl) === '') {
-            disabled = true;
-        }
+        // if ($.trim(form.imgUrl) === '') {
+        //     disabled = true;
+        // }
 
         if ($.trim(form.content) === '') {
             disabled = true;
@@ -76,12 +83,17 @@ export default class Feedback extends React.Component {
                             <div className="for">反馈类型</div>
                             <div className="input-box input-box--select">
                                 <select className="ui-select"
-                                        onChange={this.checkDisabled.bind(this, 'typeId')}
-                                        value={this.state.form.typeId}>
-                                    <option value="">请选择反馈类型</option>
-                                    <option value="1">优化建议</option>
-                                    <option value="2">错误</option>
-                                    <option value="3">验证问题</option>
+                                        value={this.state.form.typeId}
+                                        onChange={this.checkDisabled.bind(this, 'typeId')}>
+                                    <option value="">请选择</option>
+                                    {
+                                        this.state.typeList !== null ?
+                                            this.state.typeList.map((item, index) => {
+                                                return <option key={item.id} value={item.id}>{item.name}</option>;
+                                            })
+                                            :
+                                            null
+                                    }
                                 </select>
                             </div>
                         </label>

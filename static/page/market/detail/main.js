@@ -25,7 +25,7 @@ export default class Detail extends React.Component {
             unsoldOrderId: unsoldId
         }).then((rep) => {
             this.setState({
-                detail: rep.data
+                detail: rep.result.data
             });
         });
     }

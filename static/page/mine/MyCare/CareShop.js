@@ -23,7 +23,7 @@ export default class CareShop extends React.Component {
             type: TYPE_SHOP
         }).then(rep => {
             this.setState({
-                list: rep.data.list
+                list: rep.result.list
             });
         });
     }

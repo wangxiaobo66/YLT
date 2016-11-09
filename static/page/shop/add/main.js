@@ -75,9 +75,9 @@ export default class ShopAdd extends React.Component {
         // 判断是否是修改
         // if (+storeId === -1) {   // 修改自己
         //     service.showMyStore().then((rep) => {
-        //         initLocation(rep.data);
+        //         initLocation(rep.result.data);
         //         this.setState({
-        //             form: rep.data
+        //             form: rep.result.data
         //         });
         //         this.checkDisabled();
         //     });

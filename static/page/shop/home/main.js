@@ -32,7 +32,7 @@ export default class Home extends React.Component {
         // 详情
         service.showMyStore(param).then((rep) => {
             this.setState({
-                detail: rep.data
+                detail: rep.result.data
             });
         });
 
@@ -43,7 +43,7 @@ export default class Home extends React.Component {
             limitCount: LIMIT_COUNT
         }).then((rep) => {
             this.setState({
-                repData: rep.data
+                repData: rep.result.data
             });
         });
 

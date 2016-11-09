@@ -28,14 +28,14 @@ export default class AddUpdate extends React.Component {
         // 规格列表
         service.dimList().then((rep) => {
             this.setState({
-                dimList: rep.data.list
+                dimList: rep.result.list
             });
         });
 
         // 口岸
         commonService.portList().then((rep) => {
             this.setState({
-                portList: rep.data.list
+                portList: rep.result.list
             });
         });
 
@@ -108,19 +108,21 @@ export default class AddUpdate extends React.Component {
         let dimList;
         let item;
 
-        if (this.state.dimList !== null) {
-            dimList = this.state.dimList;
-            for (let i = dimList.length - 1; i >= 0; i--) {
-                item = dimList[i];
-                dimListHtml.push(
-                    <label className="item">
-                        <input name="standard"
-                               value={item.specId}
-                               onChange={this.checkDisabled.bind(this, 'dimensionId')}
-                               type="radio" />
-                        <span className="text">{item.treetypeName} {item.goodstypeName} {item.lengthName}</span>
-                    </label>
-                );
+        if (this.state.dimList) {
+            if (this.state.dimList.length > 0) {
+                dimList = this.state.dimList;
+                for (let i = dimList.length - 1; i >= 0; i--) {
+                    item = dimList[i];
+                    dimListHtml.push(
+                        <label className="item">
+                            <input name="standard"
+                                   value={item.specId}
+                                   onChange={this.checkDisabled.bind(this, 'dimensionId')}
+                                   type="radio" />
+                            <span className="text">{item.treetypeName} {item.goodstypeName} {item.lengthName}</span>
+                        </label>
+                    );
+                }
             }
         }
 

@@ -22,7 +22,7 @@ export default class CareArrival extends React.Component {
             type: TYPE_ARRIVAL
         }).then(rep => {
             this.setState({
-                list: rep.data.list
+                list: rep.result.list
             });
         });
     }
