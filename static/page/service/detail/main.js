@@ -10,6 +10,8 @@ import {Link} from 'react-router';
 import Title from '../../../component/Title/Title';
 import Text from '../../../component/Text/Text';
 
+const { detailData } = require('./../actions.js');//从actions里拿到方法
+
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
@@ -19,26 +21,23 @@ export default class Item extends React.Component {
             ]
         };
     }
-    componentDidMount() {
-        let id = this.props.params.id;
-    }
     render() {
-        let that = this;
+        let { service } = this.props;
         return (
             <div className="module-detail">
                 <Title content="求车服务" tip="0803 12:12" />
                 <div className="content">
                     <div className="content-row">
-                        <div className="item">满洲里到形态13米高地板</div>
+                        <div className="item">{service.detail?service.detail.data.title:''}</div>
                     </div>
                     <div className="content-row">
                         <div className="item item-half">
                             <label>联系人: </label>
-                            <span className="text">张三</span>
+                            <span className="text">{service.detail?service.detail.data.contact:''}</span>
                         </div>
                         <div className="item item-half">
                             <label>联系电话: </label>
-                            <span className="text">15811112222</span>
+                            <span className="text">{service.detail?service.detail.data.mobile:''}</span>
                         </div>
                     </div>
                 </div>
@@ -48,14 +47,19 @@ export default class Item extends React.Component {
                     </div>
                     <div className="body">
                         <div className="text">
-                            这里是内容
+                            {service.detail?service.detail.data.content:''}
                         </div>
                     </div>
                 </div>
                 <footer className="footer">
-                    <a href="tel:15811112222" className="ui-btn ui-btn-fixed">电话联系</a>
+                    <a href={"tel:"+(service.detail?service.detail.data.mobile:'')} className="ui-btn ui-btn-fixed">电话联系</a>
                 </footer>
             </div>
         );
+    }
+    componentDidMount() {
+        let { dispatch} = this.props;
+        let data= {"informId":this.props.params.id};
+        dispatch(detailData(data));
     }
 }

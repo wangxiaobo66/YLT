@@ -82,7 +82,11 @@ gulp.task('server:hot', function () {
                     target: 'http://localhost:' + PORT_HAPI
                 },
                 {
-                    path: '/front.irito.server/inform/**/*',
+                    path: '/front.irito.server/inform/**/*',//服务
+                    target: 'http://123.57.83.122:8080'
+                },
+                {
+                    path: '/front.irito.server/base/**/*',//基础数据
                     target: 'http://123.57.83.122:8080'
                 }
             ],

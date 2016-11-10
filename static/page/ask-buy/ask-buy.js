@@ -36,17 +36,23 @@ class component extends React.Component {
     }
 }
 function select(state) {
-    return {}
+    return {
+        askBuy: state.askBuy
+    }
 }
 let Ask = connect(select)(component);
+
+let ListComp = connect(select)(List);
+let DetailComp = connect(select)(Detail);
+let AddComp = connect(select)(Add);
 
 render(
     <Provider store={store}>
         <Router history={hashHistory}>
             <Route path="/" component={Ask}>
-                <IndexRoute component={List} />
-                <Route path="detail" component={Detail} />
-                <Route path="add" component={Add} />
+                <IndexRoute component={ListComp} />
+                <Route path="detail" component={DetailComp} />
+                <Route path="add" component={AddComp} />
             </Route>
         </Router>
     </Provider>,
