@@ -8,7 +8,7 @@ export default [
 
     // 我的消息总列表
     {
-        path: '/msg/allList',
+        path: '/msg/myTopList',
         method: 'POST',
         handler: function (request, reply) {
             reply({

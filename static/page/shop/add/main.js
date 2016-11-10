@@ -8,6 +8,7 @@ import React from 'react';
 import china from 'china-province-city-district';
 import Upload from '../../../component/Upload/Upload';
 import service from '../service';
+import util from '../../../js/app/util';
 
 export default class ShopAdd extends React.Component {
     constructor(props) {
@@ -30,22 +31,70 @@ export default class ShopAdd extends React.Component {
         };
     }
     add() {
-        // 添加
-        service.addMyStore(this.state.form).then((rep) => {
-            if (rep.state === 1) {
-                window.toast('添加成功', {
-                    callback() {
-                        // TODO 跳转到我的订阅
-                        // window.location.href = './mine.html';
-                    }
-                });
-            } else {
-                window.toast('添加失败, 请稍候重试');
-            }
-        });
+        let that = this;
+
+        if (this.state.form.storeId) { // 修改
+            service.updateMyStore(this.state.form).then((rep) => {
+                if (rep.state === 1) {
+                    window.toast('更新成功', {
+                        callback() {
+                            that.props.history.push({
+                                pathname: '/home',
+                                query: {
+                                    id: that.state.form.storeId
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    window.toast('添加失败, 请稍候重试');
+                }
+            });
+        } else {
+            // 添加
+            service.addMyStore(this.state.form).then((rep) => {
+                if (rep.state === 1) {
+                    window.toast('添加成功', {
+                        callback() {
+
+                            that.props.history.push({
+                                pathname: '/'
+                            });
+                        }
+                    });
+                } else {
+                    window.toast('添加失败, 请稍候重试');
+                }
+            });
+        }
     }
     componentDidMount() {
+        let that = this;
+        let storeId = +util.getQueryString('storeId');
 
+        // 判断是否是修改
+        // if (+storeId === -1) {   // 修改自己
+        //     service.showMyStore().then((rep) => {
+        //         initLocation(rep.result.data);
+        //         this.setState({
+        //             form: rep.result.data
+        //         });
+        //         this.checkDisabled();
+        //     });
+        // } else {
+        //     // 到详情页
+        //     this.props.history.push({
+        //         pathname: '/detail',
+        //         query: {
+        //             id: storeId
+        //         }
+        //     });
+        // }
+
+        function initLocation(data) {
+            that.state.citys = china.query(data.province);
+            that.state.districts = china.query(data.city);
+        }
     }
     checkDisabled(key, event) {
         let disabled = false;
@@ -71,9 +120,9 @@ export default class ShopAdd extends React.Component {
             disabled = true;
         }
 
-        if ($.trim(form.address) === '') {
-            disabled = true;
-        }
+        // if ($.trim(form.address) === '') {
+        //     disabled = true;
+        // }
 
         if ($.trim(form.keywords) === '') {
             disabled = true;
@@ -212,7 +261,11 @@ export default class ShopAdd extends React.Component {
                                 <label>
                                     <div className="for">关键词</div>
                                     <div className="input-box">
-                                        <input className="input input-block" type="text" placeholder="用空格间隔关键词" />
+                                        <input className="input input-block"
+                                               type="text"
+                                               value={form.keywords}
+                                               onChange={this.checkDisabled.bind(this, 'keywords')}
+                                               placeholder="用空格间隔关键词" />
                                     </div>
                                 </label>
                             </div>
@@ -226,7 +279,10 @@ export default class ShopAdd extends React.Component {
                             <div className="item">
                                 <label>
                                     <div className="input-box">
-                                        <textarea rows="8" placeholder="请用简洁的文字对店铺进行简单的介绍，分享店铺时，客户可以第一 时间了解店铺的情况（30字以内）" />
+                                        <textarea rows="8"
+                                                  value={form.introduction}
+                                                  onChange={this.checkDisabled.bind(this, 'introduction')}
+                                                  placeholder="请用简洁的文字对店铺进行简单的介绍，分享店铺时，客户可以第一 时间了解店铺的情况（30字以内）" />
                                     </div>
                                 </label>
                             </div>
@@ -237,7 +293,11 @@ export default class ShopAdd extends React.Component {
                     <a href="javascript:;"
                        disabled={this.state.disabled}
                        onClick={this.add.bind(this)}
-                       className="ui-btn ui-btn-fixed">发布店铺</a>
+                       className="ui-btn ui-btn-fixed">
+                        {
+                            this.state.form.storeId ? '修改店铺' : '发布店铺'
+                        }
+                    </a>
                 </footer>
             </div>
         );

@@ -81,9 +81,9 @@ ReactDom.render(
                 <Route path="info_name" component={InfoName} />
                 <Route path="info_nickname" component={InfoNickName} />
                 <Route path="msg_list" component={MsgList} />
-                <Route path="msg_chat/:fromUserId/:toUserId" component={MsgChat} />
+                <Route path="msg_chat/:fromUserId" component={MsgChat} />
                 <Route path="askbuy" component={MyAskBuy} />
-                <Route path="care" component={MyCare} />
+                <Route path="care/:type" component={MyCare} />
                 <Route path="market" component={MyMarket} />
                 <Route path="service" component={MyService} />
                 <Route path="setting" component={Setting} />

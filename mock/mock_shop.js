@@ -5,32 +5,32 @@
  */
 
 export default [
-    {
-        path: '/store/typeList',
-        method: 'POST',
-        handler: function (request, reply) {
-            reply({
-                "state": 1,
-                "reason": "success",
-                "data": {
-                    list: [
-                        {
-                            "id": 1,
-                            "name": '机械设备'
-                        },
-                        {
-                            "id": 2,
-                            "name": '器材销售'
-                        }
-                    ]
-                }
-            });
-        }
-    },
+    // {
+    //     path: '/store/typeList',
+    //     method: 'POST',
+    //     handler: function (request, reply) {
+    //         reply({
+    //             "state": 1,
+    //             "reason": "success",
+    //             "data": {
+    //                 list: [
+    //                     {
+    //                         "id": 1,
+    //                         "name": '机械设备'
+    //                     },
+    //                     {
+    //                         "id": 2,
+    //                         "name": '器材销售'
+    //                     }
+    //                 ]
+    //             }
+    //         });
+    //     }
+    // },
     // 店铺列表
     {
         // path: '/store/myStoreList/{limitStart}/{limitCount}/provinceId/typeId',
-        path: '/store/myStoreList',
+        path: '/store/storeList',
         method: 'POST',
         handler: function (request, reply) {
             reply({
@@ -55,6 +55,9 @@ export default [
                             "qrCode": 'http://img.gsxservice.com/7376327_497prnam.png',
                             "serviceTel": 15822223333,
                             "introduction": '我这里是店铺的介绍哦我这里是店铺的介绍哦我这里是店铺的介绍哦',
+                            "orderList": [
+
+                            ]
                         },
                         {
                             "id": 2,
@@ -244,8 +247,8 @@ export default [
     },
     // 添加店铺
     {
-        // path: '/store/addMyStore',
-        path: '/store/addMyStore',
+        // path: '/store/addStore',
+        path: '/store/addStore',
         method: 'POST',
         handler: function (request, reply) {
             reply({
@@ -259,7 +262,7 @@ export default [
     },
     // 更新店铺
     {
-        path: '/store/updateMyStore',
+        path: '/store/updateStore',
         method: 'POST',
         handler: function (request, reply) {
             reply({
@@ -274,7 +277,7 @@ export default [
     // 删除店铺
     {
         // /store/delMyStore/{id}
-        path: '/store/delMyStore',
+        path: '/store/delStore',
         method: 'POST',
         handler: function (request, reply) {
             reply({
@@ -289,6 +292,39 @@ export default [
     // 查询店铺详情
     // storeId
     // 什么都不传的情况下, 展示的就是当前用户的店铺详情
+    {
+        path: '/store/showStore',
+        method: 'POST',
+        handler: function (request, reply) {
+            reply({
+                "state": 1,
+                "reason": "success",
+                "data": {
+                    "id": 1,
+                    "userId": 1,
+                    "consumerId": 1,
+                    "createTime": 1477188760233,
+                    "store_icon": 'http://img.gsxservice.com/21873621_jcfyr2d2.png',
+                    "storetypeId": 1,    // 1.机械设备 2.器材销售
+                    "storeName": '这里是店铺名称',
+                    "phone": 15811112222,
+                    "address": '永吉县万昌镇',
+                    "province": '吉林',
+                    "city": '长春',
+                    "keywords": '关键词1, 关键词2',
+                    "qrCode": 'http://img.gsxservice.com/7376327_497prnam.png',
+                    "serviceTel": 15822223333,
+                    "introduction": '我这里是店铺的介绍哦我这里是店铺的介绍哦我这里是店铺的介绍哦',
+
+                    total: 123,  // 商品总数
+                    focus_num: 34,   // 关注人数
+                    newest_goods_num: 12    // 最新商品数量
+                }
+            });
+        }
+    },
+
+    // 不需要传参
     {
         path: '/store/showMyStore',
         method: 'POST',

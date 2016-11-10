@@ -18,25 +18,35 @@ export default class Market extends React.Component {
     render() {
         let obj = this.props.obj;
         return (
-            <a href="./market.html#/detail">
             <div className="component Market-component">
                 <div className="box">
-                    <img src={obj.imgSrc} width="80" height="60" />
+                    <img src={obj.imgUrl} width="80" height="60" />
                     <div className="info clearfix">
                         <div className="left">
-                            <p className="ellipsis"><span>{obj.name}</span><span>{obj.size}</span><span>{obj.type}</span></p>
-                            <p>当前位置:<span>{obj.currentPosition}</span></p>
-                            <p>目标口岸:<span>{obj.destination}</span></p>
+                            {
+                                obj.dim !== null ?
+                                    <p className="ellipsis">
+                                        <span>{obj.dim.treetypeName}</span>
+                                        <span>{obj.dim.goodstypeName}</span>
+                                        <span>{obj.dim.lengthName}</span>
+                                    </p>
+                                    :
+                                    null
+                            }
+                            <p>货物位置：<span>{obj.locationName}</span></p>
+                            <p>目标口岸：<span>{obj.destination}</span></p>
                         </div>
                         <div className="right">
-                            <p>{obj.pubDate}</p>
-                            <p>直径:<span>{obj.diam}</span></p>
-                            <p>等级:<span>{obj.level}</span></p>
+                            {
+                                obj.createTime !== null ?
+                                    <p>{moment(obj.createTime).format('MM-DD HH:mm:ss')}</p>
+                                    :
+                                    null
+                            }
                         </div>
                     </div>
                 </div>
             </div>
-            </a>
         );
     }
 }

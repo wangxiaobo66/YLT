@@ -17,12 +17,12 @@ export default class Item extends React.Component {
         };
     }
     componentDidMount() {
-        service.allList({
+        service.myTopList({
             limitStart: 1,
             limitCount: LIMIT_COUNT
         }).then((rep) => {
             this.setState({
-                list: rep.data.list
+                list: rep.result.list
             });
         });
     }
@@ -36,7 +36,7 @@ export default class Item extends React.Component {
                             list.map((item, index) => {
                                 return (
                                     <li className="item">
-                                        <Link className="item-link" to={`/msg_chat/${item.fromUserId}/${item.toUserId}`}>
+                                        <Link className="item-link" to={`/msg_chat/${item.fromUserId}`}>
                                             <img src={item.headimgurl} width="45" height="45" className="img"/>
                                             <div className="info">
                                                 <div className="title">

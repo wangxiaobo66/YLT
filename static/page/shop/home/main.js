@@ -23,12 +23,16 @@ export default class Home extends React.Component {
     componentDidMount() {
         let storeId = this.props.params.id;
 
+        let param = {};
+        // -1代表的是当前登录用户的主页
+        if (+storeId !== -1) {
+            param.storeId = storeId;
+        }
+
         // 详情
-        service.showMyStore({
-            storeId: storeId
-        }).then((rep) => {
+        service.showMyStore(param).then((rep) => {
             this.setState({
-                detail: rep.data
+                detail: rep.result.data
             });
         });
 
@@ -39,7 +43,7 @@ export default class Home extends React.Component {
             limitCount: LIMIT_COUNT
         }).then((rep) => {
             this.setState({
-                repData: rep.data
+                repData: rep.result.data
             });
         });
 
@@ -54,6 +58,7 @@ export default class Home extends React.Component {
                                 <img src={imgTop} width="100%" alt=""/>
                                 <div className="info">
                                     <p className="title">{this.state.detail.storeName}</p>
+                                    <a href="javascript:;" className="ui-btn ui-btn-small">+关注</a>
                                 </div>
                                 <div className="logo">
                                     <img src={this.state.detail.store_icon} width="62" height="62" />

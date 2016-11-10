@@ -190,6 +190,12 @@
         box-shadow: none;
         opacity: .65;
     }
+
+    &-small {
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+    }
 }
 
 .ui-tab {
@@ -456,6 +462,11 @@
             left: 8px;
         }
     }
+    .no-data {
+        padding: 20px 0;
+        text-align: center;
+        color: $color-font-gray;
+    }
 }
 
 // 头部筛选
@@ -494,13 +505,13 @@
             position: relative;
             font-size: 13px;
             input[type="checkbox"] {
-                &:checked {
-                    &+i.icon-check {
+                &[value="1"] {
+                    &+i.icon-o-check {
                         display: block;
                     }
                 }
             }
-            .icon-check {
+            .icon-o-check {
                 display: none;
                 position: absolute;
                 top: 3px;

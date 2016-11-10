@@ -8,7 +8,7 @@
 /**
  * 1树种;2物种;3货种;4长度;5口岸;
  * 6产地;7当前位置;8产地;9材料;10服务类型;
- * 11反馈类型;12店铺类型
+ * 11反馈类型;12店铺类型;13举报类型
  */
 export default [
     // 树种列表
@@ -34,7 +34,7 @@ export default [
      <option value="2">其他</option>
      */
     {
-        path: '/base/optns',
+        path: '/front.irito.server/base/options',
         method: 'POST',
         handler: function (request, reply) {
             let params = request.payload;
@@ -82,7 +82,7 @@ export default [
                         ]
                     }
                 });
-            } else if (+type === 3) {
+            } else if (+type === 4) {
                 reply({
                     "state": 1,
                     "reason": "success",
@@ -103,7 +103,7 @@ export default [
                         ]
                     }
                 });
-            } else if (+type === 4) {
+            } else if (+type === 5) {
                 reply({
                     "state": 1,
                     "reason": "success",
@@ -145,7 +145,41 @@ export default [
                         ]
                     }
                 });
-            } else {
+
+            } else if (+type === 13) {
+                reply({
+                    "state": 1,
+                    "reason": "success",
+                    "data": {
+                        list: [
+                            {
+                                "id": 1,
+                                "name": '商品有误'
+                            },
+                            {
+                                "id": 2,
+                                "name": '电话有误'
+                            },
+                            {
+                                "id": 3,
+                                "name": '位置不符'
+                            },
+                            {
+                                "id": 4,
+                                "name": '照片不符'
+                            },
+                            {
+                                "id": 5,
+                                "name": '其他有误'
+                            },
+                            {
+                                "id": 6,
+                                "name": '全部错误'
+                            }
+                        ]
+                    }
+                });
+            } else  {
                 // throw new Error('[/base/optns] The type is error!');
             }
 

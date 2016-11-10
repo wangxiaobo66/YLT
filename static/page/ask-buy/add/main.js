@@ -175,7 +175,7 @@ export default class Item extends React.Component {
                     <label>
                         <div className="tip-box">
                             <input type="checkbox" />
-                            <i className="icon icon-check"></i>
+                            <i className="icon icon-o-check"></i>
                             <span className="text">订阅匹配未售市场信息</span>
                         </div>
                     </label>

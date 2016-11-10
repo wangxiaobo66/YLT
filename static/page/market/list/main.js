@@ -6,94 +6,160 @@
 
 import React from 'react';
 import {Link} from 'react-router';
+import china from 'china-province-city-district';
 import Market from '../../../component/Market/Market';
+import commonService from '../../../js/app/commonService';
+import {LIMIT_COUNT} from '../../../js/app/contants';
+import service from '../service';
+
 
 export default class List extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: [
-                {
-                    "imgSrc": '../../static/images/ys.png',
-                    "name": "落叶松1",
-                    "size": "六米",
-                    "type": "原木",
-                    "currentPosition": "明斯克",
-                    "Destination": "满洲里",
-                    "pubDate": "9-30|10:01",
-                    "diam": "20",
-                    "level": "一级"
-                },
-                {
-                    "imgSrc": '../../static/images/ys.png',
-                    "name": "落叶松2",
-                    "size": "三米",
-                    "type": "原木",
-                    "currentPosition": "明斯克",
-                    "destination": "满洲里",
-                    "pubDate": "9-30|10:01",
-                    "diam": "20",
-                    "level": "一级"
-                }
-            ]
+            portList: null,
+            treetypeList: null,
+            goodstypeList: null,
+            lengthList: null,
+            form: { // 要添加的对象
+                portId: '',
+                treetypeId: '',
+                goodstypeId: '',
+                lengthId: '',
+                limitStart: 0,
+                limitCount: LIMIT_COUNT
+            },
+            list: null
         };
     }
     componentDidMount() {
+        // 口岸
+        commonService.portList().then((rep) => {
+            this.setState({
+                portList: rep.result.list
+            });
+        });
+        // 树种
+        commonService.treetypeList().then((rep) => {
+            this.setState({
+                treetypeList: rep.result.list
+            });
+        });
+        // 货种
+        commonService.goodstypeList().then((rep) => {
+            this.setState({
+                goodstypeList: rep.result.list
+            });
+        });
+        // 长度
+        commonService.lengthList().then((rep) => {
+            this.setState({
+                lengthList: rep.result.list
+            });
+        });
 
+        service.unsoldList(this.state.form).then(rep => {
+            this.setState({
+                list: rep.result.list
+            });
+        });
+    }
+    setForm(key, event) {
+        let form = this.state.form;
+
+        if (key && event) {
+            form[key] = event.target.value;
+        }
+
+        service.unsoldList(form).then(rep => {
+            this.setState({
+                list: rep.result.list
+            });
+        });
     }
     render() {
         return (
             <div className="module-list">
                 <div className="ui-top-select clearfix">
                     <label className="item">
-                        <span className="for">地区</span>
-                        <select className="select">
-                            <option value="">选择</option>
-                            <option value="1">满洲里</option>
-                            <option value="2">缨芬河</option>
-                            <option value="2">二连浩特</option>
-                            <option value="2">其他</option>
+                        <span className="for">口岸</span>
+                        <select className="select"
+                                value={this.state.form.portId}
+                                onChange={this.setForm.bind(this, 'portId')}>
+                            <option value="">请选择</option>
+                            {
+                                this.state.portList !== null ?
+                                    this.state.portList.map((item, index) => {
+                                        return <option key={item.id} value={item.id}>{item.name}</option>;
+                                    })
+                                    :
+                                    null
+                            }
                         </select>
                     </label>
                     <label className="item">
                         <span className="for">货种</span>
-                        <select className="select">
-                            <option>选择</option>
-                            <option>板材</option>
-                            <option>原木</option>
-                            <option>地板</option>
+                        <select className="select"
+                                value={this.state.form.goodstypeId}
+                                onChange={this.setForm.bind(this, 'goodstypeId')}>
+                            <option value="">选择</option>
+                            {
+                                this.state.goodstypeList !== null ?
+                                    this.state.goodstypeList.map((item, index) => {
+                                        return <option key={item.id} value={item.id}>{item.name}</option>;
+                                    })
+                                    :
+                                    null
+                            }
                         </select>
                     </label>
                     <label className="item">
                         <span className="for">树种</span>
-                        <select className="select">
-                            <option>选择</option>
-                            <option>松树</option>
-                            <option>杨树</option>
-                            <option>柳树</option>
+                        <select className="select"
+                                value={this.state.form.treetypeId}
+                                onChange={this.setForm.bind(this, 'treetypeId')}>
+                            <option value="">选择</option>
+                            {
+                                this.state.treetypeList !== null ?
+                                    this.state.treetypeList.map((item, index) => {
+                                        return <option key={item.id} value={item.id}>{item.name}</option>;
+                                    })
+                                    :
+                                    null
+                            }
                         </select>
                     </label>
                     <label className="item">
                         <span className="for">长度</span>
-                        <select className="select">
-                            <option>选择</option>
-                            <option>三米</option>
-                            <option>四米</option>
-                            <option>五米</option>
+                        <select className="select"
+                                value={this.state.form.lengthId}
+                                onChange={this.setForm.bind(this, 'lengthId')}>
+                            <option value="">选择</option>
+                            {
+                                this.state.lengthList !== null ?
+                                    this.state.lengthList.map((item, index) => {
+                                        return <option key={item.id} value={item.id}>{item.name}</option>;
+                                    })
+                                    :
+                                    null
+                            }
                         </select>
                     </label>
                 </div>
                 <ul className="ui-list">
                     {
-                        this.state.list.map(function (item, index) {
-                            return (
-                                <li className="item clearfix" key={index}>
-                                    <Link className="item-link" to="detail">
-                                        <Market obj={item} />
-                                    </Link>
-                                </li>
-                            );
-                        })
+                        this.state.list !== null ?
+                            this.state.list.map(function (item, index) {
+                                return (
+                                    <li className="item clearfix" key={index}>
+                                        <Link className="item-link" to={`/detail/${item.orderId}`}>
+                                            <Market obj={item} />
+                                        </Link>
+                                    </li>
+                                );
+                            })
+                            :
+                            null
                     }
                 </ul>
                 <footer className="footer">

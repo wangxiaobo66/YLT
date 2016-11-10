@@ -14,7 +14,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     detail(param = {}) {
-        return util.postRequest('/user/showUser', param).then((rep) => {
+        return util.postRequest('/front.irito.server/user/showUser', param).then((rep) => {
             return rep.json();
         });
     },
@@ -25,7 +25,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     update(param = {}) {
-        return util.postRequest('/user/updateUser', param).then((rep) => {
+        return util.postRequest('/front.irito.server/user/updateUser', param).then((rep) => {
             return rep.json();
         });
     },
@@ -36,7 +36,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     sendVerifyCode(param = {}) {
-        return util.postRequest('/user/sendCode', param).then((rep) => {
+        return util.postRequest('/front.irito.server/user/sendCode', param).then((rep) => {
             return rep.json();
         });
     },
@@ -46,8 +46,8 @@ export default {
      * @param param
      * @returns {*|Promise.<TResult>}
      */
-    allList(param = {}) {
-        return util.postRequest('/msg/allList', param).then((rep) => {
+    myTopList(param = {}) {
+        return util.postRequest('/front.irito.server/msg/myTopList', param).then((rep) => {
             return rep.json();
         });
     },
@@ -58,7 +58,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     msgList(param = {}) {
-        return util.postRequest('/msg/msgList', param).then((rep) => {
+        return util.postRequest('/front.irito.server/msg/msgList', param).then((rep) => {
             return rep.json();
         });
     },
@@ -69,9 +69,55 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     addMsg(param = {}) {
-        return util.postRequest('/msg/addMsg', param).then((rep) => {
+        return util.postRequest('/front.irito.server/msg/addMsg', param).then((rep) => {
+            return rep.json();
+        });
+    },
+
+    /**
+     * 添加用户反馈
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    addFeedback(param = {}) {
+        return util.postRequest('/front.irito.server/feedback/addFeedback', param).then((rep) => {
+            return rep.json();
+        });
+    },
+
+    /**
+     * 关注列表
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    interestList(param = {}) {
+        return util.postRequest('/front.irito.server/interest/interestList', param).then((rep) => {
+            return rep.json();
+        });
+    },
+
+    /**
+     * 取消关注
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    delInterest(param = {}) {
+        return util.postRequest('/front.irito.server/interest/delInterest', param).then((rep) => {
+            return rep.json();
+        });
+    },
+
+    /**
+     * 我的未售列表
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    showMyUnsoldList(param = {}) {
+        return util.postRequest('/front.irito.server/unsold/showMyUnsoldList', param).then((rep) => {
             return rep.json();
         });
     }
+
+
 
 }

@@ -17,6 +17,8 @@ const thunk = require('redux-thunk').default;
 import List from './list/main';
 import Add from './add/main';
 import Detail from './detail/main';
+import Standard from './standard/main';
+import Report from './report/main';
 
 let store = createStore(YLT, applyMiddleware(thunk));
 
@@ -24,7 +26,7 @@ class component extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+
         }
     }
 
@@ -50,8 +52,10 @@ render(
         <Router history={hashHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={List} />
-                <Route path="detail" component={Detail} />
+                <Route path="detail/:id" component={Detail} />
                 <Route path="add" component={Add} />
+                <Route path="standard" component={Standard} />
+                <Route path="report/:orderType/:orderId" component={Report} />
             </Route>
         </Router>
     </Provider>,
