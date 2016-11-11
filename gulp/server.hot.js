@@ -60,55 +60,55 @@ gulp.task('server:hot', function () {
                 {
                     path: '/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: 'http://www.albatross168.com'
                 },
                 {
-                    path: '/front.irito.server/base/**/*',
+                    path: '/base/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: 'http://www.albatross168.com'
                 },
                 {
-                    path: '/front.irito.server/subscript/**/*',
+                    path: '/subscript/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: 'http://www.albatross168.com'
                 },
                 {
-                    path: '/front.irito.server/store/**/*',
+                    path: '/store/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: 'http://www.albatross168.com'
                 },
                 {
-                    path: '/front.irito.server/user/**/*',
+                    path: '/user/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: 'http://www.albatross168.com'
                 },
                 {
-                    path: '/front.irito.server/msg/**/*',
+                    path: '/msg/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: 'http://www.albatross168.com'
                 },
                 {
-                    path: '/front.irito.server/feedback/**/*',
+                    path: '/feedback/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: 'http://www.albatross168.com'
                 },
                 {
-                    path: '/front.irito.server/interest/**/*',
+                    path: '/interest/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: 'http://www.albatross168.com'
                 },
                 {
-                    path: '/front.irito.server/unsold/**/*',
+                    path: '/unsold/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: 'http://www.albatross168.com'
                 },
                 {
-                    path: '/front.irito.server/inform/**/*',//服务
-                    target: 'http://123.57.83.122:8080'
+                    path: '/inform/**/*',//服务
+                    target: 'http://www.albatross168.com'
                 },
                 {
-                    path: '/front.irito.server/base/**/*',//基础数据
-                    target: 'http://123.57.83.122:8080'
+                    path: '/base/**/*',//基础数据
+                    target: 'http://www.albatross168.com'
                 }
             ],
             stats: {

@@ -5,8 +5,13 @@ let util = require('../../js/app/util');
 
 //获取头部四个码表信息
 function postOptions(data){//获取口岸,树种,货种,长度信息
-    let url = '/front.irito.server/base/options';
+    let url = '/base/options';
     return util.postRequest(url, data);
+}
+
+//创建求购信息
+function addAskBuy(data){
+
 }
 
 const PORT = "PORT";//头部地区options

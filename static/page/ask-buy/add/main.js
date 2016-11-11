@@ -171,7 +171,7 @@ export default class Item extends React.Component {
                         </label>
                     </div>
                 </form>
-                <div className="ui-check-tip fn-mt10" onClick={(e) => this.click(e)}>
+                <div className="ui-check-tip fn-mt10" onChange={(e) => this.onchange(e,'subscript')}>
                     <label>
                         <div className="tip-box">
                             <input type="checkbox" />
@@ -194,9 +194,6 @@ export default class Item extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
 
-    }
-    click(e){
-        console.log(e.target);
     }
     port(){
         let data = {"limitStart":"0","limitCount":"10","type":"5"};
@@ -266,10 +263,25 @@ export default class Item extends React.Component {
                     content:val
                 });
                 break;
+            case 'subscript':
+                let { subscript } = this.state;
+                switch (subscript){
+                    case '0':
+                        this.setState({
+                            subscript:'1'
+                        });
+                        break;
+                    case '1':
+                        this.setState({
+                            subscript:'0'
+                        });
+                        break;
+                }
+                break;
         }
     }
     onclick(){
         let { port , tree , goods , length , buyer , mobile , price , amount , content , subscript} = this.state;
-        console.log( port , tree , goods , length , buyer , mobile , price , amount , content );
+        console.log( port , tree , goods , length , buyer , mobile , price , amount , content , subscript);
     }
 }
