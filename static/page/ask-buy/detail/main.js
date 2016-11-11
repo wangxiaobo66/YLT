@@ -15,12 +15,12 @@ export default class Item extends React.Component {
         super(props);
         this.state = {
             list: [
-
             ]
         };
     }
     componentDidMount() {
-
+        let { dispatch} = this.props;
+        let data= {"informId":this.props.params.id};
     }
     render() {
         let that = this;

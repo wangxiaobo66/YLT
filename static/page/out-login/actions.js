@@ -5,7 +5,7 @@ let util = require('../../js/app/util');
 
 //登录
 function postLogin(data){
-    let url = 'http://123.57.83.122:8080/front.irito.server/user/login/phone';
+    let url = 'http://www.albatross168.com//user/login/phone';
     return util.postRequest(url, data);
 }
 

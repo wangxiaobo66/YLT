@@ -109,6 +109,10 @@ gulp.task('server:hot', function () {
                 {
                     path: '/base/**/*',//基础数据
                     target: 'http://www.albatross168.com'
+                },
+                {
+                    path: '/buying/**/*',//求购
+                    target: 'http://www.albatross168.com'
                 }
             ],
             stats: {

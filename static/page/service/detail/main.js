@@ -25,7 +25,7 @@ export default class Item extends React.Component {
         let { service } = this.props;
         return (
             <div className="module-detail">
-                <Title content="求车服务" tip="0803 12:12" />
+                <Title content="求车服务" tip={service.detail?moment(service.detail.data.createTime).format('YYYY-MM-DD hh:mm:ss'):''} />
                 <div className="content">
                     <div className="content-row">
                         <div className="item">{service.detail?service.detail.data.title:''}</div>

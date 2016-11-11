@@ -9,9 +9,24 @@ function postOptions(data){//获取口岸,树种,货种,长度信息
     return util.postRequest(url, data);
 }
 
-//创建求购信息
-function addAskBuy(data){
+//创建添加求购信息
+function postAddAskBuy(data){
+    let url = '/buying/addBuyingOrder';
+    return util.postRequest(url,data);
+}
 
+//获取求购列表
+function postAskBuyList(data){
+    let url = '/buying/buyingList';
+    return util.postRequest(url,data);
+}
+
+const LIST = "LIST";
+function list(data){
+    return {
+        type:LIST,
+        data
+    }
 }
 
 const PORT = "PORT";//头部地区options
@@ -47,7 +62,19 @@ function length(data){
 }
 
 module.exports = {
-    optionsList:function(data,name){
+    askBuyList:function(data){//获取未售list
+        let info = data;
+        return function (dispatch) {
+            return postAskBuyList(info).then(
+                function (res) {
+                    res.json().then(function (json) {
+                        dispatch(list(json.result.list));
+                    })
+                }
+            )
+        };
+    },
+    optionsList:function(data,name){//四个码表
         let info = data;
         switch (name){
             case 'port':
@@ -96,8 +123,21 @@ module.exports = {
                 break;
         }
     },
+    askBuy:function(data){//添加未售
+        let info = data;
+        return function (dispatch) {
+            return postAddAskBuy(info).then(
+                function (res) {
+                    res.json().then(function (json) {
+                        console.log(json);
+                    })
+                }
+            )
+        };
+    },
     PORT:"PORT",
     TREE:"TREE",
     GOODS:"GOODS",
-    LENGTH:"LENGTH"
+    LENGTH:"LENGTH",
+    LIST:"LIST"
 };

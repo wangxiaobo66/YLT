@@ -8,34 +8,23 @@ import React from 'react';
 import {Link} from 'react-router';
 import {AskBuy} from '../../../component/AskBuy/AskBuy';
 
+const { askBuyList } = require('./../actions.js');//从actions里拿到方法
+
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: [
-                {
-                    "region": "满洲里",
-                    "time": "08-03 22:06",
-                    "name": "落叶松",
-                    "size": "六米",
-                    "type": "原木",
-                    "diam": "20",
-                    "level": "一级"
-                },
-                {
-                    "region": "满洲里",
-                    "time": "08-03 22:06",
-                    "name": "落叶松",
-                    "size": "六米",
-                    "type": "原木",
-                    "diam": "20",
-                    "level": "一级"
-                }
-            ]
+            list:[]
         };
     }
     componentDidMount() {
-
+        this.list();
+    }
+    componentWillReceiveProps(nextProps) {
+        let list = nextProps.askBuy.list;
+        this.setState({
+            list:list
+        })
     }
     render() {
         return (
@@ -81,15 +70,18 @@ export default class Item extends React.Component {
                 </div>
                 <ul className="ui-list">
                     {
-                        this.state.list.map(function (item, index) {
-                            return (
-                                <li className="item clearfix" key={index}>
-                                    <Link className="item-link" to="detail">
-                                        <AskBuy obj={item} />
-                                    </Link>
-                                </li>
-                            );
-                        })
+                        this.state.list.length!=0?
+                            this.state.list.map(function (obj, index) {
+                                return (
+                                    <li className="item clearfix" key={index}>
+                                        <Link className="item-link" to={"detail/"+obj.orderId}>
+                                            <AskBuy obj={obj} />
+                                        </Link>
+                                    </li>
+                                );
+                            })
+                            :
+                            null
                     }
                 </ul>
                 <footer className="footer">
@@ -97,5 +89,10 @@ export default class Item extends React.Component {
                 </footer>
             </div>
         );
+    }
+    list(){
+        let { dispatch } = this.props;
+        let data = {"limitStart":"0","limitCount":"10","type":"0"};
+        dispatch(askBuyList(data));
     }
 }

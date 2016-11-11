@@ -50,8 +50,8 @@ function service(state={data:"",detail:"",type:""},action){
     }
 }
 
-const { PORT , TREE , GOODS , LENGTH } = require('../page/ask-buy/actions');//求购
-function askBuy(state={port:"",tree:"",goods:"",length:""},action){
+const { PORT , TREE , GOODS , LENGTH , LIST } = require('../page/ask-buy/actions');//求购
+function askBuy(state={port:"",tree:"",goods:"",length:"",list:""},action){
     switch (action.type){
         case PORT:
             let port = {port:action.data};
@@ -65,6 +65,9 @@ function askBuy(state={port:"",tree:"",goods:"",length:""},action){
         case LENGTH:
             let length = {length:action.data};
             return Object.assign({},state,length);
+        case LIST:
+            let list = {list:action.data};
+            return Object.assign({},state,list);
         default:
             return state;
     }

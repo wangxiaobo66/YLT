@@ -7,7 +7,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-const { optionsList } = require('./../actions.js');//从actions里拿到方法
+const { optionsList , askBuy } = require('./../actions.js');//从actions里拿到方法
 
 export default class Item extends React.Component {
     constructor(props) {
@@ -29,7 +29,7 @@ export default class Item extends React.Component {
     render() {
         let that = this;
         let { askBuy } = this.props;
-        let { buyer , mobile , price , amount , content } = this.state;
+        let { buyer , mobile , price , amount , content , subscript } = this.state;
         return (
             <div className="module-add fn-mt10">
                 <form className="ui-form">
@@ -164,7 +164,8 @@ export default class Item extends React.Component {
                     <div className="item">
                         <label>
                             <div className="input-box">
-                                <textarea rows="8" placeholder="请输入求购内容, 200字以内"
+                                <textarea className="textarea"
+                                    rows="8" placeholder="请输入求购内容, 200字以内"
                                           value={content}
                                           onChange={(e) => this.onchange(e,'content')}/>
                             </div>
@@ -175,7 +176,7 @@ export default class Item extends React.Component {
                     <label>
                         <div className="tip-box">
                             <input type="checkbox" />
-                            <i className="icon icon-o-check"></i>
+                            <i className={"icon icon-o-check" + (parseInt(subscript)?' icon-show':'')}></i>
                             <span className="text">订阅匹配未售市场信息</span>
                         </div>
                     </label>
@@ -281,7 +282,10 @@ export default class Item extends React.Component {
         }
     }
     onclick(){
+        let { dispatch } = this.props;
         let { port , tree , goods , length , buyer , mobile , price , amount , content , subscript} = this.state;
         console.log( port , tree , goods , length , buyer , mobile , price , amount , content , subscript);
+        let data = {"portId":port,"treetypeId":tree,"goodstypeId":goods,"lengthId":length,"buyer":buyer,"mobile":mobile,"price":price,"amount":amount,"content":content,"subscript":subscript};
+        dispatch(askBuy(data));
     }
 }

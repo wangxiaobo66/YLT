@@ -6,7 +6,7 @@ let util = require('../../js/app/util');
 //站外注册,站内补充信息
 
 function postRegister(data){
-    let url = 'http://123.57.83.122:8080/front.irito.server/user/login/register';
+    let url = 'http://www.albatross168.com//user/login/register';
     return util.postRequest(url, data);
 }
 const USER_REGISTER = 'USER_REGISTER';
