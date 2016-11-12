@@ -19,6 +19,10 @@ export default class CareMarket extends React.Component {
     }
 
     componentDidMount() {
+        this.fetchList();
+    }
+
+    fetchList() {
         service.interestList({
             type: TYPE_MARKET
         }).then(rep => {
@@ -29,13 +33,14 @@ export default class CareMarket extends React.Component {
     }
 
     doNotCare(id) {
+        let that = this;
         service.interestList({
             type: TYPE_MARKET,
             id: id
         }).then(rep => {
             window.toast('取消关注成功', {
                 callback() {
-                    window.location.reload();
+                    that.fetchList();
                 }
             });
         });

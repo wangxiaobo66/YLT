@@ -17,6 +17,8 @@ import img4 from './img/4.png';
 import img5 from './img/5.png';
 import imgWrong from './img/wrong.png';
 
+import {TYPE_ARRIVAL, TYPE_MARKET, TYPE_SHOP} from '../MyCare/config';
+
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
@@ -133,7 +135,7 @@ export default class Item extends React.Component {
                                             </Link>
                                         </li>
                                         <li className="item">
-                                            <Link className="item-link" to={`/care`}>
+                                            <Link className="item-link" to={`/care/${TYPE_ARRIVAL}`}>
                                                 <div className="allow">
                                                     <i className="icon icon-o-right"></i>
                                                 </div>

@@ -15,7 +15,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
                     list: [
                         /*
                          id
@@ -67,7 +67,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
 
                 }
             });
@@ -85,7 +85,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
 
                 }
             });
@@ -107,7 +107,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {}
+                "result": {}
             });
         }
     }

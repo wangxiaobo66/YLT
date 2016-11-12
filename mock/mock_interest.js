@@ -20,7 +20,7 @@ export default [
                 reply({
                     "state": 1,
                     "reason": "success",
-                    "data": {
+                    "result": {
                         list: [
                             {
                                 "id": 1,
@@ -50,14 +50,15 @@ export default [
                                 "varieties":"樟子松",
                                 "cargo":"原木"
                             }
-                        ]
+                        ],
+                        total: 123
                     }
                 });
             } else if (type === 1) {
                 reply({
                     "state": 1,
                     "reason": "success",
-                    "data": {
+                    "result": {
                         total: 123,
                         list: [
                             {
@@ -125,7 +126,7 @@ export default [
                 reply({
                     "state": 1,
                     "reason": "success",
-                    "data": {
+                    "result": {
                         list: [
                             {
                                 "imgSrc": "http://img.gsxservice.com/21891568_7qr3z9zm.png",
@@ -136,7 +137,19 @@ export default [
                                 "Destination": "满洲里",
                                 "pubDate": "9-30|10:01",
                                 "diam": "20",
-                                "level": "一级"
+                                "level": "一级",
+                                "dim": {
+                                    "specId": 1,
+                                    "treetypeId": 1,
+                                    "treetypeName": '章子树',
+                                    "goodstypeId": 1,
+                                    "goodstypeName": '原木',
+                                    "lengthId": 1,
+                                    "lengthName": '2米',
+                                    "userId": 1,
+                                    "consumerId": 1,
+                                    "orderId": 1
+                                }
                             },
                             {
                                 "imgSrc": "http://img.gsxservice.com/21891568_7qr3z9zm.png",
@@ -147,9 +160,22 @@ export default [
                                 "destination": "满洲里",
                                 "pubDate": "9-30|10:01",
                                 "diam": "20",
-                                "level": "一级"
+                                "level": "一级",
+                                "dim": {
+                                    "specId": 1,
+                                    "treetypeId": 1,
+                                    "treetypeName": '章子树',
+                                    "goodstypeId": 1,
+                                    "goodstypeName": '原木',
+                                    "lengthId": 1,
+                                    "lengthName": '2米',
+                                    "userId": 1,
+                                    "consumerId": 1,
+                                    "orderId": 1
+                                }
                             }
-                        ]
+                        ],
+                        total: 123
                     }
                 });
             }
@@ -165,7 +191,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
 
                 }
             });
@@ -179,7 +205,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {}
+                "result": {}
             });
         }
     },
@@ -197,7 +223,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {}
+                "result": {}
             });
         }
     }

@@ -15,7 +15,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
                     list: [
                         {
                             "imgUrl": 'http://img.gsxservice.com/21873621_jcfyr2d2.png',
@@ -76,7 +76,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
                     list: [
                         {
                             "imgUrl": 'http://img.gsxservice.com/21873621_jcfyr2d2.png',
@@ -135,7 +135,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
 
                 }
             });
@@ -149,7 +149,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {}
+                "result": {}
             });
         }
     },
@@ -167,7 +167,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {}
+                "result": {}
             });
         }
     },
@@ -179,7 +179,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
                     "imgUrl": 'http://img.gsxservice.com/21873621_jcfyr2d2.png',
                     "orderId": 1,
                     "consumerId": 1,
@@ -227,7 +227,7 @@ export default [
                         "introduction": '我这里是店铺的介绍哦我这里是店铺的介绍哦我这里是店铺的介绍哦'
                     },
                     // 规格对象
-                    "dimension": {
+                    "dim": {
                         "specId": 1,
                         "treetypeId": 1,
                         "treetypeName": '章子树',
@@ -251,7 +251,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {}
+                "result": {}
             });
         }
     }

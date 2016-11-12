@@ -17,7 +17,7 @@ export default class AddUpdate extends React.Component {
             dimList: null,
             portList: null,
             form: {
-                imageUrl: '',
+                imgUrl: '',
                 dimensionId: '',
                 price: '',
                 portId: '',
@@ -90,7 +90,7 @@ export default class AddUpdate extends React.Component {
 
         }
 
-        if ($.trim(form.imageUrl) === '') {
+        if ($.trim(form.imgUrl) === '') {
             disabled = true;
         }
 
@@ -125,7 +125,7 @@ export default class AddUpdate extends React.Component {
     }
     onUploadSuccess(imgUrl) {
         let form = this.state.form;
-        form.imageUrl = imgUrl;
+        form.imgUrl = imgUrl;
         this.checkDisabled();
     }
     render() {
