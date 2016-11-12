@@ -100,5 +100,8 @@ module.exports = {
                 return response.json();
             });
         }
+    },
+    scroll(){
+
     }
 };
