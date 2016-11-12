@@ -22,6 +22,7 @@ export default class Item extends React.Component {
     componentDidMount() {
         let { dispatch} = this.props;
         let data= {"buyingOrderId":this.props.params.id};
+        console.log(data);
         dispatch(orderDetail(data));
     }
     componentWillReceiveProps(nextProps) {
@@ -39,30 +40,29 @@ export default class Item extends React.Component {
                     <Title content="基本规格" tip="0803 12:12" />
                     <div className="content">
                         <div className="content-row">
-                            樟子松 4米 原木 16中 选材
+                            {(list.treetypeName) (list.goodstypeName) (list.lengthName)}
                         </div>
-                        <Text label="树种" text="樟子松" half={true} border={false} />
-                        <Text label="货种" text="原木" half={true} border={false} />
-                        <Text label="长度" text="3米" half={true} border={false} />
-                        <Text label="口岸" text="满洲里" half={true} border={false} />
-                        <Text label="直径" text="0.5" half={true} border={false} />
-                        <Text label="价格" text="未知" half={true} border={false} />
-                        <Text label="总重量" text="未知" />
+                        <Text label="树种" text={list.treetypeName} half={true} border={false} />
+                        <Text label="货种" text={list.goodstypeName} half={true} border={false} />
+                        <Text label="长度" text={list.lengthName} half={true} border={false} />
+                        <Text label="口岸" text={list.portName} half={true} border={false} />
+                        <Text label="价格" text={list.price} half={true} border={false} />
+                        <Text label="总重量" text={list.amount} />
                     </div>
                 </div>
 
                 <div className="content">
                     <div className="content-row">
-                        <div className="item">满洲里到形态13米高地板</div>
+                        <div className="item">{}</div>
                     </div>
                     <div className="content-row">
                         <div className="item item-half">
                             <label>联系人: </label>
-                            <span className="text">张三</span>
+                            <span className="text">{list.buyer}</span>
                         </div>
                         <div className="item item-half">
                             <label>联系电话: </label>
-                            <span className="text">15811112222</span>
+                            <span className="text">{list.mobile}</span>
                         </div>
                     </div>
                 </div>

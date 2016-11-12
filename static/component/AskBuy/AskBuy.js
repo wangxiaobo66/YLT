@@ -36,7 +36,6 @@ export class AskBuy extends React.Component {
     render() {
         let obj = this.props.obj;
         return (
-            <a href="./ask-buy.html#/detail">
             <div className="component AskBuy-component">
                 <div className="box">
                     <div className="left">
@@ -45,17 +44,18 @@ export class AskBuy extends React.Component {
                             <span>{obj.portName}</span>
                         </p>
                         <p className="time">
-                            {obj.createTime}
+                            {moment(obj.createTime).format('YYYY-MM-DD hh:mm:ss')}
                         </p>
                     </div>
                     <div className="right">
-                        <p><span>{obj.treetypeName}</span><span>{obj.goodsName}</span><span>{obj.lengthName}</span></p>
-                        <p><span>长度:{obj.level}</span></p>
+                        <p>
+                            <span>{obj.treetypeName}</span><span>{obj.goodstypeName}</span><span>{obj.lengthName}</span>
+                        </p>
+                        <p><span>数量:{obj.amount}</span></p>
                     </div>
                 </div>
                 <div className="ui-point"></div>
             </div>
-            </a>
         );
 
         // let listdom = [];

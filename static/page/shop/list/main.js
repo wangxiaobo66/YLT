@@ -74,7 +74,7 @@ export default class extends React.Component {
                         <span className="for">地区</span>
                         <select className="select"
                                 value={this.state.form.province}
-                                onchange={this.filterData.bind(this, 'province')}>
+                                onChange={this.filterData.bind(this, 'province')}>
                             <option value="">选择</option>
                             {
                                 this.state.provinces !== null ?

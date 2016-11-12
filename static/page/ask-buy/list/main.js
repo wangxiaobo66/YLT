@@ -96,6 +96,7 @@ export default class Item extends React.Component {
                     {
                         this.state.list.length!=0?
                             this.state.list.map(function (obj, index) {
+                                console.log(obj);
                                 return (
                                     <li className="item clearfix" key={index}>
                                         <Link className="item-link" to={"detail/"+obj.orderId}>

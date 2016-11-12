@@ -42,8 +42,9 @@ export default class Home extends React.Component {
             limitStart: 0,
             limitCount: LIMIT_COUNT
         }).then((rep) => {
+            console.log(rep);
             this.setState({
-                repData: rep.result.data
+                repData: rep.result
             });
         });
 

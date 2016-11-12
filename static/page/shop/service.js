@@ -20,7 +20,7 @@ export default {
     },
 
     unsoldOrdersInStore(param = {}) {
-        return util.postRequest('/store/unsoldOrdersInStore', param).then((rep) => {
+        return util.postRequest('/unsold/unsoldList', param).then((rep) => {
             return rep.json();
         });
     },
