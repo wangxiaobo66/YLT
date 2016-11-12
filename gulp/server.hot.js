@@ -92,8 +92,8 @@ gulp.task('server:hot', function () {
                 },
                 {
                     path: '/feedback/**/*',
-                    // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
+                    target: 'http://localhost:' + PORT_HAPI
+                    // target: LI_WEN_IP_HOST
                 },
                 {
                     path: '/interest/**/*',

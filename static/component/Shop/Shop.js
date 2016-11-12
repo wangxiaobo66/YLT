@@ -32,8 +32,8 @@ export default class Shop extends React.Component {
                 <div className="goods-box">
                     <ul className="goods clearfix">
                         {
-                            obj.list != null ?
-                                obj.list.map(function (item, index) {
+                            obj.orders != null ?
+                                obj.orders.map(function (item, index) {
                                     return (
                                         <li className="item" key={item.id}>
                                             <img src={item.url} width="123" height="63" alt=""/>

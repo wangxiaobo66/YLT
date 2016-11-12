@@ -8,7 +8,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import Title from '../../../component/Title/Title';
 import Text from '../../../component/Text/Text';
-import {REPORT_TYPE_UNSOLD, CARE_TYPE_STORE} from '../../../js/app/contants';
+import {REPORT_TYPE_UNSOLD, CARE_TYPE_STORE, CARE_TYPE_UNSOLD} from '../../../js/app/contants';
 
 import service from '../service';
 
@@ -16,11 +16,13 @@ export default class Detail extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            detail: null
+            detail: null,
+            cared: 'false'    // 是否关注
         };
     }
     componentDidMount() {
         let unsoldId = this.props.params.id;
+
         service.showUnsold({
             unsoldOrderId: unsoldId
         }).then((rep) => {
@@ -28,18 +30,39 @@ export default class Detail extends React.Component {
                 detail: rep.result.data
             });
         });
+
+        service.showFocus({
+            unsoldOrderId: unsoldId,
+            type: CARE_TYPE_UNSOLD
+        }).then((rep) => {
+            this.setState({
+                cared: rep.result.data
+            });
+        });
     }
     care() {
+        let that = this;
         service.addInterest({
-            type: CARE_TYPE_STORE,
+            type: CARE_TYPE_UNSOLD,
             orderId: this.state.detail.orderId
         }).then(rep => {
             if (rep.state === 1) {
-                window.toast('关注成功');
+                window.toast('关注成功', {
+                    callback() {
+                        that.setState({
+                            cared: true
+                        });
+                    }
+                });
             } else {
                 window.toast('添加失败, 请稍候重试');
             }
         });
+    }
+    sendMsg() {
+        window.toast('正在维护中...');
+        return;
+        window.location.href = `./mine.html#/msg_chat/${this.state.detail.userId}`;
     }
     render() {
         let detail = this.state.detail;
@@ -61,7 +84,7 @@ export default class Detail extends React.Component {
                                     <Title content="基本规格" tip={moment(detail.createTime).format('YYYY-MM-DD HH:mm:ss')} />
                                     <div className="content">
                                         <div className="info">
-                                            {detail.dimension.treetypeName} {detail.dimension.goodstypeName} {detail.dimension.lengthName}
+                                            {detail.dim.treetypeName} {detail.dim.goodstypeName} {detail.dim.lengthName}
                                         </div>
                                         <Text label="价格" text={detail.price} half={true} border={false} />
                                         <Text label="目标口岸" text={detail.portName} half={true} border={false} />
@@ -88,10 +111,10 @@ export default class Detail extends React.Component {
                                             <Text label="虫眼" text={detail.mouthEaten} />
                                             <Text label="腐朽眼" text={detail.corrosion} />
                                             <Text label="产地" text={detail.origin} />
-                                            <Text label="斜裂" text={detail.inclinedcrack} half={true} />
-                                            <Text label="环裂" text={detail.cyclecrack} half={true} />
-                                            <Text label="抽油" text={detail.oiled} half={true} />
-                                            <Text label="黑心" text={detail.darkpith} half={true} />
+                                            <Text label="斜裂" text={detail.inclinedcrack === 1 ? '有' : '无'} half={true} />
+                                            <Text label="环裂" text={detail.cyclecrack === 1 ? '有' : '无'} half={true} />
+                                            <Text label="抽油" text={detail.oiled === 1 ? '有' : '无'} half={true} />
+                                            <Text label="黑心" text={detail.darkpith === 1 ? '有' : '无'} half={true} />
                                         </div>
                                     </div>
                                     <div className="do">
@@ -109,11 +132,17 @@ export default class Detail extends React.Component {
                                 <div className="footer">
                                     <div className="ui-tab ui-tab-white ui-tab-fixed">
                                         <a href={`tel:${detail.mobile}`} className="item">电话联系</a>
-                                        <a href={`./mine.html#/msg_chat/${detail.userId}`} className="item">发送消息</a>
+                                        <a href="javascript:;" onClick={this.sendMsg.bind(this)} className="item">发送消息</a>
                                         <div className="item">
-                                            <a href="javascript:;"
-                                               onClick={this.care.bind(this)}
-                                               className="btn-care">+关注</a>
+                                            {
+                                                this.state.cared === 'false'?
+                                                    <a href="javascript:;"
+                                                       onClick={this.care.bind(this)}
+                                                       className="btn-care">+关注</a>
+                                                    :
+                                                    <a href="javascript:;"
+                                                       className="btn-care">已关注</a>
+                                            }
                                         </div>
                                     </div>
                                 </div>

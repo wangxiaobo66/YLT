@@ -30,3 +30,4 @@ export const REPORT_TYPE_UNSOLD = 2;    // 未售单
 export const CARE_TYPE_ARRIVAL = 0;
 export const CARE_TYPE_STORE = 1;
 export const CARE_TYPE_UNSOLD = 2;
+export const CARE_TYPE_ASKBUY = 3;

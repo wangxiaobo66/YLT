@@ -55,20 +55,6 @@ export default React.createClass({
             });
 
         });
-
-        /*
-         // or with a location descriptor object
-         router.push({
-         pathname: '/users/12',
-         query: { modal: true },
-         state: { fromDashboard: true }
-         })
-         */
-
-        /*
-         router.push('/users/12')
-         */
-
     },
 
     render() {

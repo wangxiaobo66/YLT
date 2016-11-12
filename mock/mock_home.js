@@ -12,7 +12,7 @@ export default [
             reply({
                 "errno": 0,
                 "msg": "success",
-                "data": {
+                "result": {
                     list: [
                         {
                             name: 'king',

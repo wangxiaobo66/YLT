@@ -111,7 +111,6 @@ export default class extends React.Component {
                                     <li className="no-data">暂无数据</li>
                                     :
                                     this.state.list.map((item, index) => {
-                                        item.list = this.state.repData['order' + item.id];
                                         return (
                                             <li className="item" key={index}>
                                                 <Link className="item-link" to={`/home/${item.id}`}>

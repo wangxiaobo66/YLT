@@ -17,7 +17,7 @@ export default class AddUpdate extends React.Component {
             dimList: null,
             portList: null,
             form: {
-                imageUrl: '',
+                imgUrl: '',
                 dimensionId: '',
                 price: '',
                 portId: '',
@@ -32,10 +32,10 @@ export default class AddUpdate extends React.Component {
                 mouthEaten: '',
                 corrosion: '',
                 origin: '',
-                inclinedcrack: '',
-                cyclecrack: '',
-                oiled: '',
-                darkpith: '',
+                inclinedcrack: '0',
+                cyclecrack: '0',
+                oiled: '0',
+                darkpith: '0',
                 content: '',
 
                 subscript: 0
@@ -46,7 +46,10 @@ export default class AddUpdate extends React.Component {
     componentDidMount() {
 
         // 规格列表
-        service.dimList().then((rep) => {
+        service.dimList({
+            limitStart: 0,
+            limitCount: 5
+        }).then((rep) => {
             this.setState({
                 dimList: rep.result.list
             });
@@ -90,7 +93,7 @@ export default class AddUpdate extends React.Component {
 
         }
 
-        if ($.trim(form.imageUrl) === '') {
+        if ($.trim(form.imgUrl) === '') {
             disabled = true;
         }
 
@@ -125,7 +128,7 @@ export default class AddUpdate extends React.Component {
     }
     onUploadSuccess(imgUrl) {
         let form = this.state.form;
-        form.imageUrl = imgUrl;
+        form.imgUrl = imgUrl;
         this.checkDisabled();
     }
     render() {

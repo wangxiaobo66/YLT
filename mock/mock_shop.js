@@ -13,7 +13,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
                     total: 123,
                     list: [
                         {
@@ -96,7 +96,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
                     total: 123,
 
                     /*
@@ -228,7 +228,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
 
                 }
             });
@@ -242,7 +242,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
 
                 }
             });
@@ -257,7 +257,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
 
                 }
             });
@@ -273,26 +273,28 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
-                    "id": 1,
-                    "userId": 1,
-                    "consumerId": 1,
-                    "createTime": 1477188760233,
-                    "store_icon": 'http://img.gsxservice.com/21873621_jcfyr2d2.png',
-                    "storetypeId": 1,    // 1.机械设备 2.器材销售
-                    "storeName": '这里是店铺名称',
-                    "phone": 15811112222,
-                    "address": '永吉县万昌镇',
-                    "province": '吉林',
-                    "city": '长春',
-                    "keywords": '关键词1, 关键词2',
-                    "qrCode": 'http://img.gsxservice.com/7376327_497prnam.png',
-                    "serviceTel": 15822223333,
-                    "introduction": '我这里是店铺的介绍哦我这里是店铺的介绍哦我这里是店铺的介绍哦',
+                "result": {
+                    "data": {
+                        "id": 1,
+                        "userId": 1,
+                        "consumerId": 1,
+                        "createTime": 1477188760233,
+                        "store_icon": 'http://img.gsxservice.com/21873621_jcfyr2d2.png',
+                        "storetypeId": 1,    // 1.机械设备 2.器材销售
+                        "storeName": '这里是店铺名称',
+                        "phone": 15811112222,
+                        "address": '永吉县万昌镇',
+                        "province": '吉林',
+                        "city": '长春',
+                        "keywords": '关键词1, 关键词2',
+                        "qrCode": 'http://img.gsxservice.com/7376327_497prnam.png',
+                        "serviceTel": 15822223333,
+                        "introduction": '我这里是店铺的介绍哦我这里是店铺的介绍哦我这里是店铺的介绍哦',
 
-                    total: 123,  // 商品总数
-                    focus_num: 34,   // 关注人数
-                    newest_goods_num: 12    // 最新商品数量
+                        total: 123,  // 商品总数
+                        focus_num: 34,   // 关注人数
+                        newest_goods_num: 12    // 最新商品数量
+                    }
                 }
             });
         }
@@ -306,26 +308,28 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
-                    "id": 1,
-                    "userId": 1,
-                    "consumerId": 1,
-                    "createTime": 1477188760233,
-                    "store_icon": 'http://img.gsxservice.com/21873621_jcfyr2d2.png',
-                    "storetypeId": 1,    // 1.机械设备 2.器材销售
-                    "storeName": '这里是店铺名称',
-                    "phone": 15811112222,
-                    "address": '永吉县万昌镇',
-                    "province": '吉林',
-                    "city": '长春',
-                    "keywords": '关键词1, 关键词2',
-                    "qrCode": 'http://img.gsxservice.com/7376327_497prnam.png',
-                    "serviceTel": 15822223333,
-                    "introduction": '我这里是店铺的介绍哦我这里是店铺的介绍哦我这里是店铺的介绍哦',
+                "result": {
+                    "data": {
+                        "id": 1,
+                        "userId": 1,
+                        "consumerId": 1,
+                        "createTime": 1477188760233,
+                        "store_icon": 'http://img.gsxservice.com/21873621_jcfyr2d2.png',
+                        "storetypeId": 1,    // 1.机械设备 2.器材销售
+                        "storeName": '这里是店铺名称',
+                        "phone": 15811112222,
+                        "address": '永吉县万昌镇',
+                        "province": '吉林',
+                        "city": '长春',
+                        "keywords": '关键词1, 关键词2',
+                        "qrCode": 'http://img.gsxservice.com/7376327_497prnam.png',
+                        "serviceTel": 15822223333,
+                        "introduction": '我这里是店铺的介绍哦我这里是店铺的介绍哦我这里是店铺的介绍哦',
 
-                    total: 123,  // 商品总数
-                    focus_num: 34,   // 关注人数
-                    newest_goods_num: 12    // 最新商品数量
+                        total: 123,  // 商品总数
+                        focus_num: 34,   // 关注人数
+                        newest_goods_num: 12    // 最新商品数量
+                    }
                 }
             });
         }

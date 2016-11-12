@@ -6,6 +6,24 @@
 
 export default [
 
+    {
+        path: '/feedback/filesUpload',
+        method: 'POST',
+        handler: function (request, reply) {
+            reply({
+                "state": 1,
+                "reason": "success",
+                "result": {
+                    files: [
+                        {
+                            url: 'http://img.gsxservice.com/4926824_cu79hsqz.png'
+                        }
+                    ]
+                }
+            });
+        }
+    },
+
     // 我的消息总列表
     {
         path: '/feedback/interestList',
@@ -14,7 +32,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
                     list: [
                         {
                             "id": 1,
@@ -50,7 +68,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {
+                "result": {
 
                 }
             });
@@ -64,7 +82,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {}
+                "result": {}
             });
         }
     },
@@ -82,7 +100,7 @@ export default [
             reply({
                 "state": 1,
                 "reason": "success",
-                "data": {}
+                "result": {}
             });
         }
     }

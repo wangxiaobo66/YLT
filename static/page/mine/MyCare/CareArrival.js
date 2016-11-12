@@ -18,6 +18,10 @@ export default class CareArrival extends React.Component {
     }
 
     componentDidMount() {
+        this.fetchList();
+    }
+
+    fetchList() {
         service.interestList({
             type: TYPE_ARRIVAL
         }).then(rep => {
@@ -28,13 +32,14 @@ export default class CareArrival extends React.Component {
     }
 
     doNotCare(id) {
+        let that = this;
         service.interestList({
             type: TYPE_ARRIVAL,
             id: id
         }).then(rep => {
             window.toast('取消关注成功', {
                 callback() {
-                    window.location.reload();
+                    that.fetchList();
                 }
             });
         });

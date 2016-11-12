@@ -47,6 +47,7 @@ module.exports = {
         });
     },
     postRequest: function (url, data) {
+        data.userId = 23;
         window.toast('请稍候...');
         return fetch(url, {
             method: 'POST',
