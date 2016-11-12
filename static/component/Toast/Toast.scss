@@ -18,6 +18,9 @@
     transform: translate(-50%, -50%);
     display: none;
     z-index: 1100;
+    .toast-tip {
+        text-align: center;
+    }
 }
 
 .toast-black {
