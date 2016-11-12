@@ -50,7 +50,7 @@ module.exports = {
         });
     },
     postRequest: function(url, data) {
-        window.toast('请稍候...');
+        window.loading('请稍候...');
         return fetch(url, {
             method: 'POST',
             headers: {
@@ -75,7 +75,7 @@ module.exports = {
         var r = window.location.search.substr(1).match(reg);
         if (r != null) return unescape(r[2]); return null;
     },
-/**
+    /**
      * 格式化时间
      * @param timestamp
      * @returns {*}
