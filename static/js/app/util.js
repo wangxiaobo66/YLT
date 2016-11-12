@@ -47,12 +47,12 @@ module.exports = {
         });
     },
     postRequest: function (url, data) {
-        window.loading('请稍候...');
+        window.toast('请稍候...');
         return fetch(url, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json, text/javascript, */*; q=0.01', //接受数据格式
-                'Content-Type': 'application/json; charset=UTF-8', //请求数据格式
+                'Content-Type': 'application/json; charset=UTF-8' //请求数据格式
                 //"x-csrf-token": scoreweb.token
             },
             credentials: 'include', //使用cookie  默认不使用cookie
@@ -97,7 +97,7 @@ module.exports = {
                 credentials: 'include', //使用cookie  默认不使用cookie
                 body: formData
             }).then(function (response) {
-                return response;
+                return response.json();
             });
         }
     }

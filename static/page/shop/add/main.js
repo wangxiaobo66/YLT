@@ -9,16 +9,19 @@ import china from 'china-province-city-district';
 import Upload from '../../../component/Upload/Upload';
 import service from '../service';
 import util from '../../../js/app/util';
+import commonService from '../../../js/app/commonService';
 
 export default class ShopAdd extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            typeList: null,
             provinces: china.query(),
             citys: null,
             districts: null,
             form: {
                 imageUrl: '',
+                storetypeId: '',
                 storeName: '',
                 phone: '',
                 province: '',
@@ -72,6 +75,13 @@ export default class ShopAdd extends React.Component {
         let that = this;
         let storeId = +util.getQueryString('storeId');
 
+        // 店铺类型
+        commonService.storeTypeList().then((rep) => {
+            this.setState({
+                typeList: rep.result.list
+            });
+        });
+
         // 判断是否是修改
         // if (+storeId === -1) {   // 修改自己
         //     service.showMyStore().then((rep) => {
@@ -105,6 +115,10 @@ export default class ShopAdd extends React.Component {
         }
 
         if ($.trim(form.imageUrl) === '') {
+            disabled = true;
+        }
+
+        if ($.trim(form.storetypeId) === '') {
             disabled = true;
         }
 
@@ -168,6 +182,26 @@ export default class ShopAdd extends React.Component {
                             <h3 className="text">店铺详细信息</h3>
                         </div>
                         <form className="ui-form">
+                            <div className="item">
+                                <label>
+                                    <div className="for">类型</div>
+                                    <div className="input-box input-box--select">
+                                        <select className="ui-select"
+                                                value={this.state.form.storetypeId}
+                                                onChange={this.checkDisabled.bind(this, 'storetypeId')}>
+                                            <option value="">选择</option>
+                                            {
+                                                this.state.typeList !== null ?
+                                                    this.state.typeList.map((item, index) => {
+                                                        return <option key={item.id} value={item.id}>{item.name}</option>;
+                                                    })
+                                                    :
+                                                    null
+                                            }
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
                             <div className="item">
                                 <label>
                                     <div className="for">店铺名称</div>
