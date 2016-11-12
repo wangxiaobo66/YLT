@@ -64,7 +64,7 @@ export default class List extends React.Component {
             });
         });
     }
-    setForm(key, event) {
+    filterData(key, event) {
         let form = this.state.form;
 
         if (key && event) {
@@ -85,7 +85,7 @@ export default class List extends React.Component {
                         <span className="for">口岸</span>
                         <select className="select"
                                 value={this.state.form.portId}
-                                onChange={this.setForm.bind(this, 'portId')}>
+                                onChange={this.filterData.bind(this, 'portId')}>
                             <option value="">请选择</option>
                             {
                                 this.state.portList !== null ?
@@ -101,7 +101,7 @@ export default class List extends React.Component {
                         <span className="for">货种</span>
                         <select className="select"
                                 value={this.state.form.goodstypeId}
-                                onChange={this.setForm.bind(this, 'goodstypeId')}>
+                                onChange={this.filterData.bind(this, 'goodstypeId')}>
                             <option value="">选择</option>
                             {
                                 this.state.goodstypeList !== null ?
@@ -117,7 +117,7 @@ export default class List extends React.Component {
                         <span className="for">树种</span>
                         <select className="select"
                                 value={this.state.form.treetypeId}
-                                onChange={this.setForm.bind(this, 'treetypeId')}>
+                                onChange={this.filterData.bind(this, 'treetypeId')}>
                             <option value="">选择</option>
                             {
                                 this.state.treetypeList !== null ?
@@ -133,7 +133,7 @@ export default class List extends React.Component {
                         <span className="for">长度</span>
                         <select className="select"
                                 value={this.state.form.lengthId}
-                                onChange={this.setForm.bind(this, 'lengthId')}>
+                                onChange={this.filterData.bind(this, 'lengthId')}>
                             <option value="">选择</option>
                             {
                                 this.state.lengthList !== null ?

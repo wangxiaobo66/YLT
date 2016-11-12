@@ -39,7 +39,7 @@ export default class Home extends React.Component {
         // 商品列表
         service.unsoldOrdersInStore({
             storeId: storeId,
-            limitStart: 1,
+            limitStart: 0,
             limitCount: LIMIT_COUNT
         }).then((rep) => {
             this.setState({

@@ -18,7 +18,7 @@ export default class Item extends React.Component {
     }
     componentDidMount() {
         service.myTopList({
-            limitStart: 1,
+            limitStart: 0,
             limitCount: LIMIT_COUNT
         }).then((rep) => {
             this.setState({

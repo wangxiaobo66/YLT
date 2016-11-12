@@ -20,18 +20,35 @@ export default class extends React.Component {
             typeList: null,
             list: null,
             repData: null,
-            provinces: china.query()
+            provinces: china.query(),
+            form: {
+                province: '',
+                storetypeId: '',
+                limitStart: 0,
+                limitCount: LIMIT_COUNT
+            }
         };
+    }
+    // 过滤
+    filterData(key, event) {
+
+        let form = this.state.form;
+debugger;
+        if (key && event) {
+            form[key] = event.target.value;
+        }
+
+        service.storeList(form).then((rep) => {
+            this.setState({
+                repData: rep.result,
+                list: rep.result.list
+            });
+        });
     }
     componentDidMount() {
 
         // 店铺列表
-        service.storeList({
-            province: '',
-            storetypeId: CONFIG.TYPE_STORE_JIXIE.CODE,
-            limitStart: 1,
-            limitCount: LIMIT_COUNT
-        }).then((rep) => {
+        service.storeList(this.state.form).then((rep) => {
             this.setState({
                 repData: rep.result,
                 list: rep.result.list
@@ -52,7 +69,9 @@ export default class extends React.Component {
                 <div className="ui-top-select clearfix">
                     <label className="item">
                         <span className="for">地区</span>
-                        <select className="select">
+                        <select className="select"
+                                value={this.state.form.province}
+                                onchange={this.filterData.bind(this, 'province')}>
                             <option value="">选择</option>
                             {
                                 this.state.provinces !== null ?
@@ -66,7 +85,9 @@ export default class extends React.Component {
                     </label>
                     <label className="item">
                         <span className="for">类型</span>
-                        <select className="select">
+                        <select className="select"
+                                value={this.state.form.storetypeId}
+                                onChange={this.filterData.bind(this, 'storetypeId')}>
                             <option value="">选择</option>
                             {
                                 this.state.typeList !== null ?

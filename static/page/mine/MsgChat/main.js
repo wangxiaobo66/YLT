@@ -28,7 +28,7 @@ export default class Item extends React.Component {
         service.msgList({
             fromUserId: this.props.params.fromUserId,
             toUserId: this.props.params.toUserId,
-            limitStart: 1,
+            limitStart: 0,
             limitCount: LIMIT_COUNT
         }).then((rep) => {
             this.setState({
