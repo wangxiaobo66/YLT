@@ -117,8 +117,8 @@ function getLoadingText(text) {
             </svg>
         </p>
         <p class="toast-text">${text || '请稍候...'}</p>
-    `
-gi    return _loadingText;
+    `;
+    return _loadingText;
 }
 
 window.loading = function (text) {
