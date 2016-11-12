@@ -34,7 +34,7 @@ export default class Market extends React.Component {
                                     null
                             }
                             <p>货物位置：<span>{obj.locationName}</span></p>
-                            <p>目标口岸：<span>{obj.destination}</span></p>
+                            <p>目标口岸：<span>{obj.portName}</span></p>
                         </div>
                         <div className="right">
                             {

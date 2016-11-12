@@ -119,6 +119,17 @@ export default {
         return util.postRequest('/interest/addInterest', param).then((rep) => {
             return rep.json();
         });
+    },
+
+    /**
+     * 是否已关注
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    showFocus(param = {}) {
+        return util.postRequest('/interest/showFocus', param).then((rep) => {
+            return rep.json();
+        });
     }
 
 
