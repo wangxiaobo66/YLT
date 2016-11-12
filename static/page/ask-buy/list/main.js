@@ -136,7 +136,7 @@ export default class Item extends React.Component {
     }
     list(){
         let { dispatch } = this.props;
-        let data = {"limitStart":"0","limitCount":"10","type":"0"};
+        let data = {"limitStart":"0","limitCount":"10","portId":"0","goodstypeId":"0","treetypeId":"0","lengthId":"0"};
         dispatch(askBuyList(data));
     }
 }

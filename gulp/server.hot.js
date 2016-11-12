@@ -108,6 +108,10 @@ gulp.task('server:hot', function () {
                 {
                     path: '/inform/**/*',
                     target: LI_WEN_IP_HOST
+                },
+                {
+                    path: '/buying/**/*',
+                    target: LI_WEN_IP_HOST
                 }
             ],
             stats: {
