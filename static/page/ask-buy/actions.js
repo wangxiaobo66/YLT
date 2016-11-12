@@ -20,6 +20,11 @@ function postAskBuyList(data){
     let url = '/buying/buyingList';
     return util.postRequest(url,data);
 }
+//获取某一求购单信息
+function postOrderDetail(data){
+    let url = '/buying/showOrderDetail';
+    return util.postRequest(url,data);
+}
 
 const LIST = "LIST";
 function list(data){
@@ -57,6 +62,14 @@ const LENGTH = "LENGTH";//头部长度options
 function length(data){
     return {
         type: LENGTH,
+        data
+    }
+}
+
+const DETAIL = "DETAIL";
+function detail(data){
+    return {
+        type:DETAIL,
         data
     }
 }
@@ -130,6 +143,18 @@ module.exports = {
                 function (res) {
                     res.json().then(function (json) {
                         console.log(json);
+                    })
+                }
+            )
+        };
+    },
+    orderDetail:function(data){//显示某一未售信息
+        let info = data;
+        return function (dispatch) {
+            return postOrderDetail(info).then(
+                function (res) {
+                    res.json().then(function (json) {
+                        dispatch(detail(json.result.data));
                     })
                 }
             )

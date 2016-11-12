@@ -5,16 +5,8 @@ let util = require('../../js/app/util');
 
 //登录
 function postLogin(data){
-    let url = 'http://www.albatross168.com//user/login/phone';
+    let url = '/user/login/phone';
     return util.postRequest(url, data);
-}
-
-const USER_LOGIN = 'USER_LOGIN';
-function userLogin(data){
-    return {
-        type: USER_LOGIN,
-        data
-    }
 }
 
 module.exports = {
@@ -24,11 +16,14 @@ module.exports = {
             return postLogin(info).then(
                 function (res) {
                     res.json().then(function (json) {
-                        dispatch(userLogin(json.result))
+                       if(json.reason==="success"){
+                           window.location.href = './index.html';
+                       }else {
+                           window.toast('请输入正确的账号密码!');
+                       }
                     })
                 }
             )
         }
-    },
-    USER_LOGIN:"USER_LOGIN"
+    }
 };

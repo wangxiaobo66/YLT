@@ -10,20 +10,29 @@ import {Link} from 'react-router';
 import Title from '../../../component/Title/Title';
 import Text from '../../../component/Text/Text';
 
+let { orderDetail } = require('./../actions.js');//从actions里拿到方法
+
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: [
-            ]
+
         };
     }
     componentDidMount() {
         let { dispatch} = this.props;
-        let data= {"informId":this.props.params.id};
+        let data= {"buyingOrderId":this.props.params.id};
+        dispatch(orderDetail(data));
+    }
+    componentWillReceiveProps(nextProps) {
+        let detail = nextProps.askBuy.detail;
+        this.setState({
+            list:detail
+        })
     }
     render() {
         let that = this;
+        let { list } = this.state;
         return (
             <div className="module-detail">
                 <div className="detail-box">

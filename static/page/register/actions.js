@@ -4,9 +4,12 @@
 let util = require('../../js/app/util');
 
 //站外注册,站内补充信息
-
-function postRegister(data){
-    let url = 'http://www.albatross168.com//user/login/register';
+function postRegister(data){//注册接口
+    let url = '/user/login/register';
+    return util.postRequest(url, data);
+}
+function postSms(data){//短信验证码接口
+    let url = '';
     return util.postRequest(url, data);
 }
 const USER_REGISTER = 'USER_REGISTER';
@@ -18,13 +21,29 @@ function userRegister(data){
 }
 
 module.exports = {
-    loginRegister:function(data){
+    loginRegister:function(data){//提交注册
         let info = data;
         return function (dispatch) {
             return postRegister(info).then(
                 function (res) {
                     res.json().then(function (json) {
-                        dispatch(userRegister(json.result))
+                        console.log(json);
+                        if(json.reason==="success"){
+                            window.location.href = './index.html';
+                        }
+                    })
+                }
+            )
+        }
+    },
+    loginSms:function(data){
+        let info = data;
+        return function (dispatch){
+            return postSms(info).then(
+                function (res) {
+                    res.json().then(function (json) {
+                        console.log(json);
+                        //dispatch(userRegister(json.result))
                     })
                 }
             )

@@ -50,6 +50,12 @@ class component extends React.Component {
             </div>
         )
     }
+    componentWillReceiveProps(nextProps) {
+        let reason = nextProps.outLogin.reason;
+        this.setState({
+            reason:reason
+        })
+    }
     onchange(e,name){
         let { value } =this.state;
         let val = e.target.value;
@@ -72,10 +78,9 @@ class component extends React.Component {
         let { value } = this.state;
         let { dispatch } = this.props;
         if(value.mobile!==""&&value.pwd!==""){
-            //dispatch(userOutLogin(value));
-            window.location.href = './index.html';
+            dispatch(userOutLogin(value));
         }else{
-            console.log('空');
+            window.toast('账号密码不能为空!');
         }
     }
 }

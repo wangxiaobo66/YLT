@@ -11,12 +11,9 @@ function index(state={num:1},action){
     }
 }
 
-const { USER_LOGIN } = require('../page/out-login/actions');
+const { } = require('../page/out-login/actions');
 function outLogin(state={},action){
     switch (action.type){
-        case USER_LOGIN:
-            let data = {data:action.data};
-            return Object.assign({},state,data);
         default:
             return state;
     }
@@ -50,8 +47,8 @@ function service(state={data:"",detail:"",type:""},action){
     }
 }
 
-const { PORT , TREE , GOODS , LENGTH , LIST } = require('../page/ask-buy/actions');//求购
-function askBuy(state={port:"",tree:"",goods:"",length:"",list:""},action){
+const { PORT , TREE , GOODS , LENGTH , LIST , DETAIL } = require('../page/ask-buy/actions');//求购
+function askBuy(state={port:"",tree:"",goods:"",length:"",list:"",detail:""},action){
     switch (action.type){
         case PORT:
             let port = {port:action.data};
@@ -68,6 +65,9 @@ function askBuy(state={port:"",tree:"",goods:"",length:"",list:""},action){
         case LIST:
             let list = {list:action.data};
             return Object.assign({},state,list);
+        case DETAIL:
+            let detail = {detail:action.data};
+            return Object.assign({},state,detail);
         default:
             return state;
     }

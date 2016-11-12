@@ -42,15 +42,15 @@ export class AskBuy extends React.Component {
                     <div className="left">
                         <p className="title">
                             <img src={imgMap}/>
-                            <span>{obj.region}</span>
+                            <span>{obj.portName}</span>
                         </p>
                         <p className="time">
-                            {obj.time}
+                            {obj.createTime}
                         </p>
                     </div>
                     <div className="right">
-                        <p><span>{obj.name}</span><span>{obj.size}</span><span>{obj.type}</span></p>
-                        <p><span>直径:{obj.diam}</span><span>长度:{obj.level}</span></p>
+                        <p><span>{obj.treetypeName}</span><span>{obj.goodsName}</span><span>{obj.lengthName}</span></p>
+                        <p><span>长度:{obj.level}</span></p>
                     </div>
                 </div>
                 <div className="ui-point"></div>

@@ -127,16 +127,14 @@ class component extends React.Component {
     registerClick(){
         let { value } = this.state;
         let { dispatch } = this.props;
-        if(value.mobile!==""&&value.pwd!==""){
+        if(value.mobile!==""&&value.pwd!==""&&value.sms!==""){
             dispatch(loginRegister(value));
-            console.log(1);
         }else{
-            console.log('空');
+            window.toast('账号密码不能为空!');
         }
     }
 }
 function select(state) {
-    console.log(state);
     return {
         register: state.register
     }
