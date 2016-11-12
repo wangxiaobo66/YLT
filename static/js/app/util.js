@@ -82,5 +82,27 @@ module.exports = {
      */
     formatTime(timestamp) {
         return timestamp ? moment(timestamp).format('YYYY-MM-DD') : '';
+    },
+    //上传图片
+    fileUpload(inputId,url){//inputId为document.getElementById('inputId'),url为接口名
+        var xmlhttp = new XMLHttpRequest();
+        var formData = new FormData();
+        if (!inputId.value){
+            return false
+        }else {
+            formData.append('upImg',inputId.files[0]);
+            fetch(url,{
+                method:'POST',
+                headers:{
+                    'Accept': 'application/json, text/javascript, */*; q=0.01', //接受数据格式
+                },
+                credentials: 'include', //使用cookie  默认不使用cookie
+                body: formData
+            }).then(function(response) {
+                return response.json();
+            }).then(function(data){
+                return data;
+            })
+        }
     }
 };

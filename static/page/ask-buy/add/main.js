@@ -92,7 +92,7 @@ export default class Item extends React.Component {
                             <div className="for">长度</div>
                             <div className="input-box input-box--select">
                                 <select className="ui-select" onChange={(e) => this.onchange(e,'length')}>
-                                    <option value="请选择长度">请选择长度</option>
+                                    <option value="">请选择长度</option>
                                     {
                                         askBuy.length !="" ?
                                             askBuy.length.map(function (obj) {
