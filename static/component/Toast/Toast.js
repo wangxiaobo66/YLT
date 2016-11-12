@@ -99,7 +99,7 @@ let _loadingToast = new Toast({
 
 function getLoadingText(text) {
     let _loadingText = `
-        <p className="toast-tip">
+        <p class="toast-tip">
             <svg viewBox="0 0 64 64">
                 <g>
                     <defs>

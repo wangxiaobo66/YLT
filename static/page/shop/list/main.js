@@ -33,7 +33,7 @@ export default class extends React.Component {
     filterData(key, event) {
 
         let form = this.state.form;
-debugger;
+
         if (key && event) {
             form[key] = event.target.value;
         }

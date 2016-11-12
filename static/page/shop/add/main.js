@@ -104,9 +104,9 @@ export default class ShopAdd extends React.Component {
             form[key] = event.target.value;
         }
 
-        // if ($.trim(form.imageUrl) === '') {
-        //     disabled = true;
-        // }
+        if ($.trim(form.imageUrl) === '') {
+            disabled = true;
+        }
 
         if ($.trim(form.storeName) === '') {
             disabled = true;
@@ -119,10 +119,6 @@ export default class ShopAdd extends React.Component {
         if ($.trim(form.city) === '') {
             disabled = true;
         }
-
-        // if ($.trim(form.address) === '') {
-        //     disabled = true;
-        // }
 
         if ($.trim(form.keywords) === '') {
             disabled = true;
@@ -152,12 +148,19 @@ export default class ShopAdd extends React.Component {
         }
         this.checkDisabled();
     }
+    onUploadSuccess(imgUrl) {
+        let form = this.state.form;
+        form.imageUrl = imgUrl;
+        this.checkDisabled();
+    }
     render() {
         let form = this.state.form;
         return(
             <div className="module-shop-add">
                 <header className="header">
-                    <Upload tip="添加logo" />
+                    <Upload tip="添加logo"
+                            onUploadSuccess={this.onUploadSuccess.bind(this)}
+                            url="/store/filesUpload" />
                 </header>
                 <article className="article">
                     <div className="article-box">
