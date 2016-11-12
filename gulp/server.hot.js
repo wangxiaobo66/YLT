@@ -21,6 +21,9 @@ import mocks from '../mock/index';
 const PORT_HAPI = 9998;
 const PORT_WEBPACK = 9997;
 
+const LI_WEN_IP_HOST = 'http://192.168.1.121';
+const SERVER_IP_HOST = 'http://123.57.83.122:8080';
+
 gulp.task('server:hot', function () {
 
     // hapi
@@ -60,51 +63,51 @@ gulp.task('server:hot', function () {
                 {
                     path: '/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: LI_WEN_IP_HOST
                 },
                 {
                     path: '/front.irito.server/base/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: LI_WEN_IP_HOST
                 },
                 {
                     path: '/front.irito.server/subscript/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: LI_WEN_IP_HOST
                 },
                 {
                     path: '/front.irito.server/store/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: LI_WEN_IP_HOST
                 },
                 {
                     path: '/front.irito.server/user/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: LI_WEN_IP_HOST
                 },
                 {
                     path: '/front.irito.server/msg/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: LI_WEN_IP_HOST
                 },
                 {
                     path: '/front.irito.server/feedback/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: LI_WEN_IP_HOST
                 },
                 {
                     path: '/front.irito.server/interest/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: LI_WEN_IP_HOST
                 },
                 {
                     path: '/front.irito.server/unsold/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: 'http://123.57.83.122:8080'
+                    target: LI_WEN_IP_HOST
                 },
                 {
                     path: '/front.irito.server/inform/**/*',
-                    target: 'http://123.57.83.122:8080'
+                    target: LI_WEN_IP_HOST
                 }
             ],
             stats: {
