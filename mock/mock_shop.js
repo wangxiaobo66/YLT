@@ -33,7 +33,16 @@ export default [
                             "serviceTel": 15822223333,
                             "introduction": '我这里是店铺的介绍哦我这里是店铺的介绍哦我这里是店铺的介绍哦',
                             "orderList": [
-
+                                {
+                                    "id": 1,
+                                    "name": "商品1",
+                                    "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "商品2",
+                                    "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
+                                }
                             ]
                         },
                         {
@@ -51,31 +60,19 @@ export default [
                             "keywords": '关键词3, 关键词4',
                             "qrCode": 'http://img.gsxservice.com/7376327_497prnam.png',
                             "serviceTel": 15822223333,
-                            "introduction": '我这里是店铺的介绍哦1我这里是店铺的介绍哦2我这里是店铺的介绍哦3'
-                        }
-                    ],
-                    order1: [
-                        {
-                            "id": 1,
-                            "name": "商品1",
-                            "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
-                        },
-                        {
-                            "id": 2,
-                            "name": "商品2",
-                            "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
-                        }
-                    ],
-                    order2: [
-                        {
-                            "id": 1,
-                            "name": "商品3",
-                            "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
-                        },
-                        {
-                            "id": 2,
-                            "name": "商品4",
-                            "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
+                            "introduction": '我这里是店铺的介绍哦1我这里是店铺的介绍哦2我这里是店铺的介绍哦3',
+                            "orderList": [
+                                {
+                                    "id": 1,
+                                    "name": "商品3",
+                                    "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "商品4",
+                                    "url": "http://img.gsxservice.com/21891568_7qr3z9zm.png"
+                                }
+                            ]
                         }
                     ]
                 }

@@ -17,7 +17,27 @@ export default class AddUpdate extends React.Component {
             dimList: null,
             portList: null,
             form: {
+                imageUrl: '',
                 dimensionId: '',
+                price: '',
+                portId: '',
+                locationName: '',
+                owner: '',
+                mobile: '',
+
+                amount: '',
+                referenceAmount: '',
+                abrasion: '',
+                blue: '',
+                mouthEaten: '',
+                corrosion: '',
+                origin: '',
+                inclinedcrack: '',
+                cyclecrack: '',
+                oiled: '',
+                darkpith: '',
+                content: '',
+
                 subscript: 0
             },
             disabled: true
@@ -63,12 +83,15 @@ export default class AddUpdate extends React.Component {
 
         if (key && event) {
             form[key] = event.target.value;
-            console.log(form[key]);
             // 是否订阅
             if (key === 'subscript') {
                 form[key] = event.target.checked === true ? 1 : 0;
             }
 
+        }
+
+        if ($.trim(form.imageUrl) === '') {
+            disabled = true;
         }
 
         if ($.trim(form.dimensionId) === '') {
@@ -100,6 +123,11 @@ export default class AddUpdate extends React.Component {
         });
 
     }
+    onUploadSuccess(imgUrl) {
+        let form = this.state.form;
+        form.imageUrl = imgUrl;
+        this.checkDisabled();
+    }
     render() {
 
         let form = this.state.form;
@@ -128,7 +156,9 @@ export default class AddUpdate extends React.Component {
 
         return (
             <div className="module-add">
-                <Upload tip="添加图片" />
+                <Upload tip="添加图片"
+                        onUploadSuccess={this.onUploadSuccess.bind(this)}
+                        url="/unsold/filesUpload"/>
                 <div className="content">
                     <div className="ui-title">
                         <h3 className="text">选择规格</h3>
@@ -151,6 +181,7 @@ export default class AddUpdate extends React.Component {
                                 <div className="input-box">
                                     <input className="input input-block"
                                            type="number"
+                                           value={this.state.form.price}
                                            onChange={this.checkDisabled.bind(this, 'price')}
                                            placeholder="请输入价格" />
                                 </div>
@@ -182,6 +213,7 @@ export default class AddUpdate extends React.Component {
                                 <div className="input-box">
                                     <input className="input input-block"
                                            type="text"
+                                           value={this.state.form.locationName}
                                            onChange={this.checkDisabled.bind(this, 'locationName')}
                                            maxLength="100"
                                            placeholder="请输入货物位置" />
@@ -194,6 +226,7 @@ export default class AddUpdate extends React.Component {
                                 <div className="input-box">
                                     <input className="input input-block"
                                            type="text"
+                                           value={this.state.form.owner}
                                            onChange={this.checkDisabled.bind(this, 'owner')}
                                            maxLength="30"
                                            placeholder="请输入货主姓名" />
@@ -206,6 +239,7 @@ export default class AddUpdate extends React.Component {
                                 <div className="input-box">
                                     <input className="input input-block"
                                            type="number"
+                                           value={this.state.form.mobile}
                                            onChange={this.checkDisabled.bind(this, 'mobile')}
                                            maxLength="11"
                                            placeholder="请输入手机号" />
@@ -224,6 +258,7 @@ export default class AddUpdate extends React.Component {
                                     <div className="input-box">
                                         <input className="input input-block"
                                                type="number"
+                                               value={this.state.form.amount}
                                                onChange={this.checkDisabled.bind(this, 'amount')}
                                                placeholder="请输入总货量" />
                                     </div>
@@ -235,6 +270,7 @@ export default class AddUpdate extends React.Component {
                                     <div className="input-box">
                                         <input className="input input-block"
                                                type="number"
+                                               value={this.state.form.referenceAmount}
                                                onChange={this.checkDisabled.bind(this, 'referenceAmount')}
                                                placeholder="请输入参考根数" />
                                     </div>

@@ -98,8 +98,8 @@ let _loadingToast = new Toast({
 });
 
 function getLoadingText(text) {
-    let _loadingText = `
-        <p className="toast-tip">
+    return `
+        <p class="toast-tip">
             <svg viewBox="0 0 64 64">
                 <g>
                     <defs>
@@ -118,7 +118,6 @@ function getLoadingText(text) {
         </p>
         <p class="toast-text">${text || '请稍候...'}</p>
     `;
-    return _loadingText;
 }
 
 window.loading = function (text) {

@@ -23,7 +23,7 @@ export default class extends React.Component {
             provinces: china.query(),
             form: {
                 province: '',
-                storetypeId: '',
+                type: '',
                 limitStart: 0,
                 limitCount: LIMIT_COUNT
             }
@@ -33,7 +33,7 @@ export default class extends React.Component {
     filterData(key, event) {
 
         let form = this.state.form;
-debugger;
+
         if (key && event) {
             form[key] = event.target.value;
         }
@@ -44,6 +44,9 @@ debugger;
                 list: rep.result.list
             });
         });
+
+        this.setState({});
+
     }
     componentDidMount() {
 
@@ -86,8 +89,8 @@ debugger;
                     <label className="item">
                         <span className="for">类型</span>
                         <select className="select"
-                                value={this.state.form.storetypeId}
-                                onChange={this.filterData.bind(this, 'storetypeId')}>
+                                value={this.state.form.type}
+                                onChange={this.filterData.bind(this, 'type')}>
                             <option value="">选择</option>
                             {
                                 this.state.typeList !== null ?
