@@ -86,7 +86,7 @@ export default class List extends React.Component {
                         <select className="select"
                                 value={this.state.form.portId}
                                 onChange={this.filterData.bind(this, 'portId')}>
-                            <option value="">请选择</option>
+                            <option value="">选择</option>
                             {
                                 this.state.portList !== null ?
                                     this.state.portList.map((item, index) => {

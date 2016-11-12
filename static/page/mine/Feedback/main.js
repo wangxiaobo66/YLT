@@ -73,6 +73,11 @@ export default class Feedback extends React.Component {
         });
 
     }
+    onUploadSuccess(imgUrl) {
+        let form = this.state.form;
+        form.imgUrl = imgUrl;
+        this.checkDisabled();
+    }
     render() {
         let form = this.state.form;
         return (
@@ -99,7 +104,9 @@ export default class Feedback extends React.Component {
                         </label>
                     </div>
                 </form>
-                <Upload tip="添加图片" url={form.imgUrl} />
+                <Upload tip="添加图片"
+                        onUploadSuccess={this.onUploadSuccess.bind(this)}
+                        url="/feedback/filesUpload" />
                 <div className="ui-title fn-mt10">
                     <h3 className="text">具体描述</h3>
                 </div>
