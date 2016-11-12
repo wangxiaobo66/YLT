@@ -33,12 +33,41 @@ function register(state={},action){
     }
 }
 
-const { SERVICE_LIST } = require('../page/service/actions');
-function service(state={data:""},action){
+const { SERVICE_LIST , SERVICE_DETAIL , SERVICE_EXPORT } = require('../page/service/actions');//服务
+function service(state={data:"",detail:"",type:""},action){
     switch (action.type){
         case SERVICE_LIST:
             let data = {data:action.data};
             return Object.assign({},state,data);
+        case SERVICE_DETAIL:
+            let detail = {detail:action.data};
+            return Object.assign({},state,detail);
+        case SERVICE_EXPORT:
+            let type = {type:action.data};
+            return Object.assign({},state,type);
+        default:
+            return state;
+    }
+}
+
+const { PORT , TREE , GOODS , LENGTH , LIST } = require('../page/ask-buy/actions');//求购
+function askBuy(state={port:"",tree:"",goods:"",length:"",list:""},action){
+    switch (action.type){
+        case PORT:
+            let port = {port:action.data};
+            return Object.assign({},state,port);
+        case TREE:
+            let tree = {tree:action.data};
+            return Object.assign({},state,tree);
+        case GOODS:
+            let goods = {goods:action.data};
+            return Object.assign({},state,goods);
+        case LENGTH:
+            let length = {length:action.data};
+            return Object.assign({},state,length);
+        case LIST:
+            let list = {list:action.data};
+            return Object.assign({},state,list);
         default:
             return state;
     }
@@ -47,5 +76,6 @@ export const YLT = combineReducers({
     index,//首页
     outLogin,//站外登录
     register,//站外注册,站内补充
-    service//服务列表
+    service,//服务列表
+    askBuy//求购
 });

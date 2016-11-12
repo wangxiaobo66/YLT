@@ -9,6 +9,8 @@ import {Link} from 'react-router';
 
 const { addInform } = require('./../actions.js');//从actions里拿到方法
 
+let type = "";
+
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
@@ -25,10 +27,6 @@ export default class Item extends React.Component {
         };
     }
 
-    componentDidMount() {
-
-    }
-
     render() {
         let that = this;
         let { data } = this.state;
@@ -41,12 +39,12 @@ export default class Item extends React.Component {
                             <div className="input-box input-box--select">
                                 <select className="ui-select" onChange={(e) => this.onchange(e,'type')}>
                                     <option value="请选择服务类型">请选择服务类型</option>
-                                    <option value="0">求车服务</option>
-                                    <option value="1">场地出租</option>
-                                    <option value="2">设备租售</option>
-                                    <option value="3">招聘服务</option>
-                                    <option value="4">求职服务</option>
-                                    <option value="5">其它服务</option>
+                                    <option value="1">求车服务</option>
+                                    <option value="2">场地出租</option>
+                                    <option value="3">设备租售</option>
+                                    <option value="4">招聘服务</option>
+                                    <option value="5">求职服务</option>
+                                    <option value="6">其它服务</option>
                                 </select>
                             </div>
                         </label>
@@ -108,6 +106,17 @@ export default class Item extends React.Component {
         );
     }
 
+    componentDidMount() {
+
+    }
+
+    componentWillReceiveProps(nextProps) {
+        let typeProps = nextProps.service.type;
+        //console.log(typeProps,"*");
+        type = typeProps;
+        this.alert(type);
+    }
+
     onchange(e,name){
         let {data} = this.state;
         let text = e.target.value;
@@ -145,8 +154,24 @@ export default class Item extends React.Component {
         }
     }
     onclick(e){
-        let { dispatch} = this.props;
+        let { dispatch } = this.props;
         let {data} = this.state;
         dispatch(addInform(data));
+        this.alert();
+    }
+    alert(type){
+        let that = this;
+        if(type===1){
+            window.toast('发布服务成功!',{
+                callback(){
+                    //window.history.go(-1);
+                    that.props.history.push({
+                       pathname:'/'
+                    });
+                }
+            })
+        }else if(type===2){
+            window.toast('发布服务失败!');
+        }
     }
 }

@@ -6,8 +6,8 @@
 
 let util = require('../../js/app/util');
 
-const URL_ADD_GG = '/front.irito.serve/subscript/addStandard';
-const URL_ADD_CPH = '/front.irito.server/subscript/addVehiclenum';
+const URL_ADD_GG = '/subscript/addStandard';
+const URL_ADD_CPH = '/subscript/addVehiclenum';
 
 export default {
     addGg(param = {}) {

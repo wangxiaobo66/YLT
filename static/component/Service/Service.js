@@ -22,7 +22,7 @@ export class Service extends React.Component {
                             <span>{obj.title}</span>
                         </p>
                         <p className="time">
-                            {/*moment(obj.createTime).format('YYYY-MM-DD hh:mm:ss')*/}
+                            {moment(obj.createTime).format('YYYY-MM-DD hh:mm:ss')}
                         </p>
                     </div>
                     <div className="right">

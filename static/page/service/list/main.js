@@ -88,7 +88,7 @@ export default class Item extends React.Component {
                             service.data !== "" ?
                                 service.data.list.map(function (obj, index) {
                                     return <li className="item">
-                                                <Link className="item-link" to="detail">
+                                                <Link className="item-link" to={"detail/"+obj.id}>
                                                     <Service obj={obj} key={index} />
                                                 </Link>
                                             </li>

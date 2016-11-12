@@ -34,7 +34,7 @@ export default [
      <option value="2">其他</option>
      */
     {
-        path: '/front.irito.server/base/options',
+        path: '/base/options',
         method: 'POST',
         handler: function (request, reply) {
             let params = request.payload;
