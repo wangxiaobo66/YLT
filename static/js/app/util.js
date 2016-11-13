@@ -2,7 +2,7 @@ const eventEmitter = require('event-emitter');
 import moment from 'moment';
 import '../../component/Toast/Toast';
 import {LOGIN_USER_KEY} from './contants';
-//let fetch = require('node-fetch');
+let fetch = require('node-fetch');
 
 module.exports = {
     events: eventEmitter({}),
