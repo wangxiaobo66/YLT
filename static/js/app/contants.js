@@ -12,6 +12,8 @@
  
 export const LIMIT_COUNT = 10;
 
+export const LOGIN_USER_KEY = 'YLT_USER_ID';
+
 // 树种
 export const TYPE_TREE = 1;
 export const TYPE_WUZHONG = 2;
