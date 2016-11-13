@@ -63,11 +63,13 @@ gulp.task('server:hot', function () {
                 {
                     path: '/*',
                     // target: 'http://localhost:' + PORT_HAPI
+                    // target: LI_WEN_IP_HOST,
                     target: SERVER_IP_HOST
                 },
                 {
                     path: '/base/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
+                    // target: LI_WEN_IP_HOST
                     target: SERVER_IP_HOST
                 },
                 {

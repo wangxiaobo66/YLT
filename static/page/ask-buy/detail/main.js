@@ -19,31 +19,18 @@ export default class Item extends React.Component {
             list:null
         };
     }
-    componentDidMount() {
-        let { dispatch} = this.props;
-        let data= {"buyingOrderId":this.props.params.id};
-        console.log(data);
-        dispatch(orderDetail(data));
-    }
-    componentWillReceiveProps(nextProps) {
-        let detail = nextProps.askBuy.detail;
-        console.log(detail);
-        this.setState({
-            list:detail
-        })
-    }
     render() {
         let that = this;
         let { list } = this.state;
         return (
             <div className="module-detail">
                 <div className="detail-box">
-                    <Title content="基本规格" tip="0803 12:12" />
+                    <Title content="基本规格" tip={list!=null?moment(list.createTime).format('YYYY-MM-DD hh:mm:ss'):null} />
                     <div className="content">
                         <div className="content-row">
                             {
                                 list!= null?
-                                (list.treetypeName) (list.goodstypeName) (list.lengthName)
+                                    list.treetypeName + list.goodstypeName + list.lengthName
                                     :
                                     null
                             }
@@ -53,7 +40,7 @@ export default class Item extends React.Component {
                         <Text label="长度" text={list!=null?list.lengthName:null} half={true} border={false} />
                         <Text label="口岸" text={list!=null?list.portName:null} half={true} border={false} />
                         <Text label="价格" text={list!=null?list.price:null} half={true} border={false} />
-                        <Text label="总重量" text={list!=null?list.amount:null} />
+                        <Text label="总重量" text={list!=null?list.amount:null} half={true} border={false}/>
                     </div>
                 </div>
 
@@ -91,5 +78,16 @@ export default class Item extends React.Component {
                 </div>
             </div>
         );
+    }
+    componentDidMount() {
+        let { dispatch} = this.props;
+        let data= {"buyingOrderId":this.props.params.id};
+        dispatch(orderDetail(data));
+    }
+    componentWillReceiveProps(nextProps) {
+        let detail = nextProps.askBuy.detail;
+        this.setState({
+            list:detail
+        })
     }
 }

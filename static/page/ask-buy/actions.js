@@ -164,5 +164,6 @@ module.exports = {
     TREE:"TREE",
     GOODS:"GOODS",
     LENGTH:"LENGTH",
-    LIST:"LIST"
+    LIST:"LIST",
+    DETAIL:"DETAIL"
 };
