@@ -120,21 +120,35 @@ module.exports = {
     },
     //上传图片
     fileUpload(inputId, url){//inputId为document.getElementById('inputId'),url为接口名
-        var xmlhttp = new XMLHttpRequest();
+
+        let deferred = $.Deferred();
+
         var formData = new FormData();
         if (!inputId.value) {
             return false
         } else {
+            window.loading('正在上传, 请稍候...');
             formData.append('upImg', inputId.files[0]);
-            return fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json, text/javascript, */*; q=0.01' //接受数据格式
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (rep) {
+                    window.unloading();
+                    deferred.resolveWith(this, [rep]);
                 },
-                credentials: 'include', //使用cookie  默认不使用cookie
-                body: formData
+                error: function (xhr, type) {
+                    deferred.rejectWith(this, ['网络异常, 请稍候再试']);
+                    console.log('【网络异常, 请稍候再试】*************** ', JSON.stringify(xhr), ' ***************');
+                    // lib.alert('网络异常, 请稍候再试');
+                    // window.toast('网络异常, 请稍候再试');
+                }
             });
+            return deferred.promise();
         }
+
     },
     scroll(){
 

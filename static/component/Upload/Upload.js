@@ -21,6 +21,7 @@ export default class Upload extends React.Component {
     }
     fileChange() {
         let input = util.fileUpload(this.refs.file, this.props.url).then(rep => {
+            debugger;
             let imgUrl;
             if (+rep.state === 1) {
                 imgUrl = rep.result.files[0].url;
