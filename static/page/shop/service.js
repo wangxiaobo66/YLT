@@ -5,6 +5,7 @@
  */
 
 import util from '../../js/app/util';
+import {LOGIN_USER_KEY} from '../../js/app/contants';
 
 export default {
 
@@ -31,6 +32,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     addMyStore(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/store/addStore', param).then((rep) => {
             return rep.json();
         });
@@ -42,6 +44,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     updateMyStore(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/store/updateStore', param).then((rep) => {
             return rep.json();
         });
@@ -53,6 +56,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     delMyStore(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/store/delStore', param).then((rep) => {
             return rep.json();
         });
@@ -70,6 +74,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     showMyStore(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/store/showMyStore', param).then((rep) => {
             return rep.json();
         });

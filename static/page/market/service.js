@@ -5,6 +5,7 @@
  */
 
 import util from '../../js/app/util';
+import {LOGIN_USER_KEY} from '../../js/app/contants';
 
 export default {
 
@@ -25,6 +26,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     addUnsold(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/unsold/addUnsold', param).then((rep) => {
             return rep.json();
         });
@@ -36,6 +38,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     updateUnsold(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/unsold/updateUnsold', param).then((rep) => {
             return rep.json();
         });
@@ -47,6 +50,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     delUnsold(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/unsold/delUnsold', param).then((rep) => {
             return rep.json();
         });
@@ -63,15 +67,14 @@ export default {
         });
     },
 
-
-
-
+    
     /**
      * 规格列表
      * @param param
      * @returns {*|Promise.<TResult>}
      */
     dimList(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/unsold/dimList', param).then((rep) => {
             return rep.json();
         });
@@ -83,6 +86,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     addDimension(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/unsold/addDimension', param).then((rep) => {
             return rep.json();
         });
@@ -94,6 +98,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     delDimension(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/unsold/delDimension', param).then((rep) => {
             return rep.json();
         });
@@ -105,6 +110,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     addUnsoldReport(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/unsold/addUnsoldReport', param).then((rep) => {
             return rep.json();
         });
