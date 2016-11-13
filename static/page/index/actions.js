@@ -36,9 +36,7 @@ module.exports = {
         return function (dispatch) {
             return postAskBuyList(info).then(
                 function (res) {
-                    res.json().then(function (json) {
-                        dispatch(list(json.result.list));
-                    })
+                    dispatch(list(res.result.list));
                 }
             )
         };

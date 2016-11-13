@@ -5,27 +5,26 @@ let util = require('../../js/app/util');
 import {LOGIN_USER_KEY} from '../../js/app/contants';
 
 //登录
-function postLogin(data){
+function postLogin(data) {
     let url = '/user/login/phone';
     return util.postRequest(url, data);
 }
 
 module.exports = {
-    userOutLogin:function(data){
+    userOutLogin: function (data) {
         let info = data;
         return function (dispatch) {
             return postLogin(info).then(
                 function (res) {
-                    res.json().then(function (json) {
-                       if(json.reason==="success"){
-                           window.sessionStorage.setItem(LOGIN_USER_KEY, json.result.data.consumerId);
-                           window.setTimeout(function () {
-                               window.location.href = './index.html';
-                           }, 100);
-                       }else {
-                           window.toast('请输入正确的账号密码!');
-                       }
-                    })
+                    console.log(res);
+                    if (res.reason === "success") {
+                        window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
+                        window.setTimeout(function () {
+                            window.location.href = './index.html';
+                        }, 100);
+                    } else {
+                        window.toast('请输入正确的账号密码!');
+                    }
                 }
             )
         }

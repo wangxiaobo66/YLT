@@ -80,9 +80,7 @@ module.exports = {
         return function (dispatch) {
             return postAskBuyList(info).then(
                 function (res) {
-                    res.json().then(function (json) {
-                        dispatch(list(json.result.list));
-                    })
+                        dispatch(list(res.result.list));
                 }
             )
         };
@@ -94,9 +92,7 @@ module.exports = {
                 return function (dispatch) {
                     return postOptions(info).then(
                         function (res) {
-                            res.json().then(function (json) {
-                                dispatch(port(json.result.list));
-                            })
+                                dispatch(port(res.result.list));
                         }
                     )
                 };
@@ -105,9 +101,7 @@ module.exports = {
                 return function (dispatch) {
                     return postOptions(info).then(
                         function (res) {
-                            res.json().then(function (json) {
-                                dispatch(tree(json.result.list));
-                            })
+                                dispatch(tree(res.result.list));
                         }
                     )
                 };
@@ -116,9 +110,7 @@ module.exports = {
                 return function (dispatch) {
                     return postOptions(info).then(
                         function (res) {
-                            res.json().then(function (json) {
-                                dispatch(goods(json.result.list));
-                            })
+                                dispatch(goods(res.result.list));
                         }
                     )
                 };
@@ -127,9 +119,7 @@ module.exports = {
                 return function (dispatch) {
                     return postOptions(info).then(
                         function (res) {
-                            res.json().then(function (json) {
-                                dispatch(length(json.result.list));
-                            })
+                                dispatch(length(res.result.list));
                         }
                     )
                 };
@@ -141,11 +131,9 @@ module.exports = {
         return function (dispatch) {
             return postAddAskBuy(info).then(
                 function (res) {
-                    res.json().then(function (json) {
-                        if(json.reason==="SUCCESS"){
+                        if(res.reason==="SUCCESS"){
                             window.location.href = './ask-buy.html';
                         }
-                    })
                 }
             )
         };
@@ -155,9 +143,7 @@ module.exports = {
         return function (dispatch) {
             return postOrderDetail(info).then(
                 function (res) {
-                    res.json().then(function (json) {
-                        dispatch(detail(json.result.data));
-                    })
+                        dispatch(detail(res.result.data));
                 }
             )
         };
