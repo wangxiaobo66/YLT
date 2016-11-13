@@ -343,23 +343,23 @@ class component extends React.Component {
                     <div className="matte"></div>
                     <div className="information">
                         <div className="choose clearfix">
-                            <a href="javascript:;">
+                            <a href="./arrival.html#/add">
                                 <img src={img1}/>
                                 境外码单上传
                             </a>
-                            <a href="javascript:;">
+                            <a href="./market.html#/add">
                                 <img src={img2} />
                                 发布未售信息
                             </a>
-                            <a href="javascript:;">
+                            <a href="./shop.html#/add">
                                 <img src={img3} />
                                 我要开店
                             </a>
-                            <a href="javascript:;">
+                            <a href="./ask-buy.html#/add">
                                 <img src={img4} />
                                 发布求购信息
                             </a>
-                            <a href="javascript:;">
+                            <a href="./service.html#/add">
                                 <img src={img5} />
                                 发布服务
                             </a>

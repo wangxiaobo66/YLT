@@ -5,7 +5,7 @@
  */
 
 import util from './util';
-import {TYPE_TREE, TYPE_GOODS, TYPE_LENGTH, TYPE_PORT, TYPE_STORE, TYPE_REPORT} from './contants';
+import {TYPE_TREE, TYPE_GOODS, TYPE_LENGTH, TYPE_PORT, TYPE_STORE, TYPE_REPORT, LOGIN_USER_KEY} from './contants';
 
 export default {
     treetypeList(param = {}) {
@@ -61,7 +61,7 @@ export default {
         });
     },
 
-    
+
     // =====关注相关
     /**
      * 添加关注
@@ -69,6 +69,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     addInterest(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/interest/addInterest', param).then((rep) => {
             return rep.json();
         });
@@ -80,6 +81,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     showFocus(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/interest/showFocus', param).then((rep) => {
             return rep.json();
         });

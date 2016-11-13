@@ -81,7 +81,8 @@ gulp.task('server:hot', function () {
                 {
                     path: '/store/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
+                    // target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/user/**/*',
