@@ -18,10 +18,10 @@ module.exports = {
                 function (res) {
                     console.log(res);
                     if (res.reason === "success") {
-                        window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
-                        window.setTimeout(function () {
+                        //window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
+                        //window.setTimeout(function () {
                             window.location.href = './index.html';
-                        }, 100);
+                        //}, 100);
                     } else {
                         window.toast('请输入正确的账号密码!');
                     }
