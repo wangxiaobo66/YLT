@@ -7,6 +7,13 @@
 import EventEmitter from 'wolfy87-eventemitter';
 import '../../component/Toast/Toast';
 
+// Fastclick
+$(function() {
+    if (window.FastClick) {
+        FastClick.attach(document.body);
+    }
+});
+
 // 添加自定义事件处理器
 const eventEmitter = new EventEmitter();
 
