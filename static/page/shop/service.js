@@ -15,9 +15,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     storeList(param = {}) {
-        return util.postRequest('/store/storeList', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/store/storeList', param);
     },
 
     /**
@@ -26,9 +24,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     unsoldList(param = {}) {
-        return util.postRequest('/unsold/unsoldList', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/unsold/unsoldList', param);
     },
 
     /**
@@ -38,9 +34,7 @@ export default {
      */
     addMyStore(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/store/addStore', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/store/addStore', param);
     },
 
     /**
@@ -50,9 +44,7 @@ export default {
      */
     updateMyStore(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/store/updateStore', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/store/updateStore', param);
     },
 
     /**
@@ -62,15 +54,11 @@ export default {
      */
     delMyStore(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/store/delStore', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/store/delStore', param);
     },
 
     showStore(param = {}) {
-        return util.postRequest('/store/showStore', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/store/showStore', param);
     },
 
     /**
@@ -80,9 +68,7 @@ export default {
      */
     showMyStore(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/store/showMyStore', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/store/showMyStore', param);
     }
 
 }

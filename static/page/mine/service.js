@@ -14,9 +14,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     detail(param = {}) {
-        return util.postRequest('/user/showUser', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/user/showUser', param);
     },
 
     /**
@@ -25,9 +23,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     update(param = {}) {
-        return util.postRequest('/user/updateUser', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/user/updateUser', param);
     },
 
     /**
@@ -36,9 +32,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     sendVerifyCode(param = {}) {
-        return util.postRequest('/user/sendCode', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/user/sendCode', param);
     },
 
     /**
@@ -47,9 +41,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     myTopList(param = {}) {
-        return util.postRequest('/msg/myTopList', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/msg/myTopList', param);
     },
 
     /**
@@ -58,9 +50,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     msgList(param = {}) {
-        return util.postRequest('/msg/msgList', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/msg/msgList', param);
     },
 
     /**
@@ -69,9 +59,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     addMsg(param = {}) {
-        return util.postRequest('/msg/addMsg', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/msg/addMsg', param);
     },
 
     /**
@@ -80,9 +68,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     addFeedback(param = {}) {
-        return util.postRequest('/feedback/addFeedback', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/feedback/addFeedback', param);
     },
 
     /**
@@ -91,9 +77,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     interestList(param = {}) {
-        return util.postRequest('/interest/interestList', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/interest/interestList', param);
     },
 
     /**
@@ -102,9 +86,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     delInterest(param = {}) {
-        return util.postRequest('/interest/delInterest', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/interest/delInterest', param);
     },
 
     /**
@@ -113,9 +95,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     showMyUnsoldList(param = {}) {
-        return util.postRequest('/unsold/showMyUnsoldList', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/unsold/showMyUnsoldList', param);
     }
 
 
