@@ -52,9 +52,7 @@ module.exports = {
         return function (dispatch) {
             return postServiceList(info).then(
                 function (res) {
-                    res.json().then(function (json) {
-                        dispatch(serviceList(json.result))
-                    })
+                        dispatch(serviceList(res.result))
                 }
             )
         }
@@ -64,9 +62,7 @@ module.exports = {
         return function (dispatch) {
             return postAdd(info).then(
                 function (res) {
-                    res.json().then(function (json) {
-                        dispatch(serviceExport(json.state))
-                    })
+                        dispatch(serviceExport(res.state))
                 }
             )
         }
@@ -76,9 +72,7 @@ module.exports = {
         return function (dispatch) {
             return postDetail(info).then(
                 function (res) {
-                    res.json().then(function (json) {
-                        dispatch(serviceDetail(json.result))
-                    })
+                        dispatch(serviceDetail(res.result))
                 }
             )
         }

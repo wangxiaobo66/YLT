@@ -27,15 +27,12 @@ module.exports = {
         return function (dispatch) {
             return postRegister(info).then(
                 function (res) {
-                    res.json().then(function (json) {
-                        console.log(json);
-                        if(json.reason==="success"){
-                            window.sessionStorage.setItem(LOGIN_USER_KEY, json.result.data.consumerId);
+                        if(res.reason==="success"){
+                            window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
                             window.setTimeout(function () {
                                 window.location.href = './index.html';
                             }, 100);
                         }
-                    })
                 }
             )
         }
@@ -45,10 +42,8 @@ module.exports = {
         return function (dispatch){
             return postSms(info).then(
                 function (res) {
-                    res.json().then(function (json) {
-                        console.log(json);
+                        console.log(res);
                         //dispatch(userRegister(json.result))
-                    })
                 }
             )
         }
