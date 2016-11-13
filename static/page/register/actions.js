@@ -29,9 +29,10 @@ module.exports = {
                 function (res) {
                         if(res.reason==="success"){
                             //window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
-                            //window.setTimeout(function () {
+                            window.toast('注册成功!');
+                            window.setTimeout(function () {
                                 window.location.href = './index.html';
-                            //}, 100);
+                            }, 500);
                         }
                 }
             )

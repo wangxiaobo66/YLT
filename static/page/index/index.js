@@ -283,7 +283,7 @@ class component extends React.Component {
                                     <p>
                                         <a href="javascript:;"><img src="../../static/images/service-1.png"/>木材资讯</a>
                                         <a href="javascript:;"><img src="../../static/images/service-2.png"/>铁路运费</a>
-                                        <a href="javascript:;"><img src="../../static/images/service-3.png"/>新增订阅</a>
+                                        <a href="./shop.html"><img src="../../static/images/service-3.png"/>精品店铺</a>
                                     </p>
                                     <p>
                                         <a href="./service.html?type=car"><img src="../../static/images/service-4.png"/>求车服务</a>
@@ -465,7 +465,8 @@ class component extends React.Component {
                     mineActive: true,
                     matte: false
                 });
-                window.location.href = "./mine.html";
+                window.toast('维护中!');
+                //window.location.href = "./mine.html";
                 break;
         }
         let { publishActive } = this.state;
