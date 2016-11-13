@@ -141,7 +141,8 @@ class component extends React.Component {
                  onKeyDown={(e) => util.events.emit('bodyKeyDown', e)}>
                 <div className="index-search">
                     <img src={imgBackground} className="background"/>
-                    <img src={imgLogo} className="logo"/>
+                    <p className="index-title">满洲里铁路国际联运服务平台</p>
+                    {/*<img src={imgLogo} className="logo"/>*/}
                     <div className="search">
                         <img src={imgIcon} className="icon"/>
                         <form action="./arrival.html">{/*跳转问题*/}
@@ -296,8 +297,8 @@ class component extends React.Component {
                                 </div>
                                 <div className="switch-issue"><img src={imgIssue} /><a
                                     href="./service.html#/add">发布服务</a></div>
-                                <div className="subscribe-div"><span></span>我的订阅</div>
-                                <Subscribe />
+                                {/*<div className="subscribe-div"><span></span>我的订阅</div>
+                                <Subscribe />*/}
                             </div>
                         </div>
                     </div>
