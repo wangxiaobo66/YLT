@@ -50,6 +50,7 @@ Array.prototype.unique = function(){//数组去重并输出新数组
     return res;
 };
 
+/*
 let dataAskBuys = [
     {
         "region": "满洲里",
@@ -70,32 +71,7 @@ let dataAskBuys = [
         "level": "一级"
     }
 ];
-
-let dataMarkets = [
-    {
-        "imgSrc": "../../static/images/ys.png",
-        "name": "落叶松1",
-        "size": "六米",
-        "type": "原木",
-        "currentPosition": "明斯克",
-        "Destination": "满洲里",
-        "pubDate": "9-30|10:01",
-        "diam": "20",
-        "level": "一级"
-    },
-    {
-        "imgSrc": "../../static/images/ys.png",
-        "name": "落叶松2",
-        "size": "三米",
-        "type": "原木",
-        "currentPosition": "明斯克",
-        "destination": "满洲里",
-        "pubDate": "9-30|10:01",
-        "diam": "20",
-        "level": "一级"
-    }
-];
-
+*/
 let seats = [
     {
         "id": 1,
@@ -140,7 +116,7 @@ let arrvalDefaults = [
     }
 ];
 
-//let { change } = require('./actions');
+let { askBuyList } = require('./actions');//从actions里取出方法
 class component extends React.Component {
     constructor(props) {
         super(props);
@@ -151,13 +127,13 @@ class component extends React.Component {
             matte: false,
             search: false,
             searchValue:'',
-            dataMarkets: null
+            dataMarkets: null,
+            dataAskBuys: null
         }
     }
 
     render() {
         let { index } = this.props;
-        console.log(historyList);
         let { homeActive , publishActive , mineActive , matte , search , searchValue } = this.state;
         return (
             <div className={"modal-index clearfix" + (search?" search":"")}
@@ -203,9 +179,12 @@ class component extends React.Component {
                             </div>
                             <div className="swiper-slide">
                                 {
-                                    dataAskBuys.map(function (item, index) {
-                                        return <AskBuy obj={item} key={index} />;
-                                    })
+                                    this.state.dataAskBuys !==null?
+                                        this.state.dataAskBuys.map(function (item, index) {
+                                            return <AskBuy obj={item} key={index} />;
+                                        })
+                                        :
+                                        null
                                 }
                                 <div className="switch-all"><img src={imgRightIcon} /><a
                                     href="./ask-buy.html">查看全部求购信息</a></div>
@@ -411,6 +390,17 @@ class component extends React.Component {
                 dataMarkets: rep.result.list
             });
         });
+        //获取求购列表
+        let {dispatch} = this.props;
+        let info = {"limitStart":"0","limitCount":"5","portId":"0","goodstypeId":"0","treetypeId":"0","lengthId":"0"};
+        dispatch(askBuyList(info));
+    }
+    componentWillReceiveProps(nextProps) {
+        let askBuy = nextProps.index.askBuy;
+        this.setState({
+            dataAskBuys:askBuy
+        })
+        let { dataAskBuys } = this.state;
     }
 
     historyDom(historyList){
@@ -477,7 +467,6 @@ class component extends React.Component {
     }
 
     searchClick(e) {
-        console.log(window.localStorage);
         this.setState({
             search: true
         });

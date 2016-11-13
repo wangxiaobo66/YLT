@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux'
 
-const {INDEX_NUM} = require('../page/index/actions');
-function index(state={num:1},action){
+const { INDEX_NUM , ASKBUY_LIST } = require('../page/index/actions');
+function index(state={num:1,askBuy:""},action){
     switch (action.type) {
         case INDEX_NUM:
             let num = {num:action.num};
             return Object.assign({},state,num);
+        case ASKBUY_LIST:
+            let askBuy = {askBuy:action.data};
+            return Object.assign({},state,askBuy);
         default:
             return state;
     }

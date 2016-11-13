@@ -63,55 +63,55 @@ gulp.task('server:hot', function () {
                 {
                     path: '/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/base/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/subscript/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/store/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/user/**/*',
                     //target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/msg/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/feedback/**/*',
                     //target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/interest/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/unsold/**/*',
                     //target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/inform/**/*',
-                    target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/buying/**/*',
-                    target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 }
             ],
             stats: {

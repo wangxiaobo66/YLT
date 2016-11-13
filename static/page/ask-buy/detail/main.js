@@ -16,7 +16,7 @@ export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            list:null
         };
     }
     componentDidMount() {
@@ -27,6 +27,7 @@ export default class Item extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
         let detail = nextProps.askBuy.detail;
+        console.log(detail);
         this.setState({
             list:detail
         })
@@ -40,14 +41,19 @@ export default class Item extends React.Component {
                     <Title content="基本规格" tip="0803 12:12" />
                     <div className="content">
                         <div className="content-row">
-                            {(list.treetypeName) (list.goodstypeName) (list.lengthName)}
+                            {
+                                list!= null?
+                                (list.treetypeName) (list.goodstypeName) (list.lengthName)
+                                    :
+                                    null
+                            }
                         </div>
-                        <Text label="树种" text={list.treetypeName} half={true} border={false} />
-                        <Text label="货种" text={list.goodstypeName} half={true} border={false} />
-                        <Text label="长度" text={list.lengthName} half={true} border={false} />
-                        <Text label="口岸" text={list.portName} half={true} border={false} />
-                        <Text label="价格" text={list.price} half={true} border={false} />
-                        <Text label="总重量" text={list.amount} />
+                        <Text label="树种" text={list!=null?list.treetypeName:null} half={true} border={false} />
+                        <Text label="货种" text={list!=null?list.goodstypeName:null} half={true} border={false} />
+                        <Text label="长度" text={list!=null?list.lengthName:null} half={true} border={false} />
+                        <Text label="口岸" text={list!=null?list.portName:null} half={true} border={false} />
+                        <Text label="价格" text={list!=null?list.price:null} half={true} border={false} />
+                        <Text label="总重量" text={list!=null?list.amount:null} />
                     </div>
                 </div>
 
@@ -58,11 +64,11 @@ export default class Item extends React.Component {
                     <div className="content-row">
                         <div className="item item-half">
                             <label>联系人: </label>
-                            <span className="text">{list.buyer}</span>
+                            <span className="text">{list!=null?list.buyer:null}</span>
                         </div>
                         <div className="item item-half">
                             <label>联系电话: </label>
-                            <span className="text">{list.mobile}</span>
+                            <span className="text">{list!=null?list.mobile:null}</span>
                         </div>
                     </div>
                 </div>

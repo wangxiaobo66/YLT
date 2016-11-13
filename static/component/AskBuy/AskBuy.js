@@ -36,26 +36,28 @@ export class AskBuy extends React.Component {
     render() {
         let obj = this.props.obj;
         return (
-            <div className="component AskBuy-component">
-                <div className="box">
-                    <div className="left">
-                        <p className="title">
-                            <img src={imgMap}/>
-                            <span>{obj.portName}</span>
-                        </p>
-                        <p className="time">
-                            {moment(obj.createTime).format('YYYY-MM-DD hh:mm:ss')}
-                        </p>
+            <a href={"./ask-buy.html#/detail/"+obj.orderId}>
+                <div className="component AskBuy-component">
+                    <div className="box">
+                        <div className="left">
+                            <p className="title">
+                                <img src={imgMap}/>
+                                <span>{obj.portName}</span>
+                            </p>
+                            <p className="time">
+                                {moment(obj.createTime).format('YYYY-MM-DD hh:mm:ss')}
+                            </p>
+                        </div>
+                        <div className="right">
+                            <p>
+                                <span>{obj.treetypeName}</span><span>{obj.goodstypeName}</span><span>{obj.lengthName}</span>
+                            </p>
+                            <p><span>数量:{obj.amount}</span></p>
+                        </div>
                     </div>
-                    <div className="right">
-                        <p>
-                            <span>{obj.treetypeName}</span><span>{obj.goodstypeName}</span><span>{obj.lengthName}</span>
-                        </p>
-                        <p><span>数量:{obj.amount}</span></p>
-                    </div>
+                    <div className="ui-point"></div>
                 </div>
-                <div className="ui-point"></div>
-            </div>
+            </a>
         );
 
         // let listdom = [];

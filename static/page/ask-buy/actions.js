@@ -26,7 +26,7 @@ function postOrderDetail(data){
     return util.postRequest(url,data);
 }
 
-const LIST = "LIST";
+const LIST = "LIST";//求购list
 function list(data){
     return {
         type:LIST,

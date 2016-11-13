@@ -51,8 +51,8 @@ render(
         <Router history={hashHistory}>
             <Route path="/" component={Ask}>
                 <IndexRoute component={ListComp} />
-                <Route path="detail" component={DetailComp} />
-                <Route path="add" component={AddComp} />
+                <Route path="/detail/:id" component={DetailComp} />
+                <Route path="/add" component={AddComp} />
             </Route>
         </Router>
     </Provider>,
