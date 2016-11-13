@@ -19,6 +19,11 @@ export default class Item extends React.Component {
             list:null
         };
     }
+    sendMsg() {
+        window.toast('正在维护中...');
+        return;
+        window.location.href = `./mine.html#/msg_chat/${this.state.detail.userId}`;
+    }
     render() {
         let that = this;
         let { list } = this.state;
@@ -71,9 +76,11 @@ export default class Item extends React.Component {
                 </div>
                 <div className="footer">
                     <div className="ui-tab ui-tab-white ui-tab-fixed">
-                        <a href="/shop.html#/home" className="item">店铺</a>
+                        {/*
+                        <a href={`./shop.html#/home/${list.storeId}`} className="item">店铺</a>
+                         */}
                         <a href="tel:15811112222" className="item">电话联系</a>
-                        <a href="javascript;" className="item">发送消息</a>
+                        <a href="javascript:;" onClick={this.sendMsg.bind(this)} className="item">发送消息</a>
                     </div>
                 </div>
             </div>

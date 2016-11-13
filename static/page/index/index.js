@@ -6,6 +6,7 @@ const util = require('../../js/app/util.js');
 import '../../js/app/global';
 const React = require('react');
 const render = require('react-dom').render;
+import {Link} from 'react-router';
 
 import Market from '../../component/Market/Market';
 const { AskBuy } = require('../../component/AskBuy/AskBuy.js');
@@ -167,7 +168,11 @@ class component extends React.Component {
                                 {
                                     this.state.dataMarkets !== null ?
                                         this.state.dataMarkets.map(function (item, index) {
-                                            return <Market obj={item} key={index} />;
+                                            return (
+                                                <a className="item-link" key={index} href={`./market.html#/detail/${item.orderId}`}>
+                                                    <Market obj={item} />
+                                                </a>
+                                            );
                                         })
                                         :
                                         null

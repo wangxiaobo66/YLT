@@ -53,7 +53,7 @@ gulp.task('copy:images', function () {
 
 gulp.task('copy:lib', function () {
     return gulp
-        .src('./static/lib/*')
+        .src('./static/lib/**/*')
         .pipe(gulp.dest('./output/static/lib'));
 });
 
