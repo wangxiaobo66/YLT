@@ -11,13 +11,9 @@ const URL_ADD_CPH = '/subscript/addVehiclenum';
 
 export default {
     addGg(param = {}) {
-        return util.postRequest(URL_ADD_GG, param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest(URL_ADD_GG, param);
     },
     addCph(param = {}) {
-        return util.postRequest(URL_ADD_CPH, param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest(URL_ADD_CPH, param);
     }
 }

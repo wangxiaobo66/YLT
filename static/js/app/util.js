@@ -133,8 +133,6 @@ module.exports = {
                 },
                 credentials: 'include', //使用cookie  默认不使用cookie
                 body: formData
-            }).then(function (response) {
-                return response.json();
             });
         }
     },
