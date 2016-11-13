@@ -142,7 +142,9 @@ module.exports = {
             return postAddAskBuy(info).then(
                 function (res) {
                     res.json().then(function (json) {
-                        console.log(json);
+                        if(json.reason==="SUCCESS"){
+                            window.location.href = './ask-buy.html';
+                        }
                     })
                 }
             )
