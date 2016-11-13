@@ -31,3 +31,5 @@ export const CARE_TYPE_ARRIVAL = 0;
 export const CARE_TYPE_STORE = 1;
 export const CARE_TYPE_UNSOLD = 2;
 export const CARE_TYPE_ASKBUY = 3;
+
+export const STORE_LOGO_DEFAULT = 'http://img.gsxservice.com/23387438_shlxlqpx.jpg';

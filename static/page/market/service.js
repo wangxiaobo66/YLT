@@ -108,28 +108,6 @@ export default {
         return util.postRequest('/unsold/addUnsoldReport', param).then((rep) => {
             return rep.json();
         });
-    },
-
-    /**
-     * 添加关注
-     * @param param
-     * @returns {Promise.<TResult>|*}
-     */
-    addInterest(param = {}) {
-        return util.postRequest('/interest/addInterest', param).then((rep) => {
-            return rep.json();
-        });
-    },
-
-    /**
-     * 是否已关注
-     * @param param
-     * @returns {*|Promise.<TResult>}
-     */
-    showFocus(param = {}) {
-        return util.postRequest('/interest/showFocus', param).then((rep) => {
-            return rep.json();
-        });
     }
 
 
