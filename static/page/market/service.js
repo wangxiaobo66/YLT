@@ -15,9 +15,7 @@ export default {
      * @returns {Promise.<TResult>|*}
      */
     unsoldList(param = {}) {
-        return util.postRequest('/unsold/unsoldList', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/unsold/unsoldList', param);
     },
 
     /**
@@ -27,9 +25,7 @@ export default {
      */
     addUnsold(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/unsold/addUnsold', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/unsold/addUnsold', param);
     },
 
     /**
@@ -39,9 +35,7 @@ export default {
      */
     updateUnsold(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/unsold/updateUnsold', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/unsold/updateUnsold', param);
     },
 
     /**
@@ -51,9 +45,7 @@ export default {
      */
     delUnsold(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/unsold/delUnsold', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/unsold/delUnsold', param);
     },
 
     /**
@@ -62,12 +54,10 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     showUnsold(param = {}) {
-        return util.postRequest('/unsold/showUnsold', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/unsold/showUnsold', param);
     },
 
-    
+
     /**
      * 规格列表
      * @param param
@@ -75,9 +65,7 @@ export default {
      */
     dimList(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/unsold/dimList', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/unsold/dimList', param);
     },
 
     /**
@@ -87,9 +75,7 @@ export default {
      */
     addDimension(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/unsold/addDimension', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/unsold/addDimension', param);
     },
 
     /**
@@ -99,9 +85,7 @@ export default {
      */
     delDimension(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/unsold/delDimension', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/unsold/delDimension', param);
     },
 
     /**
@@ -111,9 +95,7 @@ export default {
      */
     addUnsoldReport(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/unsold/addUnsoldReport', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/unsold/addUnsoldReport', param);
     }
 
 

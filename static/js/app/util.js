@@ -2,7 +2,7 @@ const eventEmitter = require('event-emitter');
 import moment from 'moment';
 import '../../component/Toast/Toast';
 import {LOGIN_USER_KEY} from './contants';
-let fetch = require('node-fetch');
+// let fetch = require('node-fetch');
 
 module.exports = {
     events: eventEmitter({}),
@@ -53,20 +53,51 @@ module.exports = {
         // if (currentUserId) {
         //     data.userId = currentUserId;
         // }
-        window.toast('请稍候...');
-        return fetch(url, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/javascript, */*; q=0.01', //接受数据格式
-                'Content-Type': 'application/json; charset=UTF-8' //请求数据格式
-                //"x-csrf-token": scoreweb.token
+        window.loading('请稍候...');
+
+        let deferred = $.Deferred();
+        $.ajax({
+            url: url,
+            data: JSON.stringify(data),
+            type: 'POST',
+            dataType: 'JSON',
+            contentType: 'application/json; charset=UTF-8',
+            async: true,
+            timeout: 30000,
+            success: function (rep) {
+                window.unloading();
+                deferred.resolveWith(this, [rep]);
+                // if (+rep.status === 200 || +rep.status === 400) {
+                //     deferred.resolveWith(this, [rep]);
+                // } else {
+                //     deferred.rejectWith(this, [rep]);
+                //     console.log('*************** ', JSON.stringify(rep), ' ***************');
+                // }
             },
-            credentials: 'include', //使用cookie  默认不使用cookie
-            body: JSON.stringify(data)
-        }).then(rep => {
-            window.untoast();
-            return rep;
+            error: function (xhr, type) {
+                deferred.rejectWith(this, ['网络异常, 请稍候再试']);
+                console.log('【网络异常, 请稍候再试】*************** ', JSON.stringify(xhr), ' ***************');
+                // lib.alert('网络异常, 请稍候再试');
+                // window.toast('网络异常, 请稍候再试');
+            }
         });
+
+        return deferred.promise();
+
+        // return fetch(url, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json, text/javascript, */*; q=0.01', //接受数据格式
+        //         'Content-Type': 'application/json; charset=UTF-8' //请求数据格式
+        //         //"x-csrf-token": scoreweb.token
+        //     },
+        //     credentials: 'include', //使用cookie  默认不使用cookie
+        //     body: JSON.stringify(data)
+        // }).then(rep => {
+        //     window.untoast();
+        //     return rep;
+        // });
+
     },
     //hash
     getHash: function (url) {

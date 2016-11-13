@@ -11,29 +11,21 @@ export default {
     treetypeList(param = {}) {
         return util.postRequest('/base/options', {
             type: TYPE_TREE
-        }).then((rep) => {
-            return rep.json();
         });
     },
     goodstypeList(param = {}) {
         return util.postRequest('/base/options', {
             type: TYPE_GOODS
-        }).then((rep) => {
-            return rep.json();
         });
     },
     lengthList(param = {}) {
         return util.postRequest('/base/options', {
             type: TYPE_LENGTH
-        }).then((rep) => {
-            return rep.json();
         });
     },
     portList(param = {}) {
         return util.postRequest('/base/options', {
             type: TYPE_PORT
-        }).then((rep) => {
-            return rep.json();
         });
     },
     /**
@@ -44,8 +36,6 @@ export default {
     storeTypeList(param = {}) {
         return util.postRequest('/base/options', {
             type: TYPE_STORE
-        }).then((rep) => {
-            return rep.json();
         });
     },
     /**
@@ -56,8 +46,6 @@ export default {
     reportTypeList(param = {}) {
         return util.postRequest('/base/options', {
             type: TYPE_REPORT
-        }).then((rep) => {
-            return rep.json();
         });
     },
 
@@ -70,9 +58,7 @@ export default {
      */
     addInterest(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/interest/addInterest', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/interest/addInterest', param);
     },
 
     /**
@@ -82,8 +68,6 @@ export default {
      */
     showFocus(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        return util.postRequest('/interest/showFocus', param).then((rep) => {
-            return rep.json();
-        });
+        return util.postRequest('/interest/showFocus', param);
     }
 }
