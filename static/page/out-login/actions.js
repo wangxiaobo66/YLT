@@ -2,6 +2,7 @@
  * Created by wangxiaobo on 16/9/4.
  */
 let util = require('../../js/app/util');
+import {LOGIN_USER_KEY} from '../../js/app/contants';
 
 //登录
 function postLogin(data){
@@ -17,7 +18,10 @@ module.exports = {
                 function (res) {
                     res.json().then(function (json) {
                        if(json.reason==="success"){
-                           window.location.href = './index.html';
+                           window.sessionStorage.setItem(LOGIN_USER_KEY, json.result.data.consumerId);
+                           window.setTimeout(function () {
+                               window.location.href = './index.html';
+                           }, 100);
                        }else {
                            window.toast('请输入正确的账号密码!');
                        }

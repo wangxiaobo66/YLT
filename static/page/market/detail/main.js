@@ -8,7 +8,8 @@ import React from 'react';
 import {Link} from 'react-router';
 import Title from '../../../component/Title/Title';
 import Text from '../../../component/Text/Text';
-import {REPORT_TYPE_UNSOLD, CARE_TYPE_STORE, CARE_TYPE_UNSOLD} from '../../../js/app/contants';
+import commonService from '../../../js/app/commonService';
+import {REPORT_TYPE_UNSOLD, CARE_TYPE_UNSOLD} from '../../../js/app/contants';
 
 import service from '../service';
 
@@ -31,8 +32,8 @@ export default class Detail extends React.Component {
             });
         });
 
-        service.showFocus({
-            unsoldOrderId: unsoldId,
+        commonService.showFocus({
+            id: unsoldId,
             type: CARE_TYPE_UNSOLD
         }).then((rep) => {
             this.setState({
@@ -42,7 +43,8 @@ export default class Detail extends React.Component {
     }
     care() {
         let that = this;
-        service.addInterest({
+
+        commonService.addInterest({
             type: CARE_TYPE_UNSOLD,
             orderId: this.state.detail.orderId
         }).then(rep => {
