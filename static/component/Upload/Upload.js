@@ -48,7 +48,7 @@ export default class Upload extends React.Component {
                             {
                                 this.state.imgUrl ?
                                     <div className="info">
-                                        <img src={this.state.imgUrl} width="100%" alt=""/>
+                                        <img src={this.state.imgUrl} width="100%" height="100%" alt=""/>
                                         <div className="info-close" onClick={this.reset.bind(this)}>
                                             &times;
                                         </div>
