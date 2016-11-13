@@ -48,10 +48,7 @@ module.exports = {
         });
     },
     postRequest: function (url, data) {
-        let currentUserId = window.sessionStorage.getItem(LOGIN_USER_KEY);
-        if (currentUserId) {
-            data.userId = currentUserId;
-        }
+        data.userId = 23;
         window.toast('请稍候...');
         return fetch(url, {
             method: 'POST',

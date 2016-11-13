@@ -2,6 +2,7 @@
  * Created by wangxiaobo on 16/9/4.
  */
 let util = require('../../js/app/util');
+import {LOGIN_USER_KEY} from '../../js/app/contants';
 
 //站外注册,站内补充信息
 function postRegister(data){//注册接口
@@ -29,7 +30,10 @@ module.exports = {
                     res.json().then(function (json) {
                         console.log(json);
                         if(json.reason==="success"){
-                            window.location.href = './index.html';
+                            window.sessionStorage.setItem(LOGIN_USER_KEY, json.result.data.consumerId);
+                            window.setTimeout(function () {
+                                window.location.href = './index.html';
+                            }, 100);
                         }
                     })
                 }

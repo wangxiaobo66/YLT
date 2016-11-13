@@ -59,30 +59,5 @@ export default {
         }).then((rep) => {
             return rep.json();
         });
-    },
-
-    
-    // =====关注相关
-    /**
-     * 添加关注
-     * @param param
-     * @returns {Promise.<TResult>|*}
-     */
-    addInterest(param = {}) {
-        return util.postRequest('/interest/addInterest', param).then((rep) => {
-            return rep.json();
-        });
-    },
-
-    /**
-     * 判断是否已关注
-     * @param param
-     * @returns {*|Promise.<TResult>}
-     */
-    showFocus(param = {}) {
-        return util.postRequest('/interest/showFocus', param).then((rep) => {
-            return rep.json();
-        });
     }
-
 }

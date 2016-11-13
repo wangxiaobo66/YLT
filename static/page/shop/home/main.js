@@ -8,7 +8,9 @@ import React from 'react';
 import {Link} from 'react-router';
 import {LIMIT_COUNT} from '../../../js/app/contants';
 import service from '../service';
-import CONFIG from '../config'
+import CONFIG from '../config';
+import commonService from '../../../js/app/commonService';
+import {CARE_TYPE_STORE, STORE_LOGO_DEFAULT} from '../../../js/app/contants';
 
 import imgTop from '../img/home-top.png';
 
@@ -17,9 +19,11 @@ export default class Home extends React.Component {
         super(props);
         this.state = {
             detail: null,
-            repData: null
+            list: null,
+            cared: 'false'
         };
     }
+
     componentDidMount() {
         let storeId = this.props.params.id;
 
@@ -30,27 +34,59 @@ export default class Home extends React.Component {
         }
 
         // 详情
-        service.showMyStore(param).then((rep) => {
+        service.showStore(param).then((rep) => {
             this.setState({
                 detail: rep.result.data
             });
         });
 
-        // 商品列表
-        service.unsoldOrdersInStore({
+        let listParam = {
             storeId: storeId,
             limitStart: 0,
             limitCount: LIMIT_COUNT
-        }).then((rep) => {
-            console.log(rep);
+        };
+        // 商品列表
+        service.unsoldList(listParam).then((rep) => {
             this.setState({
-                repData: rep.result
+                list: rep.result.list
+            });
+        });
+
+        // 是否已关注
+        commonService.showFocus({
+            id: storeId,
+            type: CARE_TYPE_STORE
+        }).then((rep) => {
+            this.setState({
+                cared: rep.result.data
             });
         });
 
     }
+
+    care() {
+        let that = this;
+
+        commonService.addInterest({
+            type: CARE_TYPE_STORE,
+            orderId: this.state.detail.orderId
+        }).then(rep => {
+            if (rep.state === 1) {
+                window.toast('关注成功', {
+                    callback() {
+                        that.setState({
+                            cared: true
+                        });
+                    }
+                });
+            } else {
+                window.toast('添加失败, 请稍候重试');
+            }
+        });
+    }
+
     render() {
-        return(
+        return (
             <div className="module-shop-home">
                 {
                     this.state.detail !== null ?
@@ -59,10 +95,18 @@ export default class Home extends React.Component {
                                 <img src={imgTop} width="100%" alt=""/>
                                 <div className="info">
                                     <p className="title">{this.state.detail.storeName}</p>
-                                    <a href="javascript:;" className="ui-btn ui-btn-small">+关注</a>
+                                    {
+                                        this.state.cared === 'false'?
+                                            <a href="javascript:;"
+                                               onClick={this.care.bind(this)}
+                                               className="ui-btn ui-btn-small">+关注</a>
+                                            :
+                                            <a href="javascript:;"
+                                               className="ui-btn ui-btn-small">已关注</a>
+                                    }
                                 </div>
                                 <div className="logo">
-                                    <img src={this.state.detail.store_icon} width="62" height="62" />
+                                    <img src={this.state.detail.logoUrl || STORE_LOGO_DEFAULT} width="62" height="62"/>
                                 </div>
                             </div>
                             <div className="header-bd">
@@ -71,7 +115,8 @@ export default class Home extends React.Component {
                                     <div className="tab tab-divide"></div>
                                     <div className="tab tab-location">
                                         <i className="icon icon-location"></i>
-                                        <span className="text">{this.state.detail.address}</span>
+                                        <span
+                                            className="text">{this.state.detail.province} {this.state.detail.city}</span>
                                     </div>
                                 </div>
                                 <div className="bd-desc">{this.state.detail.introduction}</div>
@@ -84,45 +129,41 @@ export default class Home extends React.Component {
                     <div className="ui-title">
                         <h3 className="text">店铺商品</h3>
                     </div>
-                    {
-                        this.state.repData !== null ?
-                            <ul className="list">
-                                {
-                                    this.state.repData.list !== null ?
-                                        this.state.repData.list.map((item, index) => {
-                                            item.dim = this.state.repData['dim' + item.orderId];
-                                            return (
-                                                <li className="item">
-                                                    <img src={item.imageUrl} className="img" width="123" height="62" alt=""/>
-                                                    <div className="info">
-                                                        <p className="title">
-                                                            <span className="name">{item.dim.treetypeName}</span>
-                                                            <span className="length">{item.dim.lengthName}</span>
-                                                            <span className="type">{item.dim.goodstypeName}</span>
-                                                        </p>
-                                                        <p className="info-item info-item--big">
-                                                            <label>价格:</label>
-                                                            <span className="text">{item.price}</span>
-                                                        </p>
-                                                        <p className="info-item info-item--dgree">
-                                                            <label>数量:</label>
-                                                            <span className="text">{item.amount}</span>
-                                                        </p>
-                                                        <p className="info-item info-item--address">
-                                                            <label>口岸:</label>
-                                                            <span className="text">{item.locationName}</span>
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                            );
-                                        })
-                                        :
-                                        null
-                                }
-                            </ul>
-                            :
-                            null
-                    }
+                    <ul className="list">
+                        {
+                            this.state.list !== null ?
+                                this.state.list.map((item, index) => {
+                                    return (
+                                        <li className="item">
+                                            <a className="item-link" href={`./market.html#/detail/${item.orderId}`}>
+                                                <img src={item.imgUrl} className="img" width="123" height="62" alt=""/>
+                                                <div className="info">
+                                                    <p className="title">
+                                                        <span className="name">{item.dim.treetypeName}&nbsp;</span>
+                                                        <span className="length">{item.dim.lengthName}&nbsp;</span>
+                                                        <span className="type">{item.dim.goodstypeName}</span>
+                                                    </p>
+                                                    <p className="info-item info-item--big">
+                                                        <label>价格:</label>
+                                                        <span className="text">{item.price}</span>
+                                                    </p>
+                                                    <p className="info-item info-item--dgree">
+                                                        <label>数量:</label>
+                                                        <span className="text">{item.amount}</span>
+                                                    </p>
+                                                    <p className="info-item info-item--address">
+                                                        <label>口岸:</label>
+                                                        <span className="text">{item.locationName}</span>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    );
+                                })
+                                :
+                                null
+                        }
+                    </ul>
                 </div>
                 <div className="ui-tab ui-tab-fixed">
                     <a href="javascript;" className="item item--active">店铺首页</a>

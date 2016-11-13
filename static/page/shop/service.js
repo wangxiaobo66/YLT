@@ -20,7 +20,12 @@ export default {
         });
     },
 
-    unsoldOrdersInStore(param = {}) {
+    /**
+     * 店铺主页列表分页时, 用到这个接口
+     * @param param
+     * @returns {*|Promise.<TResult>}
+     */
+    unsoldList(param = {}) {
         return util.postRequest('/unsold/unsoldList', param).then((rep) => {
             return rep.json();
         });

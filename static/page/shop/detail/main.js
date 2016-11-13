@@ -16,7 +16,8 @@ export default class extends React.Component {
         super(props);
         this.state = {
             detail: null,
-            showQrcode: false
+            showQrcode: false,
+            cared: 'false'    // 是否关注
         };
     }
     componentDidMount() {
@@ -57,7 +58,7 @@ export default class extends React.Component {
                                 </div>
                                 <div className="info">
                                     <p className="title">{detail.storeName}</p>
-                                    <p className="care">关注人数: {detail.focus_num}</p>
+                                    <p className="care">关注人数: {detail.focusNum}</p>
                                 </div>
                             </div>
                             <div className="tabs clearfix">
@@ -67,7 +68,7 @@ export default class extends React.Component {
                                 </div>
                                 <div className="divide">|</div>
                                 <div className="item">
-                                    <p className="num">{detail.newest_goods_num}</p>
+                                    <p className="num">{detail.newestGoodsNum}</p>
                                     <p className="tip">最新商品</p>
                                 </div>
                             </div>
@@ -79,18 +80,25 @@ export default class extends React.Component {
                                             <i className="icon icon-o-right"></i>
                                         </span>
                                     </a>
+                                    {/*
                                     <div className="item" onClick={this.showQrcode.bind(this)}>
                                         <label>店铺二维码</label>
                                         <div className="text">
                                             <i className="icon icon-qrcode"></i>
                                         </div>
                                     </div>
-                                    <div className="item">
-                                        <label>客服电话</label>
-                                        <div className="text">
-                                            {detail.serviceTel}
-                                        </div>
-                                    </div>
+                                     */}
+                                    {
+                                        detail.serviceTel !== null ?
+                                            <div className="item">
+                                                <label>客服电话</label>
+                                                <div className="text">
+                                                    {detail.serviceTel}
+                                                </div>
+                                            </div>
+                                            :
+                                            null
+                                    }
                                 </div>
                             </div>
                             <div className="detail">
