@@ -141,10 +141,11 @@ class component extends React.Component {
                  onKeyDown={(e) => util.events.emit('bodyKeyDown', e)}>
                 <div className="index-search">
                     <img src={imgBackground} className="background"/>
-                    <img src={imgLogo} className="logo"/>
+                    <p className="index-title">满洲里铁路国际联运服务平台</p>
+                    {/*<img src={imgLogo} className="logo"/>*/}
                     <div className="search">
                         <img src={imgIcon} className="icon"/>
-                        <form action="./search.html">
+                        <form action="./arrival.html">{/*跳转问题*/}
                             <input type="text" className="input" placeholder="找木材/找货物/找货主" name="word" value={searchValue}
                                    onClick={(e) => this.searchClick(e)}
                                    onChange={(e) => this.searchChange(e)}/>
@@ -283,7 +284,7 @@ class component extends React.Component {
                                     <p>
                                         <a href="javascript:;"><img src="../../static/images/service-1.png"/>木材资讯</a>
                                         <a href="javascript:;"><img src="../../static/images/service-2.png"/>铁路运费</a>
-                                        <a href="javascript:;"><img src="../../static/images/service-3.png"/>新增订阅</a>
+                                        <a href="./shop.html"><img src="../../static/images/service-3.png"/>精品店铺</a>
                                     </p>
                                     <p>
                                         <a href="./service.html?type=car"><img src="../../static/images/service-4.png"/>求车服务</a>
@@ -296,8 +297,8 @@ class component extends React.Component {
                                 </div>
                                 <div className="switch-issue"><img src={imgIssue} /><a
                                     href="./service.html#/add">发布服务</a></div>
-                                <div className="subscribe-div"><span></span>我的订阅</div>
-                                <Subscribe />
+                                {/*<div className="subscribe-div"><span></span>我的订阅</div>
+                                <Subscribe />*/}
                             </div>
                         </div>
                     </div>
@@ -374,15 +375,15 @@ class component extends React.Component {
 
         util.events.on('bodyKeyDown', (e) => { //监听键盘按钮
             if(e.keyCode===13){//回车事件兼容移动端网页键盘,可放心使用
-                let { searchValue } = this.state;
-                if(searchValue!==""){//inout输入非空push进数组中,若之前数组非空,push后数组为[Array[],searchValue],需再做处理
-                    historyList.push(searchValue);
+                //let { searchValue } = this.state;
+                //if(searchValue!==""){//inout输入非空push进数组中,若之前数组非空,push后数组为[Array[],searchValue],需再做处理
+                //    historyList.push(searchValue);
 
-                }
-                let history = historyList.join(",");//将数组转换为字符串,中间以","隔开
-                let historyUnique = history.split(",").unique();//再将字符串转换成数组,执行去重方法输出新数组
+                //}
+                //let history = historyList.join(",");//将数组转换为字符串,中间以","隔开
+                //let historyUnique = history.split(",").unique();//再将字符串转换成数组,执行去重方法输出新数组
 
-                localStorage.setItem("history", historyUnique.join(","));//将新数组字符串化并存入缓存
+                //localStorage.setItem("history", historyUnique.join(","));//将新数组字符串化并存入缓存
             }
         });
 
@@ -465,7 +466,8 @@ class component extends React.Component {
                     mineActive: true,
                     matte: false
                 });
-                window.location.href = "./mine.html";
+                window.toast('维护中!');
+                //window.location.href = "./mine.html";
                 break;
         }
         let { publishActive } = this.state;

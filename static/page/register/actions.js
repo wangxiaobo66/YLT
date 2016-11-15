@@ -28,10 +28,11 @@ module.exports = {
             return postRegister(info).then(
                 function (res) {
                         if(res.reason==="success"){
-                            window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
+                            //window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
+                            window.toast('注册成功!');
                             window.setTimeout(function () {
                                 window.location.href = './index.html';
-                            }, 100);
+                            }, 500);
                         }
                 }
             )

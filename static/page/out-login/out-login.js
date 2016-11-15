@@ -28,11 +28,12 @@ class component extends React.Component {
         return (
             <div className="module-out-login">
                 <img className="background" src="../../static/images/background.jpg"/>
-                <div className="portrait">
+                <p className="index-title">满洲里铁路国际联运服务平台</p>
+                {/*<div className="portrait">
                     <div className="portrait-div">
                         <img src="../../static/images/logo.png"/>
                     </div>
-                </div>
+                </div>*/}
                 <div className="verify">
                     <div className="verify-mobile">
                         <img src="../../static/images/mobile.png"/>
