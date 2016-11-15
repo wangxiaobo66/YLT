@@ -92,7 +92,7 @@ export default class Item extends React.Component {
         );
     }
     click(id){
-        service.delete({
+        service.deleteAskBuy({
             buyingOrderId:id
         }).then(rep => {
             if(rep.reason==="success"){

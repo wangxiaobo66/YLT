@@ -330,6 +330,7 @@ export default class Item extends React.Component {
         let { dispatch } = this.props;
         let { orderId , portId , treetypeId , goodstypeId , lengthId , buyer , mobile , price , amount , content , subscript} = this.state;
         let data = {
+            "orderId":orderId,
             "portId": portId,
             "treetypeId": treetypeId,
             "goodstypeId": goodstypeId,

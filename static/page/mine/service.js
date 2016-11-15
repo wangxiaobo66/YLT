@@ -139,7 +139,7 @@ export default {
         return util.postRequest('/store/delStore', param);
     },
 
-    /**我的未售
+    /**我的求购
      *
      */
 
@@ -148,12 +148,27 @@ export default {
         return util.postRequest('/buying/buyingList',param);
     },
 
-    /**删除未售
+    /**删除求购
      *
      */
-    delete(param = {}){
+    deleteAskBuy(param = {}){
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/buying/delBuyingOrder',param);
-    }
+    },
+
+    /**我的服务
+     *
+     */
+    myService(param = {}){
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/inform/informList',param);
+    },
+    /**删除服务
+     *
+     */
+    deleteService(param = {}){
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/inform/delInform',param);
+    },
 
 }

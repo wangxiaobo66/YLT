@@ -154,8 +154,8 @@ module.exports = {
                 function (res) {
                     console.log(res);
                     if(res.reason==="success"){
-                        //window.toast('修改成功!');
-                        //window.location.href = './mine.html#/askbuy';
+                        window.toast('修改成功!');
+                        window.location.href = './mine.html#/askbuy';
                     }
                 }
             )

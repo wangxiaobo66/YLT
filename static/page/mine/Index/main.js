@@ -26,7 +26,7 @@ export default class Item extends React.Component {
             homeActive: false,
             publishActive: false,
             mineActive: true,
-
+            matte: false,
             detail: null,
             hasStore: false
 
@@ -84,6 +84,7 @@ export default class Item extends React.Component {
                     mineActive: true,
                     matte: false
                 });
+                window.location.href = "./mine.html";
                 break;
         }
         let { publishActive } = this.state;
