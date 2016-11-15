@@ -56,6 +56,7 @@ ReactDom.render(
             <Route path="/" component={App}>
                 <IndexRoute component={List} />
                 <Route path="/add" component={Add} />
+                <Route path="/update/:id" component={Add} />
                 <Route path="/detail/:id" component={Detail} />
                 <Route path="/home/:id" component={Home} />
             </Route>

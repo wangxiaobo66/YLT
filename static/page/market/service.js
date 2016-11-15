@@ -18,6 +18,11 @@ export default {
         return util.postRequest('/unsold/unsoldList', param);
     },
 
+    showMyUnsoldList(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/unsold/unsoldList', param);
+    },
+
     /**
      * 添加未售
      * @param param

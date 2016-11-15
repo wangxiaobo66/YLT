@@ -42,7 +42,7 @@ export default class Item extends React.Component {
                         </Link>
                         <Link className="item" to="info_name">
                             <label>姓名</label>
-                            <div className="text">{detail.name || detail.mobile}</div>
+                            <div className="text">{detail.consumerName || detail.mobile}</div>
                         </Link>
                         <Link className="item" to="info_mobile">
                             <label>手机号</label>
@@ -52,17 +52,17 @@ export default class Item extends React.Component {
                     <div className="ui-card ui-card--right fn-mt10">
                         <Link className="item" to="info_company">
                             <label>公司信息</label>
-                            <div className="text">{detail.company}</div>
+                            <div className="text">{detail.company || '暂无'}</div>
                         </Link>
                     </div>
                     <div className="ui-card ui-card--right fn-mt10">
                         <Link className="item" to="info_address">
                             <label>省份</label>
-                            <div className="text">{detail.province}</div>
+                            <div className="text">{detail.province || '暂无'}</div>
                         </Link>
                         <Link className="item" to="info_address">
                             <label>城市</label>
-                            <div className="text">{detail.city}</div>
+                            <div className="text">{detail.city || '暂无'}</div>
                         </Link>
                     </div>
                 </div>

@@ -54,6 +54,7 @@ render(
                 <IndexRoute component={List} />
                 <Route path="detail/:id" component={Detail} />
                 <Route path="add" component={Add} />
+                <Route path="update/:orderId" component={Add} />
                 <Route path="standard" component={Standard} />
                 <Route path="report/:orderType/:orderId" component={Report} />
             </Route>
