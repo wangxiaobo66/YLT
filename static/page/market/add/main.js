@@ -45,6 +45,20 @@ export default class AddUpdate extends React.Component {
     }
     componentDidMount() {
 
+        let orderId = this.props.params.orderId;
+
+        // 判断是否是修改
+        if (orderId) {   // 修改自己
+            service.showUnsold({
+                unsoldOrderId: orderId
+            }).then((rep) => {
+                this.setState({
+                    form: rep.result.data
+                });
+                this.checkDisabled();
+            });
+        }
+
         // 规格列表
         service.dimList({
             limitStart: 0,
@@ -65,20 +79,36 @@ export default class AddUpdate extends React.Component {
     }
     add() {
         let that = this;
-        // 添加
-        service.addUnsold(this.state.form).then((rep) => {
-            if (rep.state === 1) {
-                window.toast('添加成功', {
-                    callback() {
-                        that.props.history.push({
-                            pathname: '/'
-                        });
-                    }
-                });
-            } else {
-                window.toast('添加失败, 请稍候重试');
-            }
-        });
+        if (this.props.params.orderId) { // 修改
+            service.updateUnsold(this.state.form).then((rep) => {
+                if (rep.state === 1) {
+                    window.toast('修改成功', {
+                        callback() {
+                            that.props.history.push({
+                                pathname: '/'
+                            });
+                        }
+                    });
+                } else {
+                    window.toast('添加失败, 请稍候重试');
+                }
+            });
+        } else {
+            // 添加
+            service.addUnsold(this.state.form).then((rep) => {
+                if (rep.state === 1) {
+                    window.toast('添加成功', {
+                        callback() {
+                            that.props.history.push({
+                                pathname: '/'
+                            });
+                        }
+                    });
+                } else {
+                    window.toast('添加失败, 请稍候重试');
+                }
+            });
+        }
     }
     checkDisabled(key, event) {
         let disabled = false;
@@ -161,6 +191,7 @@ export default class AddUpdate extends React.Component {
             <div className="module-add">
                 <Upload tip="添加图片"
                         onUploadSuccess={this.onUploadSuccess.bind(this)}
+                        imgUrl={form.imgUrl}
                         url="/unsold/filesUpload"/>
                 <div className="content">
                     <div className="ui-title">
@@ -443,7 +474,11 @@ export default class AddUpdate extends React.Component {
                     <a href="javascript:;"
                        disabled={this.state.disabled}
                        onClick={this.add.bind(this)}
-                       className="ui-btn ui-btn-fixed">发布未售信息</a>
+                       className="ui-btn ui-btn-fixed">
+                        {
+                            this.props.params.orderId ? '修改未售信息' : '发布未售信息'
+                        }
+                    </a>
                 </footer>
             </div>
         );

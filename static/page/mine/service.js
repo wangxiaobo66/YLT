@@ -5,6 +5,7 @@
  */
 
 import util from '../../js/app/util';
+import {LOGIN_USER_KEY} from '../../js/app/contants';
 
 export default {
 
@@ -14,7 +15,8 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     detail(param = {}) {
-        return util.postRequest('/user/showUser', param);
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/user/mobileUser/show', param);
     },
 
     /**
@@ -23,7 +25,8 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     update(param = {}) {
-        return util.postRequest('/user/updateUser', param);
+        param.consumerId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/user/mobileUser/update', param);
     },
 
     /**
@@ -34,6 +37,8 @@ export default {
     sendVerifyCode(param = {}) {
         return util.postRequest('/user/sendCode', param);
     },
+
+
 
     /**
      * 消息列表
@@ -62,6 +67,9 @@ export default {
         return util.postRequest('/msg/addMsg', param);
     },
 
+
+
+
     /**
      * 添加用户反馈
      * @param param
@@ -70,6 +78,10 @@ export default {
     addFeedback(param = {}) {
         return util.postRequest('/feedback/addFeedback', param);
     },
+
+
+
+
 
     /**
      * 关注列表
@@ -89,13 +101,42 @@ export default {
         return util.postRequest('/interest/delInterest', param);
     },
 
+
+
     /**
      * 我的未售列表
      * @param param
      * @returns {*|Promise.<TResult>}
      */
     showMyUnsoldList(param = {}) {
-        return util.postRequest('/unsold/showMyUnsoldList', param);
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/unsold/unsoldList', param);
+    },
+
+    /**
+     * 删除店铺
+     * @param param
+     * @returns {Promise.<TResult>|*}
+     */
+    delUnsold(param = {}) {
+        return util.postRequest('/unsold/delUnsold', param);
+    },
+
+
+
+    showMyStore(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/store/showMyStore', param);
+    },
+
+    /**
+     * 删除店铺
+     * @param param
+     * @returns {Promise.<TResult>|*}
+     */
+    delStore(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/store/delStore', param);
     }
 
 

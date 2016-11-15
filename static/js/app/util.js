@@ -63,7 +63,7 @@ module.exports = {
             dataType: 'JSON',
             contentType: 'application/json; charset=UTF-8',
             async: true,
-            timeout: 30000,
+            timeout: 300000,
             success: function (rep) {
                 window.unloading();
                 deferred.resolveWith(this, [rep]);

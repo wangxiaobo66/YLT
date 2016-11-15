@@ -18,7 +18,7 @@ export default React.createClass({
         return {
             disabled: true,
             form: {
-                name: ''
+                consumerName: ''
             }
         };
     },
@@ -47,7 +47,7 @@ export default React.createClass({
             form[key] = event.target.value;
         }
 
-        if ($.trim(form.name) === '') {
+        if ($.trim(form.consumerName) === '') {
             disabled = true;
         }
 
@@ -64,7 +64,7 @@ export default React.createClass({
                             <div className="for">姓名</div>
                             <div className="input-box">
                                 <input className="input input-block"
-                                       onChange={this.checkDisabled.bind(this, 'name')}
+                                       onChange={this.checkDisabled.bind(this, 'consumerName')}
                                        maxLength="30"
                                        type="text"
                                        placeholder="请输入姓名" />

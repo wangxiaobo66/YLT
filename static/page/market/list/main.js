@@ -22,10 +22,10 @@ export default class List extends React.Component {
             goodstypeList: null,
             lengthList: null,
             form: { // 要添加的对象
-                portId: '',
-                treetypeId: '',
-                goodstypeId: '',
-                lengthId: '',
+                portId: 0,
+                treetypeId: 0,
+                goodstypeId: 0,
+                lengthId: 0,
                 limitStart: 0,
                 limitCount: LIMIT_COUNT
             },
@@ -86,7 +86,7 @@ export default class List extends React.Component {
                         <select className="select"
                                 value={this.state.form.portId}
                                 onChange={this.filterData.bind(this, 'portId')}>
-                            <option value="">选择</option>
+                            <option value="0">选择</option>
                             {
                                 this.state.portList !== null ?
                                     this.state.portList.map((item, index) => {
@@ -102,7 +102,7 @@ export default class List extends React.Component {
                         <select className="select"
                                 value={this.state.form.goodstypeId}
                                 onChange={this.filterData.bind(this, 'goodstypeId')}>
-                            <option value="">选择</option>
+                            <option value="0">选择</option>
                             {
                                 this.state.goodstypeList !== null ?
                                     this.state.goodstypeList.map((item, index) => {
@@ -118,7 +118,7 @@ export default class List extends React.Component {
                         <select className="select"
                                 value={this.state.form.treetypeId}
                                 onChange={this.filterData.bind(this, 'treetypeId')}>
-                            <option value="">选择</option>
+                            <option value="0">选择</option>
                             {
                                 this.state.treetypeList !== null ?
                                     this.state.treetypeList.map((item, index) => {
@@ -134,7 +134,7 @@ export default class List extends React.Component {
                         <select className="select"
                                 value={this.state.form.lengthId}
                                 onChange={this.filterData.bind(this, 'lengthId')}>
-                            <option value="">选择</option>
+                            <option value="0">选择</option>
                             {
                                 this.state.lengthList !== null ?
                                     this.state.lengthList.map((item, index) => {
@@ -149,15 +149,18 @@ export default class List extends React.Component {
                 <ul className="ui-list">
                     {
                         this.state.list !== null ?
-                            this.state.list.map(function (item, index) {
-                                return (
-                                    <li className="item clearfix" key={index}>
-                                        <Link className="item-link" to={`/detail/${item.orderId}`}>
-                                            <Market obj={item} />
-                                        </Link>
-                                    </li>
-                                );
-                            })
+                            this.state.list.length > 0 ?
+                                this.state.list.map(function (item, index) {
+                                    return (
+                                        <li className="item clearfix" key={index}>
+                                            <Link className="item-link" to={`/detail/${item.orderId}`}>
+                                                <Market obj={item} />
+                                            </Link>
+                                        </li>
+                                    );
+                                })
+                                :
+                                <li className="no-data">暂无数据</li>
                             :
                             null
                     }

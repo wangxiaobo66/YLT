@@ -81,7 +81,8 @@ export default class Upload extends React.Component {
 Upload.propTypes = {
     tip: React.PropTypes.string,    // 提示
     url: React.PropTypes.string.isRequired,     // 接口url
-    onUploadSuccess: React.PropTypes.func.isRequired   // 上传成功回调
+    onUploadSuccess: React.PropTypes.func.isRequired,   // 上传成功回调
+    imgUrl: React.PropTypes.string
 };
 
 Upload.defaultProps = {

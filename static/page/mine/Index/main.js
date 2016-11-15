@@ -27,16 +27,26 @@ export default class Item extends React.Component {
             publishActive: false,
             mineActive: true,
 
-            detail: null
+            detail: null,
+            hasStore: false
+
         };
     }
     componentDidMount() {
+
         service.detail({}).then((rep) => {
             let user = rep.result.data;
             this.setState({
                 detail: user
             });
         });
+
+        service.showMyStore({}).then((rep) => {
+            this.setState({
+                hasStore: rep.result.data
+            });
+        });
+
     }
     onclick(e, name) {
         switch (name) {
@@ -105,9 +115,16 @@ export default class Item extends React.Component {
                                         </li>
                                         <li className="item">
                                             {/* TODO 怎么知道自己有店铺 */}
-                                            <a href="./shop.html?storeId=-1#/add" className="item-link">
-                                                <span className="text">我的店铺</span>
-                                            </a>
+                                            {
+                                                this.state.hasStore ?
+                                                    <a href={`./shop.html#/update/${item.id}`} className="item-link">
+                                                        <span className="text">我的店铺</span>
+                                                    </a>
+                                                    :
+                                                    <a href="./shop.html#/add" className="item-link">
+                                                        <span className="text">我的店铺</span>
+                                                    </a>
+                                            }
                                         </li>
                                         <li className="item">
                                             <Link className="item-link" to={`/askbuy`}>

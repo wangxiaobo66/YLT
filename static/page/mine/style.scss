@@ -32,6 +32,12 @@ body {
     }
 }
 
+.list .no-data {
+    padding: 20px 0;
+    text-align: center;
+    color: $color-font-gray;
+}
+
 @import './Feedback/style';
 @import "Index/style";
 @import "Info/style";

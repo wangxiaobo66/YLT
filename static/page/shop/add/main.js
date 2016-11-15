@@ -20,7 +20,7 @@ export default class ShopAdd extends React.Component {
             citys: null,
             districts: null,
             form: {
-                imageUrl: '',
+                logoUrl: '',
                 storetypeId: '',
                 storeName: '',
                 phone: '',
@@ -36,16 +36,13 @@ export default class ShopAdd extends React.Component {
     add() {
         let that = this;
 
-        if (this.state.form.storeId) { // 修改
+        if (this.props.params.id) { // 修改
             service.updateMyStore(this.state.form).then((rep) => {
                 if (rep.state === 1) {
                     window.toast('更新成功', {
                         callback() {
                             that.props.history.push({
-                                pathname: '/home',
-                                query: {
-                                    id: that.state.form.storeId
-                                }
+                                pathname: `/home/${that.props.params.id}`
                             });
                         }
                     });
@@ -73,7 +70,7 @@ export default class ShopAdd extends React.Component {
     }
     componentDidMount() {
         let that = this;
-        let storeId = +util.getQueryString('storeId');
+        let storeId = this.props.params.id;
 
         // 店铺类型
         commonService.storeTypeList().then((rep) => {
@@ -83,23 +80,15 @@ export default class ShopAdd extends React.Component {
         });
 
         // 判断是否是修改
-        // if (+storeId === -1) {   // 修改自己
-        //     service.showMyStore().then((rep) => {
-        //         initLocation(rep.result.data);
-        //         this.setState({
-        //             form: rep.result.data
-        //         });
-        //         this.checkDisabled();
-        //     });
-        // } else {
-        //     // 到详情页
-        //     this.props.history.push({
-        //         pathname: '/detail',
-        //         query: {
-        //             id: storeId
-        //         }
-        //     });
-        // }
+        if (storeId) {   // 修改自己
+            service.showMyStore().then((rep) => {
+                initLocation(rep.result.data);
+                this.setState({
+                    form: rep.result.data
+                });
+                this.checkDisabled();
+            });
+        }
 
         function initLocation(data) {
             that.state.citys = china.query(data.province);
@@ -114,7 +103,7 @@ export default class ShopAdd extends React.Component {
             form[key] = event.target.value;
         }
 
-        if ($.trim(form.imageUrl) === '') {
+        if ($.trim(form.logoUrl) === '') {
             disabled = true;
         }
 
@@ -164,7 +153,7 @@ export default class ShopAdd extends React.Component {
     }
     onUploadSuccess(imgUrl) {
         let form = this.state.form;
-        form.imageUrl = imgUrl;
+        form.logoUrl = imgUrl;
         this.checkDisabled();
     }
     render() {
@@ -174,6 +163,7 @@ export default class ShopAdd extends React.Component {
                 <header className="header">
                     <Upload tip="添加logo"
                             onUploadSuccess={this.onUploadSuccess.bind(this)}
+                            imgUrl={this.state.form.logoUrl}
                             url="/store/filesUpload" />
                 </header>
                 <article className="article">
@@ -332,7 +322,7 @@ export default class ShopAdd extends React.Component {
                        onClick={this.add.bind(this)}
                        className="ui-btn ui-btn-fixed">
                         {
-                            this.state.form.storeId ? '修改店铺' : '发布店铺'
+                            this.props.params.id ? '修改店铺' : '发布店铺'
                         }
                     </a>
                 </footer>
