@@ -7,35 +7,34 @@
 import React from 'react';
 import {Link} from 'react-router';
 import {AskBuy} from '../../../component/AskBuy/AskBuy';
+import service from '../service';
 
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: [
-                {
-                    "region": "满洲里",
-                    "time": "08-03 22:06",
-                    "name": "落叶松",
-                    "size": "六米",
-                    "type": "原木",
-                    "diam": "20",
-                    "level": "一级"
-                },
-                {
-                    "region": "满洲里",
-                    "time": "08-03 22:06",
-                    "name": "落叶松",
-                    "size": "六米",
-                    "type": "原木",
-                    "diam": "20",
-                    "level": "一级"
-                }
-            ]
+            list: null
         };
     }
     componentDidMount() {
-
+        this.fetchList();
+    }
+    fetchList() {
+        service.askBuyList({
+            goodstypeId:0,
+            lengthId:0,
+            portId:0,
+            treetypeId:0,
+            limitStart: 0,
+            limitCount: 10
+        }).then(rep => {
+            this.setState({
+                list: rep.result.list
+            });
+        });
+    }
+    reload() {
+        this.fetchList();
     }
     /**
      * 切换操作
@@ -49,11 +48,12 @@ export default class Item extends React.Component {
         this.setState({});
     }
     render() {
+        let {list} = this.state;
         let that = this;
         return (
             <div className="module-ask-buy">
                 <ul className="list">
-                    {
+                    {   this.state.list!=null?
                         this.state.list.map(function (item, index) {
                             return (
                                 <li className="item clearfix" key={index}>
@@ -77,17 +77,28 @@ export default class Item extends React.Component {
                                         }
                                     </div>
                                     <div className={'ui-tab ui-tab-normal' + (!item.isOperating === true ? ' fn-none' : '')}>
-                                        <a href="javascript:;" className="item">刷新</a>
-                                        <a href="javascript:;" className="item">修改</a>
-                                        <a href="javascript:;" className="item">删除</a>
+                                        {/*<a href="javascript:;" className="item">刷新</a>*/}
+                                        <a href={"./ask-buy.html#/update/"+item.orderId} className="item">修改</a>
+                                        <a href="javascript:;" className="item" onClick={(e) => that.click(item.orderId)}>删除</a>
                                     </div>
                                 </li>
                             );
                         })
+                        :null
                     }
                 </ul>
 
             </div>
         );
+    }
+    click(id){
+        service.delete({
+            buyingOrderId:id
+        }).then(rep => {
+            if(rep.reason==="success"){
+                window.toast('删除成功!');
+                this.reload();
+            }
+        });
     }
 }

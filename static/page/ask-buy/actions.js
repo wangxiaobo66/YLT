@@ -2,6 +2,7 @@
  * Created by wangxiaobo on 16/9/21.
  */
 let util = require('../../js/app/util');
+import {LOGIN_USER_KEY} from '../../js/app/contants';
 
 //获取头部四个码表信息
 function postOptions(data){//获取口岸,树种,货种,长度信息
@@ -11,7 +12,15 @@ function postOptions(data){//获取口岸,树种,货种,长度信息
 
 //创建添加求购信息
 function postAddAskBuy(data){
+    data.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
     let url = '/buying/addBuyingOrder';
+    return util.postRequest(url,data);
+}
+
+//更新修改求购信息
+function postUpdate(data){
+    data.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+    let url = '/buying/updateBuyingOrder';
     return util.postRequest(url,data);
 }
 
@@ -75,7 +84,7 @@ function detail(data){
 }
 
 module.exports = {
-    askBuyList:function(data){//获取未售list
+    askBuyList:function(data){//获取求购list
         let info = data;
         return function (dispatch) {
             return postAskBuyList(info).then(
@@ -126,14 +135,28 @@ module.exports = {
                 break;
         }
     },
-    askBuy:function(data){//添加未售
+    askBuy:function(data){//添加求购
         let info = data;
         return function (dispatch) {
             return postAddAskBuy(info).then(
                 function (res) {
-                        if(res.reason==="SUCCESS"){
+                        if(res.reason==="success"){
                             window.location.href = './ask-buy.html';
                         }
+                }
+            )
+        };
+    },
+    update:function(data){//修改更新求购
+        let info = data;
+        return function (dispatch) {
+            return postUpdate(info).then(
+                function (res) {
+                    console.log(res);
+                    if(res.reason==="success"){
+                        //window.toast('修改成功!');
+                        //window.location.href = './mine.html#/askbuy';
+                    }
                 }
             )
         };

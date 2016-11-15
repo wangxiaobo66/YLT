@@ -137,8 +137,23 @@ export default {
     delStore(param = {}) {
         param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/store/delStore', param);
+    },
+
+    /**我的未售
+     *
+     */
+
+    askBuyList(param = {}){
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/buying/buyingList',param);
+    },
+
+    /**删除未售
+     *
+     */
+    delete(param = {}){
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/buying/delBuyingOrder',param);
     }
-
-
 
 }
