@@ -66,6 +66,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     addMsg(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/msg/addMsg', param);
     },
 

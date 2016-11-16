@@ -9,7 +9,7 @@ import {Link} from 'react-router';
 import {LIMIT_COUNT} from '../../../js/app/contants';
 import service from '../service';
 
-export default class Item extends React.Component {
+export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,12 +37,17 @@ export default class Item extends React.Component {
                                 list.map((item, index) => {
                                     return (
                                         <li className="item">
-                                            <Link className="item-link" to={`/msg_chat/${item.fromUserId}`}>
+                                            <Link className="item-link clearfix" to={`/msg_chat/${item.fromUserId}`}>
                                                 <img src={item.headimgurl} width="45" height="45" className="img"/>
                                                 <div className="info">
                                                     <div className="title">
-                                                        <div className="ui-num">{item.msgNum}</div>
-                                                        <span className="text">{item.nickname}</span>
+                                                        {
+                                                            item.count !== 0 ?
+                                                                <div className="ui-num">{item.count}</div>
+                                                                :
+                                                                null
+                                                        }
+                                                        <span className="text">{item.fromUser.nickname}</span>
                                                     </div>
                                                     <div className="detail">
                                                         <div className="msg ellipsis">{item.content}</div>
