@@ -35,7 +35,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     sendVerifyCode(param = {}) {
-        return util.postRequest('/user/sendCode', param);
+        return util.postRequest('/user/code/create', param);
     },
 
 
@@ -46,7 +46,8 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     myTopList(param = {}) {
-        return util.postRequest('/msg/myTopList', param);
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/msg/msgTopList', param);
     },
 
     /**
@@ -55,6 +56,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     msgList(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/msg/msgList', param);
     },
 
@@ -76,6 +78,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     addFeedback(param = {}) {
+        param.consumerId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/feedback/addFeedback', param);
     },
 
@@ -89,6 +92,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     interestList(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/interest/interestList', param);
     },
 
@@ -98,6 +102,7 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     delInterest(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/interest/delInterest', param);
     },
 

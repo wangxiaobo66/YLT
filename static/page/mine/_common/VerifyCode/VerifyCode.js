@@ -49,8 +49,15 @@ export default class Header extends React.Component {
             })
         }
 
-        service.sendVerifyCode(this.props.mobile).then((rep) => {
-            window.toast('发送成功');
+        service.sendVerifyCode({
+            mobile: this.props.mobile
+        }).then((rep) => {
+            if (rep.result.data == 'true') {
+                window.toast('发送成功');
+            } else {
+                window.toast('发送失败, 请稍候重试');
+            }
+
         });
     }
 
@@ -58,7 +65,7 @@ export default class Header extends React.Component {
         return (
             <a href="javascript:;"
                onClick={this.sendCode.bind(this)}
-               disabled={this.state.timeId !== null}
+               disabled={this.state.timeId !== null || this.props.mobile.length !== 11}
                className="ui-btn ui-btn-default btn-code">{this.state.text}</a>
         );
     }

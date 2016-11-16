@@ -52,9 +52,7 @@ export default class AddUpdate extends React.Component {
             service.showUnsold({
                 unsoldOrderId: orderId
             }).then((rep) => {
-                this.setState({
-                    form: rep.result.data
-                });
+                this.state.form = rep.result.data;
                 this.checkDisabled();
             });
         }
@@ -178,6 +176,7 @@ export default class AddUpdate extends React.Component {
                         <label className="item">
                             <input name="standard"
                                    value={item.specId}
+                                   checked={form.dimensionId == item.specId ? true : false}
                                    onChange={this.checkDisabled.bind(this, 'dimensionId')}
                                    type="radio" />
                             <span className="text">{item.treetypeName} {item.goodstypeName} {item.lengthName}</span>
@@ -189,10 +188,12 @@ export default class AddUpdate extends React.Component {
 
         return (
             <div className="module-add">
-                <Upload tip="添加图片"
-                        onUploadSuccess={this.onUploadSuccess.bind(this)}
-                        imgUrl={form.imgUrl}
-                        url="/unsold/filesUpload"/>
+                {
+                    <Upload tip="添加图片"
+                            onUploadSuccess={this.onUploadSuccess.bind(this)}
+                            imgUrl={form.imgUrl}
+                            url="/unsold/filesUpload"/>
+                }
                 <div className="content">
                     <div className="ui-title">
                         <h3 className="text">选择规格</h3>

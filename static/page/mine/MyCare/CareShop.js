@@ -7,6 +7,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import Shop from '../../../component/Shop/Shop';
+import {LIMIT_COUNT} from '../../../js/app/contants';
 import service from '../service';
 import {TYPE_SHOP} from './config';
 
@@ -24,7 +25,9 @@ export default class CareShop extends React.Component {
 
     fetchList() {
         service.interestList({
-            type: TYPE_SHOP
+            type: TYPE_SHOP,
+            limitStart: 0,
+            limitCount: LIMIT_COUNT
         }).then(rep => {
             this.setState({
                 list: rep.result.list
@@ -32,11 +35,11 @@ export default class CareShop extends React.Component {
         });
     }
 
-    doNotCare(id) {
+    doNotCare(storeId) {
         let that = this;
-        service.interestList({
+        service.delInterest({
             type: TYPE_SHOP,
-            id: id
+            storeId: storeId
         }).then(rep => {
             window.toast('取消关注成功', {
                 callback() {
@@ -53,20 +56,23 @@ export default class CareShop extends React.Component {
                 <ul className="list">
                     {
                         list !== null ?
-                            list.map((item, index) => {
-                                return (
-                                    <li className="item" key={index}>
-                                        <a className="item-link" href={`./shop.html#home/${item.storeId}`}>
-                                            <Shop obj={item} />
-                                        </a>
-                                        <div className="ui-do" onClick={this.doNotCare.bind(this, item.id)}>
-                                            <div className="text-box">
-                                                <span className="text">取消关注</span>
+                            list.length > 0 ?
+                                list.map((item, index) => {
+                                    return (
+                                        <li className="item" key={index}>
+                                            <a className="item-link" href={`./shop.html#home/${item.id}`}>
+                                                <Shop obj={item} />
+                                            </a>
+                                            <div className="ui-do" onClick={this.doNotCare.bind(this, item.id)}>
+                                                <div className="text-box">
+                                                    <span className="text">取消关注</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                );
-                            })
+                                        </li>
+                                    );
+                                })
+                                :
+                                <li className="no-data">暂无数据</li>
                             :
                             null
                     }

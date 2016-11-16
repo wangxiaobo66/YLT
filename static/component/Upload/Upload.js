@@ -32,6 +32,7 @@ export default class Upload extends React.Component {
         });
     }
     reset() {
+        this.props.imgUrl = '';
         this.setState({
             imgUrl: ''
         });
@@ -40,6 +41,7 @@ export default class Upload extends React.Component {
         }
     }
     render() {
+        this.state.imgUrl = this.state.imgUrl || this.props.imgUrl;
         return (
             <div className="Upload-component">
                 <div className="logo">

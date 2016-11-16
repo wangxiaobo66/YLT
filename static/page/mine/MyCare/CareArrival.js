@@ -33,7 +33,7 @@ export default class CareArrival extends React.Component {
 
     doNotCare(id) {
         let that = this;
-        service.interestList({
+        service.delInterest({
             type: TYPE_ARRIVAL,
             id: id
         }).then(rep => {
@@ -53,23 +53,26 @@ export default class CareArrival extends React.Component {
                     <ul className="tbody">
                         {
                             list !== null ?
-                                list.map((item, index) => {
-                                    return (
-                                        <li className="tr" key={index}>
-                                            <Link className="link" to={`/item`}>
-                                                <div className="td">{item.tailNumber}</div>
-                                                <div className="td">{item.length}</div>
-                                                <div className="td">{item.varieties}</div>
-                                                <div className="td">{item.cargo}</div>
-                                            </Link>
-                                            <div className="ui-do" onClick={this.doNotCare.bind(this, item.id)}>
-                                                <div className="text-box">
-                                                    <span className="text">取消关注</span>
+                                list.length > 0 ?
+                                    list.map((item, index) => {
+                                        return (
+                                            <li className="tr" key={index}>
+                                                <Link className="link" to={`/item`}>
+                                                    <div className="td">{item.tailNumber}</div>
+                                                    <div className="td">{item.length}</div>
+                                                    <div className="td">{item.varieties}</div>
+                                                    <div className="td">{item.cargo}</div>
+                                                </Link>
+                                                <div className="ui-do" onClick={this.doNotCare.bind(this, item.id)}>
+                                                    <div className="text-box">
+                                                        <span className="text">取消关注</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                    );
-                                })
+                                            </li>
+                                        );
+                                    })
+                                    :
+                                    <li className="no-data">暂无数据</li>
                                 :
                                 null
                         }

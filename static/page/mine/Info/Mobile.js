@@ -20,7 +20,7 @@ export default React.createClass({
             disabled: true,
             form: {
                 mobile: '',
-                verifyCode: ''
+                code: ''
             }
         };
     },
@@ -52,7 +52,7 @@ export default React.createClass({
             disabled = true;
         }
 
-        if ($.trim(form.verifyCode) === '') {
+        if ($.trim(form.code) === '' || $.trim(form.code).length !== 6) {
             disabled = true;
         }
 
@@ -81,11 +81,11 @@ export default React.createClass({
                         <label>
                             <div className="for">验证码</div>
                             <div className="input-box">
-                                <VerifyCode mobile={this.state.mobile} />
+                                <VerifyCode mobile={this.state.form.mobile} />
                                 <input className="input input-block"
                                        type="tel"
-                                       maxLength="4"
-                                       onChange={this.checkDisabled.bind(this, 'verifyCode')}
+                                       maxLength="6"
+                                       onChange={this.checkDisabled.bind(this, 'code')}
                                        placeholder="请输入验证码" />
                             </div>
                         </label>

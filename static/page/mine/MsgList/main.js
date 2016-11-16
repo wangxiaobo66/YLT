@@ -33,25 +33,28 @@ export default class Item extends React.Component {
                 <ul className="list">
                     {
                         list !== null ?
-                            list.map((item, index) => {
-                                return (
-                                    <li className="item">
-                                        <Link className="item-link" to={`/msg_chat/${item.fromUserId}`}>
-                                            <img src={item.headimgurl} width="45" height="45" className="img"/>
-                                            <div className="info">
-                                                <div className="title">
-                                                    <div className="ui-num">{item.msgNum}</div>
-                                                    <span className="text">{item.nickname}</span>
+                            list.length > 0 ?
+                                list.map((item, index) => {
+                                    return (
+                                        <li className="item">
+                                            <Link className="item-link" to={`/msg_chat/${item.fromUserId}`}>
+                                                <img src={item.headimgurl} width="45" height="45" className="img"/>
+                                                <div className="info">
+                                                    <div className="title">
+                                                        <div className="ui-num">{item.msgNum}</div>
+                                                        <span className="text">{item.nickname}</span>
+                                                    </div>
+                                                    <div className="detail">
+                                                        <div className="msg ellipsis">{item.content}</div>
+                                                        <div className="time">{moment(item.createTime).format('MM-DD hh:mm:ss')}</div>
+                                                    </div>
                                                 </div>
-                                                <div className="detail">
-                                                    <div className="msg ellipsis">{item.content}</div>
-                                                    <div className="time">{moment(item.createTime).format('MM-DD hh:mm:ss')}</div>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                );
-                            })
+                                            </Link>
+                                        </li>
+                                    );
+                                })
+                                :
+                                <li className="no-data">暂无数据</li>
                             :
                             null
                     }

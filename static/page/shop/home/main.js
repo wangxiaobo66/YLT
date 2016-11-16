@@ -69,7 +69,7 @@ export default class Home extends React.Component {
 
         commonService.addInterest({
             type: CARE_TYPE_STORE,
-            orderId: this.state.detail.orderId
+            storeId: this.props.params.id
         }).then(rep => {
             if (rep.state === 1) {
                 window.toast('关注成功', {
@@ -132,34 +132,37 @@ export default class Home extends React.Component {
                     <ul className="list">
                         {
                             this.state.list !== null ?
-                                this.state.list.map((item, index) => {
-                                    return (
-                                        <li className="item">
-                                            <a className="item-link" href={`./market.html#/detail/${item.orderId}`}>
-                                                <img src={item.imgUrl} className="img" width="123" height="62" alt=""/>
-                                                <div className="info">
-                                                    <p className="title">
-                                                        <span className="name">{item.dim.treetypeName}&nbsp;</span>
-                                                        <span className="length">{item.dim.lengthName}&nbsp;</span>
-                                                        <span className="type">{item.dim.goodstypeName}</span>
-                                                    </p>
-                                                    <p className="info-item info-item--big">
-                                                        <label>价格:</label>
-                                                        <span className="text">{item.price}</span>
-                                                    </p>
-                                                    <p className="info-item info-item--dgree">
-                                                        <label>数量:</label>
-                                                        <span className="text">{item.amount}</span>
-                                                    </p>
-                                                    <p className="info-item info-item--address">
-                                                        <label>口岸:</label>
-                                                        <span className="text">{item.locationName}</span>
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    );
-                                })
+                                this.state.list.length > 0 ?
+                                    this.state.list.map((item, index) => {
+                                        return (
+                                            <li className="item">
+                                                <a className="item-link" href={`./market.html#/detail/${item.orderId}`}>
+                                                    <img src={item.imgUrl} className="img" width="123" height="62" alt=""/>
+                                                    <div className="info">
+                                                        <p className="title">
+                                                            <span className="name">{item.dim.treetypeName}&nbsp;</span>
+                                                            <span className="length">{item.dim.lengthName}&nbsp;</span>
+                                                            <span className="type">{item.dim.goodstypeName}</span>
+                                                        </p>
+                                                        <p className="info-item info-item--big">
+                                                            <label>价格:</label>
+                                                            <span className="text">{item.price}</span>
+                                                        </p>
+                                                        <p className="info-item info-item--dgree">
+                                                            <label>数量:</label>
+                                                            <span className="text">{item.amount}</span>
+                                                        </p>
+                                                        <p className="info-item info-item--address">
+                                                            <label>口岸:</label>
+                                                            <span className="text">{item.locationName}</span>
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        );
+                                    })
+                                    :
+                                    <li className="item no-data">暂无数据</li>
                                 :
                                 null
                         }
