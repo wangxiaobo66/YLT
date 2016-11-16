@@ -28,7 +28,7 @@ export default class Item extends React.Component {
             mineActive: true,
             matte: false,
             detail: null,
-            hasStore: false
+            myStore: false
 
         };
     }
@@ -43,7 +43,7 @@ export default class Item extends React.Component {
 
         service.showMyStore({}).then((rep) => {
             this.setState({
-                hasStore: rep.result.data
+                myStore: rep.result.data
             });
         });
 
@@ -117,8 +117,8 @@ export default class Item extends React.Component {
                                         <li className="item">
                                             {/* TODO 怎么知道自己有店铺 */}
                                             {
-                                                this.state.hasStore ?
-                                                    <a href={`./shop.html#/update/${item.id}`} className="item-link">
+                                                this.state.myStore ?
+                                                    <a href={`./shop.html#/update/${this.state.myStore.id}`} className="item-link">
                                                         <span className="text">我的店铺</span>
                                                     </a>
                                                     :
