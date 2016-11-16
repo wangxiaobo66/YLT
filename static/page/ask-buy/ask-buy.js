@@ -53,6 +53,7 @@ render(
                 <IndexRoute component={ListComp} />
                 <Route path="/detail/:id" component={DetailComp} />
                 <Route path="/add" component={AddComp} />
+                <Route path="/update/:id" component={AddComp} />
             </Route>
         </Router>
     </Provider>,

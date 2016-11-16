@@ -2,6 +2,7 @@
  * Created by wangxiaobo on 16/9/23.
  */
 let util = require('../../js/app/util');
+import {LOGIN_USER_KEY} from '../../js/app/contants';
 
 function postServiceList(data){//获取服务列表
     //let url = 'http://123.57.83.122:8080/inform/informList';
@@ -10,7 +11,14 @@ function postServiceList(data){//获取服务列表
 }
 
 function postAdd(data){//添加服务
+    data.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
     let url = '/inform/addInform';
+    return util.postRequest(url, data);
+}
+
+function postUpdateInform(data){//修改服务
+    data.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+    let url = '/inform/updateInform';
     return util.postRequest(url, data);
 }
 
@@ -63,6 +71,16 @@ module.exports = {
             return postAdd(info).then(
                 function (res) {
                         dispatch(serviceExport(res.state))
+                }
+            )
+        }
+    },
+    updateInform:function(data){//修改服务
+        let info = data;
+        return function (dispatch) {
+            return postUpdateInform(info).then(
+                function (res) {
+                    dispatch(serviceExport(res.state))
                 }
             )
         }

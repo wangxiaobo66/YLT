@@ -6,4 +6,10 @@
 
 .module-ask-buy {
     @include doItem();
+    .AskBuy-component .box .left{
+        width:54%;
+    }
+    .AskBuy-component .box .right{
+        margin-left:54%;
+    }
 }

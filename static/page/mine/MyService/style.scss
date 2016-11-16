@@ -6,4 +6,9 @@
 
 .module-service {
     @include doItem();
+    .tips{
+        color:#bebebe;
+        text-align: center;
+        font-size: 20px;
+    }
 }
