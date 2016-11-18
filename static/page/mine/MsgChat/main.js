@@ -23,7 +23,8 @@ export default class Item extends React.Component {
             },
             disabled: false,
             user: null,
-            limitStart: 0
+            limitStart: 0,
+            total: 0
         };
     }
     getDefaultProps() {
@@ -35,11 +36,15 @@ export default class Item extends React.Component {
         });
     }
     onScrollStart() {
+
+    }
+    updateLimitStart() {
         this.state.limitStart = this.state.limitStart + LIMIT_COUNT;
     }
     componentDidMount() {
 
         this.fetchList();
+        this._scrollToBottom();
 
         // 获取当前用户信息
         service.detail().then((rep) => {
@@ -49,10 +54,13 @@ export default class Item extends React.Component {
         });
 
     }
+    _scrollToBottom() {
+        $('body').scrollTop($('body').height());
+    }
     fetchList() {
         service.msgList({
-            fromUserId: window.sessionStorage.getItem(LOGIN_USER_KEY),
-            userId: this.props.params.toUserId,
+            fromUser: this.props.params.toUserId,
+            userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
             limitStart: this.state.limitStart,
             limitCount: LIMIT_COUNT
         }).then((rep) => {
@@ -61,6 +69,10 @@ export default class Item extends React.Component {
                 results = results.concat(rep.result.list);
             } else {
                 results = this.state.list.concat(rep.result.list);
+            }
+            this.state.total = rep.result.total;
+            if (results.length < rep.result.total) {
+                this.updateLimitStart();
             }
             this.setState({
                 list: results
@@ -85,7 +97,6 @@ export default class Item extends React.Component {
     }
     addMsg() {
         service.addMsg(this.state.form).then((rep) => {
-            debugger;
             if (this.state.list === null) {
                 this.state.list = [
                     {
@@ -108,8 +119,12 @@ export default class Item extends React.Component {
                 });
             }
             this.state.form.content = '';
+            this._scrollToBottom();
             this.checkDisabled();
         });
+    }
+    loadMore() {
+        this.fetchList();
     }
     render() {
         let myUserId = window.sessionStorage.getItem(LOGIN_USER_KEY);
@@ -119,8 +134,19 @@ export default class Item extends React.Component {
             let len = list.length;
             let item;
             if (len === 0) {
-                msgHtml = <li className="item no-data">暂无数据</li>;
+                msgHtml = <li className="item load-all">已全部加载</li>;
             } else {
+                if (len < this.state.total) {
+                    msgHtml.push(
+                        <li className="item read-more">
+                            <a href="javascript:;" className="item read-more" onClick={this.loadMore.bind(this)}>点击查看更多</a>
+                        </li>
+                    );
+                } else {
+                    msgHtml.push(
+                        <li className="item load-all">已全部加载</li>
+                    );
+                }
                 for (let i = len - 1; i >= 0; i--) {
                     item = list[i];
                     msgHtml.push(

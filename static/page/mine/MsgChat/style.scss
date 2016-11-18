@@ -7,6 +7,7 @@
 .module-msg-chat {
     padding: 20px 15px 60px 15px;
     .list {
+        height: 300px;
         color: $color-font-gray;
         .item {
             margin-bottom: 20px;
@@ -71,5 +72,14 @@
                 display: block;
             }
         }
+    }
+    .read-more {
+        color: $color-font-gray;
+        text-align: center;
+        text-decoration: underline;
+    }
+    .load-all {
+        color: $color-font-gray;
+        text-align: center;
     }
 }

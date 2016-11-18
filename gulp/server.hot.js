@@ -21,7 +21,7 @@ import mocks from '../mock/index';
 const PORT_HAPI = 9998;
 const PORT_WEBPACK = 9997;
 
-const LI_WEN_IP_HOST = 'http://192.168.1.121';
+const LI_WEN_IP_HOST = 'http://192.168.1.113';
 const SERVER_IP_HOST = 'http://www.albatross168.com';
 
 gulp.task('server:hot', function () {
@@ -61,66 +61,66 @@ gulp.task('server:hot', function () {
                 {
                     path: '/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    // target: LI_WEN_IP_HOST,
-                    target: SERVER_IP_HOST
+                    target: LI_WEN_IP_HOST,
+                    // target: SERVER_IP_HOST
                 },
                 {
                     path: '/base/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    //target: LI_WEN_IP_HOST
-                    target: SERVER_IP_HOST
+                    target: LI_WEN_IP_HOST
+                    // target: SERVER_IP_HOST
                 },
                 {
                     path: '/subscript/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    //target: LI_WEN_IP_HOST
-                    target: SERVER_IP_HOST
+                    target: LI_WEN_IP_HOST
+                    // target: SERVER_IP_HOST
                 },
                 {
                     path: '/store/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    //target: LI_WEN_IP_HOST
-                    target: SERVER_IP_HOST
+                    target: LI_WEN_IP_HOST
+                    // target: SERVER_IP_HOST
                 },
                 {
                     path: '/user/**/*',
                     //target: 'http://localhost:' + PORT_HAPI
-                    //target: LI_WEN_IP_HOST
-                    target: SERVER_IP_HOST
+                    target: LI_WEN_IP_HOST
+                    // target: SERVER_IP_HOST
                 },
                 {
                     path: '/msg/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    //target: LI_WEN_IP_HOST
-                    target: SERVER_IP_HOST
+                    target: LI_WEN_IP_HOST
+                    // target: SERVER_IP_HOST
                 },
                 {
                     path: '/feedback/**/*',
                     //target: 'http://localhost:' + PORT_HAPI
-                    //target: LI_WEN_IP_HOST
-                    target: SERVER_IP_HOST
+                    target: LI_WEN_IP_HOST
+                    // target: SERVER_IP_HOST
                 },
                 {
                     path: '/interest/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    //target: LI_WEN_IP_HOST
-                    target: SERVER_IP_HOST
+                    target: LI_WEN_IP_HOST
+                    // target: SERVER_IP_HOST
                 },
                 {
                     path: '/unsold/**/*',
                     //target: 'http://localhost:' + PORT_HAPI
-                    //target: LI_WEN_IP_HOST
-                    target: SERVER_IP_HOST
+                    target: LI_WEN_IP_HOST
+                    // target: SERVER_IP_HOST
                 },
                 {
                     path: '/inform/**/*',
-                    //target: LI_WEN_IP_HOST
-                    target: SERVER_IP_HOST
+                    target: LI_WEN_IP_HOST
+                    // target: SERVER_IP_HOST
                 },
                 {
                     path: '/buying/**/*',
-                    // target: LI_WEN_IP_HOST
-                    target: SERVER_IP_HOST
+                    target: LI_WEN_IP_HOST
+                    // target: SERVER_IP_HOST
                 }
             ],
             stats: {
