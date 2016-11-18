@@ -38,7 +38,7 @@ export default class extends React.Component {
                                     return (
                                         <li className="item">
                                             <Link className="item-link clearfix" to={`/msg_chat/${item.fromUserId}`}>
-                                                <img src={item.headimgurl} width="45" height="45" className="img"/>
+                                                <img src={item.fromUser.headimgurl} width="45" height="45" className="img"/>
                                                 <div className="info">
                                                     <div className="title">
                                                         {

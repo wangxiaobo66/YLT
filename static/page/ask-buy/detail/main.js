@@ -20,8 +20,6 @@ export default class Item extends React.Component {
         };
     }
     sendMsg() {
-        window.toast('正在维护中...');
-        return;
         window.location.href = `./mine.html#/msg_chat/${this.state.detail.userId}`;
     }
     render() {

@@ -466,7 +466,6 @@ class component extends React.Component {
                     mineActive: true,
                     matte: false
                 });
-                //window.toast('维护中!');
                 window.location.href = "./mine.html";
                 break;
         }

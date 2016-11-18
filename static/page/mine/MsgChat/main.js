@@ -51,13 +51,14 @@ export default class Item extends React.Component {
     }
     fetchList() {
         service.msgList({
-            toUserId: this.props.params.toUserId,
+            fromUserId: window.sessionStorage.getItem(LOGIN_USER_KEY),
+            userId: this.props.params.toUserId,
             limitStart: this.state.limitStart,
             limitCount: LIMIT_COUNT
         }).then((rep) => {
             let results = [];
             if (this.state.list === null) {
-                results.concat(rep.result.list);
+                results = results.concat(rep.result.list);
             } else {
                 results = this.state.list.concat(rep.result.list);
             }
@@ -84,12 +85,28 @@ export default class Item extends React.Component {
     }
     addMsg() {
         service.addMsg(this.state.form).then((rep) => {
-            this.state.list.unshift({
-                headimgurl: this.state.user.headimgurl,
-                userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
-                toUserId: this.state.form.toUserId,
-                content: this.state.form.content
-            });
+            debugger;
+            if (this.state.list === null) {
+                this.state.list = [
+                    {
+                        userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
+                        toUserId: this.state.form.toUserId,
+                        content: this.state.form.content,
+                        toUser: {
+                            headimgurl: this.state.user.headimgurl
+                        }
+                    }
+                ];
+            } else {
+                this.state.list.unshift({
+                    userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
+                    toUserId: this.state.form.toUserId,
+                    content: this.state.form.content,
+                    toUser: {
+                        headimgurl: this.state.user.headimgurl
+                    }
+                });
+            }
             this.state.form.content = '';
             this.checkDisabled();
         });
@@ -113,7 +130,12 @@ export default class Item extends React.Component {
                             </div>
                             <div className="detail clearfix">
                                 <div className="img-box">
-                                    <img src={item.headimgurl} width="35" height="35" alt=""/>
+                                    {
+                                        item.userId == myUserId ?
+                                            <img src={item.toUser && item.toUser.headimgurl} width="35" height="35" alt=""/>
+                                            :
+                                            <img src={item.fromUser && item.fromUser.headimgurl} width="35" height="35" alt=""/>
+                                    }
                                     <p className="name">{item.nickname}</p>
                                 </div>
                                 <div className="info">

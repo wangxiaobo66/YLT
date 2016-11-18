@@ -111,11 +111,17 @@ export default class Item extends React.Component {
                                     <ul className="list clearfix">
                                         <li className="item">
                                             <Link className="item-link" to={`/msg_list`}>
-                                                <span className="text">我的消息<em className="ui-num">{detail.msgNum}</em></span>
+                                                <span className="text">我的消息
+                                                    {
+                                                        detail.count ?
+                                                            <em className="ui-num">{detail.count}</em>
+                                                            :
+                                                            null
+                                                    }
+                                                </span>
                                             </Link>
                                         </li>
                                         <li className="item">
-                                            {/* TODO 怎么知道自己有店铺 */}
                                             {
                                                 this.state.myStore ?
                                                     <a href={`./shop.html#/update/${this.state.myStore.id}`} className="item-link">

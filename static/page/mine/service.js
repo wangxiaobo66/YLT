@@ -56,7 +56,6 @@ export default {
      * @returns {*|Promise.<TResult>}
      */
     msgList(param = {}) {
-        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         return util.postRequest('/msg/msgList', param);
     },
 
