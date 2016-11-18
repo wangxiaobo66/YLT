@@ -28,8 +28,8 @@ export default class Item extends React.Component {
             mineActive: true,
             matte: false,
             detail: null,
-            myStore: false
-
+            myStore: false,
+            msgCount: 0
         };
     }
     componentDidMount() {
@@ -44,6 +44,12 @@ export default class Item extends React.Component {
         service.showMyStore({}).then((rep) => {
             this.setState({
                 myStore: rep.result.data
+            });
+        });
+
+        service.msgTopCount({}).then((rep) => {
+            this.setState({
+                msgCount: rep.result.total
             });
         });
 
@@ -113,8 +119,8 @@ export default class Item extends React.Component {
                                             <Link className="item-link" to={`/msg_list`}>
                                                 <span className="text">我的消息
                                                     {
-                                                        detail.count ?
-                                                            <em className="ui-num">{detail.count}</em>
+                                                        this.state.msgCount ?
+                                                            <em className="ui-num">{this.state.msgCount}</em>
                                                             :
                                                             null
                                                     }

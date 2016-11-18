@@ -39,6 +39,11 @@ export default {
     },
 
 
+    // msg/msgTopCount
+    msgTopCount(param = {}) {
+        param.userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        return util.postRequest('/msg/msgTopCount', param);
+    },
 
     /**
      * 消息列表
