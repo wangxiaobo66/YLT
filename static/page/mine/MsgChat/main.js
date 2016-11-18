@@ -23,7 +23,8 @@ export default class Item extends React.Component {
             },
             disabled: false,
             user: null,
-            limitStart: 0
+            limitStart: 0,
+            total: 0
         };
     }
     getDefaultProps() {
@@ -35,11 +36,15 @@ export default class Item extends React.Component {
         });
     }
     onScrollStart() {
+
+    }
+    updateLimitStart() {
         this.state.limitStart = this.state.limitStart + LIMIT_COUNT;
     }
     componentDidMount() {
 
         this.fetchList();
+        this._scrollToBottom();
 
         // 获取当前用户信息
         service.detail().then((rep) => {
@@ -49,17 +54,25 @@ export default class Item extends React.Component {
         });
 
     }
+    _scrollToBottom() {
+        $('body').scrollTop($('body').height());
+    }
     fetchList() {
         service.msgList({
-            toUserId: this.props.params.toUserId,
+            fromUser: this.props.params.toUserId,
+            userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
             limitStart: this.state.limitStart,
             limitCount: LIMIT_COUNT
         }).then((rep) => {
             let results = [];
             if (this.state.list === null) {
-                results.concat(rep.result.list);
+                results = results.concat(rep.result.list);
             } else {
                 results = this.state.list.concat(rep.result.list);
+            }
+            this.state.total = rep.result.total;
+            if (results.length < rep.result.total) {
+                this.updateLimitStart();
             }
             this.setState({
                 list: results
@@ -84,15 +97,34 @@ export default class Item extends React.Component {
     }
     addMsg() {
         service.addMsg(this.state.form).then((rep) => {
-            this.state.list.unshift({
-                headimgurl: this.state.user.headimgurl,
-                userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
-                toUserId: this.state.form.toUserId,
-                content: this.state.form.content
-            });
+            if (this.state.list === null) {
+                this.state.list = [
+                    {
+                        userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
+                        toUserId: this.state.form.toUserId,
+                        content: this.state.form.content,
+                        toUser: {
+                            headimgurl: this.state.user.headimgurl
+                        }
+                    }
+                ];
+            } else {
+                this.state.list.unshift({
+                    userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
+                    toUserId: this.state.form.toUserId,
+                    content: this.state.form.content,
+                    toUser: {
+                        headimgurl: this.state.user.headimgurl
+                    }
+                });
+            }
             this.state.form.content = '';
+            this._scrollToBottom();
             this.checkDisabled();
         });
+    }
+    loadMore() {
+        this.fetchList();
     }
     render() {
         let myUserId = window.sessionStorage.getItem(LOGIN_USER_KEY);
@@ -102,8 +134,19 @@ export default class Item extends React.Component {
             let len = list.length;
             let item;
             if (len === 0) {
-                msgHtml = <li className="item no-data">暂无数据</li>;
+                msgHtml = <li className="item load-all">已全部加载</li>;
             } else {
+                if (len < this.state.total) {
+                    msgHtml.push(
+                        <li className="item read-more">
+                            <a href="javascript:;" className="item read-more" onClick={this.loadMore.bind(this)}>点击查看更多</a>
+                        </li>
+                    );
+                } else {
+                    msgHtml.push(
+                        <li className="item load-all">已全部加载</li>
+                    );
+                }
                 for (let i = len - 1; i >= 0; i--) {
                     item = list[i];
                     msgHtml.push(
@@ -113,7 +156,12 @@ export default class Item extends React.Component {
                             </div>
                             <div className="detail clearfix">
                                 <div className="img-box">
-                                    <img src={item.headimgurl} width="35" height="35" alt=""/>
+                                    {
+                                        item.userId == myUserId ?
+                                            <img src={item.toUser && item.toUser.headimgurl} width="35" height="35" alt=""/>
+                                            :
+                                            <img src={item.fromUser && item.fromUser.headimgurl} width="35" height="35" alt=""/>
+                                    }
                                     <p className="name">{item.nickname}</p>
                                 </div>
                                 <div className="info">

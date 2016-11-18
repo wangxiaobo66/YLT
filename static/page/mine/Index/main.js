@@ -28,8 +28,8 @@ export default class Item extends React.Component {
             mineActive: true,
             matte: false,
             detail: null,
-            myStore: false
-
+            myStore: false,
+            msgCount: 0
         };
     }
     componentDidMount() {
@@ -44,6 +44,12 @@ export default class Item extends React.Component {
         service.showMyStore({}).then((rep) => {
             this.setState({
                 myStore: rep.result.data
+            });
+        });
+
+        service.msgTopCount({}).then((rep) => {
+            this.setState({
+                msgCount: rep.result.total
             });
         });
 
@@ -111,11 +117,17 @@ export default class Item extends React.Component {
                                     <ul className="list clearfix">
                                         <li className="item">
                                             <Link className="item-link" to={`/msg_list`}>
-                                                <span className="text">我的消息<em className="ui-num">{detail.msgNum}</em></span>
+                                                <span className="text">我的消息
+                                                    {
+                                                        this.state.msgCount ?
+                                                            <em className="ui-num">{this.state.msgCount}</em>
+                                                            :
+                                                            null
+                                                    }
+                                                </span>
                                             </Link>
                                         </li>
                                         <li className="item">
-                                            {/* TODO 怎么知道自己有店铺 */}
                                             {
                                                 this.state.myStore ?
                                                     <a href={`./shop.html#/update/${this.state.myStore.id}`} className="item-link">
