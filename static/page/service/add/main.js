@@ -29,7 +29,6 @@ export default class Item extends React.Component {
     render() {
         let that = this;
         let { data } = this.state;
-        console.log(data);
         return (
             <div className="module-add fn-mt10">
                 <form className="ui-form">
@@ -102,7 +101,7 @@ export default class Item extends React.Component {
                     </div>
                 </form>
                 <footer className="footer">
-                    <a href="javascript:;" className="ui-btn ui-btn-fixed" onClick={(e) => this.onclick(e,(data.id!==null?'update':'add'))}>{data.id!=null?'修改':'发布'}</a>
+                    <a href="javascript:;" className="ui-btn ui-btn-fixed" onClick={(e) => this.onclick(e,(data.id?'update':'add'))}>{data.id?'修改':'发布'}</a>
                 </footer>
             </div>
         );
@@ -110,7 +109,7 @@ export default class Item extends React.Component {
 
     componentDidMount() {
         let id = this.props.params.id;
-        if (id != null) {
+        if (id) {
             this.detail(id);
             let { data } = this.state;
             data.id = id;

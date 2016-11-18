@@ -30,7 +30,7 @@ export default class Item extends React.Component {
         return (
             <div className="module-detail">
                 <div className="detail-box">
-                    <Title content="基本规格" tip={list!=null?moment(list.createTime).format('YYYY-MM-DD hh:mm:ss'):null} />
+                    <Title content="基本规格" tip={list!=null?moment(list.updateTime).format('YYYY-MM-DD hh:mm:ss'):null} />
                     <div className="content">
                         <div className="content-row">
                             {

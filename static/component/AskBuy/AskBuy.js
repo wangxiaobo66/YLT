@@ -45,7 +45,7 @@ export class AskBuy extends React.Component {
                                 <span>{obj.portName}</span>
                             </p>
                             <p className="time">
-                                {moment(obj.createTime).format('YYYY-MM-DD hh:mm:ss')}
+                                {moment(obj.updateTime).format('YYYY-MM-DD hh:mm:ss')}
                             </p>
                         </div>
                         <div className="right">
