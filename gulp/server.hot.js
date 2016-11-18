@@ -67,14 +67,14 @@ gulp.task('server:hot', function () {
                 {
                     path: '/base/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
-                    // target: SERVER_IP_HOST
+                    //target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/subscript/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
-                    // target: SERVER_IP_HOST
+                    //target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/store/**/*',
@@ -85,26 +85,26 @@ gulp.task('server:hot', function () {
                 {
                     path: '/user/**/*',
                     //target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
-                    // target: SERVER_IP_HOST
+                    //target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/msg/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
-                    // target: SERVER_IP_HOST
+                    //target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/feedback/**/*',
                     //target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
-                    // target: SERVER_IP_HOST
+                    //target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/interest/**/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    target: LI_WEN_IP_HOST
-                    // target: SERVER_IP_HOST
+                    //target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/unsold/**/*',
@@ -114,8 +114,8 @@ gulp.task('server:hot', function () {
                 },
                 {
                     path: '/inform/**/*',
-                    target: LI_WEN_IP_HOST
-                    // target: SERVER_IP_HOST
+                    //target: LI_WEN_IP_HOST
+                    target: SERVER_IP_HOST
                 },
                 {
                     path: '/buying/**/*',
