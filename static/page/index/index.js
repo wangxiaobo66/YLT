@@ -178,7 +178,7 @@ class component extends React.Component {
                                             );
                                         })
                                         :
-                                        <div>暂无未售信息</div>
+                                    {/*<div>暂无未售信息</div>*/}
                                 }
                                 <div className="switch-all"><img src={imgRightIcon}/><a
                                     href="./market.html">查看全部未售市场</a></div>
@@ -192,7 +192,7 @@ class component extends React.Component {
                                             return <AskBuy obj={item} key={index} />;
                                         })
                                         :
-                                        <div>暂无求购信息</div>
+                                    {/*<div>暂无求购信息</div>*/}
                                 }
                                 <div className="switch-all"><img src={imgRightIcon} /><a
                                     href="./ask-buy.html">查看全部求购信息</a></div>
