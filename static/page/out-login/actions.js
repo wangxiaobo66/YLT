@@ -39,10 +39,13 @@ module.exports = {
         return function(dispatch) {
             return postLoginW(info).then(
                 function (res) {
-                    window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
-                    window.setTimeout(function () {
-                        window.location.href = './index.html';
-                    }, 100);
+                    console.log(res);
+                    if (res.reason === "success") {
+                        window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
+                        window.setTimeout(function () {
+                            window.location.href = './index.html';
+                        }, 100);
+                    }
                 }
             )
         }
