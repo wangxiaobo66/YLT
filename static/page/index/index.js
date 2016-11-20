@@ -19,7 +19,6 @@ const { createStore, applyMiddleware } = require('redux');
 const thunk = require('redux-thunk').default;
 
 import {LOGIN_USER_KEY} from '../../js/app/contants';//用户key
-let userkey = window.sessionStorage.getItem(LOGIN_USER_KEY);
 
 import marketService from '../market/service';
 
@@ -177,8 +176,7 @@ class component extends React.Component {
                                                 </a>
                                             );
                                         })
-                                        :
-                                    {/*<div>暂无未售信息</div>*/}
+                                        :null
                                 }
                                 <div className="switch-all"><img src={imgRightIcon}/><a
                                     href="./market.html">查看全部未售市场</a></div>
@@ -191,8 +189,7 @@ class component extends React.Component {
                                         this.state.dataAskBuys.map(function (item, index) {
                                             return <AskBuy obj={item} key={index} />;
                                         })
-                                        :
-                                    {/*<div>暂无求购信息</div>*/}
+                                        :null
                                 }
                                 <div className="switch-all"><img src={imgRightIcon} /><a
                                     href="./ask-buy.html">查看全部求购信息</a></div>
@@ -418,6 +415,7 @@ class component extends React.Component {
         dispatch(askBuyList(info));
 
         //判断是否登录
+        let userkey = window.sessionStorage.getItem(LOGIN_USER_KEY);
         console.log(userkey);
         userkey===null?
             (dispatch(userKey()))
