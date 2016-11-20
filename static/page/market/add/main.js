@@ -449,7 +449,8 @@ export default class AddUpdate extends React.Component {
                             <div className="item">
                                 <label>
                                     <div className="input-box">
-                                        <textarea rows="8"
+                                        <textarea className="textarea"
+                                                  rows="8"
                                                   maxLength="200"
                                                   onChange={this.checkDisabled.bind(this, 'content')}
                                                   value={this.state.form.content}

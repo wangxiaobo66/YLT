@@ -31,7 +31,7 @@ module.exports = {
             dispatch(indexNum(num));
         }
     },
-    askBuyList:function(data){//获取未售list
+    askBuyList:function(data){//获取求购list
         let info = data;
         return function (dispatch) {
             return postAskBuyList(info).then(
