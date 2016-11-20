@@ -25,6 +25,7 @@ class component extends React.Component {
     }
     render() {
         let { value } = this.state;
+        console.log(window.navigator.userAgent);
         return (
             <div className="module-out-login">
                 <img className="background" src="../../static/images/background.jpg"/>

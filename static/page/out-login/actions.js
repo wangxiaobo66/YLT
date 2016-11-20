@@ -39,7 +39,6 @@ module.exports = {
         return function(dispatch) {
             return postLoginW(info).then(
                 function (res) {
-                    alert(res);
                     console.log(res);
                     if (res.reason === "success") {
                         window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
