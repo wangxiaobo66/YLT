@@ -7,7 +7,7 @@ import '../../js/app/global';
 const React = require('react');
 const render = require('react-dom').render;
 
-const { userOutLogin } = require('./actions.js');//从actions里拿到方法
+const { userOutLogin , userLogin } = require('./actions.js');//从actions里拿到方法
 
 const { YLT } = require('../../redux/reducers');
 const { Provider, connect } = require('react-redux');
@@ -79,9 +79,21 @@ class component extends React.Component {
         let { value } = this.state;
         let { dispatch } = this.props;
         if(value.mobile!==""&&value.pwd!==""){
-            dispatch(userOutLogin(value));
+            if(this.isWeiXin()){
+                dispatch(userLogin(value));
+            }else {
+                dispatch(userOutLogin(value));
+            }
         }else{
             window.toast('账号密码不能为空!');
+        }
+    }
+    isWeiXin() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
         }
     }
 }

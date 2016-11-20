@@ -64,6 +64,7 @@ module.exports = {
             contentType: 'application/json; charset=UTF-8',
             async: true,
             timeout: 300000,
+            credentials: 'include',
             success: function (rep) {
                 window.unloading();
                 deferred.resolveWith(this, [rep]);

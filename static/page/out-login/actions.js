@@ -9,6 +9,11 @@ function postLogin(data) {
     let url = '/user/login/phone';
     return util.postRequest(url, data);
 }
+//补录信息
+function postLoginW(data){
+    let url = '/user/login/update';
+    return util.postRequest(url, data);
+}
 
 module.exports = {
     userOutLogin: function (data) {
@@ -25,6 +30,19 @@ module.exports = {
                     } else {
                         window.toast('请输入正确的账号密码!');
                     }
+                }
+            )
+        }
+    },
+    userLogin:function (data){
+        let info = data;
+        return function(dispatch) {
+            return postLoginW(info).then(
+                function (res) {
+                    window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
+                    window.setTimeout(function () {
+                        window.location.href = './index.html';
+                    }, 100);
                 }
             )
         }

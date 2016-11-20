@@ -18,6 +18,9 @@ const { Provider, connect } = require('react-redux');
 const { createStore, applyMiddleware } = require('redux');
 const thunk = require('redux-thunk').default;
 
+import {LOGIN_USER_KEY} from '../../js/app/contants';//用户key
+let userkey = window.sessionStorage.getItem(LOGIN_USER_KEY);
+
 import marketService from '../market/service';
 
 import img1 from './img/1.png';
@@ -117,7 +120,7 @@ let arrvalDefaults = [
     }
 ];
 
-let { askBuyList } = require('./actions');//从actions里取出方法
+let { askBuyList , userKey } = require('./actions');//从actions里取出方法
 class component extends React.Component {
     constructor(props) {
         super(props);
@@ -134,7 +137,6 @@ class component extends React.Component {
     }
 
     render() {
-        let { index } = this.props;
         let { homeActive , publishActive , mineActive , matte , search , searchValue } = this.state;
         return (
             <div className={"modal-index clearfix" + (search?" search":"")}
@@ -414,6 +416,12 @@ class component extends React.Component {
         let {dispatch} = this.props;
         let info = {"limitStart":"0","limitCount":"5","portId":"0","goodstypeId":"0","treetypeId":"0","lengthId":"0"};
         dispatch(askBuyList(info));
+
+        //判断是否登录
+        console.log(userkey);
+        userkey===null?
+            (dispatch(userKey()))
+            :null;
     }
     componentWillReceiveProps(nextProps) {
         let askBuy = nextProps.index.askBuy;
