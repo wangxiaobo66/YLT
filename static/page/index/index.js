@@ -425,7 +425,7 @@ class component extends React.Component {
         let askBuy = nextProps.index.askBuy;
         this.setState({
             dataAskBuys:askBuy
-        })
+        });
         let { dataAskBuys } = this.state;
     }
 
