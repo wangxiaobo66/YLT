@@ -145,12 +145,12 @@ class component extends React.Component {
                     {/*<img src={imgLogo} className="logo"/>*/}
                     <div className="search">
                         <img src={imgIcon} className="icon"/>
-                        <form action="./arrival.html">{/*跳转问题*/}
+                        {/*跳转问题<form action="./arrival.html">*/}
                             <input type="text" className="input" placeholder="找木材/找货物/找货主" name="word" value={searchValue}
                                    onClick={(e) => this.searchClick(e)}
                                    onChange={(e) => this.searchChange(e)}/>
                             <a href="javascript:;" className="cancel" onClick={(e) => this.cancel(e)}>取消</a>
-                        </form>
+                        {/*</form>*/}
 
                     </div>
                     <div className="searchHistory">
@@ -378,12 +378,26 @@ class component extends React.Component {
                 //let { searchValue } = this.state;
                 //if(searchValue!==""){//inout输入非空push进数组中,若之前数组非空,push后数组为[Array[],searchValue],需再做处理
                 //    historyList.push(searchValue);
-
                 //}
                 //let history = historyList.join(",");//将数组转换为字符串,中间以","隔开
                 //let historyUnique = history.split(",").unique();//再将字符串转换成数组,执行去重方法输出新数组
-
                 //localStorage.setItem("history", historyUnique.join(","));//将新数组字符串化并存入缓存
+                let { searchValue } = this.state;
+                if (searchValue!=''){
+                    marketService.unsoldList({
+                        limitStart: 0,
+                        limitCount: 10,
+                        key:searchValue
+                    }).then(rep => {
+                        this.setState({
+                            dataMarkets: rep.result.list
+                        });
+                    });
+                    //获取求购列表
+                    let {dispatch} = this.props;
+                    let info = {"limitStart":"0","limitCount":"10","portId":"0","goodstypeId":"0","treetypeId":"0","lengthId":"0",key:searchValue};
+                    dispatch(askBuyList(info));
+                }
             }
         });
 
@@ -474,9 +488,9 @@ class component extends React.Component {
 
     searchClick(e) {
         this.setState({
-            search: true
+            search: false
         });
-        if(window.localStorage.length){//读取本地缓存
+        /*if(window.localStorage.length){//读取本地缓存
             let history = localStorage.getItem("history");
             if(history!==""){
                 historyList = history.split(",");
@@ -484,7 +498,8 @@ class component extends React.Component {
         }else {//创建本地缓存
             historyList.join(",");
             localStorage.setItem("history", historyList);
-        }
+        }*/
+
     }
 
     cancel(e) {

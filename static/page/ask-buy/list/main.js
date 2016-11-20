@@ -10,11 +10,12 @@ import {AskBuy} from '../../../component/AskBuy/AskBuy';
 
 const { optionsList , askBuyList } = require('./../actions.js');//从actions里拿到方法
 
+let portId=0,treetypeId= 0, goodstypeId=0,lengthId=0;
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list:[]
+            list:[],
         };
     }
     componentDidMount() {
@@ -37,8 +38,10 @@ export default class Item extends React.Component {
                 <div className="ui-top-select clearfix">
                     <label className="item">
                         <span className="for">地区</span>
-                        <select className="select">
-                            <option value="">选择</option>
+                        <select className="select"
+                                value={portId}
+                                onChange={(e) => this.onchange(e,'port')}>
+                            <option value="0">选择</option>
                             {
                                 askBuy.port !="" ?
                                     askBuy.port.map(function (obj) {
@@ -51,22 +54,10 @@ export default class Item extends React.Component {
                     </label>
                     <label className="item">
                         <span className="for">货种</span>
-                        <select className="select">
-                            <option value="">选择</option>
-                            {
-                                askBuy.tree !="" ?
-                                    askBuy.tree.map(function (obj) {
-                                        return <option value={obj.id}>{obj.name}</option>
-                                    })
-                                    :
-                                    null
-                            }
-                        </select>
-                    </label>
-                    <label className="item">
-                        <span className="for">树种</span>
-                        <select className="select">
-                            <option value="">选择</option>
+                        <select className="select"
+                                value={goodstypeId}
+                                onChange={(e) => this.onchange(e,'goods')}>
+                            <option value="0">选择</option>
                             {
                                 askBuy.goods !="" ?
                                     askBuy.goods.map(function (obj) {
@@ -78,9 +69,27 @@ export default class Item extends React.Component {
                         </select>
                     </label>
                     <label className="item">
+                        <span className="for">树种</span>
+                        <select className="select"
+                                value={treetypeId}
+                                onChange={(e) => this.onchange(e,'tree')}>
+                            <option value="0">选择</option>
+                            {
+                                askBuy.tree !="" ?
+                                    askBuy.tree.map(function (obj) {
+                                        return <option value={obj.id}>{obj.name}</option>
+                                    })
+                                    :
+                                    null
+                            }
+                        </select>
+                    </label>
+                    <label className="item">
                         <span className="for">长度</span>
-                        <select className="select">
-                            <option value="">选择</option>
+                        <select className="select"
+                                value={lengthId}
+                                onChange={(e) => this.onchange(e,'length')}>
+                            <option value="0">选择</option>
                             {
                                 askBuy.length !="" ?
                                     askBuy.length.map(function (obj) {
@@ -113,6 +122,35 @@ export default class Item extends React.Component {
                 </footer>
             </div>
         );
+    }
+    /*portId:'',
+    treetypeId:'',
+    goodstypeId:'',
+    lengthId:''*/
+    onchange(e,name){
+        let val = e.target.value;
+        switch (name){
+            case 'port':
+                portId=val;
+                break;
+            case 'goods':
+                goodstypeId=val;
+                break;
+            case 'tree':
+                treetypeId=val;
+                break;
+            case 'length':
+                lengthId=val;
+                break;
+        }
+        this.findGet();
+    }
+    findGet(){
+        if(portId!=0||goodstypeId!=0||treetypeId!=0||lengthId!=0){
+            let {dispatch} = this.props;
+            let info = {"limitStart":"0","limitCount":"10","portId":portId,"goodstypeId":goodstypeId,"treetypeId":treetypeId,"lengthId":lengthId};
+            dispatch(askBuyList(info));
+        }
     }
     port(){
         let data = {"limitStart":"0","limitCount":"10","type":"5"};

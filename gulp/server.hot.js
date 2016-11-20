@@ -21,7 +21,7 @@ import mocks from '../mock/index';
 const PORT_HAPI = 9998;
 const PORT_WEBPACK = 9997;
 
-const LI_WEN_IP_HOST = 'http://192.168.1.121';
+const LI_WEN_IP_HOST = 'http://192.168.1.113';
 const SERVER_IP_HOST = 'http://www.albatross168.com';
 
 gulp.task('server:hot', function () {
@@ -61,7 +61,7 @@ gulp.task('server:hot', function () {
                 {
                     path: '/*',
                     // target: 'http://localhost:' + PORT_HAPI
-                    // target: LI_WEN_IP_HOST,
+                    //target: LI_WEN_IP_HOST,
                     target: SERVER_IP_HOST
                 },
                 {
@@ -119,7 +119,7 @@ gulp.task('server:hot', function () {
                 },
                 {
                     path: '/buying/**/*',
-                    // target: LI_WEN_IP_HOST
+                    //target: LI_WEN_IP_HOST
                     target: SERVER_IP_HOST
                 }
             ],
