@@ -55,6 +55,9 @@ function serviceExport(data){
 }
 
 module.exports = {
+    serviceList(param = {}) {
+        return util.postRequest('/inform/informList', param);
+    },
     serviceData:function(data){//服务list
         let info = data;
         return function (dispatch) {

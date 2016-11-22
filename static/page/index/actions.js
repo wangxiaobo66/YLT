@@ -14,7 +14,7 @@ function indexNum(num){
 }
 
 const ASKBUY_LIST = "ASKBUY_LIST";//求购list
-function list(data){
+function askbuyList(data){
     return {
         type:ASKBUY_LIST,
         data
@@ -33,6 +33,9 @@ function postUserKey(data){
 }
 
 module.exports = {
+    user(param = {}) {
+        return util.postRequest('/user/getUserId', param);
+    },
     change:function(num){
         return function(dispatch){
             dispatch(indexNum(num));
@@ -43,7 +46,7 @@ module.exports = {
         return function (dispatch) {
             return postAskBuyList(info).then(
                 function (res) {
-                    dispatch(list(res.result.list));
+                    dispatch(askbuyList(res.result.list));
                 }
             )
         };

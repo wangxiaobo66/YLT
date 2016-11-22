@@ -9,13 +9,24 @@ import {Link} from 'react-router';
 import {AskBuy} from '../../../component/AskBuy/AskBuy';
 
 const { optionsList , askBuyList } = require('./../actions.js');//从actions里拿到方法
+import buyingService from './..//actions';//求购
 
 let portId=0,treetypeId= 0, goodstypeId=0,lengthId=0;
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list:[],
+            dataAskBuys:null,
+            portOptions:null,
+            treeOptions:null,
+            goodsOptions:null,
+            lengthOptions:null,
+            form: { // 要添加的对象
+                portId: 0,
+                treetypeId: 0,
+                goodstypeId: 0,
+                lengthId: 0
+            }
         };
     }
     componentDidMount() {
@@ -26,13 +37,14 @@ export default class Item extends React.Component {
         this.length();
     }
     componentWillReceiveProps(nextProps) {
+        /*
         let list = nextProps.askBuy.list;
         this.setState({
             list:list
         })
+        */
     }
     render() {
-        let { askBuy } = this.props;
         return (
             <div className="module-list">
                 <div className="ui-top-select clearfix">
@@ -43,8 +55,8 @@ export default class Item extends React.Component {
                                 onChange={(e) => this.onchange(e,'port')}>
                             <option value="0">选择</option>
                             {
-                                askBuy.port !="" ?
-                                    askBuy.port.map(function (obj) {
+                                this.state.portOptions !=null ?
+                                    this.state.portOptions.map(function (obj) {
                                         return <option value={obj.id}>{obj.name}</option>
                                     })
                                     :
@@ -59,8 +71,8 @@ export default class Item extends React.Component {
                                 onChange={(e) => this.onchange(e,'goods')}>
                             <option value="0">选择</option>
                             {
-                                askBuy.goods !="" ?
-                                    askBuy.goods.map(function (obj) {
+                                this.state.goodsOptions !=null ?
+                                    this.state.goodsOptions.map(function (obj) {
                                         return <option value={obj.id}>{obj.name}</option>
                                     })
                                     :
@@ -75,8 +87,8 @@ export default class Item extends React.Component {
                                 onChange={(e) => this.onchange(e,'tree')}>
                             <option value="0">选择</option>
                             {
-                                askBuy.tree !="" ?
-                                    askBuy.tree.map(function (obj) {
+                                this.state.treeOptions !=null ?
+                                    this.state.treeOptions.map(function (obj) {
                                         return <option value={obj.id}>{obj.name}</option>
                                     })
                                     :
@@ -91,8 +103,8 @@ export default class Item extends React.Component {
                                 onChange={(e) => this.onchange(e,'length')}>
                             <option value="0">选择</option>
                             {
-                                askBuy.length !="" ?
-                                    askBuy.length.map(function (obj) {
+                                this.state.lengthOptions !=null ?
+                                    this.state.lengthOptions.map(function (obj) {
                                         return <option value={obj.id}>{obj.name}</option>
                                     })
                                     :
@@ -103,8 +115,8 @@ export default class Item extends React.Component {
                 </div>
                 <ul className="ui-list">
                     {
-                        this.state.list.length!=0?
-                            this.state.list.map(function (obj, index) {
+                        this.state.dataAskBuys!=null?
+                            this.state.dataAskBuys.map(function (obj, index) {
                                 return (
                                     <li className="item clearfix" key={index}>
                                         <Link className="item-link" to={"detail/"+obj.orderId}>
@@ -146,35 +158,81 @@ export default class Item extends React.Component {
         this.findGet();
     }
     findGet(){
-        if(portId!=0||goodstypeId!=0||treetypeId!=0||lengthId!=0){
+            /*
             let {dispatch} = this.props;
             let info = {"limitStart":"0","limitCount":"10","portId":portId,"goodstypeId":goodstypeId,"treetypeId":treetypeId,"lengthId":lengthId};
             dispatch(askBuyList(info));
-        }
+            */
+            buyingService.buyingList({
+                limitStart: 0,
+                limitCount: 10,
+                portId: portId,
+                goodstypeId: goodstypeId,
+                treetypeId: treetypeId,
+                lengthId: lengthId
+            }).then(rep => {
+                this.setState({
+                    dataAskBuys:rep.result.list
+                })
+            });
     }
     port(){
-        let data = {"limitStart":"0","limitCount":"10","type":"5"};
-        let { dispatch } = this.props;
-        dispatch(optionsList(data,'port'));
+        buyingService.optionList({
+            limitStart:0,
+            limitCount:10,
+            type:5
+        }).then(rep => {
+            this.setState({
+                portOptions:rep.result.list
+            })
+        })
     }
+
     tree(){
-        let data = {"limitStart":"0","limitCount":"10","type":"1"};
-        let { dispatch } = this.props;
-        dispatch(optionsList(data,'tree'));
+        buyingService.optionList({
+            limitStart:0,
+            limitCount:10,
+            type:1
+        }).then(rep => {
+            this.setState({
+                treeOptions:rep.result.list
+            })
+        })
     }
     goods(){
-        let data = {"limitStart":"0","limitCount":"10","type":"3"};
-        let { dispatch } = this.props;
-        dispatch(optionsList(data,'goods'));
+        buyingService.optionList({
+            limitStart:0,
+            limitCount:10,
+            type:3
+        }).then(rep => {
+            this.setState({
+                goodsOptions:rep.result.list
+            })
+        })
     }
     length(){
-        let data = {"limitStart":"0","limitCount":"10","type":"4"};
-        let { dispatch } = this.props;
-        dispatch(optionsList(data,'length'));
+        buyingService.optionList({
+            limitStart:0,
+            limitCount:10,
+            type:4
+        }).then(rep => {
+            this.setState({
+                lengthOptions:rep.result.list
+            })
+        })
     }
     list(){
-        let { dispatch } = this.props;
-        let data = {"limitStart":"0","limitCount":"10","portId":"0","goodstypeId":"0","treetypeId":"0","lengthId":"0"};
-        dispatch(askBuyList(data));
+        buyingService.buyingList({
+            limitStart: 0,
+            limitCount: 10,
+            portId: 0,
+            goodstypeId: 0,
+            treetypeId: 0,
+            lengthId: 0
+        }).then(rep => {
+            this.setState({
+                dataAskBuys:rep.result.list
+            })
+        });
     }
 }

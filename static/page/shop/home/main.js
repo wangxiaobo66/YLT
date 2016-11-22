@@ -137,7 +137,7 @@ export default class Home extends React.Component {
                                         return (
                                             <li className="item">
                                                 <a className="item-link" href={`./market.html#/detail/${item.orderId}`}>
-                                                    <img src={item.imgUrl} className="img" width="123" height="62" alt=""/>
+                                                    <img src={item.iconUrl} className="img" width="123" height="62" alt=""/>
                                                     <div className="info">
                                                         <p className="title">
                                                             <span className="name">{item.dim.treetypeName}&nbsp;</span>

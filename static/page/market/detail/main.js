@@ -75,8 +75,8 @@ export default class Detail extends React.Component {
                                 <div className="detail-box">
                                     <div className="img">
                                         {
-                                            detail.imgUrl ?
-                                                <img src={detail.imgUrl} width="80" height="60" />
+                                            detail.iconUrl ?
+                                                <img src={detail.iconUrl} width="80" height="60" />
                                                 :
                                                 null
                                         }

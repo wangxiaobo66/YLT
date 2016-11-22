@@ -54,7 +54,7 @@ export default class extends React.Component {
                         <div className="shop-box">
                             <div className="header">
                                 <div className="img">
-                                    <img src={imgLogo} width="60" height="60" alt=""/>
+                                    <img src={detail.iconUrl} width="60" height="60" alt=""/>
                                 </div>
                                 <div className="info">
                                     <p className="title">{detail.storeName}</p>

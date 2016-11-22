@@ -18,7 +18,7 @@ export default class Shop extends React.Component {
         return (
             <div className="Shop-component">
                 <div className="info">
-                    <img className="img" src={obj.logoUrl || STORE_LOGO_DEFAULT} width="45" height="45" alt=""/>
+                    <img className="img" src={obj.iconUrl || STORE_LOGO_DEFAULT} width="45" height="45" alt=""/>
                     <div className="info-detail">
                         <div className="title">
                             <div className="title-location">
@@ -37,7 +37,7 @@ export default class Shop extends React.Component {
                                 obj.orders.map(function (item, index) {
                                     return (
                                         <li className="item" key={item.id}>
-                                            <img src={item.imgUrl} width="123" height="63" alt=""/>
+                                            <img src={item.iconUrl} width="123" height="63" alt=""/>
                                         </li>
                                     );
                                 })

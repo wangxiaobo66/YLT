@@ -10,6 +10,8 @@ import {Link} from 'react-router';
 import {Service} from '../../../component/Service/Service';
 
 const { serviceData } = require('./../actions.js');//从actions里拿到方法
+import serviceList from './../actions';//求购
+
 
 export default class Item extends React.Component {
     constructor(props) {
@@ -24,8 +26,8 @@ export default class Item extends React.Component {
                 recruit: false,
                 job: false,
                 other: false
-            }
-
+            },
+            serveData:null
         };
     }
 
@@ -85,8 +87,8 @@ export default class Item extends React.Component {
                 <article className="article">
                     <ul className="ui-list">
                         {
-                            service.data !== "" ?
-                                service.data.list.map(function (obj, index) {
+                            this.state.serveData !== null ?
+                                this.state.serveData.map(function (obj, index) {
                                     return <li className="item">
                                                 <Link className="item-link" to={"detail/"+obj.id}>
                                                     <Service obj={obj} key={index} />
@@ -116,9 +118,15 @@ export default class Item extends React.Component {
     }
 
     dataList(type){
-        let { dispatch} = this.props;
-        let data = {"limitStart": "0", "limitCount": "10", "type": this.dataType(type)};
-        dispatch(serviceData(data));
+        serviceList.serviceList({
+            limitStart: 0,
+            limitCount: 10,
+            type: this.dataType(type)
+        }).then(rep => {
+            this.setState({
+                serveData:rep.result.list
+            })
+        });
     }
 
     onclick(e, nmb) {

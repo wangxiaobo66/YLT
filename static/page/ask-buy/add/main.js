@@ -9,6 +9,8 @@ import {Link} from 'react-router';
 
 const { optionsList , askBuy , orderDetail , update } = require('./../actions.js');//从actions里拿到方法
 
+import buyingService from './..//actions';//求购
+
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
@@ -23,7 +25,12 @@ export default class Item extends React.Component {
             price: '',//价格
             amount: '',//总货量
             content: '',//求购内容
-            subscript: '0'//是否订阅,默认不订阅
+            subscript: '0',//是否订阅,默认不订阅
+            //码表信息
+            portOptions:null,
+            treeOptions:null,
+            goodsOptions:null,
+            lengthOptions:null,
         };
     }
 
@@ -42,8 +49,8 @@ export default class Item extends React.Component {
                                         onChange={(e) => this.onchange(e,'port')}>
                                     <option value="">请选择口岸</option>
                                     {
-                                        askBuy.port != "" ?
-                                            askBuy.port.map(function (obj) {
+                                        this.state.portOptions != null ?
+                                            this.state.portOptions.map(function (obj) {
                                                 return <option value={obj.id}>{obj.name}</option>
                                             })
                                             :
@@ -62,8 +69,8 @@ export default class Item extends React.Component {
                                         onChange={(e) => this.onchange(e,'tree')}>
                                     <option value="">请选择树种</option>
                                     {
-                                        askBuy.tree != "" ?
-                                            askBuy.tree.map(function (obj) {
+                                        this.state.treeOptions != null ?
+                                            this.state.treeOptions.map(function (obj) {
                                                 return <option value={obj.id}>{obj.name}</option>
                                             })
                                             :
@@ -82,8 +89,8 @@ export default class Item extends React.Component {
                                         onChange={(e) => this.onchange(e,'goods')}>
                                     <option value="">请选择货种</option>
                                     {
-                                        askBuy.goods != "" ?
-                                            askBuy.goods.map(function (obj) {
+                                        this.state.goodsOptions != null ?
+                                            this.state.goodsOptions.map(function (obj) {
                                                 return <option value={obj.id}>{obj.name}</option>
                                             })
                                             :
@@ -102,8 +109,8 @@ export default class Item extends React.Component {
                                         onChange={(e) => this.onchange(e,'length')}>
                                     <option value="">请选择长度</option>
                                     {
-                                        askBuy.length != "" ?
-                                            askBuy.length.map(function (obj) {
+                                        this.state.lengthOptions != null ?
+                                            this.state.lengthOptions.map(function (obj) {
                                                 return <option value={obj.id}>{obj.name}</option>
                                             })
                                             :
@@ -236,27 +243,51 @@ export default class Item extends React.Component {
     }
 
     port() {
-        let data = {"limitStart": "0", "limitCount": "10", "type": "5"};
-        let { dispatch } = this.props;
-        dispatch(optionsList(data, 'port'));
+        buyingService.optionList({
+            limitStart:0,
+            limitCount:10,
+            type:5
+        }).then(rep => {
+            this.setState({
+                portOptions:rep.result.list
+            })
+        })
     }
 
     tree() {
-        let data = {"limitStart": "0", "limitCount": "10", "type": "1"};
-        let { dispatch } = this.props;
-        dispatch(optionsList(data, 'tree'));
+        buyingService.optionList({
+            limitStart:0,
+            limitCount:10,
+            type:1
+        }).then(rep => {
+            this.setState({
+                treeOptions:rep.result.list
+            })
+        })
     }
 
     goods() {
-        let data = {"limitStart": "0", "limitCount": "10", "type": "3"};
-        let { dispatch } = this.props;
-        dispatch(optionsList(data, 'goods'));
+        buyingService.optionList({
+            limitStart:0,
+            limitCount:10,
+            type:3
+        }).then(rep => {
+            this.setState({
+                goodsOptions:rep.result.list
+            })
+        })
     }
 
     length() {
-        let data = {"limitStart": "0", "limitCount": "10", "type": "4"};
-        let { dispatch } = this.props;
-        dispatch(optionsList(data, 'length'));
+        buyingService.optionList({
+            limitStart:0,
+            limitCount:10,
+            type:4
+        }).then(rep => {
+            this.setState({
+                lengthOptions:rep.result.list
+            })
+        })
     }
 
     onchange(e, name) {
@@ -329,7 +360,7 @@ export default class Item extends React.Component {
     onclick(name) {
         let { dispatch } = this.props;
         let { orderId , portId , treetypeId , goodstypeId , lengthId , buyer , mobile , price , amount , content , subscript} = this.state;
-        let data = {
+        let dataUpdate = {
             "orderId":orderId,
             "portId": portId,
             "treetypeId": treetypeId,
@@ -342,13 +373,64 @@ export default class Item extends React.Component {
             "content": content,
             "subscript": subscript
         };
-        console.log(data);
+        let dataAdd = {
+            "portId": portId,
+            "treetypeId": treetypeId,
+            "goodstypeId": goodstypeId,
+            "lengthId": lengthId,
+            "buyer": buyer,
+            "mobile": mobile,
+            "price": price,
+            "amount": amount,
+            "content": content,
+            "subscript": subscript
+        };
         switch (name) {
             case 'update':
-                dispatch(update(data));
+                if(dataUpdate.portId!=''&&dataUpdate.treetypeId!=''&&dataUpdate.goodstypeId!=''
+                    &&dataUpdate.lengthId!=''&&dataUpdate.buyer!=''&&dataUpdate.mobile!=''
+                    &&dataUpdate.price!=''&&dataUpdate.amount!=''){
+                    dispatch(update(dataUpdate));
+                }else if(dataUpdate.portId===''){
+                    window.toast('请选择口岸!');
+                }else if(dataUpdate.treetypeId===''){
+                    window.toast('请选择树种!');
+                }else if(dataUpdate.goodstypeId===''){
+                    window.toast('请选择货种!');
+                }else if(dataUpdate.lengthId===''){
+                    window.toast('请选择长度!');
+                }else if(dataUpdate.buyer===''){
+                    window.toast('请填写买家姓名!');
+                }else if(dataUpdate.mobile===''){
+                    window.toast('请填写买家手机号!');
+                }else if(dataUpdate.price===''){
+                    window.toast('请填写期望价格!');
+                }else if(dataUpdate.amount===''){
+                    window.toast('请填写求购数量!');
+                }
                 break;
             case 'add':
-                dispatch(askBuy(data));
+                if(dataAdd.portId!=''&&dataAdd.treetypeId!=''&&dataAdd.goodstypeId!=''
+                    &&dataAdd.lengthId!=''&&dataAdd.buyer!=''&&dataAdd.mobile!=''
+                    &&dataAdd.price!=''&&dataAdd.amount!=''){
+                    dispatch(askBuy(dataAdd));
+                }else if(dataAdd.portId===''){
+                    window.toast('请选择口岸!');
+                }else if(dataAdd.treetypeId===''){
+                    window.toast('请选择树种!');
+                }else if(dataAdd.goodstypeId===''){
+                    window.toast('请选择货种!');
+                }else if(dataAdd.lengthId===''){
+                    window.toast('请选择长度!');
+                }else if(dataAdd.buyer===''){
+                    window.toast('请填写买家姓名!');
+                }else if(dataAdd.mobile===''){
+                    window.toast('请填写买家手机号!');
+                }else if(dataAdd.price===''){
+                    window.toast('请填写期望价格!');
+                }else if(dataAdd.amount===''){
+                    window.toast('请填写求购数量!');
+                }
                 break;
         }
     }

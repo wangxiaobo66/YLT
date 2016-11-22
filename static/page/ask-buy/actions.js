@@ -84,6 +84,12 @@ function detail(data){
 }
 
 module.exports = {
+    buyingList(param = {}) {
+        return util.postRequest('/buying/buyingList', param);
+    },
+    optionList(param = {}){
+        return util.postRequest('/base/options', param);
+    },
     askBuyList:function(data){//获取求购list
         let info = data;
         return function (dispatch) {
