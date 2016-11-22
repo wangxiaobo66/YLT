@@ -20,7 +20,7 @@ export default class Market extends React.Component {
         return (
             <div className="component Market-component">
                 <div className="box">
-                    <img src={obj.imgUrl} width="80" height="60" />
+                    <img src={obj.iconUrl} width="80" height="60" />
                     <div className="info clearfix">
                         <div className="left">
                             {

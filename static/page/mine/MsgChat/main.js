@@ -126,6 +126,13 @@ export default class Item extends React.Component {
     loadMore() {
         this.fetchList();
     }
+    img(usrId){
+        if(usrId){
+
+        }else {
+
+        }
+    }
     render() {
         let myUserId = window.sessionStorage.getItem(LOGIN_USER_KEY);
         let msgHtml = [];
@@ -149,6 +156,8 @@ export default class Item extends React.Component {
                 }
                 for (let i = len - 1; i >= 0; i--) {
                     item = list[i];
+                    let userId = (item.userId == myUserId);
+                    //console.log(userId);
                     msgHtml.push(
                         <li className={item.userId == myUserId ? 'item item-right' : 'item item-left'}>
                             <div className="time">
@@ -157,10 +166,11 @@ export default class Item extends React.Component {
                             <div className="detail clearfix">
                                 <div className="img-box">
                                     {
-                                        item.userId == myUserId ?
-                                            <img src={item.toUser && item.toUser.headimgurl} width="35" height="35" alt=""/>
+                                        //this.img()
+                                        userId?
+                                            <img src={item.toUser && item.toUser.headimgurl} className="true" width="35" height="35" alt=""/>
                                             :
-                                            <img src={item.fromUser && item.fromUser.headimgurl} width="35" height="35" alt=""/>
+                                            <img src={item.fromUser && item.fromUser.headimgurl} className="false" width="35" height="35" alt=""/>
                                     }
                                     <p className="name">{item.nickname}</p>
                                 </div>
