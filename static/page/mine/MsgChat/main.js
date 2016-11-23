@@ -103,7 +103,7 @@ export default class Item extends React.Component {
                         userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
                         toUserId: this.state.form.toUserId,
                         content: this.state.form.content,
-                        toUser: {
+                        fromUser: {//问题(数据)
                             headimgurl: this.state.user.headimgurl
                         }
                     }
@@ -113,7 +113,7 @@ export default class Item extends React.Component {
                     userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
                     toUserId: this.state.form.toUserId,
                     content: this.state.form.content,
-                    toUser: {
+                    fromUser: {//问题(数据)
                         headimgurl: this.state.user.headimgurl
                     }
                 });
@@ -125,13 +125,6 @@ export default class Item extends React.Component {
     }
     loadMore() {
         this.fetchList();
-    }
-    img(usrId){
-        if(usrId){
-
-        }else {
-
-        }
     }
     render() {
         let myUserId = window.sessionStorage.getItem(LOGIN_USER_KEY);
@@ -156,8 +149,6 @@ export default class Item extends React.Component {
                 }
                 for (let i = len - 1; i >= 0; i--) {
                     item = list[i];
-                    let userId = (item.userId == myUserId);
-                    //console.log(userId);
                     msgHtml.push(
                         <li className={item.userId == myUserId ? 'item item-right' : 'item item-left'}>
                             <div className="time">
@@ -166,9 +157,8 @@ export default class Item extends React.Component {
                             <div className="detail clearfix">
                                 <div className="img-box">
                                     {
-                                        //this.img()
-                                        userId?
-                                            <img src={item.toUser && item.toUser.headimgurl} className="true" width="35" height="35" alt=""/>
+                                        item.userId == myUserId?
+                                            <img src={item.fromUser && item.fromUser.headimgurl} className="true" width="35" height="35" alt=""/>//问题(数据)
                                             :
                                             <img src={item.fromUser && item.fromUser.headimgurl} className="false" width="35" height="35" alt=""/>
                                     }
