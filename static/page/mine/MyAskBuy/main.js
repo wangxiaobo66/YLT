@@ -13,7 +13,7 @@ export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: null
+            list: ''
         };
     }
     componentDidMount() {
@@ -53,7 +53,7 @@ export default class Item extends React.Component {
         return (
             <div className="module-ask-buy">
                 <ul className="list">
-                    {   this.state.list!=null?
+                    {   this.state.list!=''?
                         this.state.list.map(function (item, index) {
                             return (
                                 <li className="item clearfix" key={index}>
@@ -84,7 +84,7 @@ export default class Item extends React.Component {
                                 </li>
                             );
                         })
-                        :null
+                        :<li className="item no-data">暂无数据</li>
                     }
                 </ul>
 

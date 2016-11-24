@@ -18,14 +18,16 @@ export default class Item extends React.Component {
         this.state = {
             list: [
 
-            ]
+            ],
+            title:''
         };
     }
     render() {
         let { service } = this.props;
+        let { title } = this.state;
         return (
             <div className="module-detail">
-                <Title content="求车服务" tip={service.detail?moment(service.detail.data.updateTime).format('YYYY-MM-DD hh:mm:ss'):''} />
+                <Title content={title} tip={service.detail?moment(service.detail.data.updateTime).format('YYYY-MM-DD hh:mm:ss'):''} />
                 <div className="content">
                     <div className="content-row">
                         <div className="item">{service.detail?service.detail.data.title:''}</div>
@@ -57,9 +59,44 @@ export default class Item extends React.Component {
             </div>
         );
     }
+    title(name){
+        console.log(name);
+        switch (name){
+            case '':
+                return '全部';
+                break;
+            case 1:
+                return '求车服务';
+                break;
+            case 2:
+                return '场地出租';
+                break;
+            case 3:
+                return '设备租售';
+                break;
+            case 4:
+                return '招聘服务';
+                break;
+            case 5:
+                return '求职服务';
+                break;
+            case 6:
+                return '其它服务';
+                break;
+        }
+    }
     componentDidMount() {
         let { dispatch} = this.props;
         let data= {"informId":this.props.params.id};
         dispatch(detailData(data));
+    }
+    componentWillReceiveProps(nextProps) {
+        let detail = nextProps.service.detail;
+        if(detail){
+            let title = this.title(detail.data.type);
+            this.setState({
+                title:title
+            })
+        }
     }
 }

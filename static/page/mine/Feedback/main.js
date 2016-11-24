@@ -73,9 +73,11 @@ export default class Feedback extends React.Component {
         });
 
     }
-    onUploadSuccess(imgUrl) {
+    onUploadSuccess(imgUrl , fileId , iconUrl ) {
         let form = this.state.form;
         form.imgUrl = imgUrl;
+        form.fileId = fileId;
+        form.iconUrl = iconUrl;
         this.checkDisabled();
     }
     render() {

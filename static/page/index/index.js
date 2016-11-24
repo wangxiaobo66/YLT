@@ -19,9 +19,10 @@ const { createStore, applyMiddleware } = require('redux');
 const thunk = require('redux-thunk').default;
 
 import {LOGIN_USER_KEY} from '../../js/app/contants';//用户key
-let userkey = window.sessionStorage.getItem(LOGIN_USER_KEY);
 
-import marketService from '../market/service';
+import marketService from '../market/service';//未售
+import buyingService from '../ask-buy/actions';//求购
+import userKey from './actions';//判断是否有userid
 
 import img1 from './img/1.png';
 import img2 from './img/2.png';
@@ -120,7 +121,7 @@ let arrvalDefaults = [
     }
 ];
 
-let { askBuyList , userKey } = require('./actions');//从actions里取出方法
+let { askBuyList } = require('./actions');//从actions里取出方法
 class component extends React.Component {
     constructor(props) {
         super(props);
@@ -147,12 +148,12 @@ class component extends React.Component {
                     {/*<img src={imgLogo} className="logo"/>*/}
                     <div className="search">
                         <img src={imgIcon} className="icon"/>
-                        {/*跳转问题<form action="./arrival.html">*/}
+                        <form action="javascript:;" target="search" name="search">
                             <input type="text" className="input" placeholder="找木材/找货物/找货主" name="word" value={searchValue}
                                    onClick={(e) => this.searchClick(e)}
                                    onChange={(e) => this.searchChange(e)}/>
                             <a href="javascript:;" className="cancel" onClick={(e) => this.cancel(e)}>取消</a>
-                        {/*</form>*/}
+                        </form>
 
                     </div>
                     <div className="searchHistory">
@@ -160,7 +161,7 @@ class component extends React.Component {
                             {this.historyDom(historyList)}
                         </ul>
                     </div>
-                    <p className="index-search-p">搜索人数:8923人</p>
+                    {/*<p className="index-search-p">搜索人数:8923人</p>*/}
                 </div>
                 <div className="switch">
                     <div className="swiper-container switch-main">
@@ -177,8 +178,7 @@ class component extends React.Component {
                                                 </a>
                                             );
                                         })
-                                        :
-                                    {/*<div>暂无未售信息</div>*/}
+                                        :null
                                 }
                                 <div className="switch-all"><img src={imgRightIcon}/><a
                                     href="./market.html">查看全部未售市场</a></div>
@@ -191,8 +191,7 @@ class component extends React.Component {
                                         this.state.dataAskBuys.map(function (item, index) {
                                             return <AskBuy obj={item} key={index} />;
                                         })
-                                        :
-                                    {/*<div>暂无求购信息</div>*/}
+                                        :null
                                 }
                                 <div className="switch-all"><img src={imgRightIcon} /><a
                                     href="./ask-buy.html">查看全部求购信息</a></div>
@@ -201,7 +200,6 @@ class component extends React.Component {
                             </div>
                             <div className="swiper-slide">
                                 <div className="card-item clearfix">
-
                                     <article className="arrival">
                                         <div className="ui-table">
                                             <ul className="thead">
@@ -396,9 +394,51 @@ class component extends React.Component {
                         });
                     });
                     //获取求购列表
+                    buyingService.buyingList({
+                        limitStart: 0,
+                        limitCount: 5,
+                        portId: 0,
+                        goodstypeId: 0,
+                        treetypeId: 0,
+                        lengthId: 0,
+                        key:searchValue
+                    }).then(rep => {
+                        this.setState({
+                            dataAskBuys:rep.result.list
+                        })
+                    });
+                    /*
                     let {dispatch} = this.props;
                     let info = {"limitStart":"0","limitCount":"10","portId":"0","goodstypeId":"0","treetypeId":"0","lengthId":"0",key:searchValue};
                     dispatch(askBuyList(info));
+                    */
+                }else {
+                    marketService.unsoldList({
+                        limitStart: 0,
+                        limitCount: 10
+                    }).then(rep => {
+                        this.setState({
+                            dataMarkets: rep.result.list
+                        });
+                    });
+                    //获取求购列表
+                    buyingService.buyingList({
+                        limitStart: 0,
+                        limitCount: 5,
+                        portId: 0,
+                        goodstypeId: 0,
+                        treetypeId: 0,
+                        lengthId: 0
+                    }).then(rep => {
+                        this.setState({
+                            dataAskBuys:rep.result.list
+                        })
+                    });
+                    /*
+                    let {dispatch} = this.props;
+                    let info = {"limitStart":"0","limitCount":"10","portId":"0","goodstypeId":"0","treetypeId":"0","lengthId":"0"};
+                    dispatch(askBuyList(info));
+                    */
                 }
             }
         });
@@ -413,22 +453,40 @@ class component extends React.Component {
             });
         });
         //获取求购列表
+        buyingService.buyingList({
+            limitStart: 0,
+            limitCount: 5,
+            portId: 0,
+            goodstypeId: 0,
+            treetypeId: 0,
+            lengthId: 0
+        }).then(rep => {
+            this.setState({
+                dataAskBuys:rep.result.list
+            })
+        });
+        /*
         let {dispatch} = this.props;
         let info = {"limitStart":"0","limitCount":"5","portId":"0","goodstypeId":"0","treetypeId":"0","lengthId":"0"};
         dispatch(askBuyList(info));
-
+        */
         //判断是否登录
-        console.log(userkey);
-        userkey===null?
-            (dispatch(userKey()))
-            :null;
+        let userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        if(JSON.stringify(userId)==='null'){
+            userKey.user().then(rep => {
+                window.sessionStorage.setItem(LOGIN_USER_KEY, rep.result.data);
+            })
+        }
     }
     componentWillReceiveProps(nextProps) {
+        /*
         let askBuy = nextProps.index.askBuy;
         this.setState({
             dataAskBuys:askBuy
-        })
+        });
         let { dataAskBuys } = this.state;
+        console.log(dataAskBuys);
+        */
     }
 
     historyDom(historyList){

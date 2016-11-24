@@ -21,6 +21,8 @@ export default class ShopAdd extends React.Component {
             districts: null,
             form: {
                 logoUrl: '',
+                imgUrlId:'',
+                iconUrl:'',
                 storetypeId: '',
                 storeName: '',
                 phone: '',
@@ -107,6 +109,14 @@ export default class ShopAdd extends React.Component {
             disabled = true;
         }
 
+        if ($.trim(form.fileId) === '') {
+            disabled = true;
+        }
+
+        if ($.trim(form.iconUrl) === '') {
+            disabled = true;
+        }
+
         if ($.trim(form.storetypeId) === '') {
             disabled = true;
         }
@@ -151,9 +161,11 @@ export default class ShopAdd extends React.Component {
         }
         this.checkDisabled();
     }
-    onUploadSuccess(imgUrl) {
+    onUploadSuccess(imgUrl , fileId , iconUrl ) {
         let form = this.state.form;
         form.logoUrl = imgUrl;
+        form.fileId = fileId;
+        form.iconUrl = iconUrl;
         this.checkDisabled();
     }
     render() {

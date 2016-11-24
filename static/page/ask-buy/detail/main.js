@@ -20,11 +20,12 @@ export default class Item extends React.Component {
         };
     }
     sendMsg() {
-        window.location.href = `./mine.html#/msg_chat/${this.state.detail.userId}`;
+        window.location.href = `./mine.html#/msg_chat/${this.state.list.userId}`;
     }
     render() {
         let that = this;
         let { list } = this.state;
+        console.log(list);
         return (
             <div className="module-detail">
                 <div className="detail-box">

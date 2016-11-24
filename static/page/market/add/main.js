@@ -17,6 +17,8 @@ export default class AddUpdate extends React.Component {
             dimList: null,
             portList: null,
             form: {
+                imgUrlId:'',
+                iconUrl:'',
                 imgUrl: '',
                 dimensionId: '',
                 price: '',
@@ -125,6 +127,14 @@ export default class AddUpdate extends React.Component {
             disabled = true;
         }
 
+        if ($.trim(form.fileId) === '') {
+            disabled = true;
+        }
+
+        if ($.trim(form.iconUrl) === '') {
+            disabled = true;
+        }
+
         if ($.trim(form.dimensionId) === '') {
             disabled = true;
         }
@@ -154,9 +164,11 @@ export default class AddUpdate extends React.Component {
         });
 
     }
-    onUploadSuccess(imgUrl) {
+    onUploadSuccess(imgUrl,fileId,iconUrl) {
         let form = this.state.form;
         form.imgUrl = imgUrl;
+        form.fileId = fileId;
+        form.iconUrl = iconUrl;
         this.checkDisabled();
     }
     render() {
