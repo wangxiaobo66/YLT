@@ -6,8 +6,6 @@
 
 import React from 'react';
 import {Link} from 'react-router';
-import ReactIScroll from 'react-iscroll';
-import iScroll from 'iscroll';
 import {LIMIT_COUNT, LOGIN_USER_KEY} from '../../../js/app/contants';
 import service from '../service';
 
@@ -147,10 +145,11 @@ export default class Item extends React.Component {
                         <li className="item load-all">已全部加载</li>
                     );
                 }
+                // for (let i = 0; i < len; i++) {
                 for (let i = len - 1; i >= 0; i--) {
                     item = list[i];
                     msgHtml.push(
-                        <li className={item.userId == myUserId ? 'item item-right' : 'item item-left'}>
+                        <li className={item.userId == myUserId ? 'item item-left' : 'item item-right'}>
                             <div className="time">
                                 <div className="time-box">{moment(item.createTime).format('YYYY-MM-DD hh:mm:ss')}</div>
                             </div>
@@ -158,7 +157,7 @@ export default class Item extends React.Component {
                                 <div className="img-box">
                                     {
                                         item.userId == myUserId ?
-                                            <img src={item.toUser && item.toUser.headimgurl} width="35" height="35" alt=""/>
+                                            <img src={item.toUser && item.fromUser.headimgurl} width="35" height="35" alt=""/>
                                             :
                                             <img src={item.fromUser && item.fromUser.headimgurl} width="35" height="35" alt=""/>
                                     }
@@ -178,13 +177,9 @@ export default class Item extends React.Component {
 
         return (
             <div className="module-msg-chat">
-                <ReactIScroll iScroll={iScroll}
-                              options={this.props.options}
-                              onScrollStart={this.onScrollStart.bind(this)}>
-                    <ul className="list">
-                        {msgHtml}
-                    </ul>
-                </ReactIScroll>
+                <ul className="list">
+                    {msgHtml}
+                </ul>
                 <div className="send-msg">
                     <div className="msg-box">
                         <textarea type="text"

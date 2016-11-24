@@ -7,7 +7,6 @@
 .module-msg-chat {
     padding: 20px 15px 60px 15px;
     .list {
-        height: 300px;
         color: $color-font-gray;
         .item {
             margin-bottom: 20px;
@@ -53,10 +52,11 @@
     .send-msg {
         position: fixed;
         left: 0;
-        bottom: 0;
+        bottom: -2px;
         width: 100%;
         .msg-box {
             display: flex;
+            align-items: center;
             .msg-input {
                 flex: 4;
                 display: block;
@@ -70,6 +70,9 @@
             .btn {
                 flex: 1;
                 display: block;
+                justify-content: center;
+                text-align: center;
+                color: #fff;
             }
         }
     }
