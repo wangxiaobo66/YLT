@@ -85,6 +85,17 @@ export default class Item extends React.Component {
                          */}
                         <a href={"tel:"+(list!=null?list.mobile:null)} className="item">电话联系</a>
                         <a href="javascript:;" onClick={this.sendMsg.bind(this)} className="item">发送消息</a>
+                        <div className="item">
+                            {
+                                this.state.cared === 'false'?
+                                    <a href="javascript:;"
+                                       onClick={this.care.bind(this)}
+                                       className="btn-care">+关注</a>
+                                    :
+                                    <a href="javascript:;"
+                                       className="btn-care">已关注</a>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
