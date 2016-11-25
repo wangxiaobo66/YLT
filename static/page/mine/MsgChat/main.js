@@ -95,26 +95,22 @@ export default class Item extends React.Component {
     }
     addMsg() {
         service.addMsg(this.state.form).then((rep) => {
+            let msgItem = {
+                userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
+                toUserId: this.state.form.toUserId,
+                content: this.state.form.content,
+                createTime: new Date().getTime(),
+                fromUser: {
+                    headimgurl: this.state.user.headimgurl
+                }
+            };
+
             if (this.state.list === null) {
                 this.state.list = [
-                    {
-                        userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
-                        toUserId: this.state.form.toUserId,
-                        content: this.state.form.content,
-                        toUser: {
-                            headimgurl: this.state.user.headimgurl
-                        }
-                    }
+                    msgItem
                 ];
             } else {
-                this.state.list.unshift({
-                    userId: window.sessionStorage.getItem(LOGIN_USER_KEY),
-                    toUserId: this.state.form.toUserId,
-                    content: this.state.form.content,
-                    toUser: {
-                        headimgurl: this.state.user.headimgurl
-                    }
-                });
+                this.state.list.unshift(msgItem);
             }
             this.state.form.content = '';
             this._scrollToBottom();
@@ -149,7 +145,7 @@ export default class Item extends React.Component {
                 for (let i = len - 1; i >= 0; i--) {
                     item = list[i];
                     msgHtml.push(
-                        <li className={item.userId == myUserId ? 'item item-left' : 'item item-right'}>
+                        <li className={item.userId == myUserId ? 'item item-right' : 'item item-left'}>
                             <div className="time">
                                 <div className="time-box">{moment(item.createTime).format('YYYY-MM-DD hh:mm:ss')}</div>
                             </div>
@@ -157,7 +153,7 @@ export default class Item extends React.Component {
                                 <div className="img-box">
                                     {
                                         item.userId == myUserId ?
-                                            <img src={item.toUser && item.fromUser.headimgurl} width="35" height="35" alt=""/>
+                                            <img src={item.fromUser && item.fromUser.headimgurl} width="35" height="35" alt=""/>
                                             :
                                             <img src={item.fromUser && item.fromUser.headimgurl} width="35" height="35" alt=""/>
                                     }
