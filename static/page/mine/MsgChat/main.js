@@ -149,7 +149,7 @@ export default class Item extends React.Component {
                 for (let i = len - 1; i >= 0; i--) {
                     item = list[i];
                     msgHtml.push(
-                        <li className={item.userId == myUserId ? 'item item-left' : 'item item-right'}>
+                        <li className={item.userId == myUserId ? 'item item-right' : 'item item-left'}>
                             <div className="time">
                                 <div className="time-box">{moment(item.createTime).format('YYYY-MM-DD hh:mm:ss')}</div>
                             </div>
