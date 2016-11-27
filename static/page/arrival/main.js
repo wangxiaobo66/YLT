@@ -13,11 +13,11 @@ import { Provider, connect } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import {bindActionCreators} from 'redux';
 import '../../js/app/global';
-// import { ReduxThunk } from 'redux-thunk';
+//import { ReduxThunk } from 'redux-thunk';
 const thunk = require('redux-thunk').default;
 import {YLT} from '../../redux/reducers';
 
-// 引入子页面
+//引入子页面
 import AddUpdate from './addUpdate/main';
 import ListSeat from './list/Seat';
 import ListTrain from './list/Train';
@@ -60,8 +60,8 @@ ReactDom.render(
             <Route path="/" component={App}>
                 <IndexRoute component={ListSeat} />
                 <Route path="add" component={AddUpdate} />
-                <Route path="item" component={Item} />
-                <Route path="detail" component={Detail} />
+                <Route path="item/:id" component={Item} />
+                <Route path="detail/:id" component={Detail} />
                 <Route path="seat" component={ListSeat} />
                 <Route path="train" component={ListTrain} />
                 <Route path="position" component={ListPosition} />

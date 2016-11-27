@@ -9,11 +9,17 @@ import {Link} from 'react-router';
 import {AskBuy} from '../../../component/AskBuy/AskBuy';
 import service from '../service';
 
+let page = 1;
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: ''
+            list: '',
+            total:null,
+            from:{
+                limitStart: 0,
+                limitCount: 10
+            }
         };
     }
     componentDidMount() {
@@ -29,7 +35,8 @@ export default class Item extends React.Component {
             limitCount: 10
         }).then(rep => {
             this.setState({
-                list: rep.result.list
+                list: rep.result.list,
+                total:rep.result.total
             });
         });
     }
@@ -86,10 +93,40 @@ export default class Item extends React.Component {
                         })
                         :<li className="item no-data">暂无数据</li>
                     }
+                    {
+                        this.total()
+                    }
                 </ul>
 
             </div>
         );
+    }
+    total() {
+        if (this.state.total>10&&Math.ceil(this.state.total/10)>page) {
+            return (
+                <li className="no-data" onClick={(e) => this.onclick()}>加载更多</li>
+            )
+        }
+    }
+    onclick(){
+        let i = this.state.from.limitStart;
+        let len = Math.ceil(this.state.total/10);
+        let from = this.state.from;
+        if(page<len){
+            page++;
+            from.limitStart = i+10;
+            this.setState({
+                from:from
+            });
+            let info = this.state.from;
+            service.askBuyList(info).then(rep => {
+                let list = this.state.list;
+                list = list.concat(rep.result.list);
+                this.setState({
+                    list: list
+                });
+            });
+        }
     }
     click(id){
         service.deleteAskBuy({

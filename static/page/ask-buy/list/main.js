@@ -11,7 +11,7 @@ import {AskBuy} from '../../../component/AskBuy/AskBuy';
 const { optionsList , askBuyList } = require('./../actions.js');//从actions里拿到方法
 import buyingService from './..//actions';//求购
 
-let portId=0,treetypeId= 0, goodstypeId=0,lengthId=0;
+let portId=0,treetypeId= 0, goodstypeId=0,lengthId=0,page=1;
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
@@ -26,7 +26,16 @@ export default class Item extends React.Component {
                 treetypeId: 0,
                 goodstypeId: 0,
                 lengthId: 0
-            }
+            },
+            from:{
+                limitStart: 0,
+                limitCount: 10,
+                portId: portId,
+                goodstypeId: goodstypeId,
+                treetypeId: treetypeId,
+                lengthId: lengthId
+            },
+            total:null
         };
     }
     componentDidMount() {
@@ -116,6 +125,7 @@ export default class Item extends React.Component {
                 <ul className="ui-list">
                     {
                         this.state.dataAskBuys!=null?
+                            this.state.dataAskBuys.length > 0 ?
                             this.state.dataAskBuys.map(function (obj, index) {
                                 return (
                                     <li className="item clearfix" key={index}>
@@ -125,8 +135,13 @@ export default class Item extends React.Component {
                                     </li>
                                 );
                             })
+                                :
+                                <li className="no-data">暂无数据</li>
                             :
-                            null
+                            <li className="no-data">暂无数据</li>
+                    }
+                    {
+                        this.total()
                     }
                 </ul>
                 <footer className="footer">
@@ -135,6 +150,34 @@ export default class Item extends React.Component {
             </div>
         );
     }
+    total() {
+        if (this.state.total>10&&Math.ceil(this.state.total/10)>page) {
+            return (
+                <li className="no-data" onClick={(e) => this.click()}>加载更多</li>
+            )
+        }
+    }
+    click(){
+        let i = this.state.from.limitStart;
+        let len = Math.ceil(this.state.total/10);
+        let from = this.state.from;
+        if(page<len){
+            page++;
+            from.limitStart = i+10;
+            this.setState({
+                from:from
+            });
+            let info = this.state.from;
+            buyingService.buyingList(info).then(rep => {
+                let list = this.state.dataAskBuys;
+                list = list.concat(rep.result.list);
+                this.setState({
+                    dataAskBuys: list
+                });
+            });
+        }
+    }
+
     /*portId:'',
     treetypeId:'',
     goodstypeId:'',
@@ -172,7 +215,8 @@ export default class Item extends React.Component {
                 lengthId: lengthId
             }).then(rep => {
                 this.setState({
-                    dataAskBuys:rep.result.list
+                    dataAskBuys:rep.result.list,
+                    total:rep.result.total
                 })
             });
     }
@@ -231,7 +275,8 @@ export default class Item extends React.Component {
             lengthId: 0
         }).then(rep => {
             this.setState({
-                dataAskBuys:rep.result.list
+                dataAskBuys:rep.result.list,
+                total:rep.result.total
             })
         });
     }

@@ -8,6 +8,7 @@ const React = require('react');
 const render = require('react-dom').render;
 import {Link} from 'react-router';
 
+import Header from '../../component/Header/Header';
 import Market from '../../component/Market/Market';
 const { AskBuy } = require('../../component/AskBuy/AskBuy.js');
 const { Arrival } = require('../../component/Arrival/Arrival.js');
@@ -22,6 +23,7 @@ import {LOGIN_USER_KEY} from '../../js/app/contants';//用户key
 
 import marketService from '../market/service';//未售
 import buyingService from '../ask-buy/actions';//求购
+import arrivalService from '../arrival/service';//到货
 import userKey from './actions';//判断是否有userid
 
 import img1 from './img/1.png';
@@ -133,7 +135,8 @@ class component extends React.Component {
             search: false,
             searchValue:'',
             dataMarkets: null,
-            dataAskBuys: null
+            dataAskBuys: null,
+            dataArrival:null
         }
     }
 
@@ -204,17 +207,31 @@ class component extends React.Component {
                                         <div className="ui-table">
                                             <ul className="thead">
                                                 <li className="th">
-                                                    <span className="text">位置</span>
+                                                    <span className="text">口岸</span>
                                                 </li>
                                                 <li className="th">
                                                     <span className="text">抵达车次</span>
                                                 </li>
                                                 <li className="th">
-                                                    <span className="text">树种</span>
+                                                    <span className="text">时间</span>
                                                 </li>
                                             </ul>
                                             <ul className="tbody">
                                                 {
+                                                    this.state.dataArrival !==null?
+                                                        this.state.dataArrival.map(function (item,index){
+                                                            return(
+                                                                <li className="tr" key={index}>
+                                                                    <a href={"./arrival.html#item/"+item.cc} className="link">
+                                                                        <div className="td">{item.portName}</div>
+                                                                        <div className="td">{item.cc}</div>
+                                                                        <div className="td">{moment(item.dfrq).format('YYYY-MM-DD')}</div>
+                                                                    </a>
+                                                                </li>
+                                                            )
+                                                        })
+                                                        :null
+                                                    /*
                                                     seats.map((item, index) => {
                                                         return (
                                                             <li className="tr" key={index}>
@@ -226,6 +243,7 @@ class component extends React.Component {
                                                             </li>
                                                         );
                                                     })
+                                                    */
                                                 }
                                             </ul>
                                         </div>
@@ -236,48 +254,50 @@ class component extends React.Component {
                                         <a href="./arrival.html">查看全部到货信息</a>
                                     </div>
                                 </div>
-                                <div className="card-item clearfix">
-                                    <div className="ui-title">
-                                        <div className="text">伊利托今天进车组</div>
+                                {/*
+                                    <div className="card-item clearfix">
+                                        <div className="ui-title">
+                                            <div className="text">伊利托今天进车组</div>
+                                        </div>
+                                        <div className="ui-table">
+                                            <ul className="thead">
+                                                <li className="th">
+                                                    <span className="text">车皮号尾号</span>
+                                                </li>
+                                                <li className="th">
+                                                    <span className="text">长度(米)</span>
+                                                </li>
+                                                <li className="th">
+                                                    <span className="text">树种</span>
+                                                </li>
+                                                <li className="th">
+                                                    <span className="text">货种</span>
+                                                </li>
+                                            </ul>
+                                            <ul className="tbody">
+                                                {
+                                                    arrvalDefaults.map((item, index) => {
+                                                        return (
+                                                            <li className="tr" key={index}>
+                                                                <a href="./arrival.html#item" className="link">
+                                                                    <div className="td">{item.tailNumber}</div>
+                                                                    <div className="td">{item.length}</div>
+                                                                    <div className="td">{item.varieties}</div>
+                                                                    <div className="td">{item.cargo}</div>
+                                                                </a>
+                                                            </li>
+                                                        );
+                                                    })
+                                                }
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div className="ui-table">
-                                        <ul className="thead">
-                                            <li className="th">
-                                                <span className="text">车皮号尾号</span>
-                                            </li>
-                                            <li className="th">
-                                                <span className="text">长度(米)</span>
-                                            </li>
-                                            <li className="th">
-                                                <span className="text">树种</span>
-                                            </li>
-                                            <li className="th">
-                                                <span className="text">货种</span>
-                                            </li>
-                                        </ul>
-                                        <ul className="tbody">
-                                            {
-                                                arrvalDefaults.map((item, index) => {
-                                                    return (
-                                                        <li className="tr" key={index}>
-                                                            <a href="./arrival.html#item" className="link">
-                                                                <div className="td">{item.tailNumber}</div>
-                                                                <div className="td">{item.length}</div>
-                                                                <div className="td">{item.varieties}</div>
-                                                                <div className="td">{item.cargo}</div>
-                                                            </a>
-                                                        </li>
-                                                    );
-                                                })
-                                            }
-                                        </ul>
-                                    </div>
-                                </div>
+
 
                                 <div className="switch-all">
                                     <img src={imgRightIcon} />
                                     <a href="javascript:;">其它货场位置查询</a>
-                                </div>
+                                </div>*/}
                             </div>
                             <div className="swiper-slide">
                                 <div className="service">
@@ -328,10 +348,6 @@ class component extends React.Component {
                     <div className="matte"></div>
                     <div className="information">
                         <div className="choose clearfix">
-                            <a href="./arrival.html#/add">
-                                <img src={img1}/>
-                                境外码单上传
-                            </a>
                             <a href="./market.html#/add">
                                 <img src={img2} />
                                 发布未售信息
@@ -347,6 +363,10 @@ class component extends React.Component {
                             <a href="./service.html#/add">
                                 <img src={img5} />
                                 发布服务
+                            </a>
+                            <a href="./subscribe.html">
+                                <img src={img1}/>
+                                添加订阅
                             </a>
                         </div>
                         <a href="javascript:;" className="wrong" onClick={(e) => this.wrong()}><img
@@ -386,7 +406,7 @@ class component extends React.Component {
                 if (searchValue!=''){
                     marketService.unsoldList({
                         limitStart: 0,
-                        limitCount: 10,
+                        limitCount: 20,
                         key:searchValue
                     }).then(rep => {
                         this.setState({
@@ -396,7 +416,7 @@ class component extends React.Component {
                     //获取求购列表
                     buyingService.buyingList({
                         limitStart: 0,
-                        limitCount: 5,
+                        limitCount: 20,
                         portId: 0,
                         goodstypeId: 0,
                         treetypeId: 0,
@@ -412,6 +432,17 @@ class component extends React.Component {
                     let info = {"limitStart":"0","limitCount":"10","portId":"0","goodstypeId":"0","treetypeId":"0","lengthId":"0",key:searchValue};
                     dispatch(askBuyList(info));
                     */
+                    //获取到货列表
+                    arrivalService.arrivalList({
+                        portId:0,
+                        limitStart: 0,
+                        limitCount: 20,
+                        key:searchValue
+                    }).then(rep => {
+                        this.setState({
+                            dataArrival:rep.result.list
+                        })
+                    });
                 }else {
                     marketService.unsoldList({
                         limitStart: 0,
@@ -439,6 +470,16 @@ class component extends React.Component {
                     let info = {"limitStart":"0","limitCount":"10","portId":"0","goodstypeId":"0","treetypeId":"0","lengthId":"0"};
                     dispatch(askBuyList(info));
                     */
+                    //获取到货列表
+                    arrivalService.arrivalList({
+                        portId:1,
+                        limitStart: 0,
+                        limitCount: 5
+                    }).then(rep => {
+                        this.setState({
+                            dataArrival:rep.result.list
+                        })
+                    });
                 }
             }
         });
@@ -463,6 +504,16 @@ class component extends React.Component {
         }).then(rep => {
             this.setState({
                 dataAskBuys:rep.result.list
+            })
+        });
+        //获取到货列表
+        arrivalService.arrivalList({
+            portId:1,
+            limitStart: 0,
+            limitCount: 5
+        }).then(rep => {
+            this.setState({
+                dataArrival:rep.result.list
             })
         });
         /*

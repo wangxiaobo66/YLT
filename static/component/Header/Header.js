@@ -24,7 +24,7 @@ export default React.createClass({
     render() {
         return (
             <div className="c-header">
-                this is header
+                <i class="icon icon-o-right"></i>
             </div>
         );
     }

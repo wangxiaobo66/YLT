@@ -30,14 +30,18 @@ export default React.createClass({
     sure() {
         let that = this;
         service.update(this.state.form).then((rep) => {
-            window.toast('修改成功', {
-                callback() {
-                    that.props.history.push({
-                        pathname: '/info'
-                    });
-                }
-            });
-
+            console.log(rep);
+            if(rep.reason==="success"){
+                window.toast('修改成功', {
+                    callback() {
+                        that.props.history.push({
+                            pathname: '/info'
+                        });
+                    }
+                })
+            }else {
+                window.toast('验证码有误');
+            }
         });
     },
     checkDisabled(key, event) {

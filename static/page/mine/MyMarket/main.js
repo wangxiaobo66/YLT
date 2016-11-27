@@ -9,11 +9,17 @@ import {Link} from 'react-router';
 import Market from '../../../component/Market/Market';
 import service from '../service';
 
+let page = 1;
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: null
+            form:{
+                limitStart: 0,
+                limitCount: 10
+            },
+            list: null,
+            total:null
         };
     }
     componentDidMount() {
@@ -36,7 +42,8 @@ export default class Item extends React.Component {
             limitCount: 10
         }).then(rep => {
             this.setState({
-                list: rep.result.list
+                list: rep.result.list,
+                total:rep.result.total
             });
         });
     }
@@ -105,8 +112,39 @@ export default class Item extends React.Component {
                             :
                             null
                     }
+                    {
+                        this.total()
+                    }
                 </ul>
             </div>
         );
+    }
+    //加载更多
+    total() {
+        if (this.state.total>10&&Math.ceil(this.state.total/10)>page) {
+            return (
+                <li className="no-data" onClick={(e) => this.click()}>加载更多</li>
+            )
+        }
+    }
+    click(){
+        let i = this.state.form.limitStart;
+        let len = Math.ceil(this.state.total/10);
+        let form = this.state.form;
+        if(page<len){
+            page++;
+            form.limitStart = i+10;
+            this.setState({
+                form:form
+            });
+            let info = this.state.form;
+            service.showMyUnsoldList(info).then(rep => {
+                let list = this.state.list;
+                list = list.concat(rep.result.list);
+                this.setState({
+                    list: list
+                });
+            });
+        }
     }
 }

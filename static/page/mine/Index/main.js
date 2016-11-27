@@ -175,6 +175,17 @@ export default class Item extends React.Component {
                                                 </div>
                                             </Link>
                                         </li>
+                                        <li className="item">
+                                            <Link className="item-link" to={`/subscribe/${TYPE_ARRIVAL}`}>
+                                                <div className="allow">
+                                                    <i className="icon icon-o-right"></i>
+                                                </div>
+                                                <div className="info">
+                                                    <i className="icon icon-o-love"></i>
+                                                    <span className="text">我的订阅</span>
+                                                </div>
+                                            </Link>
+                                        </li>
                                         {/*
                                         <li className="item">
                                             <Link className="item-link" to={`/setting`}>
@@ -211,10 +222,6 @@ export default class Item extends React.Component {
                                 <div className="matte"></div>
                                 <div className="information">
                                     <div className="choose clearfix">
-                                        <a href="./arrival.html#/add">
-                                            <img src={img1}/>
-                                            境外码单上传
-                                        </a>
                                         <a href="./market.html#/add">
                                             <img src={img2} />
                                             发布未售信息
@@ -230,6 +237,10 @@ export default class Item extends React.Component {
                                         <a href="./service.html#/add">
                                             <img src={img5} />
                                             发布服务
+                                        </a>
+                                        <a href="./subscribe.html">
+                                            <img src={img1}/>
+                                            添加订阅
                                         </a>
                                     </div>
                                     <a href="javascript:;" className="wrong" onClick={(e) => this.wrong()}><img

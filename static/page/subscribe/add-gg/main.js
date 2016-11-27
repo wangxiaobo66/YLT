@@ -34,7 +34,7 @@ export default class Guige extends React.Component {
     add() {
         let that = this;
         // 添加
-        service.addCph(this.state.form).then((rep) => {
+        service.addGg(this.state.form).then((rep) => {
             if (rep.state === 1) {
                 window.toast('添加成功', {
                     callback() {
@@ -78,6 +78,7 @@ export default class Guige extends React.Component {
         util.checkTime.call(this, key, event.target.value);
     }
     checkDisabled(key, event) {
+        let date = new Date();
         let disabled = false;
         let form = this.state.form;
 
@@ -106,6 +107,9 @@ export default class Guige extends React.Component {
         }
 
         if ($.trim(form.endTime) === '') {
+            disabled = true;
+        }
+        if ($.trim(form.endTime)>$.trim(form.startTime)){
             disabled = true;
         }
 

@@ -35,6 +35,7 @@ import MsgList from './MsgList/main';
 import MsgChat from './MsgChat/main';
 import MyAskBuy from './MyAskBuy/main';
 import MyCare from './MyCare/main';
+import MySubscribe from './MySubscribe/main';
 import MyMarket from './MyMarket/main';
 import MyService from './MyService/main';
 import Setting from './Setting/main';
@@ -84,6 +85,7 @@ ReactDom.render(
                 <Route path="msg_chat/:toUserId" component={MsgChat} />
                 <Route path="askbuy" component={MyAskBuy} />
                 <Route path="care/:type" component={MyCare} />
+                <Route path="subscribe/:type" component={MySubscribe} />
                 <Route path="market" component={MyMarket} />
                 <Route path="service" component={MyService} />
                 <Route path="setting" component={Setting} />

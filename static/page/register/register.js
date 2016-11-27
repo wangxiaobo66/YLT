@@ -7,7 +7,7 @@ import '../../js/app/global';
 const React = require('react');
 const render = require('react-dom').render;
 
-const { loginRegister } = require('./actions.js');//从actions里拿到方法
+const { loginSms , loginRegister , loginUpdate } = require('./actions.js');//从actions里拿到方法
 
 const { YLT } = require('../../redux/reducers');
 const { Provider, connect } = require('react-redux');
@@ -23,7 +23,7 @@ class component extends React.Component {
         this.state = {
             text: '获取',
             number: 60,
-            value: {mobile: '', sms: '' , pwd:''},
+            value: {mobile: '', code: '' , pwd:''},
             active: false,
             after: false
         }
@@ -54,19 +54,26 @@ class component extends React.Component {
                     </div>
                     <div className="verify-sms">
                         <img src="../../static/images/sms.png"/>
-                        <input type="text" placeholder="请输入短信验证码" maxLength="6" onChange={(e) => this.onchange(e,'sms')} value={value.sms}/>
+                        <input type="text" placeholder="请输入短信验证码" maxLength="6" onChange={(e) => this.onchange(e,'code')} value={value.code}/>
                     </div>
                     <a href="javascript:;" className="verify-submit" onClick={(e) => this.registerClick()}>确定</a>
                 </div>
             </div>
         );
     }
-
+    smsGet(number){
+        let { dispatch } = this.props;
+        if(number === 60){
+            var data ={mobile:this.state.value.mobile};
+            dispatch(loginSms(data));
+        }
+    }
     getSms() {
         t = setTimeout(function () {
             _this.getSms();
         }, 1000);
         let { text,number } = this.state;
+        this.smsGet(number);
         let _this = this;
         if (number === 0) {
             clearTimeout(t);
@@ -102,8 +109,8 @@ class component extends React.Component {
                     value: value
                 });
                 break;
-            case 'sms':
-                value.sms = val;
+            case 'code':
+                value.code = val;
                 this.setState({
                     value: value
                 });
@@ -124,14 +131,34 @@ class component extends React.Component {
             after: after
         });
     }
-
+    isWeiXin() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
+        }
+    }
     registerClick(){
         let { value } = this.state;
         let { dispatch } = this.props;
-        if(value.mobile!==""&&value.pwd!==""&&value.sms!==""){
-            dispatch(loginRegister(value));
+        if(value.mobile!==""&&value.pwd!==""&&value.code!==""){
+            if(this.isWeiXin()){
+                loginUpdate(value).then(rep =>{
+                    if(rep.reason==="success"){
+                        window.toast('补录成功!');
+                        window.setTimeout(function () {
+                            window.location.href = './index.html';
+                        }, 100);
+                    }else {
+                        window.toast('验证码有误!')
+                    }
+                })
+            }else {
+                dispatch(loginRegister(value));
+            }
         }else{
-            window.toast('账号密码不能为空!');
+            window.toast('账号密码验证码不能为空!');
         }
     }
 }

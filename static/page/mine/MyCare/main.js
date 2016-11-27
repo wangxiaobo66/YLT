@@ -47,11 +47,6 @@ export default class MyCare extends React.Component {
                 <ul className="ui-nav">
                     <li className="item">
                         <a href="javascript:;"
-                           className={'item-link' + (type === TYPE_ARRIVAL ? ' item-link--active': '')}
-                           onClick={this.tab.bind(this, TYPE_ARRIVAL)}>到货列表</a>
-                    </li>
-                    <li className="item">
-                        <a href="javascript:;"
                            className={'item-link' + (type === TYPE_SHOP ? ' item-link--active': '')}
                            onClick={this.tab.bind(this, TYPE_SHOP)}>关注店铺</a>
                     </li>

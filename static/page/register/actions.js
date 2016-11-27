@@ -10,7 +10,7 @@ function postRegister(data){//注册接口
     return util.postRequest(url, data);
 }
 function postSms(data){//短信验证码接口
-    let url = '';
+    let url = '/user/code/create';
     return util.postRequest(url, data);
 }
 const USER_REGISTER = 'USER_REGISTER';
@@ -22,17 +22,23 @@ function userRegister(data){
 }
 
 module.exports = {
+    loginUpdate(param = {}){//站内补录
+        return util.postRequest('/user/login/update', param);
+    },
     loginRegister:function(data){//提交注册
         let info = data;
         return function (dispatch) {
             return postRegister(info).then(
                 function (res) {
                         if(res.reason==="success"){
-                            //window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
+                            window.sessionStorage.setItem(LOGIN_USER_KEY, res.result.data.consumerId);
                             window.toast('注册成功!');
                             window.setTimeout(function () {
                                 window.location.href = './index.html';
                             }, 500);
+                        }else {
+                            console.log(res);
+                            window.toast('验证码错误!');
                         }
                 }
             )
@@ -44,7 +50,7 @@ module.exports = {
             return postSms(info).then(
                 function (res) {
                         console.log(res);
-                        //dispatch(userRegister(json.result))
+
                 }
             )
         }

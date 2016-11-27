@@ -5,5 +5,11 @@
  */
 
 .c-header {
-    color: blue;
+    height:50px;
+    background-color: #3f3f49;
+    position: fixed;
+    width:100%;
+    z-index: 100;
+    top:0;
+    left:0;
 }

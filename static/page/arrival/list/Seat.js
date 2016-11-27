@@ -9,40 +9,31 @@ import {Link} from 'react-router';
 import Tab from './Tab';
 import {TAB_SEAT} from '../constants';
 
+import arrivalService from '../service';//到货
+
+let page = 1;
 export default class ListLocation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: [
-                {
-                    "id": 1,
-                    "seat":"满洲里",
-                    "tailNumber":"7788",
-                    "varieties":"樟子松"
-                },
-                {
-                    "id": 2,
-                    "seat":"呼伦贝尔",
-                    "tailNumber":"7788",
-                    "varieties":"樟子松"
-                },
-                {
-                    "id": 3,
-                    "seat":"后贝加尔",
-                    "tailNumber":"7788",
-                    "varieties":"樟子松"
-                },
-                {
-                    "id": 4,
-                    "seat":"满洲里",
-                    "tailNumber":"7788",
-                    "varieties":"樟子松"
-                }
-            ]
+            form:{
+                limitStart: 0,
+                limitCount: 10
+            },
+            list:null,
+            total:null
         };
     }
     componentDidMount() {
-
+        arrivalService.arrivalList({
+            limitStart: 0,
+            limitCount: 10
+        }).then(rep => {
+            this.setState({
+                list:rep.result.list,
+                total:rep.result.total
+            })
+        });
     }
     goToItem(id) {
         
@@ -50,37 +41,69 @@ export default class ListLocation extends React.Component {
     render() {
         return(
             <div className="module-list-seat clearfix">
-                <Tab type={TAB_SEAT} />
                 <div className="ui-table">
                     <ul className="thead">
                         <li className="th">
-                            <span className="text">位置</span>
+                            <span className="text">口岸</span>
                         </li>
                         <li className="th">
                             <span className="text">抵达车次</span>
                         </li>
                         <li className="th">
-                            <span className="text">树种</span>
+                            <span className="text">时间</span>
                         </li>
                     </ul>
                     <ul className="tbody">
                         {
-                            this.state.list.map((item, index) => {
-                                return (
-                                    <li className="tr" key={index}>
-                                        <Link className="link" to={`/item`}>
-                                            <div className="td">{item.seat}</div>
-                                            <div className="td">{item.tailNumber}</div>
-                                            <div className="td">{item.varieties}</div>
-                                        </Link>
-                                    </li>
-                                );
-                            })
+                            this.state.list!==null ?
+                                this.state.list.length>0?
+                                    this.state.list.map((item, index) => {
+                                        return (
+                                            <li className="tr" key={index}>
+                                                <a href={"./arrival.html#item/"+item.cc} className="link">
+                                                    <div className="td">{item.portName}</div>
+                                                    <div className="td">{item.cc}</div>
+                                                    <div className="td">{moment(item.dfrq).format('YYYY-MM-DD')}</div>
+                                                </a>
+                                            </li>
+                                        );
+                                    })
+                                :null
+                                :null
+                        }
+                        {
+                            this.total()
                         }
                     </ul>
                 </div>
-                <Link className="ui-btn ui-btn-fixed" to={`/add`}>上传境外码单</Link>
             </div>
         );
+    }
+    total(){
+        if (this.state.total>10&&Math.ceil(this.state.total/10)>page) {
+            return (
+                <div className="no-data" onClick={(e) => this.click()}>加载更多</div>
+            )
+        }
+    }
+    click(){
+        let i = this.state.form.limitStart;
+        let len = Math.ceil(this.state.total/10);
+        let form = this.state.form;
+        if(page<len){
+            page++;
+            form.limitStart = i+10;
+            this.setState({
+                form:form
+            });
+            let info = this.state.form;
+            arrivalService.arrivalList(info).then(rep => {
+                let list = this.state.list;
+                list = list.concat(rep.result.list);
+                this.setState({
+                    list: list
+                });
+            });
+        }
     }
 }

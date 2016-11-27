@@ -21,53 +21,26 @@ export default class Item extends React.Component {
         return(
             <div className="module-result">
                 {
-                    this.state.list && this.state.list.length > 0 ?
-                        <div className="ui-table fn-mt10">
-                            <ul className="thead">
-                                <li className="th">
-                                    <span className="text">车皮号尾号</span>
-                                </li>
-                                <li className="th">
-                                    <span className="text">长度(米)</span>
-                                </li>
-                                <li className="th">
-                                    <span className="text">树种</span>
-                                </li>
-                                <li className="th">
-                                    <span className="text">货种</span>
-                                </li>
-                            </ul>
-                            <ul className="tbody">
-                                {
-                                    this.state.list.map((item, index) => {
-                                        return (
-                                            <li className="tr" key={index}>
-                                                <a href="./arrival.html#item" className="link">
-                                                    <div className="td">{item.tailNumber}</div>
-                                                    <div className="td">{item.length}</div>
-                                                    <div className="td">{item.varieties}</div>
-                                                    <div className="td">{item.cargo}</div>
-                                                </a>
-                                            </li>
-                                        );
-                                    })
-                                }
-                            </ul>
-                        </div>
-                        :
                         <div className="no-data">
                             <div className="tip">
-                                <p className="text">暂无搜索结果</p>
-                                <p className="text">您可以订阅搜索内容或发布求购信息</p>
+                                <p className="text">按选定木材规格订阅信息，当有新消息产生后，会将消息推送给您。</p>
                             </div>
                             <div className="do">
                                 <div className="ui-btn-groups">
-                                    <a href="./subscribe.html#/gg"
-                                       className="ui-btn ui-btn-default">添加到按“规格订阅”</a>
-                                    <a href="./ask-buy.html#/add"
-                                       className="ui-btn ui-btn-default">发布求购信息</a>
+                                    <a href="./search.html"
+                                       className="ui-btn ui-btn-default">规格订阅</a>
                                 </div>
                             </div>
+                            <div className="tip">
+                                <p className="text">输入您要订阅的车次号，该车次的木材到货后，会将消息推送给您。</p>
+                            </div>
+                            <div className="do">
+                                <div className="ui-btn-groups">
+                                    <a href="./subscribe.html"
+                                       className="ui-btn ui-btn-default">到货订阅</a>
+                                </div>
+                            </div>
+
                         </div>
                 }
 

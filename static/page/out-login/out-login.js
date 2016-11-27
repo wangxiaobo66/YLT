@@ -25,7 +25,6 @@ class component extends React.Component {
     }
     render() {
         let { value } = this.state;
-        console.log(window.navigator.userAgent);
         return (
             <div className="module-out-login">
                 <img className="background" src="../../static/images/background.jpg"/>
@@ -80,11 +79,7 @@ class component extends React.Component {
         let { value } = this.state;
         let { dispatch } = this.props;
         if(value.mobile!==""&&value.pwd!==""){
-            if(this.isWeiXin()){
-                dispatch(userLogin(value));
-            }else {
-                dispatch(userOutLogin(value));
-            }
+            dispatch(userOutLogin(value));
         }else{
             window.toast('账号密码不能为空!');
         }

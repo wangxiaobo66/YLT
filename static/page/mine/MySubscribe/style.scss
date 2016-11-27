@@ -1,0 +1,61 @@
+.modal-MySubscribe{
+  .header{
+    background-color: #fff;
+    float: left;
+    width:100%;
+  }
+  .table-span{
+    color: #999;
+    width:50%;
+    text-align: center;
+    float: left;
+    box-sizing: border-box;
+    border-left: 1px solid #e6e6e6;
+    padding:13px 0;
+  }
+  .table-span:nth-of-type(1){
+    border-left: none;
+  }
+  .active{
+    color:#64b787;
+    border-bottom: 2px solid #64b787;
+  }
+  .main{
+    float: left;
+    width:100%;
+  }
+  .li{
+    width:100%;
+    height:58px;
+    float: left;
+    background-color: #fff;
+    margin-top:10px;
+  }
+  .content{
+    float: left;
+    width:80%;
+    p{
+      padding: 5px;
+      color: #b6b6b6;
+      span{
+        color: #666;
+      }
+    }
+  }
+  .delete{
+    float: left;
+    line-height:58px;
+    background-color: #39ac6a;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    display: table;
+    width: 20%;
+    height: 100%;
+  }
+  .no-data{
+    width:100%;
+    float: left;
+    text-align: center;
+  }
+}

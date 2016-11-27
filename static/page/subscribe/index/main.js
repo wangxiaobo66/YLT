@@ -29,9 +29,9 @@ export default class Index extends React.Component {
                     </p>
                 </div>
                 <div className="ui-box">
-                    <p className="tip">输入您要订阅的车皮号，该车皮的木材到货后，会将信息推送给您</p>
+                    <p className="tip">输入您要订阅的车次号，该车次的货物到货后，会将信息推送给您</p>
                     <p className="btn-box">
-                        <Link className="btn btn-lg btn-primary btn-block" to={`/cph`}>车皮号订阅</Link>
+                        <Link className="btn btn-lg btn-primary btn-block" to={`/cph`}>车次号订阅</Link>
                     </p>
                 </div>
             </div>

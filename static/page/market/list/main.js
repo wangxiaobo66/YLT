@@ -12,6 +12,7 @@ import commonService from '../../../js/app/commonService';
 import {LIMIT_COUNT} from '../../../js/app/contants';
 import service from '../service';
 
+let page = 1;
 
 export default class List extends React.Component {
     constructor(props) {
@@ -29,7 +30,8 @@ export default class List extends React.Component {
                 limitStart: 0,
                 limitCount: LIMIT_COUNT
             },
-            list: null
+            list: null,
+            total:null
         };
     }
     componentDidMount() {
@@ -60,7 +62,8 @@ export default class List extends React.Component {
 
         service.unsoldList(this.state.form).then(rep => {
             this.setState({
-                list: rep.result.list
+                list: rep.result.list,
+                total:rep.result.total
             });
         });
     }
@@ -70,10 +73,12 @@ export default class List extends React.Component {
         if (key && event) {
             form[key] = event.target.value;
         }
-
+        form.limitStart = 0;
         service.unsoldList(form).then(rep => {
             this.setState({
-                list: rep.result.list
+                list: rep.result.list,
+                form:form,
+                total:rep.result.total
             });
         });
     }
@@ -162,7 +167,10 @@ export default class List extends React.Component {
                                 :
                                 <li className="no-data">暂无数据</li>
                             :
-                            null
+                            <li className="no-data">暂无数据</li>
+                    }
+                    {
+                        this.total()
                     }
                 </ul>
                 <footer className="footer">
@@ -170,5 +178,33 @@ export default class List extends React.Component {
                 </footer>
             </div>
         );
+    }
+    //加载更多
+    total() {
+        if (this.state.total>10&&Math.ceil(this.state.total/10)>page) {
+            return (
+                <li className="no-data" onClick={(e) => this.click()}>加载更多</li>
+            )
+        }
+    }
+    click(){
+        let i = this.state.form.limitStart;
+        let len = Math.ceil(this.state.total/10);
+        let form = this.state.form;
+        if(page<len){
+            page++;
+            form.limitStart = i+10;
+            this.setState({
+                form:form
+            });
+            let info = this.state.form;
+            service.unsoldList(info).then(rep => {
+                let list = this.state.list;
+                list = list.concat(rep.result.list);
+                this.setState({
+                    list: list
+                });
+            });
+        }
     }
 }

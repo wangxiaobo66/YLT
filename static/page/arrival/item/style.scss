@@ -6,4 +6,45 @@
 
 .module-item {
     padding: 10px 10px 0;
+    .div-head {
+        width: 100%;
+        float: left;
+        color: #333;
+        padding: 8px 0;
+        border-top: 1px solid #e6e6e6;
+        border-bottom: 1px solid #e6e6e6;
+        background-color: #fff;
+        span {
+            width: 33%;
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            border-left: 1px solid #f1f1f1;
+        }
+        span:nth-of-type(1) {
+            border-left: none;
+        }
+    }
+    .div-col {
+        width: 100%;
+        float: left;
+        color: #333;
+        padding: 8px 0;
+        border-bottom: 1px solid #e6e6e6;
+        font-size: 14px;
+        background-color: #fff;
+        span {
+            width: 33%;
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            border-left: 1px solid #f1f1f1;
+        }
+        &:nth-child(2n) {
+            background: #fafafa;
+        }
+        span:nth-of-type(1) {
+            border-left: none;
+        }
+    }
 }

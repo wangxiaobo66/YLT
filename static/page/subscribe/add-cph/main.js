@@ -16,7 +16,7 @@ export default class Chepihao extends React.Component {
         super(props);
         this.state = {
             form: {
-                no: '',
+                vehicleNum: '',
                 startTime: '',
                 endTime: ''
             },
@@ -48,13 +48,14 @@ export default class Chepihao extends React.Component {
     }
     checkDisabled(key, event) {
         let disabled = false;
+        let date = new Date();
         let form = this.state.form;
 
         if (key && event) {
             form[key] = event.target.value;
         }
 
-        if ($.trim(form.no) === '') {
+        if ($.trim(form.vehicleNum) === '') {
             disabled = true;
         }
 
@@ -63,6 +64,10 @@ export default class Chepihao extends React.Component {
         }
 
         if ($.trim(form.endTime) === '') {
+            disabled = true;
+        }
+        if ($.trim(form.endTime)<$.trim(form.startTime)){
+            window.toast('结束时间必须大于开始时间');
             disabled = true;
         }
 
@@ -82,8 +87,8 @@ export default class Chepihao extends React.Component {
                             <div className="input-box">
                                 <input className="input input-block"
                                        type="text"
-                                       value={this.state.form.no}
-                                       onChange={this.checkDisabled.bind(this, 'no')}
+                                       value={this.state.form.vehicleNum}
+                                       onChange={this.checkDisabled.bind(this, 'vehicleNum')}
                                        maxLength="100"
                                        placeholder="请输入车皮号" />
                             </div>

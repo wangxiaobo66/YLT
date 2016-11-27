@@ -114,10 +114,9 @@ export class Arrival extends React.Component {
             case PLACE_DEFAULT:
                 listdom.push(
                     <div key="div-head" className="div-head">
-                        <span>车皮号尾号</span>
-                        <span>长度(米)</span>
-                        <span>树种</span>
-                        <span>货种</span>
+                        <span>车号</span>
+                        <span>顺位号</span>
+                        <span>股道</span>
                     </div>
                 );
                 data.map((obj,index) => {
@@ -127,7 +126,6 @@ export class Arrival extends React.Component {
                             <span>{obj.tailNumber}</span>
                             <span>{obj.length}</span>
                             <span>{obj.varieties}</span>
-                            <span>{obj.cargo}</span>
                         </div>
                     )
                 });
