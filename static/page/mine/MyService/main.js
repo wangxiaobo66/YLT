@@ -8,6 +8,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import {Service} from '../../../component/Service/Service';
 import service from '../service';
+import {Bottom} from '../../../component/Bottom/Bottom';
 
 export default class Item extends React.Component {
     constructor(props) {
@@ -83,7 +84,7 @@ export default class Item extends React.Component {
                             :<li className="item no-data">暂无数据</li>
                     }
                 </ul>
-
+                <Bottom />
             </div>
         );
     }

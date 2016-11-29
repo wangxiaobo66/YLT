@@ -84,6 +84,9 @@ function detail(data){
 }
 
 module.exports = {
+    orderDetail(param ={}){
+        return util.postRequest('/buying/showOrderDetail',param)
+    },
     buyingList(param = {}) {
         return util.postRequest('/buying/buyingList', param);
     },
@@ -166,7 +169,7 @@ module.exports = {
                 }
             )
         };
-    },
+    },/*
     orderDetail:function(data){//显示某一未售信息
         let info = data;
         return function (dispatch) {
@@ -176,7 +179,7 @@ module.exports = {
                 }
             )
         };
-    },
+    },*/
     PORT:"PORT",
     TREE:"TREE",
     GOODS:"GOODS",

@@ -3,4 +3,13 @@
  * @auth jinguangguo
  * @date 2016/9/15
  */
- 
+.module-gg{
+  p{
+    box-sizing: border-box;
+    line-height:43px;
+  }
+  .ui-form > .item label .input-box .input{
+    height:43px;
+    line-height: 43px;
+  }
+}

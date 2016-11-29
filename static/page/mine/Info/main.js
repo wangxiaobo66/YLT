@@ -9,6 +9,8 @@ import {Link} from 'react-router';
 import Header from '../_common/Header/Header';
 import service from '../service';
 
+import {Bottom} from '../../../component/Bottom/Bottom';
+
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
@@ -65,6 +67,7 @@ export default class Item extends React.Component {
                             <div className="text">{detail.city || '暂无'}</div>
                         </Link>
                     </div>
+                    <Bottom />
                 </div>
                 :
                 null

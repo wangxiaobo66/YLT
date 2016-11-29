@@ -11,6 +11,8 @@ const { optionsList , askBuy , orderDetail , update } = require('./../actions.js
 
 import buyingService from './..//actions';//求购
 
+import {Bottom} from '../../../component/Bottom/Bottom';
+
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
@@ -200,6 +202,7 @@ export default class Item extends React.Component {
                     <a href="#add" className="ui-btn ui-btn-fixed"
                        onClick={(e) => this.onclick((orderId!==null?'update':'add'))}>{orderId !== null ? '修改' : '发布求购'}</a>
                 </footer>
+                <Bottom />
             </div>
         );
     }

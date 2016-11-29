@@ -11,6 +11,11 @@ import {AskBuy} from '../../../component/AskBuy/AskBuy';
 const { optionsList , askBuyList } = require('./../actions.js');//从actions里拿到方法
 import buyingService from './..//actions';//求购
 
+import userKey from '../../index/actions';//判断是否有userid
+import {LOGIN_USER_KEY} from '../../../js/app/contants';//用户key
+
+import {Bottom} from '../../../component/Bottom/Bottom';
+
 let portId=0,treetypeId= 0, goodstypeId=0,lengthId=0,page=1;
 export default class Item extends React.Component {
     constructor(props) {
@@ -39,6 +44,13 @@ export default class Item extends React.Component {
         };
     }
     componentDidMount() {
+        //判断是否登录
+        let userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        if(JSON.stringify(userId)==='null'){
+            userKey.user().then(rep => {
+                window.sessionStorage.setItem(LOGIN_USER_KEY, rep.result.data);
+            })
+        }
         this.list();
         this.port();
         this.tree();
@@ -147,6 +159,7 @@ export default class Item extends React.Component {
                 <footer className="footer">
                     <a href="#add" className="ui-btn ui-btn-fixed">发布求购信息</a>
                 </footer>
+                <Bottom/>
             </div>
         );
     }

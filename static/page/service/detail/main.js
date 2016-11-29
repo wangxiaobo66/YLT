@@ -12,6 +12,8 @@ import Text from '../../../component/Text/Text';
 
 const { detailData } = require('./../actions.js');//从actions里拿到方法
 
+import {Bottom} from '../../../component/Bottom/Bottom';
+
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
@@ -56,6 +58,7 @@ export default class Item extends React.Component {
                 <footer className="footer">
                     <a href={"tel:"+(service.detail?service.detail.data.mobile:'')} className="ui-btn ui-btn-fixed">电话联系</a>
                 </footer>
+                <Bottom />
             </div>
         );
     }

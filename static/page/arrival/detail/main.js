@@ -11,6 +11,8 @@ import Text from '../../../component/Text/Text';
 
 import arrivalService from '../service';//到货
 
+import {Bottom} from '../../../component/Bottom/Bottom';
+
 export default class Detail extends React.Component {
     constructor(props) {
         super(props);
@@ -57,6 +59,7 @@ export default class Detail extends React.Component {
                         <Text label="重量" text={data!==null?data.zl:null} half={true} border={false} />
                     </div>
                 </div>
+                <Bottom />
             </div>
         );
     }

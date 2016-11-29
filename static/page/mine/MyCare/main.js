@@ -13,6 +13,8 @@ import CareArrival from './CareArrival';
 import CareShop from './CareShop';
 import CareMarket from './CareMarket';
 
+import {Bottom} from '../../../component/Bottom/Bottom';
+
 import {TYPE_ARRIVAL, TYPE_SHOP, TYPE_MARKET} from './config';
 
 export default class MyCare extends React.Component {
@@ -61,6 +63,7 @@ export default class MyCare extends React.Component {
                         html
                     }
                 </div>
+                <Bottom />
             </div>
         );
     }

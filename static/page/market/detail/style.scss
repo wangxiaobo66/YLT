@@ -6,4 +6,10 @@
 
 .module-detail {
     @include include_market_arrival_page_detail();
+    .ui-tab{
+        bottom:59px;
+    }
+    .detail-box{
+        margin-bottom:60px;
+    }
 }

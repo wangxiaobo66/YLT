@@ -12,6 +12,7 @@ import {Service} from '../../../component/Service/Service';
 const { serviceData } = require('./../actions.js');//从actions里拿到方法
 import serviceList from './../actions';//求购
 
+import {Bottom} from '../../../component/Bottom/Bottom';
 
 export default class Item extends React.Component {
     constructor(props) {
@@ -103,6 +104,7 @@ export default class Item extends React.Component {
                 <footer className="footer">
                     <a href="#add" className="ui-btn ui-btn-fixed">发布服务</a>
                 </footer>
+                <Bottom />
             </div>
         );
     }

@@ -5,10 +5,15 @@
  */
 
 .module-item {
-    padding: 10px 10px 0;
+    .li-list{
+        margin:40px 0 60px 0;
+    }
     .div-head {
         width: 100%;
         float: left;
+        position: fixed;
+        top:0;
+        left:0;
         color: #333;
         padding: 8px 0;
         border-top: 1px solid #e6e6e6;

@@ -29,6 +29,16 @@
         }
     }
     .ui-list{
-        margin-bottom:50px;
+        margin: 50px 0 100px 0;
+    }
+    .ui-btn{
+        bottom: 59px;
+    }
+    .ui-top-select{
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        z-index: 100;
     }
 }

@@ -10,6 +10,8 @@ import {Link} from 'react-router';
 import commonService from '../../../js/app/commonService';
 import service from '../service';
 
+import {Bottom} from '../../../component/Bottom/Bottom';
+
 export default class AddUpdate extends React.Component {
     constructor(props) {
         super(props);
@@ -494,6 +496,7 @@ export default class AddUpdate extends React.Component {
                         }
                     </a>
                 </footer>
+                <Bottom />
             </div>
         );
     }

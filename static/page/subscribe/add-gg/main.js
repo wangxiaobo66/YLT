@@ -15,6 +15,7 @@ import util from '../util';
 export default class Guige extends React.Component {
     constructor(props) {
         super(props);
+        let date = new Date();
         this.state = {
             treetypeList: null,
             goodstypeList: null,
@@ -25,7 +26,7 @@ export default class Guige extends React.Component {
                 goodstypeId: '',
                 lengthId: '',
                 portId: '',
-                startTime: '',
+                startTime: date,
                 endTime: ''
             },
             disabled: true
@@ -102,14 +103,12 @@ export default class Guige extends React.Component {
             disabled = true;
         }
 
-        if ($.trim(form.startTime) === '') {
-            disabled = true;
-        }
-
         if ($.trim(form.endTime) === '') {
             disabled = true;
         }
-        if ($.trim(form.endTime)>$.trim(form.startTime)){
+
+        if ($.trim(form.endTime)<date) {
+            window.toast('结束时间必须大于开始时间');
             disabled = true;
         }
 
@@ -121,7 +120,7 @@ export default class Guige extends React.Component {
     render() {
         return(
             <div className="module-gg">
-                <div className="ui-title">输入您要订阅的车皮号，该车皮的木材到货后，会将信息推送给您</div>
+                <div className="ui-title">选择您要订阅的货物规格，该规格的货物到货后，会将信息推送给您</div>
                 <form className="ui-form">
                     <div className="item">
                         <label>
@@ -207,15 +206,11 @@ export default class Guige extends React.Component {
                         <label>
                             <div className="for">订阅时间</div>
                             <div className="input-box">
-                                <input className="input input-inline col-xs-5"
-                                       value={appUtil.formatTime(this.state.form.startTime)}
-                                       onChange={this.checkTime.bind(this, 'startTime')}
-                                       type="date"
-                                       placeholder="开始时间" />
+                                <p className="p col-xs-5">{appUtil.formatTime(this.state.form.startTime)}</p>
                                 <span className="col-xs-1">到</span>
                                 <input className="input input-inline col-xs-5"
                                        value={appUtil.formatTime(this.state.form.endTime)}
-                                       onChange={this.checkTime.bind(this, 'endTime')}
+                                       onChange={(e) => this.onchange(e,'endTime')}
                                        type="date"
                                        placeholder="结束时间" />
                             </div>
@@ -230,5 +225,17 @@ export default class Guige extends React.Component {
                 </div>
             </div>
         );
+    }
+    onchange(e,name){
+        let val = e.target.value;
+        let form = this.state.form;
+        switch (name) {
+            case 'endTime':
+                form.endTime = val;
+                this.setState({
+                    form:form
+                });
+                break;
+        }
     }
 }

@@ -14,10 +14,11 @@ import util from '../util';
 export default class Chepihao extends React.Component {
     constructor(props) {
         super(props);
+        let date = new Date();
         this.state = {
             form: {
                 vehicleNum: '',
-                startTime: '',
+                startTime: date,
                 endTime: ''
             },
             disabled: true
@@ -59,14 +60,10 @@ export default class Chepihao extends React.Component {
             disabled = true;
         }
 
-        if ($.trim(form.startTime) === '') {
-            disabled = true;
-        }
-
         if ($.trim(form.endTime) === '') {
             disabled = true;
         }
-        if ($.trim(form.endTime)<$.trim(form.startTime)){
+        if ($.trim(form.endTime)<date){
             window.toast('结束时间必须大于开始时间');
             disabled = true;
         }
@@ -98,15 +95,11 @@ export default class Chepihao extends React.Component {
                         <label>
                             <div className="for">订阅时间</div>
                             <div className="input-box">
-                                <input className="input input-inline col-xs-5"
-                                       value={appUtil.formatTime(this.state.form.startTime)}
-                                       onChange={this.checkTime.bind(this, 'startTime')}
-                                       type="date"
-                                       placeholder="开始时间" />
+                                <p className="p col-xs-5">{appUtil.formatTime(this.state.form.startTime)}</p>
                                 <span className="col-xs-1">到</span>
                                 <input className="input input-inline col-xs-5"
                                        value={appUtil.formatTime(this.state.form.endTime)}
-                                       onChange={this.checkTime.bind(this, 'endTime')}
+                                       onChange={(e) => this.onchange(e,'endTime')}
                                        type="date"
                                        placeholder="结束时间" />
                             </div>
@@ -121,5 +114,17 @@ export default class Chepihao extends React.Component {
                 </div>
             </div>
         );
+    }
+    onchange(e,name){
+        let val = e.target.value;
+        let form = this.state.form;
+        switch (name) {
+            case 'endTime':
+                form.endTime = val;
+                this.setState({
+                    form:form
+                });
+                break;
+        }
     }
 }

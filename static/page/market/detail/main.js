@@ -10,8 +10,13 @@ import Title from '../../../component/Title/Title';
 import Text from '../../../component/Text/Text';
 import commonService from '../../../js/app/commonService';
 import {REPORT_TYPE_UNSOLD, CARE_TYPE_UNSOLD} from '../../../js/app/contants';
+import {LOGIN_USER_KEY} from '../../../js/app/contants';//用户key
+
+import userKey from '../../index/actions';//判断是否有userid
 
 import service from '../service';
+
+import {Bottom} from '../../../component/Bottom/Bottom';
 
 export default class Detail extends React.Component {
     constructor(props) {
@@ -22,6 +27,14 @@ export default class Detail extends React.Component {
         };
     }
     componentDidMount() {
+        //判断是否登录
+        let userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        if(JSON.stringify(userId)==='null'){
+            userKey.user().then(rep => {
+                window.sessionStorage.setItem(LOGIN_USER_KEY, rep.result.data);
+            })
+        }
+
         let unsoldId = this.props.params.id;
 
         service.showUnsold({
@@ -146,6 +159,7 @@ export default class Detail extends React.Component {
                                         </div>
                                     </div>
                                 </div>
+                                <Bottom />
                             </div>
                             :
                             null

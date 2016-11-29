@@ -7,10 +7,15 @@
 .module-list {
     $width: 54px;
     .header {
-        padding: 15px;
+        padding:15px 0;
         overflow: hidden;
         background-color: #fff;
         border-bottom: 1px $color-border solid;
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        z-index: 100;
         .list-box {
             box-sizing: border-box;
             overflow-x: auto;
@@ -29,9 +34,12 @@
         }
     }
     .article{
-        margin-bottom:50px;
+        margin:90px 0 100px 0;
     }
     .green{
         color:#39ac6a;
+    }
+    .ui-btn{
+        bottom: 59px;
     }
 }

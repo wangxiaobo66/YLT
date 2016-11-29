@@ -19,6 +19,9 @@ import imgWrong from './img/wrong.png';
 
 import {TYPE_ARRIVAL, TYPE_MARKET, TYPE_SHOP} from '../MyCare/config';
 
+import userKey from '../../index/actions';//判断是否有userid
+import {LOGIN_USER_KEY} from '../../../js/app/contants';//用户key
+
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
@@ -33,6 +36,13 @@ export default class Item extends React.Component {
         };
     }
     componentDidMount() {
+        //判断是否登录
+        let userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        if(JSON.stringify(userId)==='null'){
+            userKey.user().then(rep => {
+                window.sessionStorage.setItem(LOGIN_USER_KEY, rep.result.data);
+            })
+        }
 
         service.detail({}).then((rep) => {
             let user = rep.result.data;

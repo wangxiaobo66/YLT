@@ -3,6 +3,9 @@
     background-color: #fff;
     float: left;
     width:100%;
+    position: fixed;
+    top:0;
+    left:0;
   }
   .table-span{
     color: #999;
@@ -23,6 +26,7 @@
   .main{
     float: left;
     width:100%;
+    margin:50px 0 60px 0;
   }
   .li{
     width:100%;

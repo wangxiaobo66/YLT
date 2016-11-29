@@ -5,6 +5,8 @@ import './style.scss';
 import React from 'react';
 import Actions from './actions';
 
+import {Bottom} from '../../../component/Bottom/Bottom';
+
 let page = 1;
 
 export default class Item extends React.Component {
@@ -97,6 +99,7 @@ export default class Item extends React.Component {
 
                     </ul>
                 </div>
+                <Bottom />
             </div>
         )
     }

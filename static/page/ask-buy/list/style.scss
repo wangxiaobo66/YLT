@@ -28,7 +28,17 @@
             }
         }
     }
+    .ui-btn{
+        bottom:59px;
+    }
     .ui-list{
-        margin-bottom:50px;
+        margin:50px 0 100px 0;
+    }
+    .ui-top-select{
+        width:100%;
+        position: fixed;
+        top:0;
+        left:0;
+        z-index: 100;
     }
 }

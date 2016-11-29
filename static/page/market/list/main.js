@@ -12,6 +12,11 @@ import commonService from '../../../js/app/commonService';
 import {LIMIT_COUNT} from '../../../js/app/contants';
 import service from '../service';
 
+import userKey from '../../index/actions';//判断是否有userid
+import {LOGIN_USER_KEY} from '../../../js/app/contants';//用户key
+
+import {Bottom} from '../../../component/Bottom/Bottom';
+
 let page = 1;
 
 export default class List extends React.Component {
@@ -31,10 +36,18 @@ export default class List extends React.Component {
                 limitCount: LIMIT_COUNT
             },
             list: null,
-            total:null
+            total: null
         };
     }
+
     componentDidMount() {
+        //判断是否登录
+        let userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        if (JSON.stringify(userId) === 'null') {
+            userKey.user().then(rep => {
+                window.sessionStorage.setItem(LOGIN_USER_KEY, rep.result.data);
+            })
+        }
         // 口岸
         commonService.portList().then((rep) => {
             this.setState({
@@ -63,10 +76,11 @@ export default class List extends React.Component {
         service.unsoldList(this.state.form).then(rep => {
             this.setState({
                 list: rep.result.list,
-                total:rep.result.total
+                total: rep.result.total
             });
         });
     }
+
     filterData(key, event) {
         let form = this.state.form;
 
@@ -77,11 +91,12 @@ export default class List extends React.Component {
         service.unsoldList(form).then(rep => {
             this.setState({
                 list: rep.result.list,
-                form:form,
-                total:rep.result.total
+                form: form,
+                total: rep.result.total
             });
         });
     }
+
     render() {
         return (
             <div className="module-list">
@@ -159,7 +174,7 @@ export default class List extends React.Component {
                                     return (
                                         <li className="item clearfix" key={index}>
                                             <Link className="item-link" to={`/detail/${item.orderId}`}>
-                                                <Market obj={item} />
+                                                <Market obj={item}/>
                                             </Link>
                                         </li>
                                     );
@@ -176,26 +191,29 @@ export default class List extends React.Component {
                 <footer className="footer">
                     <a href="#add" className="ui-btn ui-btn-fixed">发布未售信息</a>
                 </footer>
+                <Bottom />
             </div>
         );
     }
+
     //加载更多
     total() {
-        if (this.state.total>10&&Math.ceil(this.state.total/10)>page) {
+        if (this.state.total > 10 && Math.ceil(this.state.total / 10) > page) {
             return (
                 <li className="no-data" onClick={(e) => this.click()}>加载更多</li>
             )
         }
     }
-    click(){
+
+    click() {
         let i = this.state.form.limitStart;
-        let len = Math.ceil(this.state.total/10);
+        let len = Math.ceil(this.state.total / 10);
         let form = this.state.form;
-        if(page<len){
+        if (page < len) {
             page++;
-            form.limitStart = i+10;
+            form.limitStart = i + 10;
             this.setState({
-                form:form
+                form: form
             });
             let info = this.state.form;
             service.unsoldList(info).then(rep => {

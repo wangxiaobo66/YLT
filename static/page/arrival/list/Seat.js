@@ -10,6 +10,9 @@ import Tab from './Tab';
 import {TAB_SEAT} from '../constants';
 
 import arrivalService from '../service';//到货
+import userKey from '../../index/actions';//判断是否有userid
+import {LOGIN_USER_KEY} from '../../../js/app/contants';//用户key
+import {Bottom} from '../../../component/Bottom/Bottom';
 
 let page = 1;
 export default class ListLocation extends React.Component {
@@ -25,6 +28,13 @@ export default class ListLocation extends React.Component {
         };
     }
     componentDidMount() {
+        //判断是否登录
+        let userId = window.sessionStorage.getItem(LOGIN_USER_KEY);
+        if(JSON.stringify(userId)==='null'){
+            userKey.user().then(rep => {
+                window.sessionStorage.setItem(LOGIN_USER_KEY, rep.result.data);
+            })
+        }
         arrivalService.arrivalList({
             limitStart: 0,
             limitCount: 10
@@ -76,6 +86,7 @@ export default class ListLocation extends React.Component {
                         }
                     </ul>
                 </div>
+                <Bottom />
             </div>
         );
     }

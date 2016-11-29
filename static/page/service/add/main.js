@@ -9,6 +9,8 @@ import {Link} from 'react-router';
 
 const { detailData , addInform , updateInform } = require('./../actions.js');//从actions里拿到方法
 
+import {Bottom} from '../../../component/Bottom/Bottom';
+
 let type = "";
 
 export default class Item extends React.Component {
@@ -103,6 +105,7 @@ export default class Item extends React.Component {
                 <footer className="footer">
                     <a href="javascript:;" className="ui-btn ui-btn-fixed" onClick={(e) => this.onclick(e,(data.id?'update':'add'))}>{data.id?'修改':'发布'}</a>
                 </footer>
+                <Bottom />
             </div>
         );
     }
@@ -200,11 +203,12 @@ export default class Item extends React.Component {
     alert(type){
         let that = this;
         let {id} = this.state.data;
+        console.log(id);
         if(type===1){
-            window.toast((id!=null?'修改服务成功!':'发布服务成功!'));
-            window.location.href = (id!=null?'./mine.html#/service':'/');
+            window.toast((id!=''?'修改服务成功!':'发布服务成功!'));
+            window.location.href = (id!=''?'./mine.html#/service':'./service.html');
         }else if(type===2){
-            window.toast(id!=null?'修改服务失败!':'发布服务失败!');
+            window.toast(id!=''?'修改服务失败!':'发布服务失败!');
         }
     }
 }
